@@ -1,0 +1,129 @@
+\paragraph{}
+Este es el documento de diseño de \juego. El videojuego para PC que 
+ejemplifica todos los contenidos de \wiki, la wiki en español sobre desarrollo de videojuegos
+en 3D utilizando Ogre como motor de renderizado. Este escrito tiene como
+objetivo principal plasmar los elementos que debe incluir \juego y servir
+de carta de presentación en caso de buscar colaboradores en un futuro.
+
+%\paragraph{}
+%Se darán detalles sobre trasfondo, objetivos, jugabilidad, mecánicas etc.
+%Finalmente se elaborará una lista de recursos artísticos necesarios: modelos,
+%texturas, efectos de partículas, sonido, animaciones...
+
+\subsection{Concepto del juego}
+\label{sec:int-concepto}
+
+\paragraph{}
+\juego es un videojuego en el que controlamos a un pequeño mago iniciado
+que permanece a cargo de una torre sagrada mientras sus compañeros y 
+maestros han acudido a un celebrar un rito. Durante su guardia, la torre
+se ve asaltada por criaturas malignas y nuestro pequeño mago debe detener
+la invasión a toda costa utilizando sus limitadas habilidades.
+
+\subsection{Características principales}
+\label{sec:int-caracteristicas}
+
+%\paragraph{}
+%Hemos realizado ciertas pinceladas sobre el juego pero a continuación
+%mencionaremos las características principales de \juego. En secciones
+%posteriores se profundizará con detalle en todos los puntos:
+
+\paragraph{}
+El juego se basa en los siguientes pilares:
+
+\begin{itemize}
+    \item \textbf{Planteamiento sencillo}: la historia mencionada es muy
+    simple, una mera excusa para el desarrollo del juego pero lo suficientemente
+    explícita para que el \jugador sienta que tiene un objetivo.
+    \item \textbf{Táctica}: detener a las oleadas de enemigos debe ser
+    imposible si se comienza a atacar indiscriminadamente. La gestión de
+    nuestras limitadas capacidades de forma inteligente será imprescindible.
+    \item \textbf{Dinamismo}: al contrario que algunos juegos de estrategia,
+    \juego debe ser dinámico y provocar una sensación de tensión en el
+    \jugador.
+    \item \textbf{Ampliación}: \juego debe ser ampliable con nuevos niveles
+    y enemigos de forma sencilla. El motor será todo lo independiente posible
+    del contenido. De esta forma los artistas podrán generar nuevos niveles,
+    habilidades o enemigos.
+\end{itemize}
+
+\subsection{Género}
+\label{sec:int-genero}
+
+\paragraph{}
+\juego supone una unión de varios géneros. A continuación se listan los géneros
+de los que toma elementos y sus motivos:
+
+\begin{itemize}
+	\item \textbf{Tower Defense}: un subgénero de la estrategia basado
+	en detener oleadas de enemigos colocando de forma estratégica obstáculos y trampas.
+        En \juego manejamos los mismos elementos aunque aparece la figura
+	de un protagonista y no es una \emph{`mano invisible'} la que gestiona la acción.
+	
+	\item \textbf{Acción en tercera persona}: juegos dinámicos y directos
+	en el que el \jugador experimenta una descarga de adrenalina.
+	La cámara suele situarse cerca del personaje. En \juego tenemos el
+	componente de la acción aunque la cámara se situará de forma que podamos
+	ver gran parte de la escena.
+\end{itemize}
+
+\subsection{Propósito y público objetivo}
+\label{sec:int-publico}
+
+\paragraph{}
+El principal objetivo de \juego es ofrecer a los lectores de \wiki un ejemplo
+real de videojuego en 3D desarrollado utilizando el engine de renderizado
+Ogre. Es un complemento dentro del contenido didáctico del wiki. No obstante,
+debe ser un producto jugable y divertido. Su interés no sólo debe radicar
+en el código fuente y su proceso de desarrollo sino en el propio juego
+y sus mecánicas.
+
+\paragraph{}
+\juego está dirigido a jugadores de un amplio rango de edades con un tiempo
+limitado que dedicar al ocio electrónico. Por ello, se apuesta por un sistema
+de partidas cortas y recompensas rápidas. La historia es sencilla, lo que
+permite poder jugar de forma esporádica.
+
+\subsection{Jugabilidad}
+\label{sec:int-jugabilidad}
+
+\paragraph{}
+Cada nivel de \juego ofrece un piso de la torre sagrada que está siendo
+asaltada por enemigos. Tenemos que impedir que las bestias lleguen a un
+determinado punto del nivel. Para ello nos valdremos de los siguientes elementos:
+
+\begin{itemize}
+    \item \textbf{Movilidad}: al contrario que en otros Tower Defense, en
+    \juego controlamos un personaje. Nos desplazaremos por el escenario
+    atendiendo los focos de peligro que consideremos oportunos.
+    \item \textbf{Trampas y obstáculos}: podemos dirigir al personaje a
+    un punto del nivel y colocar una trampa u obstáculo si tenemos
+    suficientes recursos. Esto eliminará o ralentizará a los enemigos.
+    \item \textbf{Hechizos}: el combate directo utilizando hechizos también
+    es una opción.
+    \item \textbf{Puntos fuertes y débiles}: cada enemigo tendrá puntos
+    fuertes y débiles. La mejor forma de hacerles frente es utilizar la
+    herramienta adecuada en cada momento.
+    \item \textbf{Mejoras}: el \jugador deberá recibir recompensas cada
+    poco tiempo para que sienta que progresa en el juego. Tendremos habilidades
+    desbloqueables.
+\end{itemize}
+
+\subsection{Estilo visual}
+\label{sec:int-estilo}
+
+\paragraph{}
+\juego tendrá un estilo sencillo, no demasiado detallista para encajar con
+su carácter amigable y accesible. El estilo visual que más encaja con este
+concepto es el de dibujo animado o cómic. Los personajes serán caricaturescos,
+los colores serán vivos y las texturas muy simples. Se estudiará aplicar un
+efecto \emph{`cel-shading'} para reforzar esta idea.
+
+\subsection{Alcance}
+\label{sec:int-alcance}
+
+\paragraph{}
+El objetivo principal es desarrollar un sistema de juego sólido al que podamos
+introducirle contenidos sin dificultad. En primera instancia se desarrollará
+un pack de contenidos básicos que será ampliado en un futuro.
+

@@ -1,0 +1,885 @@
+\section*{Bienvenido a Sion Tower}
+
+Bienvenido a \juego, un videojuego de estrategia y acción en 3D ambientado
+en un mundo fantástico compatible con sistemas GNU/Linux y Windows. A lo
+largo de estas páginas podrás conocer los detalles sobre la historia y la
+ambientación del juego. Más adelante encontrarás los requisitos mínimos,
+de forma que puedas saber si tu equipo podrá ejecutarlo sin problemas.
+A continuación se ofrece una completa guía de instalación para los dos
+sistemas operativos soportados. Por supuesto, este manual contiene todos
+los detalles sobre el control y las posibilidades de \juego. Finalmente
+encontrarás información detallada sobre cómo crear tus propios escenarios
+y añadirlos al juego.\\
+
+\figura{logo-siontower.png}{scale=0.4}{Logo de Sion Tower}{fig:logo-siontower}{H}
+
+\subsection*{Historia}
+
+El gremio de magos está localizado en la Torre Sagrada, \juego. Allí viven,
+estudian los libros de hechizos, celebran sus ritos secretos y protegen
+innumerables riquezas. Un día, el gremio al completo abandona la Torre para
+celebrar un ritual en el bosque cercano. \prota, protagonista
+de \juego\ es el único que permanece en el edificio sagrado para protegerlo.
+A pesar de ser un joven iniciado e inexperto, no iba a suceder nada porque
+el resto se ausentase durante unas horas.\\
+
+La imprudencia del gremio resulta ser completamente desastrosa y una horda
+de monstruos no tarda en rodear \juego. La misión del joven aprendiz consiste
+en detener la invasión piso por piso de la Torre. ¡Debe evitar que roben
+la \textbf{Reliquia Sagrada}!
+
+\subsection*{Protagonista}
+
+\prota\ pertenece a una de las categorías inferiores del gremio, los
+iniciados. Se le reconoce fácilmente por su pequeña estatura y sus ropas
+sencillas. Es un simple estudiante de magia en la Torre Sagrada y lleva
+tiempo tratando de hacerse un hueco entre sus superiores a base de esfuerzo
+y entrega. La invasión de la Torre es, en cierta medida, una gran oportunidad
+para \prota\ de mostrar su valía. No obstante, está muerto de miedo, nunca
+se había visto obligado a emplear sus poderes en una situación tan extrema.
+
+\figura{personaje.jpg}{scale=0.3}{Protagonista de Sion Tower}{fig:protagonista}{H}
+
+Características físicas:
+
+\begin{itemize}
+    \itemsep0em
+    \item Vida: 100
+    \item Maná: 100 (regeneración automática)
+    \item Velocidad: $5 m/s$
+    \item Hechizos: Bola de fuego, Furia de Gea y Ventisca.
+\end{itemize}
+
+\subsection*{Enemigos}
+
+Los enemigos de \juego\ son monstruos abominables de procedencia desconocida.
+No obstante, su objetivo es claro: eliminar al gremio de magos y robar la
+Reliquia Sagrada, una leyenda de grandioso poder. Cada enemigo tiene unas
+características visuales y físicas determinadas (mostradas en la tabla inferior)
+aunque su comportamiento es similar. Todos tratan de encontrar a los supervivientes
+para acabar con ellos.\\
+
+El \textbf{Goblin} es una criatura de mente muy básica, verde, enana y 
+muy desagradable. Sólo va equipado con una tosca espada corta y un burdo
+taparrabos. No son extremadamente duchos en combate pero sí cuentan con una
+gran velocidad. Su gran ventaja es el número, son capaces de utilizar su
+superioridad numérica para atosigar al enemigo y acabar con él. 
+
+\figura{goblin.jpg}{scale=0.3}{Goblin}{fig:goblin}{H}
+
+El \textbf{Diablillo} es una criatura venida del propio averno y bastante
+superior al Goblin en lo que a propiedades físicas se refiere. Sus garras, alas
+y cola de demonio les basta para atacar desgarrando la carne que se encuentra
+a su paso, no necesitan ningún tipo de arma adicional.
+
+\figura{demon.jpg}{scale=0.3}{Diablillo}{fig:demon}{H}
+
+El \textbf{Golem de hielo} es una criatura de gran tamaño venida de las
+montañas heladas del norte. Su estructura corporal está formada por piedra
+maciza y bloques de hielo. Es una de las criaturas más lentas que existen
+pero sus golpes son demoledores.
+
+\figura{golem.jpg}{scale=0.3}{Golem de hielo}{fig:golem}{H}
+
+\begin{table}[H]
+  \label{caracteristicas-enemigos}
+  \begin{center}
+  \begin{tabular}{| c ||m{2cm}|m{2cm}|m{2cm}|}
+    \hline
+    Nombre del enemigo & Vida & Daño & Velocidad \\
+    \hline
+    Goblin & 5 & 10 & 5 \\
+    \hline
+    Diablillo & 7 & 15 & 4.5 \\
+    \hline 
+    Golem de hielo & 10 & 20 & 2 \\
+    \hline
+  \end{tabular}
+\end{center}
+\caption{Comparativa de características de enemigos}
+\end{table}
+
+\subsection*{Hechizos}
+
+Los hechizos son el único arma de \prota\ para detener el avance de los
+enemigos. Sus conocimientos mágicos no le permiten hacer un enorme despliegue
+de proyectiles devastadores. Debe administrar cuidadosamente su limitada
+energía mágica (maná) para convocar débiles cúmulos de energía.\\
+
+Con \textbf{Bola de fuego} puedes invocar un proyectil mágico que abrase
+a tus enemigos a su paso. \textbf{Furia de Gea} convoca la propia fuerza
+de la naturaleza para volverla en contra de cualquier criatura. Finalmente,
+\textbf{Ventisca} lanza varios proyectiles mágicos helados y afilados como
+cuchillas.\\
+
+\begin{table}[H]
+  \label{caracteristicas-hechizos}
+  \begin{center}
+  \begin{tabular}{| c ||m{2cm}|m{2cm}|m{2cm}|}
+    \hline
+    Nombre del hechizo & Maná & Daño & Velocidad \\
+    \hline
+    Bola de fuego & 2 & 3 & 8 \\
+    \hline
+    Furia de Gea & 3 & 6 & 8 \\
+    \hline 
+    Ventisca & 4 & 8 & 8 \\
+    \hline
+  \end{tabular}
+\end{center}
+\caption{Comparativa de atributos de hechizos}
+\end{table}
+
+
+\section*{Requisitos mínimos}
+
+Para poder disfrutar de \juego\ sin problemas necesitas disponer de un equipo
+con unas características iguales o superiores a las que se listan a
+continuación:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Sistema operativo}: GNU/Linux, Windows XP Service Pack
+    2, Windows Vista o Windows 7.
+    \item \textbf{Procesador}: Pentium 2GHz o AMD.
+    \item \textbf{Memoria}: 100 MB de memoria RAM disponibles.
+    \item \textbf{Tarjeta de vídeo}: 128 MB de memoria y aceleración 3D.
+    \item \textbf{Espacio en disco}: 100 MB.
+    \item \textbf{Control}: ratón y teclado.
+\end{itemize}
+
+En caso de utilizar un sistema operativo GNU/Linux y experimentar problemas,
+revisa que tengas instalada la última versión de los drivers para tu
+tarjeta gráfica y que éstos soportan aceleración por hardware.
+
+\section*{Descarga e instalación}
+En esta sección se proporcionan las indicaciones pertinentes para que puedas
+descargar e instalar \juego\ en tu sistema. En primer lugar, debes acudir
+a la sección de ficheros del repositorio del juego en la forja de RedIRIS:\\
+
+\url{http://forja.rediris.es/frs/?group_id=820}\\
+
+Simplemente descarga la versión de \juego\ que coincida con tu sistema. 
+No se han publicado binarios para GNU/Linux, por lo que utilizas dicho sistema,
+tendrás que descargar el paquete con el código fuente y compilarlo tú mismo.
+En las página \pageref{sec:instalacion-linux} encontrarás más información
+al respecto.
+
+\subsection*{Instalación en GNU/Linux}
+\label{sec:instalacion-linux}
+
+Para poder jugar a \juego\ en un sistema operativo GNU/Linux es necesario
+descargar e instalar el entorno de desarrollo completo ya que, por el
+momento, no se distribuyen binarios del software. El videojuego cuenta
+con las siguientes dependencias:
+
+\begin{itemize}
+    \itemsep0em
+    \item libogre-dev
+    \item libsdl1.2-dev
+    \item libsdl-mixer1.2-dev
+    \item mygui
+\end{itemize}
+
+A lo largo del proceso de instalación, supondremos que se posee una distribución
+basada en Debian que dispone de la utilidad \texttt{apt-get}. De no ser así,
+el proceso será similar utilizando el programa equivalente para instalar
+paquetes en la distribución correspondiente. En primer lugar, Debemos
+instalar todas las dependencias de \textsc{Ogre3D}, entre las que
+se encuentran el compilador \textit{GCC}, la herramienta \textit{make}
+o el generador de makefiles \textit{CMake}. Para ello utilizamos
+la siguiente orden:
+
+\begin{lstlisting}[style=consola]
+sudo apt-get install g++ make libfreetype6-dev libboost-date-time-dev \
+  libboost-thread-dev nvidia-cg-toolkit libfreeimage-dev zlib1g-dev \
+  libzzip-dev libois-dev libcppunit-dev doxygen libxt-dev libxaw7-dev \
+  libxxf86vm-dev libxrandr-dev libglu-dev cmake
+\end{lstlisting}
+
+Una vez instaladas las dependencias podemos dirigirnos a la web oficial
+de \textsc{Ogre3D} y descargar el código fuente para sistemas GNU/Linux.\\
+
+\url{http://www.ogre3d.org/download/source}\\
+
+El siguiente paso consiste en descomprimir el paquete y acceder al directorio
+resultante utilizando la terminal. La herramienta \textit{CMake} nos ayuda
+a generar un fichero \texttt{makefile} dependiente de nuestra plataforma
+de manera muy sencilla. Para generarlo el makefile, compilar e instalar
+\textsc{Ogre3D} introducimos la siguiente secuencia de órdenes:
+
+\begin{lstlisting}[style=consola]
+cmake.
+make
+sudo make install
+\end{lstlisting}
+
+Instalar \textsc{libSDL} y \textsc{libSDL mixer} es muy sencillo puesto
+que usualmente se encuentran en los repositorios de la distribución. Simplemente
+introducimos:
+
+\begin{lstlisting}[style=consola]
+sudo apt-get install libsdl1.2-dev libsdl-mixer1.2-dev
+\end{lstlisting}
+
+Finalmente procedemos a la instalación de la biblioteca \textsc{MyGUI}.
+Hemos de acudir a su sección de ficheros en la forja SourceForge y descargar
+la versión \textit{3.2.0 Release Candidate 1}.\\
+
+\url{http://sourceforge.net/projects/my-gui/files/MyGUI/}\\
+
+Cuando finalice la descarga, descomprimimos el paquete en formato zip y
+accedemos al directorio resultante utilizando la terminal. En este caso
+también generaremos un makefile de forma automática con \textit{CMake}
+para después compilar e instalar a través de \textit{make}.
+
+\begin{lstlisting}[style=consola]
+cmake .
+make
+sudo make install
+\end{lstlisting}
+
+Llegados a este punto habremos finalizado instalando las dependencias de
+\juego. Ahora simplemente es necesario acceder a su directorio mediante
+la terminal y comenzar con la compilación. Una vez finalizada con éxito,
+podremos ejecutarlo.
+
+\begin{lstlisting}[style=consola]
+make
+./siontower
+\end{lstlisting}
+
+
+
+\subsection*{Instalación en Windows}
+
+Tras descargar el paquete, utiliza cualquier programa de compresión/descompresión
+que soporte el formato zip. Si no tienes ninguno instalado, puedes emplear
+\textit{7Zip} sin problemas ya que es Software Libre. Para descargarlo, dirígete
+a la siguiente dirección:\\
+
+\url{http://www.7-zip.org}\\
+
+\juego\ es completamente portable y autocontenido, así que si lo prefieres
+puedes guardarlo en un lápiz de memoria o en cualquier disco duro externo.
+Para iniciar el juego, haz doble click sobre el fichero ejecutable
+\texttt{siontower.exe}.
+
+\section*{Guía de juego}
+
+En este bloque el jugador novel podrá aprender cómo se juega a \juego.
+Recorreremos las pantallas de la aplicación explicando la funcionalidad de
+cada una de forma que aprenderemos a crear y gestionar perfiles de jugadores,
+seleccionar nivel, controlar al personaje guiándolo hacia su objetivo y
+progresar sumando puntos o desbloqueando nuevos escenarios.\\
+
+\subsection*{Menú principal}
+
+Justo al iniciar \juego\ se nos presenta el menú principal del juego con
+un paisaje montañoso en el que se ve a la Torre Sagrada siendo atacada
+por enemigos en medio de una intensa lluvia.
+
+\figura{siontower-menu.jpg}{scale=0.3}{Menú principal de Sion Tower}{fig:siontower-menu}{H}
+
+Desde esta pantalla podemos llevar a cabo las siguientes acciones:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Jugar}: nos lleva a la pantalla de selección de perfil
+    y al camino para comenzar una partida.
+    \item \textbf{Créditos}: nos muestra una escena con las personas
+    que han participado en el desarrollo.
+    \item \textbf{Salir}: cierra el juego por completo, ¿seguro que quieres
+    dejar de jugar?
+\end{itemize}
+
+\subsection*{Selección de perfil}
+
+\juego\ cuenta con un sistema de perfiles para que varias personas puedan
+jugarlo y controlar su progreso. Al comienzo de la partida sólo está disponible
+el primer nivel. Cuando finalices con éxito un escenario, el
+siguiente nivel se convertirá en accesible. Además, cada perfil cuenta con
+una puntuación que mide nuestras habilidades en el juego. Esta puntuación
+puede subir o bajar en función de nuestra actuación en las partidas. Esto
+permite que varios usuarios compitan en una máquina de forma asíncrona
+para alcanzar la máxima puntuación.\\
+
+\figura{siontower-perfil.jpg}{scale=0.3}{Pantalla de selección de perfil en Sion Tower}{fig:siontower-perfil}{H}
+
+La pantalla de selección de perfil consta de dos paneles bien diferenciados.
+Selección de un perfil ya existente y creación de un nuevo perfil. En el primer
+bloque puedes visualizar la experiencia y los niveles desbloqueados de
+cada jugador pulsando con el ratón sobre sus nombres. Si tu
+perfil se encuentra en la lista y quieres utilizarlo tienes que seleccionar
+el nombre y pulsar el botón \textbf{Aceptar}. Es posible eliminar
+un perfil de la lista con el botón \textbf{Eliminar}. No obstante, 
+hay que ser cautelosos, puesto que un perfil eliminado no es recuperable.\\
+
+Cuando quieras crear un nuevo perfil, escribe su nombre en el panel
+inferior y pulsa sobre \textbf{Crear}. Al menos debes introducir algún
+carácter y el nombre elegido no debe figurar entre los perfiles existentes,
+de lo contrario se mostrará un error.\\
+
+Para volver al menú principal de \juego\ puedes pulsar sobre el botón
+\textbf{Atrás}.
+
+
+\subsection*{Selección de nivel}
+\label{sec:levelselection}
+
+Tras seleccionar nuestro perfil se nos presentará la pantalla de selección
+de nivel. En la lista de niveles aparecen todos los existentes, ya estén
+bloqueados o disponibles. Los bloqueados para nuestro perfil lo indican
+en rojo y su icono es translúcido.\\
+
+\figura{siontower-nivel.jpg}{scale=0.3}{Pantalla de selección de nivel en Sion Tower}{fig:siontower-nivel}{H}
+
+Para seleccionar un nivel, pulsa con el ratón sobre su icono. Si deseas
+volver a la pantalla de selección de perfil, pulsa sobre \textbf{Atrás}.
+
+\subsection*{Partida}
+
+Tras seleccionar el nivel comienza la partida y los enemigos aparecen
+en pequeñas oleadas. El objetivo consiste en eliminarlos a todos utilizando
+nuestra energía mágica (maná) para invocar hechizos y mantener nuestra
+energía vital por encima de cero.\\
+
+\figura{siontower-juego.jpg}{scale=0.3}{Partida de Sion Tower}{fig:siontower-juego}{H}
+
+Los controles son los siguientes:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Movimiento}: para mover al personaje, utiliza las teclas W, A, S y D.
+    \item \textbf{Cámara}: la cámara siempre hace un seguimiento al personaje
+    para que nunca salga del encuadre. Puedes acercar o alejar la cámara
+    utilizando la rueda del ratón. También puedes moverla alrededor del
+    personaje moviendo el ratón mientras pulsas el botón derecho.
+    \item \textbf{Hechizos}: para lanzar un hechizo apunta con el ratón
+    en la dirección deseada y pulsa el botón izquierdo. Si tienes maná suficiente
+    lanzarás el hechizo seleccionado. Para cambiar de hechizo, pulsa
+    sobre el que quieras seleccionar en el menú de juego. También puedes
+    hacer uso de las teclas de acceso rápido: 1, 2 y 3.
+    \item \textbf{Pausa}: para activar la pausa puedes pulsar la tecla
+    escape o el botón del menú de juego. En el menú de pausa puedes \textbf{Reanudar}
+    la partida, volver a la pantalla de \textbf{Selección de nivel} o dirigirte
+    al \textbf{Menú principal}.
+\end{itemize}
+
+Si pasas el ratón por encima de un hechizo puedes acceder a más información
+sobre el mismo: nombre, descripción, maná necesario y daño que causa. Cuando
+no tengas maná suficiente para lanzar un hechizo determinado, éste se mostrará
+en gris. La energía mágica se recupera progresivamente de forma automática
+cuando no se está haciendo uso de ella. No es posible recuperar vida a lo largo
+de la partida.
+
+\figura{siontower-pausa.jpg}{scale=0.3}{Menú de pausa en Sion Tower}{fig:siontower-pausa}{H}
+
+Si nuestra energía se termina por completo habremos perdido la partida y se
+nos avisará mediante un cartel. Mientras decides si volver a intentarlo
+puedes seguir moviendo la cámara y observando cómo los enemigos han alcanzado
+la victoria. Si pulsas la \textbf{barra espaciadora} volverás a la pantalla
+de selección de nivel.
+
+\figura{siontower-derrota.jpg}{scale=0.3}{Mensaje de derrota en Sion Tower}{fig:siontower-derrota}{H}
+
+\subsection*{Pantalla de victoria}
+
+Al eliminar a todos los enemigos de un nivel habrás completado con éxito
+el escenario y llegarás a la pantalla de victoria en la que el personaje
+celebra su logro. Si no estabas jugando al último nivel disponible, 
+habrás conseguido desbloquear el siguiente. Tanto la puntuación obtenida
+como los niveles desbloqueados se guardan automáticamente en este punto.
+
+\figura{siontower-victoria.jpg}{scale=0.3}{Pantalla de victoria en Sion Tower}{fig:siontower-victoria}{H}
+
+La puntuación de \juego\ se obtiene mediante la suma de los siguientes
+factores:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Enemigos}: por cada enemigo eliminado se obtienen puntos.
+    Cuanto más poderoso sea el enemigo, mayor será la recompensa en forma de puntos.
+    \item \textbf{Vida}: recibimos un complemento por la energía que nos quede
+    al finalizar la partida con éxito.
+    \item \textbf{Maná}: en el juego se valora mucho la puntería y la administración
+    del maná o energía mágica. Cuanto menos maná utilicemos, mayor será la puntuación.
+    Es posible que si se malgasta demasiado, la puntuación sea negativa.
+    \item \textbf{Tiempo}: recibimos recompensa en forma de punto por
+    eliminar a los enemigos lo antes posible, este apartado también puede
+    recibir una valoración negativa.
+\end{itemize}
+
+Tras terminar con éxito un nivel puedes elegir la opción \textbf{Volver a jugar},
+volver a la pantalla de \textbf{Selección de nivel} o regresar al \textbf{Menú principal}.
+
+\subsection*{Créditos}
+
+En la pantalla de créditos aparece una escena de la Torre Sagrada con
+un panel listando los participantes en el desarrollo de \juego. Cuando
+desees volver puedes pulsar el botón \textbf{Atrás}.
+
+\figura{siontower-creditos.jpg}{scale=0.3}{Autores de Sion Tower}{fig:siontower-creditos}{H}
+
+
+\section*{Creación de niveles}
+
+¿Tienes una gran idea para un nuevo nivel de \juego? ¿Sabes como puedes
+mejorar sustancialmente la historia? ¿Te gustaría que todos viesen tus ideas?
+El motor del videojuego permite a los usuarios crear y añadir nuevos niveles
+de manera muy sencilla utilizando la herramienta de modelado y animación
+3D libre por excelencia: \textit{Blender}. El proceso es largo pero sencillo,
+sobre todo si sigues detenidamente todos los pasos de este manual.
+
+\subsection*{Instalación de Blender y complementos}
+
+\textit{Blender} es la herramienta de modelado y animación 3D de carácter
+completamente libre más potente que existe. Utilizando \textit{Blender}
+se han producido en su totalidad cortos de animación como
+Big Buck Bunny\footnote{Big Buck Bunny: \url{http://bigbuckbunny.org}},
+Sintel\footnote{Sintel: \url{http://sintel.org}} o videojuegos como
+Yo Frankie!\footnote{Yo Frankie!: \url{http://yofrankie.org}}. \textit{Blender} es
+multiplataforma, no importa si posees Windows, Mac o GNU/Linux ya que no
+tendrás problema alguno para utilizarlo. Recientemente se ha publicado la
+serie 2.5 de la herramienta, que incluye mejoras como un cambio radical de
+la interfaz. No obstante, los scripts de exportación necesarios funcionan
+en la 2.49, por tanto, esa sera la versión que utilizaremos.\\
+
+\figura{sintel.jpg}{scale=0.3}{Fotograma del cortometraje Sintel}{fig:sintel}{H}
+
+Si utilizas un sistema operativo GNU/Linux basado en Debian, es probable
+que \textit{Blender} se encuentre en los repositorios de tu distribución.
+En tal caso, bastaría con introducir en una terminal:
+
+\begin{lstlisting}[style=consola]
+sudo apt-get install blender
+\end{lstlisting}
+
+En caso de contar con un sistema operativo de tipo Windows, debes acudir
+a la sección de versiones anteriores de \textit{Blender} y descargar el
+instalador:\\
+
+\url{http://download.blender.org/release/Blender2.49a/blender-2.49a-windows.exe}\\
+
+Simplemente abre el instalador haciendo doble click sobre el ejecutable,
+sigue los pasos indicados y habrás instalado Blender con éxito.\\
+
+En ambos sistemas operativos es necesario instalar un plugin de exportación
+que convierte una escena creada con Blender a un fichero de texto en formato
+xml procesable por el motor de \juego. El formato se conoce como \textit{Dotscene}
+y es ampliamente utilizado. Asimismo, es necesario otro complemento que
+convierte un modelo creado con \textit{Blender} a un xml. Es posible
+descargar ambos plugins desde:\\
+
+\url{http://ogreaddons.svn.sourceforge.net/viewvc/ogreaddons/trunk/blender\
+sceneexporter/ogredotscene.py}\\
+
+\url{http://ogre.svn.sourceforge.net/viewvc/ogre/branches/v1-6/Tools/BlenderExport}\\
+
+Para instalar los exportadores en sistemas GNU/Linux, hemos de copiar los ficheros
+descargados en:\\
+
+\texttt{~/.blender/scripts}\\
+
+En cambio, si utilizamos Windows el directorio será:\\
+
+\texttt{[Instalación de Blender]/.blender/scripts}\\
+
+
+\subsection*{Composición del nivel}
+
+Para seguir esta guía con soltura es recomendable que poseas unos conocimientos
+mínimos sobre \textit{Blender}. Deberías saber cómo manejar los elementos
+básicos de la interfaz y la forma de manipular los objetos dentro de la
+escena: movimiento, rotación, escala, duplicado, etc. Si nunca has utilizado
+\textit{Blender} con anterioridad es recomendable que acudas a algún
+manual para principiantes como el libro gratuito bajo Creative Commons
+\textit{Aprende Blender en 24 horas}\footnote{Aprende Blender en 24 horas: 
+\url{http://www.inf-cr.uclm.es/www/cglez/downloads/blender/24hBlenderYafray.pdf}}
+del profesor certificado por la Blender Foundation Carlos González Morcillo.
+
+% Nuevo documento
+\subsubsection*{Crear un nuevo documento}
+
+El primer paso es crear un nuevo documento de \textit{Blender}, para ello
+simplemente abrimos la herramienta por primera vez o hacemos click sobre
+File $\rightarrow$ New y aceptamos eliminar la escena actual. Para comenzar
+no podemos tener objetos presentes por lo que seleccionamos toda la escena
+con A y eliminamos con X.
+
+\figura{blender-1.jpg}{scale=0.35}{Creación de un nuevo documento en Blender}{fig:blender-1}{H}
+
+Es recomendable contar con un espacio de trabajo cómodo, la disposición
+de las vistas tridimensionales de \textit{Blender} es fundamental. Para
+crear un nuevo nivel lo ideal es contar con las vistas frontal, lateral,
+cenital y libre. Puedes ver un ejemplo de esta disposición en la figura
+\ref{fig:blender-1}.
+
+% Convenciones de nombrado
+\subsubsection*{Convenciones de nombrado}
+
+En un escenario de \juego\ se dan cita varios tipos de elementos: objetos
+del escenario, geometría arbitraría, efectos de partículas, oleadas de enemigos,
+etc. \textit{Blender} no distingue entre ellos, para la herramienta de modelado
+todos son objetos tridimensionales comunes. Hemos de seguir unas reglas de
+nombrado especiales para que el motor sepa distinguir entre una mesa que
+forma parte del mobiliario y un icono simbólico que representa la llegada
+de un enemigo.\\
+
+Durante todo el proceso de creación del escenario es importante prestar
+atención para que los objetos tengan un nombre acorde con las reglas
+establecidas. En la pestaña de edición (tecla F9) aparece el panel
+\textit{Link and Materials} mostrando el nombre de la malla del objeto
+y el del propio objeto. En nuestro caso, objetos semejantes comparten
+la misma malla mientras que el nombre de cada objeto debe ser distinto
+y ajustarse a las reglas. Puedes verlo en la figura \ref{fig:blender-3}.
+
+\figura{blender-3.jpg}{scale=0.7}{Nombre de una puerta en un escenario}{fig:blender-3}{H}
+
+Las reglas de nombrado son las siguientes:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Escenario}: todos los elementos del escenario (paredes,
+    suelo, mesas, sillas y otros muebles) siguen la regla \texttt{scene-nombre.numero}.
+    El nombre del objeto es lo que lo identifica dentro del catálogo para poder
+    recuperar su modelo de colisión y el número ayuda a hacerlo único dentro de la
+    escena (dos objetos no pueden tener el mismo nombre). Ejemplo: \texttt{scene-door.005}.
+    \item \textbf{Efectos de partículas}: puedes incluir efectos de partículas
+    en cualquier punto de la escena. La regla es \texttt{particle-nombre.numero}.
+    Ejemplo: \texttt{particle-flame.001}.
+    \item \textbf{Luces}: el motor del juego reconoce las luces de manera automática,
+    por lo que no debes preocuparte de sus nombres.
+    \item \textbf{Malla de navegación}: la malla de navegación indica a los
+    enemigos cuales son las zonas transitables del escenario y siempre
+    debe llamarse \texttt{navMesh}. Veremos más sobre las mallas de navegación
+    en secciones posteriores.
+    \item \textbf{Enemigos}: los enemigos siguen la regla \texttt{enemy-tipo-t.numero}.
+    La letra t representa el segundo en el que aparecerá el enemigo desde
+    que se inicia la partida. Ejemplo: \texttt{enemy-goblin-25.001}.
+    \item \textbf{Protagonista}: el elemento cuyo nombre sea \texttt{player}
+    definirá la posición inicial del jugador dentro del nivel.
+    \item \textbf{Geometría arbitraria}: toda la geometría que no siga
+    la convención de nombrado será tratada como complementos del escenario.
+    No se calcularán colisiones contra ellos (se podrán atravesar).
+\end{itemize}
+
+% Enlazar objetos
+\subsubsection*{Enlazar objetos}
+
+Los escenarios del juego están repletos de objetos de distintas clases
+y puedes reutilizarlos sin ningún tipo de problemas para tus propias creaciones.
+Incluir los objetos ya creados para \juego\ en tu nuevo nivel es muy sencillo.
+En el menú de \textit{Blender} seleccionamos File $\rightarrow$ Append or
+Link (Image Browser). Se abrirá un pequeño navegador de ficheros para
+que seleccionemos el \texttt{objeto.blend} a importar. Al abrirlo, tendremos
+que seleccionar Object y el nombre del objeto creado en \textit{Blender}.
+
+\figura{blender-2.jpg}{scale=0.35}{Enlazar con un objeto de Blender existente}{fig:blender-2}{H}
+
+Al enlazarlo se añadirá al origen de coordenadas el objeto deseado. No obstante,
+los datos de su malla pertenecen a un fichero externo (contorno azul) y lo
+deseable es convertirlo en local. De esta manera nuestro proyecto de nivel
+no contará con indeseables dependencias externas. Para hacerlo
+seleccionamos el objeto con el botón derecho del ratón, pulsamos L y
+seleccionamos la opción All. Una vez localizado, podremos mover el objeto,
+escalarlo y rotarlo por la escena con total libertad.
+
+\figura{blender-4.jpg}{scale=0.4}{Convertir en local un objeto enlazado}{fig:blender-4}{H}
+
+% Colocando objetos
+\subsubsection*{Elementos del escenario}
+
+Los elementos del escenario son aquellos objetos que cuentan con un modelo
+de colisión. Esto quiere decir que ni el protagonista ni los hechizos podrán
+atravesarlos. Los objetos que venían incluidos en \juego\ ya tienen un modelo
+de colisión asignado y para utilizarlos sólo hemos de enlazarlos siguiendo
+los pasos de la sección anterior. Estos objetos se encuentran en
+\texttt{[siontower]/media/blender} y la lista completa junto a sus códigos
+es la siguiente:
+
+\begin{itemize}
+    \itemsep0em
+    \item Cama (bed)
+    \item Candelabro (candle)
+    \item Columna (column)
+    \item Muro con arco (door)
+    \item Muro con puerta (door2)
+    \item Muro (wall)
+    \item Suelo $8x8 m$ (floor8x8)
+    \item Suelo $4x4 m$ (floor4x4)
+    \item Reliquia (reliq)
+    \item Silla (chair)
+    \item Taburete (roundchair)
+    \item Estanterías (shelves)
+    \item Escaleras (staircase)
+    \item Mesa (table)
+    \item Caja de madera (woodenbox)
+\end{itemize}
+
+Cuando enlacemos un objeto y lo convirtamos en local podemos moverlo utilizando
+la tecla G, rotarlo con R o escalarlo mediante S. Las tres operaciones anteriores
+pueden restringirse a uno de los tres ejes. Por ejemplo, para desplazar
+una mesa a lo largo del eje X será necesario seleccionar la mesa con el botón
+derecho del ratón, pulsar G, pulsar X y desplazarla. Es necesario que
+no haya desniveles y que el nivel del suelo esté situado en el plano $Z = 0$
+de \textit{Blender}\\
+
+Basta con enlazar al principio cada objeto y duplicarlo cada vez que deseemos
+uno semejante. En \textit{Blender} es posible duplicar objetos seleccionando
+el elemento a duplicar y pulsando SHIFT $+$ D. No obstante, dicha operación
+conlleva tener redundancias en los datos de la malla y lo que deseamos es
+contar con dos instancias de la misma malla. Para duplicar elementos
+utilizaremos la combinación ALT $+$ D. Con estas sencillas instrucciones
+ya posees los conocimientos suficientes para componer escenas como la de
+la figura \ref{fig:blender-5}.
+
+\figura{blender-5.jpg}{scale=0.35}{Elementos del escenario ya colocados}{fig:blender-5}{H}
+
+% Nuevos objetos
+\subsubsection*{Nuevos objetos}
+
+Puedes añadir nuevos objetos que no estén en el catálogo modelados por tí
+mismo o que hayas encontrado en algún banco de recursos libres. Una vez
+modelado y texturizado, será necesario que lo exportes en un formato compatible
+con el motor gráfico del juego \textsc{Ogre3D}, el formato binario \texttt{.mesh}.
+Puedes obtener más información sobre la exportación en \wiki:\\
+
+\url{http://wikis.uca.es/iberogre/index.php/Exportar_modelos_desde_Blender}\\
+
+Los modelos exportados se sitúan en el directorio \texttt{[siontower]/media/meshes},
+los materiales en \texttt{[siontower]/media/materials} y las texturas
+en \texttt{[siontower]/media/textures}. El último paso consiste en definir
+el modelo colisionable del nuevo elemento del escenario. Debes acudir al
+fichero xml \texttt{[siontower]/media/levels/bodycatalog.xml} y editarlo
+de forma manual.\\
+
+Cada objeto cuenta con un nombre único y  tiene asociado un cuerpo (body)
+compuesto por una o más formas (shapes). Los objetos tienen un tipo, pueden
+ser 1 (suelo) o 2 (mobiliario). Cada forma es una figura geométrica
+sencilla:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Esfera}: \textit{sphere}, definida por un centro y un
+    radio.
+    \item \textbf{Plano}: \textit{plane}, definido por un punto y un vector
+    perpendicular.
+    \item \textbf{Caja alineada}: \textit{aabb}, un hexaedro
+    alineado con los ejes, definido por un centro y unas distancias hasta
+    sus lados. 
+    \item \textbf{Caja orientada}: \textit{obb}, hexaedro al que
+    se le ha aplicado una rotación, definido por un centro, distancias
+    hasta los lados y los ejes sobre los que se apoya.
+\end{itemize}
+
+Ha de añadirse una nueva entrada por cada objeto nuevo que se añada si se
+desea que cuente con un modelo colisionable. La sintaxis del fichero
+xml es bastante sencilla.
+
+\begin{lstlisting}[style=xml]
+<?xml version="1.0" encoding="UTF-8" ?>
+<bodies>
+    
+    <body name="floor8x8" type="1">
+        <shape type="plane">
+            <position x="0" y="0" z="0" />
+            <normal x="0" y="1" z="0" />
+        </shape>
+    </body>
+    
+    <body name="chair" type="2">
+        <shape type="obb">
+            <center x="0" y="-0.036" z="0.147"/>
+            <extent x="0.2275" y="0.4675" z="0.21"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1"
+                  a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+</bodies>
+\end{lstlisting}
+
+
+% Efectos de partículas
+\subsubsection*{Efectos de partículas}
+
+Como ya se ha mencionado anteriormente, los efectos de partículas siguen
+la nomenclatura \texttt{particle -nombre.numero}. Lo ideal es representarlos
+mediante pequeñas esferas de un color relacionado con el efecto que generan.
+En \juego\ se incluyen tres tipos de sistemas de partículas por defecto:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{flame}: llama del tamaño adecuado para ser utilizada en las antorchas.
+    \item \textbf{flame2}: llama del tamaño adecuado para colocarse sobre los candelabros.
+    \item \textbf{rain}: lluvia intensa utilizada en el menú principal del juego.
+\end{itemize}
+
+\figura{blender-6.jpg}{scale=0.35}{Esfera simbolizando un sistema de partículas}{fig:blender-6}{H}
+
+Los sistemas de partículas se definen en scripts de extensión \texttt{.particle}
+almacenados en el directorio \texttt{[siontower]/media/particles}. Si conoces
+la sintaxis, puedes añadir los que desees para utilizarlos en tus propios niveles.
+Hay herramientas como \textit{Ogre Particle Editor}\footnote{Ogre Particle Editor: \url{http://www.ogre3d.org/tikiwiki/OGRE+Particle+Editor&structure=Tools}}
+que permite generar dichos scripts utilizando una interfaz gráfica sencilla.
+
+% Luz
+\subsubsection*{Iluminación}
+
+Añadir luces a una escena es imprescindible, de lo contrario esta aparecería
+completamente oscura dentro del juego. Para hacerlo pulsa la barra
+espaciadora dentro de la escena 3D y selecciona Add $\rightarrow$ Lamp
+y uno de los tipos de luces aceptados por \juego: Lamp, Sun y Spot.
+No tienes porqué preocuparte por ninguna convención de nombrado en este caso.
+Una vez hayas añadido la luz, puedes moverla por la escena como desees.\\
+
+Es posible configurar varios parámetros de cada punto de luz como su intensidad
+y color accediendo al panel de sombreado (F5) y al subpanel de controles
+de luz. Lo recomendable es que ninguna luz ascienda de $1.0$ en intensidad
+y que los colores sean suaves.
+
+\figura{blender-7.jpg}{scale=0.4}{Panel de configuración de luces}{fig:blender-7}{H}
+
+
+% Malla de navegación
+\subsubsection*{Malla de navegación}
+
+La malla de navegación es un conjunto de triángulos conectados que definen
+un área transitable para los enemigos. En \juego\ los monstruos no podrían
+encontrar el camino hacia el personaje si no fuera por la malla de navegación.
+Es similar a contar con un tablero repleto de casillas conectadas. Una vez
+tengamos claro dónde se colocarán los obstáculos podemos ir creando la malla.
+Recuerda que el objeto debe llamarse \texttt{navMesh} (se distingue entre
+mayúsculas y minúsculas). El nombre de la propia malla debe ser único
+entre las mallas del juego, lo normal es llamarla \texttt{navMesh-número}
+donde número es la posición del nivel en la historia.
+
+\figura{blender-8.jpg}{scale=0.35}{Creación de la malla de navegación}{fig:blender-8}{H}
+
+Para comenzar a crear la malla puedes añadir un plano pequeño con la barra
+espaciadora, Add $\rightarrow$ Mesh $\rightarrow$ Plane. Entra en modo edición
+utilizando el tabulador y selecciona uno de los vértices con el botón derecho
+para eliminarlo con X. Asegúrate de que la malla siempre permanece en el suelo,
+es importante para que los enemigos no se eleven misteriosamente. Debe estar
+formada exclusivamente por triángulos, no pueden existir cuadriláteros.\\
+
+Extender la malla es sencillo, selecciona un vértice y pulsa E para extruirlo
+creando uno nuevo y una arista de unión. Ve repitiendo la operación para
+cubrir las zonas transitables del escenario y recuerda dejar un margen
+prudencial con los obstáculos. Debes crear caras entre los grupos de tres
+vértices que formen los triángulos, para hacerlo selecciona los tres vértices
+y pulsa F. Al finalizar es imprescindible que todas las caras de la malla
+miren hacia el mismo lado (arriba o abajo), para conseguirlo, selecciona
+todos los vértices con A y pulsa Ctrl $+$ N.\\
+
+Finalmente, debes exportar la malla para que el motor de \juego\ pueda
+procesarla. Selecciona la malla fuera del modo edición (pulsa el tabulador)
+y accede a File $\rightarrow$ Export $\rightarrow$ OGRE Meshes.
+
+\figura{blender-9.jpg}{scale=0.25}{Exportación de la malla de navegación}{fig:blender-9}{H}
+
+El nombre del material es irrelevante porque no nos hará falta, asegúrate
+de marcar la opción \textit{Fix Up Axis to Y} y elegir el directorio
+\texttt{[siontower]/media} como destino de la exportación.
+
+% Enemigos
+\subsection*{Enemigos y jugador}
+
+Los enemigos suelen representarse mediante una pirámide de base cuadrada
+en posición horizontal. Como ya hemos mencionado, la nomenclatura para los
+enemigos es \texttt{enemy-tipo-t.numero} siendo los tipos posibles: \textit{goblin},
+\textit{demon} y \textit{golem}. Para que el diseño de niveles sea más cómodo, los goblins
+llevan asignado el color verde, los demonios el rojo y los gólems el azul
+aunque no es obligatorio de cara a la exportación.\\
+
+Tras añadir un enemigo, puedes duplicarlo utilizando la combinación SHIFT
+$+$ D, moverlo con G y rotarlo con R (aunque lo normal es hacerlo sobre
+el eje vertical únicamente). La pirámide de los enemigos debe colocarse
+atravesando el suelo, de forma que el vértice superior esté en el punto 0
+del eje Z.
+
+\figura{blender-10.jpg}{scale=0.35}{Disposición de enemigos en el nivel}{fig:blender-10}{H}
+
+Debes añadir otro elemento simbólico como una esfera o cono para indicar
+la posición inicial del jugador. Simplemente has de nombrarlo \texttt{player}.
+
+
+\subsection*{Integración del nivel}
+
+Es conveniente que poco a poco vayas guardando tus progresos diseñando el
+nivel ya que no es extraño equivocarse o dejar el trabajo a media. Para ello
+selecciona File $\rightarrow$ Save, elige una ruta y presiona el botón de
+guardado. A continuación se adjuntan las indicaciones para integrar el nivel
+que acabas de crear en \juego.
+
+% Exportación del nivel
+\subsubsection*{Script de exportación}
+
+Tras haber guardado el nivel como fichero \texttt{.blend} es el momento
+de proceder a la exportación a formato \textit{DotScene}. Para ello selecciona
+File $\rightarrow$ Export $\rightarrow$ Ogre Scene. Se desplegará un panel
+con todos los elementos de la escena, si quieres que todos aparezcan
+en el nivel, pulsa sobre All. Recuerda activar la opción \textit{Fix Up Axis
+To Y} y selecciona el directorio de niveles como destino de la exportación:
+\texttt{[siontower]/media/levels}.
+
+\figura{blender-11.jpg}{scale=0.25}{Exportación de la escena}{fig:blender-11}{H}
+
+Por cada nivel existen dos ficheros xml, el primero es el de la escena
+y tiene como nombre \texttt{codigo\_scene.xml}. Por su parte, el segundo
+contiene información complementaria como el nombre del nivel, descripción
+y música que sonará, su nomenclatura es \texttt{codigo\_info.xml}. Por ejemplo,
+si el código del nivel que deseamos exportar es \texttt{level05}, el nombre
+del fichero escena debería ser \texttt{level05\_scene.xml}.
+
+% Añadir el nivel al juego
+\subsubsection*{Añadir el nivel al juego}
+
+% level-info
+Para integrar el nuevo nivel dentro de \juego\ debes crear un fichero
+\texttt{codigo\_info.xml} en el directorio \texttt{[siontower]/media/levels}.
+La sintaxis es muy sencilla, a continuación se muestra el ejemplo para
+el primer nivel del juego. El fichero de música debe estar en formato \textsc{Ogg}
+y estar situado en \texttt{[siontower]/media/music}.
+
+\begin{lstlisting}[style=xml]
+<?xml version="1.0" encoding="UTF-8" ?>
+<basicInfo>
+    <name>The Hall</name>
+    <description>Some enemies have assaulted the main hall of\nthe Sacred Tower. Stop the invasion!</description>
+    <song name="nivel1.ogg" group="" />
+</basicInfo>
+\end{lstlisting}
+
+% Icono
+Como ya has visto en la página \pageref{sec:levelselection}, en la pantalla
+de selección de nivel, cada escenario viene acompañado de un icono. Si no
+haces nada, el hueco quedará vacío para tu nuevo nivel. No obstante, si lo deseas,
+puedes añadir un fichero con nombre \texttt{codigo.jpg} al directorio
+\texttt{[siontower]/media/textures}.
+
+% Fichero levels
+Finalmente, debes añadir tu nuevo nivel al fichero que indexa los niveles,
+\texttt{[siontower]/media/levels/levels.xml}. Por ejemplo, si añadiésemos
+el quinto nivel de nuestro ejemplo anterior, el fichero quedaría de la
+siguiente manera.
+
+\begin{lstlisting}[style=xml]
+<?xml version="1.0" encoding="UTF-8" ?>
+<levels>
+    <level id="level01"></level>
+    <level id="level02"></level>
+    <level id="level03"></level>
+    <level id="level04"></level>
+    <level id="level05"></level>
+</levels>
+\end{lstlisting}
+
+Con esto habrás conseguido añadir un nivel completamente nuevo y personalizado
+a \juego. Para comprobar que todo está correcto, inicia el juego y trata
+de seleccionar el escenario. Antes de compartirlo con tus amigos, es recomendable
+que compruebes que ni es demasiado complicado ni demasiado sencillo, ¡de lo
+contrario no sería divertido!
+
+

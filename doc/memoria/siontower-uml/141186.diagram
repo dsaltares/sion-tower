@@ -1,0 +1,34 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 9.6 14.4 2000 life_line_z 2000
+classinstance 128386 class_ref 144770 // System
+  name ""   xyz 325 12.1 2005 life_line_z 2000
+durationcanvas 128514 classinstance_ref 128002 // :Jugador
+  xyzwh 31 73 2010 11 190
+end
+durationcanvas 128642 classinstance_ref 128386 // :System
+  xyzwh 350 86 2010 11 38
+end
+durationcanvas 129410 classinstance_ref 128386 // :System
+  xyzwh 350 147 2010 11 113
+end
+msg 128770 asynchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128642
+  yz 99 2015 msg operation_ref 128898 // "InicioAplicacion()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 144 81
+msg 129538 asynchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 129410
+  yz 171 2015 msg operation_ref 129026 // "SeleccionarJugar()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 143 155
+msg 129922 return
+  from durationcanvas_ref 129410
+  to durationcanvas_ref 128514
+  yz 220 2015 explicitmsg "CambiarPantalla(Seleccion de perfil)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 91 200
+end

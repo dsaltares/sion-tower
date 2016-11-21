@@ -1,0 +1,321 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: siontower 0.1\n"
+"Report-Msgid-Bugs-To: david.saltares@gmail.com-s\n"
+"POT-Creation-Date: 2011-07-10 15:22+0200\n"
+"PO-Revision-Date: 2011-07-04 17:28+0200\n"
+"Last-Translator: David Saltares Mrquez <david.saltares@gmail.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/stateProfile.cpp:202
+msgid "#ff0000Error: the profile already exists"
+msgstr "#ff0000Error: el perfil ya existe"
+
+#: src/stateProfile.cpp:195
+msgid "#ff0000Error: you must enter a name"
+msgstr "#ff0000Error: debes introducir un nombre"
+
+#: src/stateLevel.cpp:269
+msgid "#ff0000Locked level"
+msgstr "#ff0000Nivel bloqueado"
+
+#
+msgid "#ffffffA horde is comming, defend the Sacred Tower!"
+msgstr "#ffffff¡Una horda se aproxima, defiende la Torre Sagrada!"
+
+#
+msgid "#ffffffCongratulations!"
+msgstr "#ffffff¡Enhorabuena!"
+
+#
+msgid "#ffffffCredits"
+msgstr "#ffffffCréditos"
+
+#
+msgid "#ffffffLevel selection"
+msgstr "#ffffffSelección de nivel"
+
+#
+msgid "#ffffffProfile selection"
+msgstr "#ffffffSelección de perfil"
+
+#
+msgid "#ffffffThe horde is comming!"
+msgstr "#ffffff¡La horda está llegando!"
+
+#: src/stateGame.cpp:307
+msgid ""
+"#ffffffYou have failed!\n"
+"Press space to try again!"
+msgstr "#ffffff¡Has fallado!\n"
+"¡Pulsa espacio para intentarlo de nuevo!"
+
+msgid "00:00"
+msgstr "00:00"
+
+#
+msgid "Accept"
+msgstr "Aceptar"
+
+#
+msgid "Antonio Jiménez Rodríguez"
+msgstr "Antonio Jiménez Rodríguez"
+
+#
+msgid "Back"
+msgstr "Atrás"
+
+#: src/spell.cpp:143
+msgid "Blizzard"
+msgstr "Ventisca"
+
+#: src/spell.cpp:118
+msgid ""
+"Casts a huge fire ball to burn\n"
+"your enemies"
+msgstr ""
+"Invoca una enorme bola de fuego\n"
+"que calcina a tus enemigos"
+
+#: src/spell.cpp:144
+msgid ""
+"Casts ice projectiles, sharp\n"
+"as razors"
+msgstr ""
+"Invoca proyectiles de hielo,\n"
+"afilados como cuchillas"
+
+#: src/spell.cpp:131
+msgid ""
+"Casts the fury of nature\n"
+"itself"
+msgstr ""
+"Invoca la furia de\n"
+"la propia naturaleza"
+
+#
+msgid "Characters art "
+msgstr "Arte de personajes"
+
+#
+msgid "Create"
+msgstr "Crear"
+
+#
+msgid "Create a new profile"
+msgstr "Crear un nuevo perfil"
+
+#
+msgid "Credits"
+msgstr "Créditos"
+
+#
+msgid "David Saltares Márquez"
+msgstr "David Saltares Márquez"
+
+#
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Design and programming"
+msgstr "Diseño y programación"
+
+#
+msgid "Enemies Killed"
+msgstr "Enemigos eliminados"
+
+#
+msgid "Evergreen Studio"
+msgstr "Estudio Evergreen"
+
+#
+msgid "Exit"
+msgstr "Salir"
+
+#
+msgid "Experience"
+msgstr "Experiencia"
+
+#
+msgid "Experience obtained"
+msgstr "Experiencia conseguida"
+
+#: src/spell.cpp:117
+msgid "Fire ball"
+msgstr "Bola de fuego"
+
+#
+msgid "Francisco Martín Márquez"
+msgstr "Francisco Martín Márquez"
+
+#: src/spell.cpp:130
+msgid "Gea's fury"
+msgstr "Furia de Gea"
+
+#
+msgid "Level Selection"
+msgstr "Selección de nivel"
+
+#
+msgid "Level selection"
+msgstr "Selección de nivel"
+
+#
+msgid "Levels and GUI art"
+msgstr "Arte de escenarios e interfaz"
+
+#
+msgid "Levels unlocked"
+msgstr "Niveles desbloqueados"
+
+#
+msgid "Life"
+msgstr "Vida"
+
+#
+msgid "Life left"
+msgstr "Vida restante"
+
+#
+msgid "Main menu"
+msgstr "Menú principal"
+
+#
+msgid "Mana"
+msgstr "Maná"
+
+#
+msgid "Mana used"
+msgstr "Maná utilizado"
+
+#
+#: src/stateGame.cpp:789 src/stateGame.cpp:808 src/stateGame.cpp:827
+msgid "Mana: %d"
+msgstr "Maná: %d"
+
+#
+msgid "Name"
+msgstr "Nombre"
+
+#
+msgid "Original soundtrack"
+msgstr "Banda sonora"
+
+#
+msgid "Pause"
+msgstr "Pausa"
+
+#
+msgid "Pause menu"
+msgstr "Menú de pausa"
+
+#
+msgid "Play"
+msgstr "Jugar"
+
+#: src/stateGame.cpp:792 src/stateGame.cpp:811 src/stateGame.cpp:830
+msgid "Power: %d"
+msgstr "Daño: %d"
+
+#
+msgid "Replay"
+msgstr "Volver a jugar"
+
+#
+msgid "Resume"
+msgstr "Reanudar"
+
+#
+#: src/stateLevel.cpp:217
+msgid "Select a level"
+msgstr "Elige un nivel"
+
+#
+msgid "Select your profile"
+msgstr "Elige tu perfil"
+
+#: media/levels/level01_info.xml:4(description)
+msgid ""
+"Some enemies have assaulted the main hall of\\nthe Sacred Tower. Stop the "
+"invasion!"
+msgstr ""
+"Algunos enemigos han asaltado la entrada principal\\n de la Torre Sagrada, "
+"¡detén la invasión!"
+
+#
+msgid "Sound Effects"
+msgstr "Efectos de sonido"
+
+#: media/levels/level01_info.xml:3(name)
+msgid "The Hall"
+msgstr "La Entrada"
+
+#: media/levels/level04_info.xml:3(name)
+msgid "The Sacred Chamber"
+msgstr "La Cámara Secreta"
+
+#: media/levels/level02_info.xml:3(name)
+msgid "The apprentices' chambers"
+msgstr "Las cámaras de los aprendices"
+
+#: media/levels/level03_info.xml:4(description)
+msgid ""
+"The horde has entered the ritual floor, protect it\\nor the Gods will be "
+"furious!"
+msgstr ""
+"La horda ha llegado al piso del ritual, ¡protégelo o\\nlos dioses desatarán "
+"su cólera!"
+
+#: media/levels/level03_info.xml:3(name)
+msgid "The ritual floor"
+msgstr "El piso del ritual"
+
+#: media/levels/level02_info.xml:4(description)
+msgid ""
+"They have reached the apprentices' chambers,\\nstop them before it is too "
+"late!"
+msgstr ""
+"Han llegado a las cámaras de los aprendices,\\n¡deténlos antes de que "
+"seademasiado tarde!"
+
+#: media/levels/level04_info.xml:4(description)
+msgid ""
+"This is the final test, destroy the monsters or they\\nwill get the Sacred "
+"Relics!"
+msgstr ""
+"Esta es la prueba final, ¡destruye los monstruos o\\nrobarán las Reliquias "
+"Sagradas!"
+
+#
+msgid "Time"
+msgstr "Tiempo"
+
+#
+msgid "Total"
+msgstr "Total"
+
+msgid "2D spell icons"
+msgstr "Iconos de hechizos"
+
+#: src/stateVictory.cpp:122
+msgid "You have completed this level again!"
+msgstr "¡Has completado este nivel de nuevo!"
+
+#
+#: src/stateVictory.cpp:126
+msgid "You have saved the Sacred Tower!"
+msgstr "¡Has salvado la Torre Sagrada!"
+
+#
+msgid "You have unlocked a new level"
+msgstr "Has desbloqueado un nuevo nivel"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: media/levels/level01_info.xml:0(None)
+msgid "translator-credits"
+msgstr "David Saltares Márquez <david.saltares@gmail.com>, 2011"

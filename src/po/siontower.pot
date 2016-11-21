@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR David Saltares Márquez
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: siontower 0.1\n"
+"Report-Msgid-Bugs-To: david.saltares@gmail.com-s\n"
+"POT-Creation-Date: 2011-07-10 15:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/spell.cpp:117
+msgid "Fire ball"
+msgstr ""
+
+#: src/spell.cpp:118
+msgid ""
+"Casts a huge fire ball to burn\n"
+"your enemies"
+msgstr ""
+
+#: src/spell.cpp:130
+msgid "Gea's fury"
+msgstr ""
+
+#: src/spell.cpp:131
+msgid ""
+"Casts the fury of nature\n"
+"itself"
+msgstr ""
+
+#: src/spell.cpp:143
+msgid "Blizzard"
+msgstr ""
+
+#: src/spell.cpp:144
+msgid ""
+"Casts ice projectiles, sharp\n"
+"as razors"
+msgstr ""
+
+#: src/stateGame.cpp:307
+msgid ""
+"#ffffffYou have failed!\n"
+"Press space to try again!"
+msgstr ""
+
+#: src/stateGame.cpp:789 src/stateGame.cpp:808 src/stateGame.cpp:827
+#, c-format
+msgid "Mana: %d"
+msgstr ""
+
+#: src/stateGame.cpp:792 src/stateGame.cpp:811 src/stateGame.cpp:830
+#, c-format
+msgid "Power: %d"
+msgstr ""
+
+#: src/stateLevel.cpp:217
+msgid "Select a level"
+msgstr ""
+
+#: src/stateLevel.cpp:269
+msgid "#ff0000Locked level"
+msgstr ""
+
+#: src/stateProfile.cpp:195
+msgid "#ff0000Error: you must enter a name"
+msgstr ""
+
+#: src/stateProfile.cpp:202
+msgid "#ff0000Error: the profile already exists"
+msgstr ""
+
+#: src/stateVictory.cpp:122
+msgid "You have completed this level again!"
+msgstr ""
+
+#: src/stateVictory.cpp:126
+msgid "You have saved the Sacred Tower!"
+msgstr ""
+
+msgid "Design and programming"
+msgstr ""
+
+msgid "Characters art "
+msgstr ""
+
+msgid "Levels and GUI art"
+msgstr ""
+
+msgid "Original soundtrack"
+msgstr ""
+
+msgid "Sound Effects"
+msgstr ""
+
+msgid "2D spell icons"
+msgstr ""
+
+msgid "David Saltares Márquez"
+msgstr ""
+
+msgid "Antonio Jiménez Rodríguez"
+msgstr ""
+
+msgid "Evergreen Studio"
+msgstr ""
+
+msgid "Francisco Martín Márquez"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "#ffffffCredits"
+msgstr ""
+
+msgid "Select your profile"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Levels unlocked"
+msgstr ""
+
+msgid "Experience"
+msgstr ""
+
+msgid "Create a new profile"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "#ffffffProfile selection"
+msgstr ""
+
+msgid "#ffffffLevel selection"
+msgstr ""
+
+msgid "Main menu"
+msgstr ""
+
+msgid "You have unlocked a new level"
+msgstr ""
+
+msgid "Experience obtained"
+msgstr ""
+
+msgid "Enemies Killed"
+msgstr ""
+
+msgid "Life left"
+msgstr ""
+
+msgid "Mana used"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "#ffffffCongratulations!"
+msgstr ""
+
+msgid "Replay"
+msgstr ""
+
+msgid "Level selection"
+msgstr ""
+
+msgid "#ffffffThe horde is comming!"
+msgstr ""
+
+msgid "Resume"
+msgstr ""
+
+msgid "Level Selection"
+msgstr ""
+
+msgid "Pause menu"
+msgstr ""
+
+msgid "Pause"
+msgstr ""
+
+msgid "00:00"
+msgstr ""
+
+msgid "Life"
+msgstr ""
+
+msgid "Mana"
+msgstr ""
+
+msgid "Play"
+msgstr ""
+
+msgid "#ffffffA horde is comming, defend the Sacred Tower!"
+msgstr ""
+
+msgid "Credits"
+msgstr ""
+
+msgid "Exit"
+msgstr ""
+
+#: media/levels/level04_info.xml:3(name)
+msgid "The Sacred Chamber"
+msgstr ""
+
+#: media/levels/level04_info.xml:4(description)
+msgid ""
+"This is the final test, destroy the monsters or they\\nwill get the Sacred "
+"Relics!"
+msgstr ""
+
+#: media/levels/level03_info.xml:3(name)
+msgid "The ritual floor"
+msgstr ""
+
+#: media/levels/level03_info.xml:4(description)
+msgid ""
+"The horde has entered the ritual floor, protect it\\nor the Gods will be "
+"furious!"
+msgstr ""
+
+#: media/levels/level02_info.xml:3(name)
+msgid "The apprentices' chambers"
+msgstr ""
+
+#: media/levels/level02_info.xml:4(description)
+msgid ""
+"They have reached the apprentices' chambers,\\nstop them before it is too "
+"late!"
+msgstr ""
+
+#: media/levels/level01_info.xml:3(name)
+msgid "The Hall"
+msgstr ""
+
+#: media/levels/level01_info.xml:4(description)
+msgid ""
+"Some enemies have assaulted the main hall of\\nthe Sacred Tower. Stop the "
+"invasion!"
+msgstr ""
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: media/levels/level01_info.xml:0(None)
+msgid "translator-credits"
+msgstr ""

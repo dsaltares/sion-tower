@@ -1,0 +1,42 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 7 10 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 258 9 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128130 // :System
+  xyzwh 283 180.5 2010 11 57
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 283 77.5 2010 11 56
+end
+durationcanvas 128514 classinstance_ref 128002 // :Jugador
+  xyzwh 29 78.5 2010 11 180
+end
+msg 128642 synchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128258
+  yz 180.5 2015 msg operation_ref 130690 // "LanzarHechizo()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "direccion"
+  label_xy 85 165.5
+msg 128770 asynchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128386
+  yz 79.5 2015 msg operation_ref 130562 // "SeleccionarHechizo()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "hechizo"
+  label_xy 75 64.5
+msg 128898 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128514
+  yz 118.5 2015 explicitmsg "Hechizo seleccionado"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 97 103.5
+msg 129026 return
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128514
+  yz 221.5 2015 explicitmsg "Error, no hay mana"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 104 206.5
+end

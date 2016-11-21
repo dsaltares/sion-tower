@@ -1,0 +1,14 @@
+material sky
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture clouds.jpg
+                scroll_anim 0.03 0.03
+            }
+        }
+    }
+}

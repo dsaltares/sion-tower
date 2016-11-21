@@ -1,0 +1,40 @@
+format 74
+
+classinstance 128130 class_ref 128002 // Jugador
+  name ""   xyz 10 15 2000 life_line_z 2000
+classinstance 128258 class_ref 144770 // System
+  name ""   xyz 291 13 2000 life_line_z 2000
+durationcanvas 128386 classinstance_ref 128258 // :System
+  xyzwh 316 80.5 2010 11 54
+end
+durationcanvas 128514 classinstance_ref 128258 // :System
+  xyzwh 316 179.5 2010 11 85
+end
+durationcanvas 128642 classinstance_ref 128130 // :Jugador
+  xyzwh 32 83.5 2010 11 189
+end
+msg 128770 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128642
+  yz 122.5 2015 explicitmsg "Pantalla de pausa"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 120 107.5
+msg 128898 return
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128642
+  yz 236.5 2015 explicitmsg "Vuelve al juego"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 125 220.5
+msg 129026 asynchronous
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128514
+  yz 184.5 2015 msg operation_ref 130178 // "ReanudarJuego()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 119 167.5
+msg 129154 synchronous
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128386
+  yz 87.5 2015 msg operation_ref 129922 // "PausarJuego()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 131 74.5
+end

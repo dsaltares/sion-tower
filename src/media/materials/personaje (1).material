@@ -1,0 +1,44 @@
+// Materials for personaje.material
+
+material pattern
+{
+	technique
+	{
+		pass
+		{
+			specular 0 0 0 1.00
+			diffuse 0.44 0.29 0.06 1.00
+			
+		}
+	}
+}
+
+material Electron3
+{
+	technique
+	{
+		pass
+		{
+			specular 0.9 0.9 0.9 1.00
+			diffuse 0  0.6 0.6 1.00
+			
+		}
+	}
+}
+
+material Mat
+{
+	technique
+	{
+		pass
+		{
+			diffuse 0.80 0.80 0.80 1.00
+			
+			texture_unit
+			{
+				texture personaje-textura.jpg
+			}
+		}
+	}
+}
+

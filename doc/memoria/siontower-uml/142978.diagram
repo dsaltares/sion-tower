@@ -1,0 +1,40 @@
+format 74
+
+classinstance 128002 class_ref 144770 // System
+  name ""   xyz 292 12 2000 life_line_z 2000
+classinstance 128130 class_ref 128002 // Jugador
+  name ""   xyz 11 15 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :System
+  xyzwh 317 182.5 2010 11 85
+end
+durationcanvas 128386 classinstance_ref 128002 // :System
+  xyzwh 317 83.5 2010 11 54
+end
+durationcanvas 128514 classinstance_ref 128130 // :Jugador
+  xyzwh 33 86.5 2010 11 189
+end
+msg 128642 return
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128514
+  yz 240.5 2015 explicitmsg "CambiarPantalla(SeleccionNivel)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 89 224.5
+msg 128770 synchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128386
+  yz 91.5 2015 msg operation_ref 129922 // "PausarJuego()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 135 77.5
+msg 128898 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128514
+  yz 126.5 2015 explicitmsg "Pantalla de pausa"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 124 110.5
+msg 129026 asynchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128258
+  yz 188.5 2015 msg operation_ref 130306 // "PausaSeleccionNivel()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 123 170.5
+end

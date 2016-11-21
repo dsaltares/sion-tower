@@ -1,0 +1,108 @@
+% Tipo de documento
+\documentclass[16pt,spanish]{article}
+
+% Ruta a la plantilla
+\def \plpath{.}
+
+% Paquetes
+\input{\plpath/include/packages.tex}
+
+%  Datos del documento a Editar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Título del documento
+\def \titlename{}
+
+% Autores separados por \and
+\def \authorname{}
+
+% Versión de la revisión (En blanco para documentos nuevos)
+\def \revname{\ } % Ponemos un espacio para evitar errores en la cabecera.
+
+% Fecha (En blanco para la fecha de hoy)
+\def \datename{}
+
+% Variables a usar para mantener un sistema consistente
+\def \juego{ \emph {Nombre del Juego} }
+\def \jugador{ \emph {Usuario del Juego} }
+
+% Configuración  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\titlename}
+\author{\authorname}
+%\date{\datename}
+
+% Cabecera y pie del documento
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.2pt}
+\fancyhead[HC]{ {\footnotesize \titlename} }
+\fancyhead[FR]{ {\footnotesize \thepage} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Portada %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{\plpath/include/portada.tex}
+
+% Índice %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\cleardoublepage
+
+% Cambios en esta Revisión %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Cambios}
+%\label{sec:cambios} 
+% El label sirve par hacer referencia a esta sección. Se usará:
+%    En la Sección~\ref{sec:cambios} en la página~\pageref{sec:cambios}
+%    y el resultado será:
+%    En la Sección 1 en la página 3.
+
+\paragraph{}
+Cambios con respecto a versiones anteriores del documento.
+
+\begin{itemize}
+	\item {\bf Revision 1}
+		\begin{itemize}
+			\item Cambio1
+			\item Cambio2
+		\end{itemize}
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Descripción}
+\label{sec:descripcion}
+
+% No usar \\ para separar párrafos. Usar esto en su lugar.
+\paragraph{}
+Lorem ipsum\ldots
+
+% Listas
+\begin{itemize}
+	\item itemize1
+	\item itemize2
+	\item itemize3
+	\item itemize4
+\end{itemize}
+
+% Entorno verbatim para ejemplos
+{\footnotesize ej:}
+\begin{verbatim}
+identificador              | categoría | descripción                                 | valor 2010  |
+
+rebiun.metro.alumno          rebiun      Metros cuadrados por alumno                   0.8345
+bau.quejas.infraestructuras  bau         Quejas recibidas sobre las infraestructuras   15321
+\end{verbatim}
+
+% Ejemplo de figura apaisada (ocupan mucho mejor el espacio)
+% Se puede hacer \ref a ellas empleando el label fig:juego
+\figuraApaisada{\plpath/img/cabecera.png}{Boceto de \juego}{fig:juego}
+
+\begin{description}
+	\item[Juego] Duke Nukem
+	\item[Santo] Stallman
+\end{description}
+
+\end{document}

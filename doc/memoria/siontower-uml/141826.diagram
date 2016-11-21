@@ -1,0 +1,41 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 15 11 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 245 9 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 37 102 2010 11 164
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 270 100 2010 11 68
+end
+durationcanvas 128770 classinstance_ref 128130 // :System
+  xyzwh 270 195 2010 11 66
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 102 2015 explicitmsg "PantallaSeleccionPerfil()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 86 87
+msg 128642 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 141 2015 explicitmsg "Perfiles"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 136 126
+msg 128898 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128770
+  yz 195 2015 msg operation_ref 129410 // "EliminarPerfil()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nombre"
+  label_xy 91 179
+msg 129026 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128258
+  yz 238 2015 explicitmsg "Eliminado"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 128 223
+end

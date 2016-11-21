@@ -1,0 +1,31 @@
+<skeleton>
+  <bones>
+    <bone id="0" name="Skeleton_root">
+      <position x="-0.00000000" y="201.51861572" z="0.00000000" />
+      <rotation angle="1.57079625">
+        <axis x="0.00000000" y="1.00000000" z="0.00000000" />
+      </rotation>
+      <scale x="1.00000000" y="1.00000000" z="1.00000000" />
+    </bone>
+    <bone id="1" name="Cintura">
+      <position x="49.73685074" y="2.21317220" z="11.21903801" />
+      <rotation angle="0.55032432">
+        <axis x="-0.00366197" y="-0.99054980" z="-0.13710468" />
+      </rotation>
+      <scale x="1.00000000" y="1.00000000" z="1.00000000" />
+    </bone>
+        
+    ...
+        
+  </bones>
+  <animations>
+    <animation name="idle" length="1.46666670">
+        
+      ...
+        
+    </animation>
+        
+    ...
+    
+  </animations>
+</skeleton>

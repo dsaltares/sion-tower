@@ -1,0 +1,34 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 11 14 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 259 13 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 33 97 2010 11 125
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 284 93 2010 11 27
+end
+durationcanvas 128642 classinstance_ref 128130 // :System
+  xyzwh 284 151 2010 11 68
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 97 2015 explicitmsg "InicioAplicacion()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 111 82
+msg 128770 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128642
+  yz 156 2015 msg operation_ref 129282 // "SeleccionarSalir()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 110 141
+msg 128898 return
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128258
+  yz 197 2015 explicitmsg "Salir"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 149 182
+end

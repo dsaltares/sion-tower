@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout">
+    <Widget type="Button" skin="Button" position_real="0.71875 0.430556 0.265625 0.108333" align="ALIGN_DEFAULT" layer="Main" name="btnPlay">
+        <Property key="Caption" value="Play"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+    <Widget type="ImageBox" skin="ImageBox" position_real="0.00390625 0.0402778 0.50625 0.165278" align="ALIGN_DEFAULT" layer="Back" name="imgTitle">
+        <Property key="ImageTexture" value="siontowertitle.png"/>
+    </Widget>
+    <Widget type="TextBox" skin="TextBox" position_real="0.526563 0.102778 0.48125 0.0444444" layer="Back" name="lblSubtitle">
+        <Property key="FontHeight" value="30"/>
+        <Property key="Caption" value="#ffffffA horde is comming, defend the Sacred Tower!"/>
+    </Widget>
+    <Widget type="Button" skin="Button" position_real="0.71875 0.6 0.265625 0.108333" layer="Back" name="btnCredits">
+        <Property key="Caption" value="Credits"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+    <Widget type="Button" skin="Button" position_real="0.71875 0.766667 0.265625 0.108333" layer="Back" name="btnExit">
+        <Property key="Caption" value="Exit"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+</MyGUI>

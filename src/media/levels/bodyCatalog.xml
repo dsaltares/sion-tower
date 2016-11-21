@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bodies>
+
+    <body name="floor4x4" type="1">
+        <shape type="plane">
+            <position x="0" y="0" z="0" />
+            <normal x="0" y="1" z="0" />
+        </shape>
+    </body>
+    
+    <body name="floor8x8" type="1">
+        <shape type="plane">
+            <position x="0" y="0" z="0" />
+            <normal x="0" y="1" z="0" />
+        </shape>
+    </body>
+    
+    <body name="chair" type="2">
+        <shape type="obb">
+            <center x="0" y="-0.036" z="0.147"/>
+            <extent x="0.2275" y="0.4675" z="0.21"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="column" type="2">
+        <shape type="obb">
+            <center x="0" y="0" z="0"/>
+            <extent x="0.4" y="1.4" z="0.4"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="door" type="2">
+        <shape type="obb">
+            <center x="0" y="-0.477" z="0"/>
+            <extent x="2" y="1.4" z="0.4"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="door2" type="2">
+        <shape type="obb">
+            <center x="0" y="-0.477" z="0"/>
+            <extent x="2" y="1.4" z="0.4"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="roundchair" type="2">
+        <shape type="obb">
+            <center x="0" y="0" z="0"/>
+            <extent x="0.2675" y="0.6" z="0.25"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="staircase" type="2">
+        <shape type="obb">
+            <center x="0" y="0.546" z="0"/>
+            <extent x="1.6" y="1.9285" z="2.3"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="table" type="2">
+        <shape type="obb">
+            <center x="0" y="-0.039" z="0"/>
+            <extent x="1" y="0.45" z="0.5"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="wall" type="2">
+        <shape type="obb">
+            <center x="0" y="0" z="0"/>
+            <extent x="2" y="1.4" z="0.4"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="woodenbox" type="2">
+        <shape type="obb">
+            <center x="0" y="0" z="0"/>
+            <extent x="0.35" y="0.35" z="0.35"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="bed" type="2">
+        <shape type="obb">
+            <center x="0" y="0" z="0"/>
+            <extent x="0.4" y="1.1" z="0.5"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="shelves" type="2">
+        <shape type="obb">
+            <center x="0" y="0" z="0"/>
+            <extent x="1.0" y="0.7" z="1.2"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="reliq" type="2">
+        <shape type="obb">
+            <center x="0" y="0" z="0"/>
+            <extent x="0.5" y="1.3" z="0.5"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+    
+    <body name="candle" type="2">
+        <shape type="obb">
+            <center x="0" y="0" z="0"/>
+            <extent x="0.3" y="1.4" z="0.3"/>
+            <axes a00="1" a01="0" a02="0" a10="0" a11="1" a12="0" a20="0" a21="0" a22="1" />
+        </shape>
+    </body>
+</bodies>

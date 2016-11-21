@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout">
+    <Widget type="ImageBox" skin="ImageBox" position_real="0.00390625 0.0402778 0.50625 0.165278" align="ALIGN_DEFAULT" layer="Back" name="imgTitle">
+        <Property key="ImageTexture" value="siontowertitle.png"/>
+    </Widget>
+    <Widget type="TextBox" skin="TextBox" position_real="0.55 0.1 0.5 0.0527778" layer="Back" name="lblSubtitle">
+        <Property key="FontHeight" value="40"/>
+        <Property key="Caption" value="#ffffffLevel selection"/>
+    </Widget>
+        <Widget type="Button" skin="Button" position_real="0.834375 0.8875 0.146875 0.0805556" layer="Back" name="btnBack">
+        <Property key="Caption" value="Back"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+</MyGUI>

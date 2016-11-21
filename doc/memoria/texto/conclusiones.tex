@@ -1,0 +1,212 @@
+Tras haber explicado todo el proceso de desarrollo de \wiki\ y \juego\
+a lo largo del presente documento, en esta sección haremos una valoración
+acerca del proyecto. En primer lugar hablaré de como me ha afectado en el plano
+personal y académico para después tratar los aspectos técnicos. Finalmente
+finalizaremos con las posibles ampliaciones que podría sufrir en el futuro.\\
+
+\section{Conclusiones personales}
+
+Con \wiki\ y \juego\ he adquirido una gran cantidad de conceptos y me he
+enriquecido muchísimo como persona y desarrollador. Si bien ya había
+trabajado de forma independiente en algún videojuego sencillo o proyecto
+de distinta índole, este sin duda era el reto de mayor envergadura al que
+me había enfrentado jamás. De ahí que la fase de aprendizaje fuese tan
+larga al comienzo del proyecto aunque después se extendiera durante
+todo este tiempo.\\
+
+En los siguientes puntos repasaré de forma superficial lo que he aprendido:
+
+\begin{enumerate}
+    \itemsep0em
+    \item \textbf{Juegos 3D}: hasta el momento había desarrollado juegos
+    sencillos en dos dimensiones pero no conocía el mundo de las tres dimensiones.
+    Consideré que el Proyecto Fin de Carrera me brindaba una oportunidad
+    excelente para aprender y me decidí a intentarlo. Es una aproximación
+    muy diferente, atractiva y llena de retos. Es necesario conocer todo
+    un conjunto de técnicas y conceptos totalmente nuevos y me ha resultado
+    de lo más interesante.\\
+    
+    \item \textbf{Nuevas bibliotecas}: he hecho uso de muchas bibliotecas
+    que no conocía y he necesitado aprender a utilizarlas correctamente.
+    Entre estas bibliotecas se encuentran la propia \textsc{Ogre3D},
+    \textsc{MyGUI}, \textsc{Boost} o \textsc{pugixml}. Anteriormente
+    había utilizado \textsc{libSDL mixer} pero nunca me había visto obligado
+    a integrarla dentro de un sistema más grande como es la gestión
+    de recursos de \textsc{Ogre3D}. \textsc{Boost} es una biblioteca de
+    lo más versátil y potente que complementa en muchos aspectos a la
+    estándar de C++. De hecho, muchas de sus características aparecerán
+    en el nuevo C++ 0x.\\
+    
+    \item \textbf{Matemáticas para videojuegos}: no sólo he tenido que repasar
+    conceptos matemáticos de geometría del espacio y álgebra sino que he
+    tenido que incorporar otros nuevos. Tanto de cara a \wiki\ como para
+    \juego\ me he visto obligado a aplicar estos conceptos con el objetivo
+    de buscar soluciones a problemas de programación.\\
+    
+    \item \textbf{Lenguaje C++}: desde el segundo curso de Ingeniería
+    Técnica en Informática de Gestión he estado utilizando C++ no sólo
+    dentro del ámbito estrictamente académico. No obstante, desarrollar
+    \juego\ me ha servido para profundizar en los detalles del lenguaje
+    y aprender a utilizarlos a mi favor.\\
+    
+    \item \textbf{Python}: este lenguaje de scripting orientado a objetos
+    se ha mostrado extremadamente útil a la hora de desarrollar
+    pequeños programas auxiliares. Por ejemplo, lo he utilizado en el script
+    que soluciona el problema de la escala en la exportación de modelos
+    tridimensionales y en el que extrae las cadenas traducibles de plantillas
+    de interfaz. Es un lenguaje extremadamente sencillo y fácil de aprender
+    pero muy potente y que agiliza el desarrollo de herramientas simples.\\
+     
+    \item \textbf{Optimización}: los videojuegos son sistemas complejos
+    que, de no prestar especial atención, podrían hacer un consumo irracional
+    de recursos. Es necesario aplicar técnicas de optimización tanto en
+    términos de uso de procesador como de consumo de memoria. Este proyecto
+    me ha servido para conocer varias de estas técnicas y algoritmos concretos
+    cuyo rendimiento es superior al de otros en momentos concretos. Por ejemplo,
+    en primer lugar empleé el algoritmo A* para la búsqueda de caminos
+    aunque la precomputación con Floyd probó ser más eficiente.\\
+    
+    \item \textbf{Técnicas de IA}: hasta el momento conocía algunas técnicas
+    de inteligencia artificial sobre teoría de juegos, búsqueda de caminos
+    o autómatas para modelar comportamientos. No obstante, no había aplicado
+    dichas técnicas al mundo de las tres dimensiones. En \juego\ se realiza
+    una búsqueda de caminos a partir de una malla definida en tiempo de diseño.
+    Además, los enemigos hacen uso de algoritmos de movimiento (
+    \textit{Steering Behaviors}) que desconocía hasta este momento.\\
+     
+    \item \textbf{Diseño de un videojuego}: los videojuegos que había
+    desarrollado con anterioridad con contaban con un documento de diseño
+    en el que se detallara la forma de jugar, personajes, historia, etc.
+    En este caso ha sido muy necesario ya que ha ayudado al proceso de análisis
+    y diseño. Además, los colaboradores han podido conocer las necesidades
+    del proyecto en cuanto a recursos artísticos se refiere. Los integrantes
+    del equipo conocíamos en todo momento el estilo de juego y la apariencia
+    que debía tener \juego.\\
+    
+    \item \textbf{Trabajo en equipo}: en \wiki\ se ha trabajado junto
+    a la comunidad en todo momento. Los lectores enviaban sus opiniones y
+    éstas debían ser tenidas en cuenta. En \juego\ el trabajo en equipo
+    se hizo mucho más evidente ya que colaboramos en todo momento seis
+    personas especializadas en disciplinas muy distintas. Hubo que realizar
+    labores de coordinación, comunicación y resolución de conflictos
+    (sobre todo relacionados con los formatos empleados). Una experiencia
+    muy enriquecedora y que, sin duda, me ayudará en mi futuro profesional.\\ 
+    
+    \item \textbf{Redacción en MediaWiki}: hasta el momento mi relación
+    con el motor \textit{MediaWiki} se había limitado a ediciones muy
+    esporádicas en Wikipedia que no requerían conocimientos de la sintaxis
+    que se utilizaba. Me he visto obligado a conocer la sintaxis de redacción
+    en \textit{Wikimedia} para redactar correctamente los artículos.\\
+    
+    \item \textbf{Trabajo en wikis}: no sólo basta con conocer la sintaxis
+    de \textit{Wikimedia} para poder participar en la confección de una wiki.
+    Existen toda una serie de convenciones de escritura, comportamiento,
+    nomenclatura y estructuras que deben ser conocidas.\\
+    
+    \item \textbf{Aplicación de conocimientos}: el desarrollo de este
+    proyecto me ha sido especialmente útil para poner en práctica aquellos
+    conocimientos adquiridos durante la Ingeniería Técnica. Sobre todo
+    me refiero a aquellos relacionados con la Ingeniería del Software.\\
+\end{enumerate}
+
+\section{Conclusiones técnicas}
+
+En \wiki\ y \juego\ se han cumplido con los objetivos propuestos en el
+capítulo introductorio de esta memoria de Proyecto Fin de Carrera. En la
+plataforma de aprendizaje se ha conseguido:
+
+% Objetivos cumplidos con IberOgre
+\begin{itemize}
+    \itemsep0em
+    \item Se ha creado contenido organizado en bloques temáticos tal y como
+    se propuso: introducción, matemáticas para videojuegos, \textsc{Ogre3D},
+    otras tecnologías y videojuegos desarrollados con \textsc{Ogre3D}.
+    \item La navegación es intuitiva y los artículos están ordenados
+    de forma aproximada en dificultad ascendente.
+    \item Es posible adquirir los conocimientos de geometría del espacio
+    necesarios para desarrollar juegos en 3D.
+    \item Se han cubierto los aspectos básicos del uso del motor de renderizado
+    \textsc{Ogre3D}.
+    \item Otras tecnologías enfocadas al desarrollo de videojuegos han sido
+    explicadas a través de varios artículos.
+    \item Los artículos están dotados de un enfoque práctico gracias a los
+    ejemplos finales y a los pequeños fragmentos de código intermedios.
+    \item Varios usuarios han mostrado interés, han colaborado con el proyecto
+    ya sea mediante correcciones, artículos, sugerencias o ayudando a difundir
+    la plataforma.
+\end{itemize}
+
+% Objetivos cumplidos con Sion Tower
+En el videojuego \juego\ hemos conseguido:
+
+\begin{itemize}
+    \itemsep0em
+    \item Construir un videojuego completo empleando los conocimientos de
+    \wiki\ y otros conceptos profusamente documentados.
+    \item Creación de un motor orientado a la creación de contenido. Es posible
+    crear nuevos niveles complejos sin necesidad de tocar una sola línea
+    de código.
+    \item Aplicación multilenguaje gracias a \textsc{gettext}.
+    \item Creación de un videojuego que entretiene gracias a las impresiones
+    que han prestado los colaboradores a lo largo de todas las fases del
+    desarrollo.
+    \item Implementación de un motor modular fácilmente ampliable. Varios
+    subsistemas han sido liberados de forma independiente y están siendo
+    utilizados por otros usuarios.
+\end{itemize}
+
+Se han generado estadísticas sobre el uso del repositorio \textit{Subversion}
+empleando la herramienta libre \textit{StatsSVN} \cite{website:statssvn}.
+En total el proyecto está compuesto por 619.000 líneas de código aunque
+entre ellas se encuentran las distintas ramas (con código duplicado)
+y líneas de documentación (esta memoria, por ejemplo). Cabe destacar
+que se han realizado más de 500 commits, lo que permite volver hacia atrás
+de forma sencilla. Es posible acceder al informe de estadísticas desde
+la siguiente dirección.\\
+
+\url{http://siondream.com/iberogre-siontower-statsvn}\\
+
+\section{Trabajos futuros}
+
+Es cierto que los objetivos que nos marcamos al comienzo del desarrollo
+han sido cumplidos satisfactoriamente, no obstante se han detectado puntos
+en los que el proyecto podría mejorar. A continuación hacemos una lista
+de las posibles mejoras de \wiki.
+
+% Mejoras en IberOgre
+%   - Artículos en Ogre
+%   - Artículos en otras tecnologías
+%   - Artículos en videojuegos
+\begin{itemize}
+    \item Consolidación de una comunidad de redactores y lectores para
+    la plataforma de pruebas.
+    \item Nuevos artículos sobre videojuegos desarrollados con \textsc{Ogre3D}
+    en los que el propio desarrollador comente la experiencia del desarrollo
+    y proporcione o enlace documentación de interés.
+    \item Artículos en la sección \textsc{Ogre3D} que documenten los sistemas
+    de \textit{shading} con los que cuenta el motor.
+    \item Documentar alguna biblioteca o sistema para incluir juego en red en
+    la sección de otras tecnologías.\\
+\end{itemize}
+
+En \juego\ podrían incluirse las siguientes mejoras:
+
+% Mejoras en Sion Tower
+%   - Más hechizos
+%   - Experiencia, subida de nivel, aumento tde características
+%   - Idiomas adicionales
+%   - IA distinta para cada enemigo
+
+\begin{itemize}
+    \item Nuevos hechizos: paralización, teletransporte para huir, colocación
+    de trampas, etc.
+    \item Mayor relevancia de los puntos de experiencia, podrían permitir
+    subir de nivel, mejorar la energía y el maná así como desbloquear
+    hechizos.
+    \item Enemigos adicionales como arañas gigantes o criaturas voladoras
+    con comportamientos diferentes.
+    \item Nuevos niveles de mayor tamaño que permitan la aplicación de
+    técnicas de búsqueda de caminos jerárquicas.
+    \item Escenas narrativas mediante animaciones que fueran contando
+    la historia entre niveles.
+\end{itemize}

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout">
+    <Widget type="Widget" skin="PanelSkin" position_real="0.5625 0.263889 0.414063 0.361111" layer="Back" name="panelProfileSel">
+        <Property key="Alpha" value="0.5"/>
+        <Widget type="TextBox" skin="TextBox" position_real="0.0358491 0.0769231 0.301887 0.115385" name="lblProfileSel">
+            <Property key="Caption" value="Select your profile"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="Button" skin="Button" position_real="0.0433962 0.769231 0.20566 0.15" name="btnAccept">
+            <Property key="Caption" value="Accept"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="Button" skin="Button" position_real="0.266038 0.769231 0.20566 0.15" name="btnDelete">
+            <Property key="Caption" value="Delete"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="ListBox" skin="ListBox" position_real="0.0377358 0.184615 0.433962 0.546154" name="listProfiles">
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.449811 0.192308 0.302642 0.107692" name="lblLevels">
+            <Property key="Caption" value="Levels unlocked"/>
+            <Property key="TextAlign" value="ALIGN_RIGHT ALIGN_VCENTER"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.52717 0.307692 0.215283 0.153846" name="lblExperience">
+            <Property key="TextAlign" value="ALIGN_RIGHT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="Experience"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.801321 0.192308 0.150943 0.115385" name="lblLevels2">
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="4"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.801321 0.330769 0.188679 0.115385" name="lblExperience2">
+            <Property key="Caption" value="23243234"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+    </Widget>
+    <Widget type="Widget" skin="PanelSkin" position_real="0.5625 0.644444 0.414063 0.218056" layer="Back" name="panelProfileCreation">
+        <Property key="Alpha" value="0.5"/>
+        <Widget type="TextBox" skin="TextBox" position_real="0.0339623 0.0955414 0.339623 0.159236" name="lblProfileCreation">
+            <Property key="Caption" value="Create a new profile"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.0349623 0.414013 0.1067925 0.0955414" name="lblName">
+            <Property key="Caption" value="Name"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="EditBox" skin="EditBox" position_real="0.148302 0.33758 0.39434 0.216561" name="editName">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+        </Widget>
+        <Widget type="Button" skin="Button" position_real="0.148302 0.649682 0.203774 0.22293" name="btnCreate">
+            <Property key="Caption" value="Create"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.54717 0.382166 0.430189 0.171975" name="lblErrorCreate">
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+    </Widget>
+    <Widget type="Button" skin="Button" position_real="0.834375 0.8875 0.146875 0.0805556" layer="Back" name="btnBack">
+        <Property key="Caption" value="Back"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+    <Widget type="ImageBox" skin="ImageBox" position_real="0.00390625 0.0402778 0.50625 0.165278" align="ALIGN_DEFAULT" layer="Back" name="imgTitle">
+        <Property key="ImageTexture" value="siontowertitle.png"/>
+    </Widget>
+    <Widget type="TextBox" skin="TextBox" position_real="0.55 0.1 0.5 0.0527778" layer="Back" name="lblSubtitle">
+        <Property key="FontHeight" value="40"/>
+        <Property key="Caption" value="#ffffffProfile selection"/>
+    </Widget>
+</MyGUI>

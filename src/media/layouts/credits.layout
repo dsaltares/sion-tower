@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout">
+    <Widget type="Widget" skin="PanelSkin" position_real="0.53125 0.305555 0.453125 0.4583333" layer="Back" name="panelCredits">
+        <Property key="Alpha" value="0.5"/>
+        <Widget type="TextBox" skin="TextBox" position_real="0.170689 0.07878 0.4120 0.054545" name="lblProgramming">
+            <Property key="Caption" value="Design and programming"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.170689 0.2393939 0.310344 0.054545" name="lbl3DArtCharacters">
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="Characters art "/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.170689 0.38181818 0.310344 0.054545" name="lbl3DArtScenarios">
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="Levels and GUI art"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.170689 0.53636363 0.310344 0.054545" name="lblMusic">
+            <Property key="Caption" value="Original soundtrack"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.170689 0.6909090 0.310344 0.054545" name="lblSFX">
+            <Property key="Caption" value="Sound Effects"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.170689 0.845454 0.310344 0.054545" name="lbl2DSpells">
+            <Property key="Caption" value="2D spell icons"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.5862 0.07878 0.37931 0.087878" name="lblDavid1">
+            <Property key="Caption" value="David Saltares Márquez"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.5862 0.2393939 0.37931 0.087878" name="lblAntonio">
+            <Property key="Caption" value="Antonio Jiménez Rodríguez"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.5862 0.38181818 0.37931 0.087878" name="lblDavid2">
+            <Property key="Caption" value="David Saltares Márquez"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.5862 0.53636363 0.37931 0.087878" name="lblEvergreen">
+            <Property key="Caption" value="Evergreen Studio"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.5862 0.6909090 0.37931 0.087878" name="lblFrancisco">
+            <Property key="Caption" value="Francisco Martín Márquez"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.5862 0.845454 0.37931 0.087878" name="lblDaniel">
+            <Property key="Caption" value="Daniel Belohlavek"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.068965 0.054545 0.068965 0.121212" name="imgProgramming">
+            <Property key="ImageTexture" value="programming.png"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.068965 0.2060606 0.068965 0.121212" name="imgCharacter">
+            <Property key="ImageTexture" value="characters.png"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.068965 0.360606 0.068965 0.121212" name="imgLevels">
+            <Property key="ImageTexture" value="levels.png"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.068965 0.512121 0.068965 0.121212" name="imgMusic">
+            <Property key="ImageTexture" value="music.png"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.068965 0.666666 0.068965 0.121212" name="imgSFX">
+            <Property key="ImageTexture" value="sound.png"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.068965 0.82121212 0.068965 0.121212" name="img2DSpells">
+            <Property key="ImageTexture" value="fire.png"/>
+            <Property key="Alpha" value="2"/>
+        </Widget>
+    </Widget>
+    <Widget type="Button" skin="Button" position_real="0.834375 0.8875 0.146875 0.0805556" layer="Back" name="btnBack">
+        <Property key="Caption" value="Back"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+    <Widget type="ImageBox" skin="ImageBox" position_real="0.00390625 0.0402778 0.50625 0.165278" align="ALIGN_DEFAULT" layer="Back" name="imgTitle">
+        <Property key="ImageTexture" value="siontowertitle.png"/>
+    </Widget>
+    <Widget type="TextBox" skin="TextBox" position_real="0.55 0.1 0.5 0.0527778" layer="Back" name="lblSubtitle">
+        <Property key="FontHeight" value="40"/>
+        <Property key="Caption" value="#ffffffCredits"/>
+    </Widget>
+</MyGUI>

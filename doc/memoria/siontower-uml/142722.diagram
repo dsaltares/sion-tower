@@ -1,0 +1,43 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 8 11 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 289 9 2000 life_line_z 2000
+note 128258 "[* ser impactado]"
+  xyzwh 47 157 3005 161 35
+durationcanvas 128514 classinstance_ref 128130 // :System
+  xyzwh 314 177 2010 11 85
+end
+durationcanvas 128642 classinstance_ref 128130 // :System
+  xyzwh 314 78 2010 11 54
+end
+durationcanvas 128770 classinstance_ref 128002 // :Jugador
+  xyzwh 30 81 2010 11 189
+end
+msg 129154 asynchronous
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128514
+  yz 183 2015 msg operation_ref 128258 // "Interactuar()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 215 168
+msg 129282 return
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128770
+  yz 121 2015 explicitmsg "Escenario"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 149 105
+msg 129410 return
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128770
+  yz 235 2015 explicitmsg "Personaje herido"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 129 219
+msg 129538 synchronous
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128642
+  yz 86 2015 msg operation_ref 128130 // "PantallaJuego()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nivel"
+  label_xy 115 72
+end

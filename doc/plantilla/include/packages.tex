@@ -1,0 +1,50 @@
+% Importaciones y paquetes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Codificación
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,activeacute]{babel}
+
+% Paquetes extras
+\usepackage{listings} % Trozos de código
+\usepackage{graphicx} % Imágenes
+\usepackage{fancyhdr} % Cabeceras
+\usepackage{lscape}   % Apaisado
+\usepackage{hyperref} % Enlaces
+\usepackage{float} % para que H funcione en figure
+\usepackage[left=2.5cm,top=2.5cm,right=2cm,bottom=2.5cm]{geometry}
+
+% Configuración  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstset{language=C++,
+	showstringspaces=true}
+
+% Figura centrada con \figura{proporcion}{ruta}{caption}{label}
+% Ejemplo de uso: \figura{0.5}{img.png}{Boceto}{figura1}
+% El argumento proporción es opcional y por defecto es el ancho del texto
+%
+%                 nargs   defaults
+\newcommand{\figura}[4][1]{
+\begin{figure}[H!] % Aparecerá justo donde está el código
+	\centering
+	     \includegraphics[width=#1\textwidth]{#2}
+	\caption{#3}
+	\label{#4}
+\end{figure}
+}
+
+% Figura centrada y rotada 90º a la derecha
+% con \figura{proporcion}{ruta}{caption}{label}
+% Ejemplo de uso: \figura{0.5}{img.png}{Boceto}{figura1}
+% El argumento proporción es opcional y por defecto es el ancho del texto
+%
+%                 nargs   defaults
+\newcommand{\figuraApaisada}[4][1]{
+\begin{figure}[H!] % Aparecerá justo donde está el código
+	\centering
+	     \includegraphics[width=#1\textwidth,angle=90]{#2}
+	\caption{#3}
+	\label{#4}
+\end{figure}
+}
+
+

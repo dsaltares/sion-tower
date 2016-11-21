@@ -1,0 +1,150 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR David Saltares Márquez
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: siontower 0.1\n"
+"Report-Msgid-Bugs-To: david.saltares@gmail.com-s\n"
+"POT-Creation-Date: 2011-07-10 15:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Design and programming"
+msgstr ""
+
+msgid "Characters art "
+msgstr ""
+
+msgid "Levels and GUI art"
+msgstr ""
+
+msgid "Original soundtrack"
+msgstr ""
+
+msgid "Sound Effects"
+msgstr ""
+
+msgid "David Saltares Márquez"
+msgstr ""
+
+msgid "Antonio Jiménez Rodríguez"
+msgstr ""
+
+msgid "Evergreen Studio"
+msgstr ""
+
+msgid "Francisco Martín Márquez"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "#ffffffCredits"
+msgstr ""
+
+msgid "Select your profile"
+msgstr ""
+
+msgid "Accept"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Levels unlocked"
+msgstr ""
+
+msgid "Experience"
+msgstr ""
+
+msgid "Create a new profile"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "#ffffffProfile selection"
+msgstr ""
+
+msgid "#ffffffLevel selection"
+msgstr ""
+
+msgid "Main menu"
+msgstr ""
+
+msgid "You have unlocked a new level"
+msgstr ""
+
+msgid "Experience obtained"
+msgstr ""
+
+msgid "Enemies Killed"
+msgstr ""
+
+msgid "Life left"
+msgstr ""
+
+msgid "Mana used"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "#ffffffCongratulations!"
+msgstr ""
+
+msgid "Replay"
+msgstr ""
+
+msgid "Level selection"
+msgstr ""
+
+msgid "#ffffffThe horde is comming!"
+msgstr ""
+
+msgid "Resume"
+msgstr ""
+
+msgid "Level Selection"
+msgstr ""
+
+msgid "Pause menu"
+msgstr ""
+
+msgid "Pause"
+msgstr ""
+
+msgid "00:00"
+msgstr ""
+
+msgid "Life"
+msgstr ""
+
+msgid "Mana"
+msgstr ""
+
+msgid "Play"
+msgstr ""
+
+msgid "#ffffffA horde is comming, defend the Sacred Tower!"
+msgstr ""
+
+msgid "Credits"
+msgstr ""
+
+msgid "Exit"
+msgstr ""
+

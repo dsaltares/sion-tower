@@ -1,0 +1,113 @@
+% -*-memoria.tex-*-
+% Este fichero es parte de la plantilla LaTeX para
+% la realización de Proyectos Final de Carrera, protejido
+% bajo los términos de la licencia GFDL.
+% Para más información, la licencia completa viene incluida en el
+% fichero fdl-1.3.tex
+
+% Copyright (C) 2009 Pablo Recio Quijano 
+
+%-------------------------------------------------------
+% ---- Plantilla para libros / memorias PFC -----
+
+% Realizada por Pablo Recio Quijano y Noelia Sales Montes 
+% Formato de portada y primera página tomado del PFC de
+% Francisco Javier Vázquez Púa, en su proyecto 'libgann'
+% -------------------------------------------------------
+
+\documentclass[a4paper,11pt]{book}
+
+\usepackage{./estilos/estiloBase} % Basicamente son todas las
+                                  % librerias usadas. En caso de que
+                                  % falten librerias se van añadiendo
+                                  % al fichero.
+\usepackage{./estilos/colores}  % Algunos colores ya generados, para
+                                % los algunos estilos más avanzados.
+\usepackage{./estilos/comandos} % Algunos comandos personalizados
+
+\graphicspath{{./imagenes/}} % Indicamos la ruta donde se encuentran
+                             % las imagenes, para ahorrarnos la ruta
+                             % completa, y solo modificar aquí si en
+                             % un momento dado lo movemos
+
+\begin{document}
+
+% Renombramos las figuras y las tablas
+\renewcommand{\figurename}{Figura}
+\renewcommand{\listfigurename}{Indice de figuras}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{Indice de tablas}
+
+\pagestyle{empty}
+\input{portada.tex}
+\cleardoublepage
+
+\input{primerahoja.tex}
+\cleardoublepage
+\pagestyle{plain}
+
+\frontmatter % Introducción, índices ...
+
+\input{previo.tex}
+\cleardoublepage
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter % Contenido en si ...
+
+\chapter{Introducción}
+\label{chap:introduccion}
+\input{texto/introduccion.tex}
+
+\chapter{Organización temporal}
+\label{chap:calendario}
+\input{texto/calendario.tex}
+
+\chapter{Desarrollo de IberOgre}
+\label{chap:desarrollo-iberogre}
+\input{texto/desarrollo-iberogre.tex}
+
+\chapter{Desarrollo de Sion Tower}
+\label{chap:desarrollo-siontower}
+\input{texto/desarrollo-siontower.tex}
+
+\chapter{Conclusiones}
+\label{chap:conclusiones}
+\input{texto/conclusiones.tex}
+
+
+
+\backmatter % Apéndices, bibliografia ...
+
+\addcontentsline{toc}{chapter}{Software usado}
+\chapter*{Software utilizado}
+\label{chap:software}
+\input{texto/software.tex}
+
+\addcontentsline{toc}{chapter}{Manual de usuario}
+\chapter*{Manual de usuario}
+\label{chap:manual}
+\input{texto/manual.tex}
+
+\addcontentsline{toc}{chapter}{Comunidad y difusión}
+\chapter*{Comunidad y difusión}
+\label{chap:comunidad}
+\input{texto/comunidad.tex}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliografia y referencias}
+\bibliographystyle{plain}
+\bibliography{bibliografia}
+
+
+
+
+%\addcontentsline{toc}{chapter}{Instalación de \LaTeX}
+%\chapter*{Instalación de \LaTeX}
+%\input{instalacion.tex}
+
+\input{fdl-1.3.tex}
+
+\end{document}

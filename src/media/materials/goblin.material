@@ -1,0 +1,59 @@
+// Materials for goblin.material
+
+material cuero
+{
+	technique
+	{
+		pass
+		{
+			specular 0.34 0.22 0.15 1.00
+			diffuse 0.34 0.22 0.15 1.00
+			
+		}
+	}
+}
+
+material cuchillo2
+{
+	technique
+	{
+		pass
+		{
+			diffuse 0.64 0.48 0.48 1.00
+			
+			texture_unit
+			{
+				texture goblin-cuchillo.jpg
+			}
+		}
+	}
+}
+
+material cuchillo1
+{
+	technique
+	{
+		pass
+		{
+			diffuse 0.28 0.28 0.28 1.00
+			
+		}
+	}
+}
+
+material piel
+{
+	technique
+	{
+		pass
+		{
+			diffuse 0.80 0.80 0.80 1.00
+			
+			texture_unit
+			{
+				texture goblin-piel.jpg
+			}
+		}
+	}
+}
+

@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR David Saltares Márquez
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: siontower 0.1\n"
+"Report-Msgid-Bugs-To: david.saltares@gmail.com-s\n"
+"POT-Creation-Date: 2011-07-10 15:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: media/levels/level04_info.xml:3(name)
+msgid "The Sacred Chamber"
+msgstr ""
+
+#: media/levels/level04_info.xml:4(description)
+msgid "This is the final test, destroy the monsters or they\\nwill get the Sacred Relics!"
+msgstr ""
+
+#: media/levels/level03_info.xml:3(name)
+msgid "The ritual floor"
+msgstr ""
+
+#: media/levels/level03_info.xml:4(description)
+msgid "The horde has entered the ritual floor, protect it\\nor the Gods will be furious!"
+msgstr ""
+
+#: media/levels/level02_info.xml:3(name)
+msgid "The apprentices' chambers"
+msgstr ""
+
+#: media/levels/level02_info.xml:4(description)
+msgid "They have reached the apprentices' chambers,\\nstop them before it is too late!"
+msgstr ""
+
+#: media/levels/level01_info.xml:3(name)
+msgid "The Hall"
+msgstr ""
+
+#: media/levels/level01_info.xml:4(description)
+msgid "Some enemies have assaulted the main hall of\\nthe Sacred Tower. Stop the invasion!"
+msgstr ""
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: media/levels/level01_info.xml:0(None)
+msgid "translator-credits"
+msgstr ""
+

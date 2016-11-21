@@ -1,0 +1,58 @@
+format 74
+
+note 128002 "[* morir]"
+  xyzwh 49 171 3005 161 35
+classinstance 128130 class_ref 128002 // Jugador
+  name ""   xyz 11 12 2000 life_line_z 2000
+classinstance 128258 class_ref 144770 // System
+  name ""   xyz 292 13 2000 life_line_z 2000
+durationcanvas 128386 classinstance_ref 128258 // :System
+  xyzwh 317 191 2010 11 85
+end
+durationcanvas 128514 classinstance_ref 128130 // :Jugador
+  xyzwh 33 94 2010 11 306
+end
+durationcanvas 128642 classinstance_ref 128258 // :System
+  xyzwh 317 92 2010 11 53
+end
+durationcanvas 129282 classinstance_ref 128258 // :System
+  xyzwh 317 322 2010 11 58
+end
+msg 128770 asynchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128386
+  yz 195 2015 msg operation_ref 128258 // "Interactuar()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 217 181
+msg 128898 return
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128514
+  yz 133 2015 explicitmsg "Escenario"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 151 118
+msg 129026 synchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128642
+  yz 98 2015 msg operation_ref 128130 // "PantallaJuego()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nivel"
+  label_xy 120 85
+msg 129154 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128514
+  yz 247 2015 explicitmsg "Derrota"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 155 231
+msg 129410 asynchronous
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 129282
+  yz 323 2015 msg operation_ref 129794 // "ReintentarPartida()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 121 308
+msg 129538 return
+  from durationcanvas_ref 129282
+  to durationcanvas_ref 128514
+  yz 369 2015 explicitmsg "CambiarPantalla(SeleccionNivel)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 82 354
+end

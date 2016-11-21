@@ -1,0 +1,15 @@
+window_sizes 1920 1003 532 1382 809 120
+diagrams
+  classdiagram_ref 157570 // Design classes 2
+    771 477 110 4 0 103
+  active  usecasediagram_ref 128002 // Use case diagram
+    1105 647 110 4 0 0
+end
+show_stereotypes
+selected usecasediagram_ref 128002 // Use case diagram
+open
+  usecaseview_ref 128002 // Use case view
+  class_ref 135554 // Enemy
+  class_ref 166018 // SteeringBehaviour
+end
+end

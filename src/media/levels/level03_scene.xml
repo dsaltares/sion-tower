@@ -1,0 +1,817 @@
+<scene formatVersion="1.0.0">
+  <nodes>
+    <node name="scene-staircase.001">
+      <position x="-18.447254" y="1.400000" z="-17.547432"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-staircase.001" meshFile="staircase.mesh"/>
+    </node>
+    <node name="scene-floor8x8.004">
+      <position x="-8.000000" y="0.000000" z="8.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.004" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="enemy.demon.200.001">
+      <position x="-13.184182" y="1.564549" z="1.652655"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.demon.200.001" meshFile="enemy.demon.mesh"/>
+    </node>
+    <node name="scene-floor8x8.003">
+      <position x="-16.000000" y="0.000000" z="-0.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.003" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-staircase">
+      <position x="10.453186" y="1.400000" z="-17.547432"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-staircase" meshFile="staircase.mesh"/>
+    </node>
+    <node name="scene-wall.018">
+      <position x="-10.000000" y="1.400000" z="20.000000"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="-0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.018" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.019">
+      <position x="-6.000000" y="1.866221" z="20.000000"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="-0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.019" meshFile="door.mesh"/>
+    </node>
+    <node name="scene-wall.012">
+      <position x="-6.001965" y="1.400000" z="-20.017384"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.012" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.013">
+      <position x="-10.001965" y="1.400000" z="-20.017384"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.013" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.010">
+      <position x="12.000000" y="1.400000" z="-6.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.010" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.011">
+      <position x="12.000000" y="1.400000" z="-10.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.011" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.016">
+      <position x="-14.001965" y="1.400000" z="-20.017384"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.016" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.017">
+      <position x="5.998035" y="1.402088" z="-20.017384"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.017" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.014">
+      <position x="-2.001964" y="1.402088" z="-20.017384"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.014" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.015">
+      <position x="-18.001965" y="1.400000" z="-20.017384"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.015" meshFile="wall.mesh"/>
+    </node>
+    <node name="navMesh">
+      <position x="0.000000" y="0.000000" z="-0.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="navMesh" meshFile="navMesh3.mesh"/>
+    </node>
+    <node name="scene-candle">
+      <position x="-1.655538" y="0.000000" z="-15.622686"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-candle" meshFile="candle.mesh"/>
+    </node>
+    <node name="scene-wall.009">
+      <position x="1.998036" y="1.400000" z="-20.017384"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.009" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.008">
+      <position x="12.000000" y="1.400000" z="2.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.008" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-floor8x8.011">
+      <position x="-16.000000" y="0.000000" z="-16.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.011" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-wall.001">
+      <position x="12.000000" y="1.400000" z="-14.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.001" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.003">
+      <position x="-20.000000" y="1.400000" z="-18.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.003" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.002">
+      <position x="-20.000000" y="1.400000" z="-14.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.002" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.005">
+      <position x="-20.000000" y="1.400000" z="-10.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.005" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.004">
+      <position x="-20.000000" y="1.402088" z="-2.000000"/>
+      <quaternion x="0.000000" y="0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.004" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.007">
+      <position x="-20.000000" y="1.400000" z="2.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.007" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.006">
+      <position x="-20.000000" y="1.400000" z="-6.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.006" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.100">
+      <position x="2.000000" y="1.403581" z="20.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.100" meshFile="wall.mesh"/>
+    </node>
+    <node name="torch">
+      <position x="-8.058025" y="0.965059" z="-19.728640"/>
+      <quaternion x="0.000000" y="0.000883" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="torch" meshFile="torch.mesh"/>
+    </node>
+    <node name="Camera">
+      <position x="-0.374790" y="7.257391" z="27.672583"/>
+      <quaternion x="-0.131759" y="-0.016477" z="0.000481" w="0.991145"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <camera name="Camera" fov="28.841546" projectionType="perspective">
+        <clipping nearPlaneDist="0.100000" farPlaneDist="100.000000"/>
+      </camera>
+    </node>
+    <node name="scene-wall.030">
+      <position x="-12.000000" y="1.400000" z="18.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.030" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.031">
+      <position x="-12.000000" y="1.400000" z="10.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.031" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.032">
+      <position x="-12.000000" y="1.400000" z="6.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.032" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.033">
+      <position x="-12.000000" y="1.402088" z="14.000000"/>
+      <quaternion x="0.000000" y="0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.033" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-column.023">
+      <position x="1.241772" y="0.328469" z="-7.865688"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.023" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.022">
+      <position x="0.335741" y="0.328469" z="-7.865688"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.022" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.021">
+      <position x="-0.540088" y="0.328469" z="-7.865688"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.021" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.020">
+      <position x="-1.385716" y="0.328469" z="-7.865688"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.020" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.027">
+      <position x="-1.385716" y="0.328469" z="-11.598837"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.027" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.026">
+      <position x="-0.540088" y="0.328469" z="-11.598837"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.026" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.025">
+      <position x="0.335741" y="0.328469" z="-11.598837"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.025" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.024">
+      <position x="1.241772" y="0.328469" z="-11.598837"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.024" meshFile="chair.mesh"/>
+    </node>
+    <node name="particle.flame.001">
+      <position x="-0.003149" y="1.854048" z="-19.544796"/>
+      <quaternion x="0.000000" y="0.000417" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="particle.flame.001" meshFile="particle-fire.mesh"/>
+    </node>
+    <node name="particle.flame.003">
+      <position x="-8.033335" y="1.854048" z="19.515015"/>
+      <quaternion x="0.000000" y="-1.000000" z="-0.000000" w="0.000429"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="particle.flame.003" meshFile="particle-fire.mesh"/>
+    </node>
+    <node name="scene-column">
+      <position x="-13.954815" y="1.395994" z="-4.060006"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column" meshFile="column.mesh"/>
+    </node>
+    <node name="particle.flame.005">
+      <position x="-8.056763" y="1.854048" z="-19.544796"/>
+      <quaternion x="0.000000" y="0.000417" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="particle.flame.005" meshFile="particle-fire.mesh"/>
+    </node>
+    <node name="particle.flame.004">
+      <position x="0.020279" y="1.854048" z="19.515015"/>
+      <quaternion x="0.000000" y="-1.000000" z="-0.000000" w="0.000429"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="particle.flame.004" meshFile="particle-fire.mesh"/>
+    </node>
+    <node name="scene-wall.023">
+      <position x="5.791641" y="1.400000" z="3.982616"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.023" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.022">
+      <position x="-17.777487" y="1.851581" z="3.982616"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.022" meshFile="door2.mesh"/>
+    </node>
+    <node name="scene-wall.021">
+      <position x="-13.777487" y="1.400000" z="3.982616"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.021" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.020">
+      <position x="9.998035" y="1.400000" z="-20.017384"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.020" meshFile="wall.mesh"/>
+    </node>
+    <node name="enemy.demon.200">
+      <position x="7.108348" y="1.564549" z="1.015193"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.demon.200" meshFile="enemy.demon.mesh"/>
+    </node>
+    <node name="scene-wall.026">
+      <position x="4.000000" y="1.400000" z="6.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.026" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.025">
+      <position x="4.000000" y="1.402088" z="14.000000"/>
+      <quaternion x="0.000000" y="0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.025" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.029">
+      <position x="4.000000" y="1.400000" z="18.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.029" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-wall.028">
+      <position x="4.000000" y="1.400000" z="10.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.028" meshFile="wall.mesh"/>
+    </node>
+    <node name="enemy.golem.100.005">
+      <position x="-3.516012" y="1.564549" z="18.332903"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.golem.100.005" meshFile="enemy.golem.mesh"/>
+    </node>
+    <node name="scene-column.018">
+      <position x="-0.540088" y="0.328469" z="-4.012716"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.018" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.019">
+      <position x="-1.385716" y="0.328469" z="-4.012716"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.019" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.016">
+      <position x="1.241772" y="0.328469" z="-4.012716"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.016" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.017">
+      <position x="0.335741" y="0.328469" z="-4.012716"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.017" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.014">
+      <position x="-7.516523" y="0.328469" z="-4.012716"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.014" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.015">
+      <position x="-6.610492" y="0.328469" z="-4.012716"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.015" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.012">
+      <position x="-9.237981" y="0.328469" z="-4.012716"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.012" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.013">
+      <position x="-8.392352" y="0.328469" z="-4.012716"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.013" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.010">
+      <position x="-8.392352" y="0.328469" z="-7.865688"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.010" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.011">
+      <position x="-9.237981" y="0.328469" z="-7.865688"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.011" meshFile="chair.mesh"/>
+    </node>
+    <node name="Lamp">
+      <position x="6.598338" y="5.903862" z="-15.730554"/>
+      <quaternion x="-0.284166" y="0.726942" z="0.342034" w="0.523275"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Spot" type="point">
+        <colourDiffuse r="0.359337" g="0.500903" b="0.380572"/>
+        <colourSpecular r="0.359337" g="0.500903" b="0.380572"/>
+        <lightAttenuation range="5000.0" constant="1.000000" linear="0.033333" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="enemy.goblin.250.002">
+      <position x="-0.541191" y="1.564549" z="18.332901"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.250.002" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="enemy.goblin.250.001">
+      <position x="-7.872000" y="1.564549" z="18.120415"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.250.001" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="scene-floor8x8">
+      <position x="-16.000000" y="0.000000" z="-8.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-wall.027">
+      <position x="12.000000" y="1.402088" z="-2.000000"/>
+      <quaternion x="0.000000" y="0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.027" meshFile="wall.mesh"/>
+    </node>
+    <node name="scene-candle.001">
+      <position x="-6.356130" y="0.000000" z="-15.622686"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-candle.001" meshFile="candle.mesh"/>
+    </node>
+    <node name="scene-column.001">
+      <position x="6.057146" y="1.395994" z="-4.060006"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.001" meshFile="column.mesh"/>
+    </node>
+    <node name="scene-column.003">
+      <position x="6.004323" y="1.395994" z="-12.036091"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.003" meshFile="column.mesh"/>
+    </node>
+    <node name="scene-column.002">
+      <position x="-14.007637" y="1.395994" z="-12.036091"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.002" meshFile="column.mesh"/>
+    </node>
+    <node name="scene-column.005">
+      <position x="-8.392352" y="0.328469" z="-11.598837"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.005" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.004">
+      <position x="-9.237981" y="0.328469" z="-11.598837"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.004" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.007">
+      <position x="-6.610492" y="0.328469" z="-11.598837"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.007" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.006">
+      <position x="-7.516523" y="0.328469" z="-11.598837"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.006" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.009">
+      <position x="-7.516523" y="0.328469" z="-7.865688"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.009" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-column.008">
+      <position x="-6.610492" y="0.328469" z="-7.865688"/>
+      <quaternion x="0.000000" y="1.000000" z="-0.000000" w="0.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-column.008" meshFile="chair.mesh"/>
+    </node>
+    <node name="scene-shelves">
+      <position x="3.486749" y="1.194434" z="16.206650"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-shelves" meshFile="shelves.mesh"/>
+    </node>
+    <node name="scene-floor8x8.010">
+      <position x="-8.000000" y="0.000000" z="16.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.010" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="enemy.goblin.25.004">
+      <position x="5.939671" y="1.564549" z="1.440167"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.25.004" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="scene-door2.024">
+      <position x="9.791641" y="1.851581" z="3.982616"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-door2.024" meshFile="door2.mesh"/>
+    </node>
+    <node name="scene-floor8x8.013">
+      <position x="0.000000" y="0.000000" z="-0.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.013" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-floor8x8.014">
+      <position x="-8.000000" y="0.000000" z="-16.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.014" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-floor8x8.015">
+      <position x="0.000000" y="0.000000" z="-16.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.015" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="enemy.goblin.25.003">
+      <position x="-14.246616" y="1.564549" z="1.333923"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.25.003" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="scene-floor8x8.005">
+      <position x="0.000000" y="0.000000" z="8.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.005" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="enemy.golem.150.002">
+      <position x="-0.434947" y="1.564549" z="18.226658"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.golem.150.002" meshFile="enemy.golem.mesh"/>
+    </node>
+    <node name="enemy.golem.150.001">
+      <position x="-7.022051" y="1.564549" z="18.120415"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.golem.150.001" meshFile="enemy.golem.mesh"/>
+    </node>
+    <node name="player">
+      <position x="-4.023729" y="0.790141" z="-0.722936"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="0.825000" y="0.825000" z="0.825000"/>
+      <entity name="player" meshFile="playerPos.mesh"/>
+    </node>
+    <node name="scene-wall">
+      <position x="12.000000" y="1.400000" z="-18.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall" meshFile="wall.mesh"/>
+    </node>
+    <node name="enemy.demon.70.002">
+      <position x="-0.859923" y="1.564549" z="18.120413"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.demon.70.002" meshFile="enemy.demon.mesh"/>
+    </node>
+    <node name="enemy.demon.70.003">
+      <position x="-15.415298" y="1.564549" z="1.440166"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.demon.70.003" meshFile="enemy.demon.mesh"/>
+    </node>
+    <node name="enemy.demon.70.001">
+      <position x="-8.721951" y="1.564549" z="18.439144"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.demon.70.001" meshFile="enemy.demon.mesh"/>
+    </node>
+    <node name="enemy.demon.25.001">
+      <position x="-7.340784" y="1.564549" z="18.332901"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.demon.25.001" meshFile="enemy.demon.mesh"/>
+    </node>
+    <node name="enemy.demon.25.002">
+      <position x="0.521244" y="1.564549" z="18.226658"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.demon.25.002" meshFile="enemy.demon.mesh"/>
+    </node>
+    <node name="scene-floor8x8.009">
+      <position x="0.000000" y="0.000000" z="16.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.009" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-floor8x8.008">
+      <position x="8.000000" y="0.000000" z="-8.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.008" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-floor8x8.007">
+      <position x="-8.000000" y="0.000000" z="-8.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.007" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="enemy.goblin.1.001">
+      <position x="-6.065860" y="1.564549" z="18.332901"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.1.001" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="enemy.goblin.1.002">
+      <position x="-1.816116" y="1.564549" z="18.439144"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.1.002" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="enemy.goblin.1.003">
+      <position x="-16.690220" y="1.564549" z="1.333923"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.1.003" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="enemy.goblin.1.004">
+      <position x="7.745810" y="1.564549" z="1.121436"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.1.004" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="scene-floor8x8.002">
+      <position x="8.000000" y="0.000000" z="-0.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.002" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-floor8x8.001">
+      <position x="-8.000000" y="0.000000" z="-0.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.001" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="torch.004">
+      <position x="0.021541" y="0.965059" z="19.698858"/>
+      <quaternion x="0.000000" y="-1.000000" z="-0.000000" w="0.000878"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="torch.004" meshFile="torch.mesh"/>
+    </node>
+    <node name="torch.001">
+      <position x="-0.004412" y="0.965059" z="-19.728640"/>
+      <quaternion x="0.000000" y="0.000883" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="torch.001" meshFile="torch.mesh"/>
+    </node>
+    <node name="enemy.demon.70.004">
+      <position x="9.126975" y="1.564549" z="1.652654"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.demon.70.004" meshFile="enemy.demon.mesh"/>
+    </node>
+    <node name="torch.003">
+      <position x="-8.032072" y="0.965059" z="19.698858"/>
+      <quaternion x="0.000000" y="-1.000000" z="-0.000000" w="0.000878"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="torch.003" meshFile="torch.mesh"/>
+    </node>
+    <node name="particle.flame2.001">
+      <position x="-6.359860" y="1.564549" z="-15.622330"/>
+      <quaternion x="0.000000" y="0.000417" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="particle.flame2.001" meshFile="particle-fire.mesh"/>
+    </node>
+    <node name="particle.flame2.002">
+      <position x="-1.655939" y="1.564549" z="-15.622330"/>
+      <quaternion x="0.000000" y="0.000417" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="particle.flame2.002" meshFile="particle-fire.mesh"/>
+    </node>
+    <node name="scene-door2.001">
+      <position x="-2.000000" y="1.850000" z="20.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-door2.001" meshFile="door2.mesh"/>
+    </node>
+    <node name="enemy.golem.250.004">
+      <position x="5.939670" y="1.564549" z="1.865142"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.golem.250.004" meshFile="enemy.golem.mesh"/>
+    </node>
+    <node name="enemy.golem.250.003">
+      <position x="-14.671592" y="1.564549" z="1.652655"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.golem.250.003" meshFile="enemy.golem.mesh"/>
+    </node>
+    <node name="enemy.goblin.100.004">
+      <position x="4.558502" y="1.564549" z="1.546411"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.100.004" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="enemy.goblin.100.002">
+      <position x="-1.178654" y="1.564549" z="18.120415"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.100.002" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="enemy.goblin.100.003">
+      <position x="-16.052759" y="1.564549" z="1.652655"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.100.003" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="enemy.goblin.100.001">
+      <position x="-4.684693" y="1.564549" z="18.226658"/>
+      <quaternion x="0.000000" y="-0.999983" z="-0.000000" w="0.005897"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.100.001" meshFile="enemy.goblin.mesh"/>
+    </node>
+    <node name="scene-shelves.001">
+      <position x="3.486749" y="1.194434" z="8.098648"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-shelves.001" meshFile="shelves.mesh"/>
+    </node>
+    <node name="scene-shelves.002">
+      <position x="-11.498573" y="1.194434" z="16.206650"/>
+      <quaternion x="0.000000" y="0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-shelves.002" meshFile="shelves.mesh"/>
+    </node>
+    <node name="scene-shelves.003">
+      <position x="-11.498573" y="1.194434" z="8.098648"/>
+      <quaternion x="0.000000" y="0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-shelves.003" meshFile="shelves.mesh"/>
+    </node>
+    <node name="scene-floor8x8.012">
+      <position x="8.000000" y="0.000000" z="-16.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.012" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-floor8x8.006">
+      <position x="0.000000" y="0.000000" z="-8.000000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-floor8x8.006" meshFile="floor8x8.mesh"/>
+    </node>
+    <node name="scene-table.002">
+      <position x="-3.993837" y="0.476202" z="-15.495814"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-table.002" meshFile="table.mesh"/>
+    </node>
+    <node name="Lamp.001">
+      <position x="-16.002151" y="5.903862" z="-10.475614"/>
+      <quaternion x="-0.284166" y="0.726942" z="0.342034" w="0.523275"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Spot.001" type="point">
+        <colourDiffuse r="0.528111" g="0.528111" b="0.528111"/>
+        <colourSpecular r="0.528111" g="0.528111" b="0.528111"/>
+        <lightAttenuation range="5000.0" constant="1.000000" linear="0.033333" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.002">
+      <position x="-7.880856" y="5.903862" z="15.475955"/>
+      <quaternion x="-0.284166" y="0.726942" z="0.342034" w="0.523275"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Spot.002" type="point">
+        <colourDiffuse r="0.400000" g="0.400000" b="0.201807"/>
+        <colourSpecular r="0.400000" g="0.400000" b="0.201807"/>
+        <lightAttenuation range="5000.0" constant="1.000000" linear="0.033333" quadratic="0.000000"/>
+      </light>
+    </node>
+    <node name="Lamp.003">
+      <position x="6.387566" y="5.903862" z="-2.284090"/>
+      <quaternion x="-0.284166" y="0.726942" z="0.342034" w="0.523275"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Spot.003" type="point">
+        <colourDiffuse r="0.400000" g="0.154618" b="0.145180"/>
+        <colourSpecular r="0.400000" g="0.154618" b="0.145180"/>
+        <lightAttenuation range="5000.0" constant="1.000000" linear="0.033333" quadratic="0.000000"/>
+      </light>
+    </node>
+  </nodes>
+  <externals>
+    <item type="material">
+      <file name="Scene.material"/>
+    </item>
+  </externals>
+  <environment>
+    <colourAmbient r="0.000000" g="0.000000" b="0.000000"/>
+    <colourBackground r="0.386832" g="0.386832" b="0.386832"/>
+  </environment>
+</scene>

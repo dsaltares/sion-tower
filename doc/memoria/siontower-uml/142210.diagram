@@ -1,0 +1,41 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 13 13 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 279 15 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 35 102 2010 11 171
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 304 103 2010 11 61
+end
+durationcanvas 128898 classinstance_ref 128130 // :System
+  xyzwh 304 210 2010 11 60
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 104 2015 msg operation_ref 128386 // "PantallaSeleccionNivel()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 102 89
+msg 128770 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 149 2015 explicitmsg "Niveles"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 152 134
+msg 129026 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128898
+  yz 211 2015 msg operation_ref 128514 // "SeleccionarNivel()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nivel"
+  label_xy 113 195
+msg 129154 return
+  from durationcanvas_ref 128898
+  to durationcanvas_ref 128258
+  yz 255 2015 explicitmsg "CambiarPantalla(Juego)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 103 240
+end

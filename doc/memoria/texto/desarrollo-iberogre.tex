@@ -1,0 +1,1099 @@
+\section{Metodología}
+
+\wiki\ es un proyecto de documentación y, por tanto, no hemos podido
+aplicar una metodología de desarrollo típica de sistemas software como el
+RUP (\textit{Rational Unified Process}) empleado en \juego\ más adelante.
+Podemos distinguir dos partes bien diferenciadas en este proyecto aunque
+inseparables: el texto de los artículos y los ejemplos que los acompañan.\\
+
+% Etapas para los artículos
+Para la composición de todos los artículos se ha seguido un proceso
+uniforme para asegurar la calidad de los mismos:\\
+
+\begin{enumerate}
+    \itemsep0em
+    \item \textbf{Estudio de necesidades}: búsqueda de los puntos más
+    relevantes a la hora de aprender a desarrollar videojuegos en tres dimensiones
+    así como los apartados más fundamentales de la biblioteca \textsc{Ogre3D}.
+    \item \textbf{Planificación}: estudio para encontrar la mejorar forma
+    de abordar la materia escogida. División del contenido en una
+    estructura uniforme con el resto de la plataforma de aprendizaje. 
+    \item \textbf{Redacción y formateado}: recopilación de información y
+    redacción del artículo completo. Adaptación del texto al formato
+    de la plataforma, composición del artículo con imágenes que amenicen
+    la lectura y publicación.
+    \item \textbf{Desarrollo del ejemplo}: creación de un ejemplo descargable
+    que ilustre todo el contenido expuesto en el texto del artículo de forma
+    práctica. Creación de documentación adicional en el propio artículo
+    para explicar el funcionamiento del ejemplo.
+    \item \textbf{Evaluación}: tras la publicación del artículo se buscan
+    las impresiones de los lectores y se anotan todas las sugerencias para
+    mejorar el texto.
+\end{enumerate}
+
+\section{Análisis}
+\label{iberogre-analisis}
+
+En esta sección expondremos el análisis de la documentación sobre desarrollo
+de videojuegos en tres dimensiones \wiki. En primer lugar realizaremos
+una breve especificación de requisitos del sistema, posteriormente
+hablaremos de los tipos de usuarios que accederán a la plataforma y finalmente
+haremos un listado de los artículos necesarios.\\
+
+\subsection{Especificación de requisitos del sistema}
+
+\subsubsection{Requisitos de interfaces externas}
+
+Los lectores accederán al contenido de \wiki\ mediante su monitor, empleando
+el navegador de su elección. Por tanto, es importante que la plataforma emplee
+estándares web soportados por todos los navegadores mayoritarios: Internet
+Explorer, Mozilla Firefox, Google Chrome, Opera y Safari. Para conseguirlo,
+será necesario escoger un sistema de publicación compatible con HTML 4.0
+y CSS 2. En la medida de lo posible, deben seguirse las directrices del
+\textit{World Wide Web Consortium} (W3C) \cite{website:w3c}.\\
+
+El contenido deberá poder ser visualizado de forma clara en monitores
+de varias resoluciones y relaciones de aspecto. El texto debe aparecer
+de forma limpia, clara y poco recargada. No obstante, debe estar acompañado
+de imágenes que amenicen la lectura de los temas más áridos. En caso de
+que se adjunte código fuente, éste deberá poder visualizarse en la misma
+plataforma empleando un resaltado de sintaxis apropiado.\\
+
+La navegación debe ser intuitiva y no precisar de aclaraciones de ningún tipo.
+El contenido debe estar perfectamente organizado en secciones temáticas
+y ordenadas en dificultad creciente, de forma prácticamente secuencial.\\
+
+\subsection{Requisitos sobre usuarios}
+
+No todos los usuarios que accedan a \wiki\ tendrán los mismos privilegios.
+Existirán tres categorías de usuarios cuyos privilegios se detallan a
+continuación.\\
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Lector}: usuario ocasional no registrado en la plataforma.
+    \begin{itemize}
+        \itemsep0em
+        \item Acceso de lectura a los artículos publicados y a las secciones de la wiki.
+        \item Posibilidad de enviar sugerencias de mejora.
+    \end{itemize}
+    \item \textbf{Usuario registrado}: 
+    \begin{itemize}
+        \itemsep0em
+        \item Acceso de lectura a los artículos publicados y a las secciones de la wiki.
+        \item Posibilidad de enviar sugerencias de mejora.
+        \item Acceso de escritura a artículos existentes con el objetivo de
+        ampliarlos, corregirlos y/o mejorarlos.
+        \item Creación de nuevos artículos siguiendo la estructura general
+        de la wiki.
+    \end{itemize}
+    \item \textbf{Administrador}: 
+    \begin{itemize}
+        \itemsep0em
+        \item Acceso de lectura a los artículos publicados y a las secciones de la wiki.
+        \item Posibilidad de enviar sugerencias de mejora.
+        \item Acceso de escritura a artículos existentes con el objetivo de
+        ampliarlos, corregirlos y/o mejorarlos.
+        \item Creación de nuevos artículos siguiendo la estructura general
+        de la wiki.
+        \item Control sobre la estructura de la plataforma.
+        \item Instalación de nuevas extensiones para mejorar la plataforma.
+        \item Gestión del resto de usuarios.
+    \end{itemize}
+\end{itemize}
+
+Cualquier persona que acceda al sitio web de la plataforma será considerado
+como lector no registrado. En el momento en el que rellene el formulario
+y envíe sus datos se convertirá en usuario registrado. Lo habitual es que
+sólo exista un administrador del sistema o exista un grupo reducido de
+administradores.\\
+
+\subsection{Artículos}
+
+% Bloques temáticos
+Los artículos de \wiki\ están organizados en varios bloques temáticos
+para abarcar todos los objetivos que nos hemos marcado en la introducción
+de esta memoria. Esta organización también busca facilitar la navegación
+al usuario de forma que acceda al contenido que desee en el menor tiempo
+posible. Los bloques principales de \wiki\ son:\\
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Primeros pasos}: bloque introductorio en el que el lector
+    debe poder conocer la estructura, filosofía y metodología de la plataforma
+    de aprendizaje. Tras leerlo, el usuario debe poder saber qué esperar
+    de \wiki\ y cómo afrontar los contenidos posteriores.
+    \item \textbf{Programación de videojuegos 3D}: sección que se dedicará
+    a ofrecer los conocimientos matemáticos mínimos para desarrollar
+    videojuegos en 3D. Se centrará en conceptos generales de geometría
+    del espacio y álgebra lineal desde una perspectiva eminentemente práctica.
+    Las matemáticas son un medio, una herramienta más para conseguir los objetivos
+    propuestos. Al no ser el fin en sí mismo, priman las aplicaciones prácticas
+    por encima de la rigurosidad (sin llegar a ser incorrectos).
+    \item \textbf{Ogre3D}: bloque central que desglosa los apartados más
+    relevantes del motor de renderizado \textsc{Ogre3D}. Tras terminar con
+    este bloque, el lector debe ser capaz de utilizar la biblioteca
+    para crear aplicaciones tridimensionales con elementos como modelos
+    animados, sistemas de partículas y otros efectos de iluminación. Lo más
+    importante es que se comprenda el funcionamiento del motor y se sea
+    capaz de ampliar conocimientos de forma autónoma.
+    \item \textbf{Otras tecnologías}: como ya se ha mencionado anteriormente,
+    \textsc{Ogre3D} es sólo un motor de renderizado, no proporciona todos
+    los elementos necesarios para construir un videojuego como gestión 
+    de entrada del usuario, sonido, detección de colisiones o juego en red.
+    Por ello, esta sección está enfocada a introducir en el uso de
+    tecnologías complementarias a \textsc{Ogre3D} como \textsc{OIS} (entrada),
+    \textsc{libSDL mixer} (audio) u \textsc{OgreBullet} (físicas).
+    \item \textbf{Videojuegos}: en esta sección se adjuntará documentación
+    sobre el desarrollo de videojuegos libres que hagan uso de \textsc{Ogre3D}.
+    \juego\ contará con el primer artículo de esta sección. El videojuego pretende
+    ser una aplicación práctica lo más realista posible del uso del motor y de la creación
+    de videojuegos 3D en general. Adjuntaremos toda la documentación
+    que se ha generado al respecto para que el lector pueda acceder a la misma
+    de forma sencilla. Sin duda, es el bloque que se presta en mayor medida
+    a ampliaciones futuras por parte de la comunidad.
+\end{itemize}
+
+\figura{bloques-iberogre.png}{scale=0.65}{Bloques temáticos de IberOgre}{fig:bloques-iberogre}{h}
+
+% Lista de artículos
+
+La sección \textit{Primeros pasos} únicamente cuenta con un artículo
+introductorio.
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Comenzando en IberOgre}: en este artículo a modo de preámbulo
+    desgranamos todos los objetivos de la plataforma de aprendizaje. Posteriormente
+    se explica la filosofía de trabajo que deseamos tomar con software compatible
+    con varias plataformas y de carácter abierto.
+\end{itemize}
+
+En el bloque \textit{Programación de videojuegos 3D} se encuentran tres
+artículos.
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Introducción, puntos y vectores}: en el primer artículo
+    sobre programación de videojuegos en 3D se hace una introducción al
+    planteamiento que vamos a seguir durante todo el bloque. Posteriormente
+    tratamos los puntos y los sistemas de coordenadas. Más adelante abarcamos
+    los vectores, las operaciones que podemos realizar con ellos y sus aplicaciones
+    en la materia. Finalmente se dedica una pequeña sección a hablar sobre
+    interpolaciones lineales para suavizar movimientos.
+    \item \textbf{Matrices}: en este artículo definimos el concepto de matriz
+    desde el punto de vista matemático para después hacer un repaso por sus
+    operaciones y finalmente tratar su utilidad a la hora de representar
+    transformaciones en tres dimensiones (traslaciones, rotaciones
+    y escalas).
+    \item \textbf{Cuaternos}: los cuaternos son una extensión de los números
+    reales que se suelen utilizar a la hora de representar rotaciones en un
+    espacio tridimensional. En el artículo explicamos su definición, la forma
+    de encadenar rotaciones y deshacerlas así como la operación necesaria
+    para realizar interpolaciones y rotar un elemento de forma progresiva.
+\end{itemize}
+
+En el bloque principal, \textit{Ogre3D} tenemos los siguientes artículos.
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Conociendo Ogre3D}: en el primer artículo relacionado
+    con el motor de renderizado debe explicarse qué es capaz de hacer
+    por nosotros \textsc{Ogre3D} y cuáles son sus limitaciones. Se expone
+    una lista de características que incorpora así como los requisitos
+    de hardware que exige para poder utilizarse. Comentamos su licencia
+    permisiva y los lenguajes con los que es compatible (aunque nosotros
+    sólo utilizaremos C++). Por último, hablamos brevemente de varias alternativas
+    libres a \textsc{Ogre3D} como \textsc{Panda 3D} o \textsc{Irrlicht}.
+    \item \textbf{Conceptos generales}: en este texto hacemos un recorrido
+    por la arquitectura del motor, sus subsistemas más relevantes y la filosofía
+    que se ha tomado a la hora de diseñarlos. Explicamos de forma rápida
+    su objeto raíz, el gestor de recursos y el grafo de escena.
+    \item \textbf{Instalación de Ogre3D 1.7 en GNU/Linux}: el lector
+    debe poder acceder a una sencilla, rápida y directa guía de cómo instalar
+    el entorno de desarrollo en su equipo para poder continuar con las lecciones
+    de la plataforma de aprendizaje. En este artículo se expone el proceso
+    de instalación para sistemas GNU/Linux. Se incluye un apartado
+    especial para la popular distribución Ubuntu, ya que muchas de las dependencias
+    están en los repositorios oficiales o en repositorios \textit{PPA}
+    \cite{website:ppa}.
+    \item \textbf{Instalación de Ogre3D 1.7 en Windows}: los usuarios de
+    Windows también deben contar con una guía de instalación del entorno
+    de desarrollo completo para poder seguir los contenidos de \wiki. En este
+    caso es necesario instalar el compilador \textit{MinGW} y las bibliotecas
+    \textsc{Ogre3D}, \textsc{Boost} y \textsc{DirectX}. Se precisa adjuntar un proyecto
+    de prueba para comprobar la corrección del proceso.
+    \item \textbf{Creación de un entorno de trabajo multiplataforma}: es
+    altamente deseable que los usuarios de GNU/Linux y Windows trabajen
+    de la misma forma siguiendo el contenido de la wiki. Para ello, los proyectos
+    debían tener la misma estructura, el mismo código compatible y 
+    un proceso de compilación similar. En este artículo se explica la
+    jerarquía de directorios que tomaremos y los makefiles para compilar
+    ejemplos y proyectos personales.
+    \item \textbf{Inicialización y cierre de Ogre3D}: en este artículo
+    creamos por primera vez una aplicación básica con \textsc{Ogre3D}. Se
+    repasa la secuencia de inicialización y cierre del motor. Así mismo,
+    conocemos las posibilidades de extensión del motor gracias al uso
+    de plugins y complementos externos. Posteriormente aprendemos a configurar
+    aspectos como la resolución, la frecuencia, la sincronización vertical
+    utilizando ficheros de configuración. Finalmente se explica el sistema
+    de logs de \textsc{Ogre3D} para depurar nuestras aplicaciones.
+    \item \textbf{Gestión de recursos}: el motor incluye un sistema de gestión
+    de recursos para optimizar el consumo de memoria evitando duplicidades
+    y proporcionar un método uniforme de acceder a elementos como mallas
+    tridimensionales, materiales o esqueletos. Los usuarios del motor
+    deben conocer como gestionar el ciclo de vida de los recursos para poder
+    cargar modelos entre otras muchas cosas.
+    \item \textbf{Creación básica de escenas}: este artículo retoma la inicialización
+    de \textsc{Ogre3D} y continua con el objetivo de ilustrar la creación
+    de escenas. Debe mostrar como crear una ventana, un gestor de escenas,
+    una cámara y un punto de vista. Una vez esté preparado el grafo de la escena
+    para que se le añadan elementos, se hace un recorrido por la creación
+    y gestión de nodos de escena con modelos tridimensionales estáticos.
+    Se hace una breve introducción a la iluminación y se detallan las distintas
+    aproximaciones para abordar el bucle de renderizado (bucle de juego).
+    \item \textbf{Materiales}: nuestra biblioteca cuenta con un sistema
+    de materiales que, básicamente, definen cómo un objeto interacciona
+    con la luz que recibe. En \textsc{Ogre3D} existe una pequeña sintaxis
+    para definir materiales. En este artículo hablamos de los detalles
+    de los scripts para definir materiales y sus posibles parámetros así
+    como de las maneras para cargar dichos materiales y aplicarlos a entidades.
+    \item \textbf{Manipulación de nodos}: las escenas de \textsc{Ogre3D}
+    están formadas por nodos que contienen mallas tridimensionales, 
+    puntos de luz, cámaras u otros elementos. Para dotar de dinamismo
+    a las escenas estos nodos deben trasladarse, ser rotados o escalados.
+    En definitiva, deben ser dotados de movimiento. En este artículo
+    hacemos un repaso por cómo se representan los vectores y transformaciones
+    en el motor y comenzaremos a gestionar los nodos de la escena. Se
+    exponen las diferencias entre los distintos espacios de transformación
+    (local, parental y global) y aprendemos a aplicar transformaciones
+    a los nodos (traslación, rotación y escalado). Finalmente se trata el tema
+    de la interpolación entre puntos para producir movimiento suavizado.
+    \item \textbf{Luces, sombras y entorno}: todos los videojuegos tridimensionales
+    utilizan efectos de iluminación para crear la ambientación deseada.
+    Era imprescindible incluir un artículo al respecto en \wiki. En la primera
+    sección se habla sobre las distintas técnicas de sombreado disponibles
+    en el motor. Posteriormente abarcamos el tema de la iluminación
+    desde conceptos básicos como la reflexión difusa y especular hasta
+    la creación de puntos que emitan luz en \textsc{Ogre3D}. El siguiente
+    apartado corresponde al efecto de niebla, muy utilizado para ahorrar
+    recursos o para crear una atmósfera terrorífica. Por último, se habla
+    de los fondos en dos dimensiones para representar elementos como el cielo.
+    \item \textbf{Animación}: la animación es un tema muy complejo pero imprescindible
+    en todo videojuego. El artículo comienza con los conceptos básicos sobre
+    la animación como el uso de fotogramas clave e interpolaciones entre los mismos. 
+    Posteriormente explicamos los tres tipos de animación que existen en
+    \textsc{Ogre3D} y cual es en la que nos centraremos durante el resto
+    del texto. A continuación explicamos la técnica para cargar animaciones
+    en el motor, reproducirlas y manipularlas. Por último, se hace una introducción
+    a la mezcla de animaciones (\textit{animation blending}).
+    \item \textbf{Sistemas de partículas}: en este artículo se abordan
+    los sistemas de partículas de \textsc{Ogre3D} empleados para reproducir
+    efectos como fuego, explosiones, humos, estelas mágicas, etc. Estos
+    efectos se definen en scripts similares a los de los materiales y explicamos
+    su estructura y sintaxis. Tras hacerlo comentamos el método para crear
+    y destruir sistemas de partículas. Finalmente mencionamos un potente
+    editor que nos ahorra tener que modificar de forma manual estos efectos.
+    \item \textbf{Sistema de Overlays}: \textsc{Ogre3D} carece de sistema
+    para crear elementos avanzados de interfaz como botones, etiquetas o
+    formularios completos. En cambio, posee un sistema de overlays para mostrar
+    elementos bidimensionales en una escena tridimensional. Estos paneles
+    se definen también empleando scripts cuya estructura, sintaxis y propiedades
+    detallamos a lo largo del artículo. Una vez terminadas las propiedades
+    mostramos cómo cargar y gestionar overlays dentro del juego. Este sencillo
+    sistema puede ser útil para usuarios que no requieran interfaces demasiado
+    complejas.
+\end{itemize}
+
+Dentro de la sección \textit{Otras tecnologías} tenemos los siguientes
+artículos.
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Manejo básico de OIS}: es una biblioteca libre de gestión
+    de dispositivos de entrada como joystick, ratón o teclado. Es la recomendada
+    por \textsc{Ogre3D}, de hecho se distribuyen juntas. En este artículo
+    aprendemos a consultar el estado de los dispositivos de entrada así como
+    a responder a los eventos que estos producen en el momento adecuado empleando
+    el patrón Observer \cite{gamm77}.
+    \item \textbf{Exportar modelos desde Blender}: cuando creamos un modelo
+    tridimensional posiblemente animado en una herramienta como \textit{Blender}
+    debemos exportarlo al formato que emplea \textsc{Ogre3D}. En este artículo
+    se detalla el proceso con todas las opciones que nos proporcionan los
+    scripts de exportación.
+    \item \textbf{Colisiones y físicas con OgreBullet}: como ya se ha mencionado,
+    \textsc{Ogre3D} no proporciona un sistema de detección de colisiones ni
+    simulaciones físicas. Por tanto, este artículo está destinado a documentar
+    la instalación y el uso de la biblioteca \textsc{OgreBullet}, un envoltorio
+    de la popular \textsc{Bullet}.
+    \item \textbf{Extender la gestión de recursos, audio}: el sistema de gestión
+    de recursos de \textsc{Ogre3D} permite ser extendido con sencillez para
+    añadir nuevos tipos de recursos. Aprovechando esta capacidad explicamos
+    el proceso incluyendo un sistema de audio utilizando la biblioteca
+    \textsc{libSDL} en conjunción con \textsc{libSDL mixer}.
+\end{itemize}
+
+
+
+\section{Diseño}
+\label{iberogre-diseno}
+
+Una vez completado el análisis con los requisitos de \wiki\ nos centraremos
+en el diseño de sus componentes. En primer lugar decidiremos la estructura
+interna de cada uno de los artículos que compondrán la plataforma educativa
+de desarrollo de videojuegos 3D. Posteriormente pasaremos al diseño de la
+navegabilidad del sitio y de su apariencia visual. Finalmente especificaremos
+los ejemplos con los que contarán los artículos.\\
+
+\subsection{Estructura de los artículos}
+
+La estructura lógica de los artículos queda reflejada en la figura \ref{fig:bloques-articulos}
+y está pensada para que el lector adquiera de la manera más sencilla posible
+los conocimientos necesarios para continuar. Dicha estructura ha ido siendo
+refinada a lo largo del desarrollo gracias al continuo flujo de opciones
+por parte de los lectores. La estructura consta de las siguientes partes.\\
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Introducción}: breve resumen del campo que abarcará
+    el artículo para que el lector sepa qué esperar cuando lo siga. Siempre
+    se pretende ofrecer una perspectiva práctica dando ejemplos concretos
+    de aplicaciones reales del contenido.
+    \item \textbf{Requisitos previos}: breve sección con los artículos
+    que el lector debería conocer antes de continuar. La estructura de 
+    \wiki\ es aproximadamente secuencial pero en muchas ocasiones existen
+    dependencias adicionales. Es importante que el lector sepa qué conocimientos
+    debe poseer antes de enfrentarse a un texto sin entender nada.
+    \item \textbf{Desarrollo}: bloque principal del artículo, que a su vez
+    puede estar compuesto de secciones, en el que se desarrolla el tema a tratar.
+    Se intercalan las explicaciones teóricas con pequeños fragmentos de
+    código mostrando de forma práctica las técnicas comentadas. 
+    \item \textbf{Ejemplo final}: en todos los artículos se adjunta un ejemplo
+    final en forma de aplicación descargable que ilustra el contenido
+    expuesto en el desarrollo. Al fichero descargable lo acompaña una explicación
+    sobre cómo se ha implementado el ejemplo y se hacen sugerencias para
+    que el lector modifique elementos. Este aspecto es muy relevante ya que
+    la práctica es mucho más efectiva en el proceso de aprendizaje.
+    \item \textbf{Conclusiones}: finalmente se incluye una sección que hace
+    las veces de resumen de los contenidos tratados y lista las tareas
+    que el lector debe ser capaz de realizar tras comprender el contenido
+    del artículo.
+\end{itemize}
+
+\figura{bloques-articulos.png}{scale=0.65}{Estructura de los artículos en IberOgre}{fig:bloques-articulos}{h}
+
+\subsection{Navegabilidad}
+
+Para \wiki\ se ha elegido el motor \textit{MediaWiki} \cite{website:wikimedia} por
+ser uno de los más empleados en este tipo de plataformas, contar con funcionalidades
+más atractivas de personalización o edición y disponer de una comunidad
+más numerosa dispuesta a ayudar en caso de problemas. Su diseño visual por
+defecto ha sido modificado de forma que se adapte en la mayor medida posible
+a la estructura de \wiki\ y a su enfoque.\\
+
+En esta sección haremos un recorrido por el diseño de \wiki\ comenzando
+por los bloques de su página principal. La pantalla de bienvenida prácticamente
+al completo puede observarse en la figura \ref{fig:iberogre-diseno}, en
+ella se aprecia claramente la división por bloques.\\
+
+\figura{layout-iberogre.jpg}{scale=0.25}{Diseño de IberOgre}{fig:iberogre-diseno}{H}
+
+\subsubsection{Bloque de bienvenida}
+
+En el bloque de bienvenida se muestra el logo de \wiki\ y se hace una pequeña
+introducción en pocas líneas sobre el tema que trata la plataforma. Es sencilla
+y directa para captar el interés del lector potencial. Puede verse con mayor
+detalle en la figura \ref{fig:iberogre-bienvenida}.\\
+
+\figura{iberogre-bienvenido.jpg}{scale=0.25}{Bloque de bienvenida a IberOgre}{fig:iberogre-bienvenida}{h}
+
+\subsubsection{Navegación}
+
+El bloque de navegación se sitúa a la izquierda de la página y es útil para
+acceder de forma directa a distintas secciones de interés para los usuarios
+de la plataforma. Puede verse en la figura \ref{fig:iberogre-navegacion}
+y se compone de los siguientes enlaces:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Página principal}: accede a la bienvenida de la wiki.
+    \item \textbf{Portal de la comunidad}: página con información de interés
+    para los lectores sobre el trabajo actual en \wiki.
+    \item \textbf{Actualidad}: sección de noticias.
+    \item \textbf{Cambios recientes}: permite ver cuáles son las páginas nuevas
+    o las últimas ediciones, en qué han consistido y quién las ha realizado.
+    \item \textbf{Página aleatoria}: nos lleva a cualquiera de los artículos
+    de la wiki de forma aleatoria.
+    \item \textbf{Ayuda}: breves consejos para aquellos interesados en colaborar
+    con la plataforma.
+\end{itemize}
+
+\figura{iberogre-navegacion.jpg}{scale=0.5}{Panel de navegación en IberOgre}{fig:iberogre-navegacion}{h}
+
+\subsubsection{Búsqueda}
+
+El cuadro de búsqueda nos permite encontrar artículos que hablen sobre
+las palabras claves introducidas. En primer lugar trata de buscar un artículo
+cuyo nombre coincida exactamente con la clave introducida, posteriormente
+busca coincidencias parciales en el título y, por último, dentro del texto.
+Muestra los resultados por orden de relevancia de forma que el lector tenga
+más probabilidades de encontrar lo que busca en la zona alta de la página
+de resultados. El cuadro es sencillo y puede verse en la figura \ref{fig:iberogre-busqueda}.\\
+
+\figura{iberogre-busqueda.jpg}{scale=0.55}{Cuadro de búsqueda en IberOgre}{fig:iberogre-busqueda}{h}
+
+\subsubsection{Bloque de contenido}
+
+El bloque más importante de \wiki\ es el de contenido, en él se listan todos
+los artículos organizados por categorías y en orden creciente de dificultad.
+A pesar de que las dependencias no son exactamente lineales en todos los casos,
+es buena idea que el lector pueda empezar por el primero y continuar hacia
+abajo por la lista. En la figura \ref{fig:iberogre-contenido} puede observarse
+con más detalle este bloque aunque no se muestra en su totalidad por razones
+de espacio.\\
+
+\figura{iberogre-contenido.jpg}{scale=0.35}{Contenido de IberOgre}{fig:iberogre-contenido}{h}
+
+\subsubsection{Bloque otros}
+
+El bloque \textit{Otros} se divide en dos secciones diferenciadas. La primera
+está relacionada con la difusión del proyecto y la comunicación con los usuarios
+(\textit{IberOgre en otros medios}) mientras que la segunda contiene enlaces
+a manuales de referencia con información para aquellos que deseen colaborar
+o profundizar.
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{IberOgre en otros medios}: 
+        \begin{itemize}
+            \itemsep0em
+            \item \textit{Blog oficial}: blog dedicado al desarrollo de \wiki\
+            y \juego. Contiene tanto noticias sobre los avances como artículos
+            documentando el desarrollo de subsistemas concretos.
+            \item \textit{Forja}: enlace al repositorio de la forja de RedIRIS
+            que aloja al proyecto. Contiene noticias, lista de tareas, lista
+            de correo, ficheros descargables y el repositorio de código
+            Subversion \cite{website:svn}.
+            \item \textit{Twitter}: enlace a la cuenta oficial del proyecto
+            en la conocida red social de microblogging. Como puede leerse
+            en el capítulo \nameref{chap:comunidad}, se ha hecho un uso extensivo
+            de esta herramienta durante todo el desarrollo. De esta manera,
+            se establece un contacto más directo con los lectores.
+            \item \textit{E-mail}: medio para contactar con la wiki y enviar
+            sugerencias, críticas y otras opiniones para cambiar elementos
+            e introducir mejoras.
+        \end{itemize}
+    \item \textbf{Ayuda}: 
+    \begin{itemize}
+            \itemsep0em
+            \item \textit{Manual oficial de Ogre3D en español}: traducción completa
+            del manual oficial de referencia de \textsc{Ogre3D} en español.
+            El fichero \textit{PDF} ha sido ofrecido por el colaborador
+            Mario Velázquez Muñoz. Es un manual de consulta que complementa
+            perfectamente al carácter didáctico de los artículos.
+            \item \textit{Edición en MediaWiki}: guía sencilla sobre edición
+            en sistemas \textit{MediaWiki} creada por Noelia Sales Montes
+            y Emilio José Rodríguez Posada. Aquellos lectores interesados
+            en colaborar pueden hacerlo aunque no tengan experiencia con plataformas
+            de este tipo utilizando este sencillo manual.
+        \end{itemize}
+\end{itemize}
+
+\figura{iberogre-otros.jpg}{scale=0.35}{Otros temas relacionados con IberOgre}{fig:iberogre-otros}{h}
+
+\subsubsection{Artículos}
+
+Cada artículo comienza con una introducción breve como ya hemos mencionado
+anteriormente. A esta introducción le sigue un índice de contenidos con
+enlaces que llevan directamente a las subsecciones del texto. Esta
+funcionalidad
+facilita el acceso a aquellos lectores que deseen buscar un apartado concreto.\\
+
+\subsection{Ejemplos}
+
+Los ejemplos en \wiki\ son una parte imprescindible del aprendizaje, proporcionan
+una aplicación práctica del contenido teórico del texto que los preceden.
+Estos ejemplos tratan de aglutinar lo que debería aprenderse tras leer el
+artículo en una sola y sencilla aplicación descargable. Recordemos que en este
+caso es más relevante la sencillez que la vistosidad y la calidad del código.
+Tras cada ejemplo, se anima al lector a estudiar el código y realizar
+modificaciones para demostrar su comprensión del mismo y dominio de la materia.
+A continuación hacemos una breve descripción sobre cada uno de los ejemplos
+de \wiki.\\
+
+\subsubsection{Inicialización y cierre de Ogre}
+
+Tras el artículo \textit{Inicialización y cierre de Ogre} el lector no sabe
+mostrar nada en pantalla, ni siquiera crear una ventana en la que renderizar
+elementos. Simplemente conoce la secuencia de inicialización del motor y
+la forma para salir de una aplicación de forma ordenada y correcta. El ejemplo
+se limita a crear el objeto principal de \textsc{Ogre3D} habiendo configurado
+previamente el sistema de logs y habiendo mostrado un diálogo de configuración
+al usuario. Tal y como se muestra en la figura \ref{fig:ejemplo-inicializacion},
+simplemente inicializamos el motor para cerrarlo seguidamente.\\
+
+\figura{ejemplo-inicializacion.jpg}{scale=0.5}{Ejemplo de inicialización y cierre de Ogre3D}{fig:ejemplo-inicializacion}{h}
+
+\subsubsection{Creación básica de escenas}
+
+En este artículo aprendíamos a crear una ventana de renderizado, configurar
+el gestor de escenas, utilizar la gestión de recursos, cargar elementos
+dentro del grafo de la escena y controlar el bucle de renderizado empleando
+varias aproximaciones. El ejemplo aglutina todos estos conceptos creando
+una sencilla aplicación que inicializa \textsc{Ogre3D}, carga un personaje
+en pantalla y permanece a la espera de algún evento de salida. El resultado
+puede verse claramente en la figura \ref{fig:ejemplo-escenas}. Se requieren
+conocimientos de gestión de eventos de entrada con \textsc{OIS}, por lo que
+es recomendable leer dicho artículo y seguir su ejemplo en primer lugar.\\
+
+\figura{ejemplo-escenas.jpg}{scale=0.35}{Ejemplo de creación de escenas}{fig:ejemplo-escenas}{h}
+
+\subsubsection{Materiales}
+
+En el artículo sobre materiales en \textsc{Ogre3D} aprendemos a escribir
+scripts definiendo materiales, a cargarlos en nuestra aplicación y a aplicarlos
+a entidades como mallas tridimensionales. En el ejemplo para este artículo
+tenemos una sencilla escena con una paredes y una esfera en el centro iluminada
+por varios puntos de luz. Empleando el teclado numérico podemos cambiar el material
+de la esfera para ver los efectos producidos. De esta manera se resume la
+creación de materiales mediante scripts, su carga en memoria y aplicación
+sobre entidades, puede verse una captura del ejemplo en ejecución en la 
+figura \ref{fig:ejemplo-materiales}.
+
+\figura{ejemplo-materiales.jpg}{scale=0.4}{Ejemplo de materiales}{fig:ejemplo-materiales}{h}
+
+\subsubsection{Manipulación de nodos}
+
+En el artículo sobre manipulación de nodos aprendemos a gestionar la información
+básica de los nodos como visibilidad, nombre, sus descendientes, etc.
+Partimos de la escena con el personaje vista en el
+ejemplo de la creación básica de escenas. Utilizando la gestión de eventos
+proporcionada por \textsc{OIS} capturamos las pulsaciones de las teclas
+W, A, S y D para desplazar y rotar al personaje por el mundo. Empleando
+la rueda del ratón podemos escalarlo. Puede verse una captura en la figura
+\ref{fig:ejemplo-nodos}.\\
+
+\figura{ejemplo-nodos.jpg}{scale=0.6}{Ejemplo de manipulación de nodos}{fig:ejemplo-nodos}{h}
+
+\subsubsection{Luces, sombras y entorno}
+
+En el artículo sobre iluminación aprendemos a gestionar varios efectos
+lumínicos y de ambientación como la niebla, las fuentes de luz, las técnicas
+de sombreado y los fondos. El ejemplo trata de aglutinar todos estos conceptos
+en una aplicación interactiva que nos permite activar y desactivar varios
+de los efectos anteriormente mencionados. Se crea una escena con un
+plano texturizado a modo de suelo y un personaje sobre él. Los controles
+son los siguientes y el resultado puede observarse en la figura \ref{fig:ejemplo-iliuminacion}.
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{s}: alterna entre distintas técnicas de sombreado. Es
+    la mejor forma de ver la diferencia entre ambas.
+    \item \textbf{d}: activa o desactiva el fondo.
+    \item \textbf{n}: activa o desactiva la niebla.
+    \item \textbf{1}: apaga o enciende la luz número 1 (roja).
+    \item \textbf{2}: apaga o enciende la luz número 2 (azul).
+    \item \textbf{3}: apaga o enciende la luz número 3 (verde).
+    \item \textbf{4}: apaga o enciende la luz número 4 (amarilla).
+\end{itemize}
+
+\figura{ejemplo-iluminacion.jpg}{scale=0.35}{Ejemplo de iluminación}{fig:ejemplo-iliuminacion}{h}
+
+\subsubsection{Animación}
+
+En el artículo de animación se exponen las distintas técnicas para animar
+entidades en \textsc{Ogre3D} así como la forma de activar y mezclar
+varias animaciones al mismo tiempo. En el ejemplo cargamos a la mascota del
+motor llamada \textit{Simbad} sobre un sencillo escenario y ofrecemos
+controles al usuario para animarlo. Utilizando las teclas de dirección
+\textit{Simbad} se desplaza con una animación y pulsando \textit{D} comienza
+o para de bailar. Puede verse el resultado en la figura \ref{fig:ejemplo-animacion}.\\
+
+\figura{ejemplo-animacion.jpg}{scale=0.55}{Ejemplo de animaciones}{fig:ejemplo-animacion}{h}
+
+\subsubsection{Sistemas de partículas}
+
+En este artículo se explican las técnicas de definición de sistemas de partículas
+a través de scripts en texto plano así como su carga dentro de una escena.
+En el ejemplo simplemente cargamos varios sistemas de partículas entre
+los que el usuario puede alternar empleando las teclas numéricas del 1 al
+9. El resultado puede verse en la figura \ref{fig:ejemplo-particulas}.\\
+
+\figura{ejemplo-particulas.jpg}{scale=0.30}{Ejemplo de sistemas de partículas}{fig:ejemplo-particulas}{h}
+
+\subsubsection{Sistema de Overlays}
+
+La lección sobre el sistema de Overlays de \textsc{Ogre3D} incluye la sintaxis
+y propiedades de los scripts que los definen así como su carga dentro del juego.
+En el ejemplo se incluyen varios scripts para definir estas plantillas bidimensionales
+ofreciendo cierta interactividad. Partimos del resultado del ejemplo de materiales
+y añadimos un panel informativo con el nombre del material seleccionado
+y el número de cuadros por segundo (\textit{FPS}) a la que se ejecuta
+la aplicación. Si cambiamos de material con el teclado numérico, veremos
+el cambio reflejado en el panel como se aprecia en la figura \ref{fig:ejemplo-overlays}.\\
+
+\figura{ejemplo-overlays.jpg}{scale=0.25}{Ejemplo de Overlays}{fig:ejemplo-overlays}{h}
+
+\subsubsection{Manejo básico de OIS}
+
+\textsc{OIS} es la biblioteca que utilizamos en \wiki\ para la gestión
+de dispositivos de entrada de usuario. En el artículo se detalla el proceso
+de inicialización, configuración y cierre de la biblioteca así como el manejo
+de dispositivos (joysticks, ratones y teclados) para consultar su estado
+en un momento dado. También se explica la aproximación empleando \textit{Listeners}
+\cite{gamm77} para dar respuesta a eventos. En el ejemplo se crea una aplicación
+de \textsc{Ogre3D} sin ventana y permanecemos a la espera de eventos que
+mostramos por la terminal.\\
+
+\subsubsection{Extender la gestión de recursos, audio}
+
+En este artículo se explica el proceso de extensión del sistema de gestión
+de recursos de \textsc{Ogre3D} a través del desarrollo de un subsistema
+de audio empleando la biblioteca \textsc{libSDL mixer}. En el ejemplo
+se carga una escena con un escenario, una silla y un micrófono a modo
+de teatro para monólogos. El usuario se pone en el papel de regidor
+indicando qué sonido o melodía debe reproducirse en un momento dado empleando
+el teclado numérico, se muestra un sencillo panel con la leyenda.
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{1}: sintonía de comienzo del programa.
+    \item \textbf{2}: sintonía del contenido del programa.
+    \item \textbf{3}: sintonía del final del programa.
+    \item \textbf{4}: aplausos de un público ficticio.
+    \item \textbf{5}: risas enlatadas.
+    \item \textbf{6}: abucheos del público ficticio.
+\end{itemize}
+
+El resultado puede verse en la figura \ref{fig:ejemplo-audio}.\\
+
+\figura{ejemplo-audio.jpg}{scale=0.3}{Ejemplo de extensión del sistema de recursos, audio}{fig:ejemplo-audio}{h}
+
+
+\section{Implementación}
+
+Tras enumerar los usuarios, artículos, detallar la estructura de los mismos
+y la navegabilidad de la plataforma pasamos a la fase de implementación.
+Nos centraremos en los puntos más reseñables de esta fase. En primer lugar
+hablaremos de la elección del motor de wikis \textit{MediaWiki} y de sus
+características principales. Posteriormente trataremos las plantillas que
+hemos empleado para formatear la documentación. Finalmente abordaremos
+la estructura general de los ejemplos. La escritura de los artículos 
+en sí mismos es trivial y por ello no es comentada en esta sección.\\
+
+% MediaWiki
+\subsection{El motor MediaWiki}
+
+\textit{MediaWiki} es un popular motor para aplicaciones wikis desarrollado
+por la propia Fundación Wikimedia y utilizado en todos sus sitios como
+Wikipedia, Wiktionary y Wikinews entre otros muchos. Está escrito en el
+lenguaje de programación PHP y precisa de una base de datos de tipo SQL
+para almacenar la información. Su primera versión fue liberada en enero
+de 2002 y actualmente, la 1.17.0 es la última versión estable y fue lanzada
+en junio de 2011. \cite{website:mediawiki}.\\
+
+\figura{mediawiki.png}{scale=0.3}{Logo del motor MediaWiki}{fig:mediawiki}{h}
+
+\textit{MediaWiki} es, con diferencia, el software para creación y gestión
+de wikis más utilizado en todo el mundo. Es fácilmente extensible mediante
+complementos y existen bots que automatizan tareas como la prevención
+y corrección de vandalismos. Uno de estos bots es AVBot desarrollado
+por Emilio José Rodríguez Posada \cite{website:avbot}.\\
+
+Escribir en la sintaxis utilizada por el motor es bastante sencillo, ya que
+utiliza un lenguaje mucho más simple que HTML. Esto es muy importante ya
+que buscamos colaboradores para la plataforma educativa. Cuanto más accesible
+sea, más probabilidades de éxito. Por ello se ha adjuntado la guía
+redactada por Noelia Sales Montes y Emilio Rodríguez Posada \textit{Edición
+de wikis WikiMedia} \cite{pdf:wikimedia}.\\
+
+El sistema proporciona un método de edición sencillo y una navegación
+cómoda con contenido multimedia. Podemos crear espacios de nombres y
+secciones bien diferenciadas. Es altamente configurable y podemos ajustarlo
+para que encaje perfectamente con los objetivos de \wiki. Del proceso de
+instalación y configuración se ha encargado la Oficina de Software Libre
+de la Universidad de Cádiz ya que dicha instalación se ha realizado en
+sus servidores.\\
+
+Su extensibilidad, posibilidades de configuración, la cantidad de documentación
+disponible y la enorme y activa comunidad han hecho que nos decantemos
+por el uso de \textit{MediaWiki} como software para dar soporte a \wiki.\\
+
+% Plantillas
+\subsection{Plantillas}
+
+Las plantillas son fragmentos de código que aceptan parámetros a los que
+podemos llamar desde otras páginas utilizando una sintaxis especial. Esto nos
+ayuda a generalizar ciertas estructuras y ahorrar en recursos por parte del
+servidor. En esta sección haremos un recorrido por todas las plantillas utilizadas,
+sus parámetros y el resultado que producen al utilizarlas.\\
+
+\begin{itemize}
+    \item \textbf{Artículo}
+    
+    Esta plantilla se utiliza por cada artículo en el bloque de contenido.
+    Incluye el nombre con el enlace al texto, una descripción y un icono
+    representativo. Su código es el siguiente, pueden verse los parámetros
+    identificados por su orden de aparición en la llamada a la plantilla
+    y encerrados en llaves triples.
+    
+    \begin{lstlisting}[style=wiki]
+{| style= "border: 0;
+           margin: 0;
+           background-color: inherit;"
+           cellpadding="3"
+           
+ | valign="top" | [[Imagen:{{{1}}}|64px|link={{{2}}}]]
+ | valign="top" | 
+ | '''[[{{{2}}}]]'''<br>{{{3}}}
+|}
+    \end{lstlisting}
+    
+    Una llamada como esta:
+
+    \begin{lstlisting}[style=wiki]
+{{ Articulo
+|fuego.png
+|Sistemas de particulas
+|Aprende a crear efectos especiales con Ogre como llamas, explosiones
+ o nubes de humo para mejorar tus videojuegos.
+}}
+    \end{lstlisting}
+
+    Produce el resultado de la figura \ref{fig:articulo}:\\
+    
+    \figura{articulo.jpg}{scale=0.4}{Plantilla Artículo}{fig:articulo}{h}
+
+    
+    \item \textbf{RecursoExterno}
+    
+    Para referenciar enlaces externos de una forma similar a los artículos
+    se emplea esta plantilla. Cuenta con un título que lleva al destino
+    y un icono relacionado que hace lo propio. Además, se añade una descripción.
+    El código que consigue el efecto es el siguiente.
+    
+    \begin{lstlisting}[style=wiki]
+{| style= "border: 0;
+           margin: 0;
+           background-color: inherit;"
+           cellpadding="3"
+           
+| valign="top" | [[Imagen:{{{1}}}|64px|link={{{2}}}]]
+| valign="top" | 
+| '''[{{{2}}} {{{3}}}]'''<br>{{{4}}}
+|}
+    \end{lstlisting}
+    
+    Una llamada como la siguiente:
+    
+\begin{lstlisting}[style=wiki]
+{{RecursoExterno
+|cuaderno.png
+|http://siondream.com/blog/category/proyectos/pfc/
+|Blog oficial
+|Noticias, experiencias y avances en IberOgre
+}}
+    \end{lstlisting}
+    
+    Produce el resultado que puede apreciarse en la figura \ref{fig:recursoexterno}.\\
+    
+    \figura{recursoexterno.jpg}{scale=0.45}{Plantilla RecursoExterno}{fig:recursoexterno}{h}
+    
+    \item \textbf{BloqueSeccion}\\
+    
+    Esta plantilla se emplea para conseguir el bloque de que preceden
+    a las secciones de la wiki dentro del bloque contenido. Su código
+    es el siguiente.
+    
+    \begin{lstlisting}[style=wiki]
+<div style="padding-top:2px;
+            padding-bottom:2px;
+            padding-left:5px;
+            padding-right:2px;
+            border:1px solid #092C00;
+            margin: 4px;
+            background-color: #F0FFF0;">
+'''{{{1}}}'''
+</div>
+    \end{lstlisting}
+    
+    \item \textbf{Calendario}
+    
+    En diversas páginas interesaba colocar un calendario con la fecha
+    de la edición. Por ello, se ha creado esta plantilla que coloca la fecha
+    actual en un formato de calendario clásico. Su código wiki 
+    y HTML es el siguiente.
+    
+    \begin{lstlisting}[style=wiki]
+<div style= "border:solid #ccc;
+             background: #fff;
+             border-width: 1px 3px 3px 1px;
+             text-align: center;
+             padding-top:3px;
+             float:left;
+             font-size: smaller;
+             line-height: 1.3;
+             margin-right: 4px;
+             width: 7em">
+             
+    [[{{CURRENTDAYNAME}}]]
+    [[{{CURRENTDAY}} de {{CURRENTMONTHNAME}}|
+    <span style= "font-size: x-large;
+                  width: 100%;
+                  display: block;
+                  padding:6px 0px">
+        {{CURRENTDAY}}
+    </span>]]
+    
+    <span style="display: block;"> [[{{CURRENTMONTHNAME}}]]</span>
+    
+    <span style= "background: #aaa;
+                  color: #000;
+                  display: block;">
+    '''[[{{CURRENTYEAR}}]]'''
+    </span>
+</div>
+    \end{lstlisting}
+    
+    El resultado producido es el que podemos ver en la figura \ref{fig:calendario}.\\
+    
+    \figura{calendario.jpg}{scale=0.45}{Plantilla Calendario}{fig:calendario}{h}
+    
+    \item \textbf{FicheroDescargable}
+    
+    Los ejemplos finales de cada artículo de \wiki\ pueden descargarse
+    en forma de paquete para ser compilados, ejecutados o modificados
+    por los lectores. Para ello, empleamos una plantilla que añade
+    un enlace al fichero descargable, el título del artículo una
+    descripción del ejemplo. Su código es el siguiente:
+    
+    \begin{lstlisting}[style=wiki]
+{| style= "border: 0;
+           margin: 0;
+           background-color: inherit;"
+           cellpadding="3"
+| valign="top" | [[Imagen:{{{1}}}|64px|]]
+| valign="top" | 
+| '''[[media:{{{2}}}|{{{3}}}]]'''<br>{{{4}}}
+|}
+    \end{lstlisting}
+    
+    Empleado la siguiente llamada:
+    
+        \begin{lstlisting}[style=wiki]
+{{FicheroDescargable
+|ejemplo.png
+|ogre_escenas.zip
+|Ejemplo de creacion basica de escenas
+|Pequena aplicacion que inicia Ogre y carga un personaje en la escena
+}} 
+    \end{lstlisting}
+    
+    Obtenemos el siguiente bloque (ver figura \ref{fig:ficherodescargable}).\\
+    
+    \figura{ficherodescargable.jpg}{scale=0.55}{Plantilla FicheroDescargable}{fig:ficherodescargable}{h}
+    
+\end{itemize}
+
+% Estructura general de los ejemplos
+\subsection{Estructura general de los ejemplos}
+
+Todos los ejemplos de \wiki\ se han implementado de manera similar aunque
+cada uno tiene sus particularidades en los aspectos concretos. Esta decisión
+viene motivada por la intención de conseguir uniformidad tanto en el estilo
+como en las soluciones. De esta forma, los lectores comprenderán los ejemplos
+cada vez con mayor facilidad y se centrarán únicamente en las partes cambiantes,
+lo realmente interesante y lo que se imparte en cada lección.\\
+
+El esquema general puede verse en el diagrama de clases de diseño en la
+figura \ref{fig:ejemplo-clases}. La clase \textit{AplicacionOgre} es la encargada
+de iniciar el motor \textsc{Ogre3D} y la biblioteca \textsc{OIS} a través
+de los métodos privados \textit{iniciarOgre()} e \textit{iniciarOIS()}.
+Hereda de las clases observadoras \cite{gamm77} \textit{WindowEventListener},
+\textit{KeyListener} y \textit{MouseListener}. La primera se encarga de
+capturar eventos de pantalla (movimiento, cierre y redimensión), la segunda
+toma eventos de teclado (pulsar y soltar tecla) mientras que la tercera
+hace lo propio con el ratón (movimiento, pulsar botón y liberar botón).
+Como puede verse, existe un gestor de evento para cada uno de ellos.\\
+
+\figura{ejemplo-clases.jpg}{scale=0.45}{Diagrama de clases para los ejemplos}{fig:ejemplo-clases}{h}
+
+Con una llamada a \textit{buclePrincipal()} comienza el bucle de juego
+hasta que se presione la tecla escape o se cierre la ventana. Esta clase
+está preparada para proporcionar lo básico de una aplicación interactiva
+que use \textsc{Ogre3D}. Está pensada para que heredemos de ella en cada
+ejemplo que creemos. Por este motivo, el bucle de juego y los gestores
+de eventos son virtuales, podemos sobrecargar su comportamiento.\\
+
+Efectivamente, en cada ejemplo creamos una clase hija que suele llevar
+por nombre \textit{EscenaSimple}. Esta clase se encarga de crear, gestionar
+la escena que se desarrolle en el ejemplo y controlar su lógica (interactividad).
+Siempre cuenta con varios métodos de configuración: \textit{prepararRecursos()},
+\textit{configurarSceneManager()}, \textit{crearCamara()} y \textit{crearEscena()}.
+En cada ejemplo concreto se pueden añadir más métodos y atributos según
+sea necesario.\\
+
+Esta aproximación centrada en la reutilización de código y la sencillez
+ha facilitado la implementación de ejemplos de forma rápida y directa. Además,
+como ya hemos mencionado, facilita el aprendizaje a los lectores. Para
+saber más sobre los ejemplos concretos, puede accederse a cualquier artículo
+de \wiki\ y descargar el paquete correspondiente.\\
+
+\section{Pruebas}
+
+Un plan de pruebas elaborado nos garantiza un mínimo de calidad para
+el proyecto. En este caso no podemos aplicar el concepto de prueba
+de caja blanca ni prueba de caja negra ya que hablamos de un proyecto
+de documentación (exceptuando los ejemplos finales de cada artículo).
+En esta sección enumeraremos las pruebas que se han realizado sobre la 
+plataforma de aprendizaje en su totalidad.\\
+
+Es necesario mencionar que no se han realizado pruebas en un servidor de
+preproducción ya que la instalación y configuración corría a cargo de la
+Oficina de Software Libre de la Universidad de Cádiz. No obstante, el motor
+\textit{MediaWiki} ha sido probado de forma extensiva y es muy estable
+a día de hoy.\\
+
+La plataforma era pública (aunque no abierta a ediciones) para todo el mundo
+y con los primeros artículos llegaron los primeros lectores. \wiki\ ha sido
+sometido a pruebas por parte de muchos usuarios. Éstos han podido ofrecer
+su opinión a través del blog de desarrollo, de Twitter o del correo
+electrónico.\\
+
+A continuación adjuntamos la lista de pruebas realizadas junto a los
+resultados obtenidos.\\
+
+\begin{enumerate}
+    \itemsep0em
+    \item \textbf{Estructura de los artículos}
+    
+    \textit{¿Se cumple con la estructura acordada? ¿Cumple la estructura
+    con los objetivos?}\\
+    
+    \wiki\ se ha dividido en las cuatro secciones establecidas durante la
+    fase de análisis (capítulo \ref{iberogre-analisis} y página \pageref{iberogre-analisis}).
+    Los lectores han manifestado que la división en introducción, matemáticas
+    \textsc{Ogre3D} y otras tecnologías les facilitó la organización
+    de su aprendizaje. Por tanto, se han cumplido con los objetivos y el
+    resultado de la prueba es positivo.\\
+    
+    \item \textbf{Errores en el texto}
+    
+    \textit{¿Existen errores ortográficos, de sintaxis o expresión en los
+    textos?}\\
+    
+    Cada artículo ha sido revisado tanto por su redactor inicial como por
+    varios usuarios que se han prestado a colaborar con las correcciones.
+    El uso del corrector ortográfico se ha combinado con lecturas humanas
+    para detectar y eliminar los fallos de este tipo.\\
+    
+    \item \textbf{Plantillas}
+    
+    \textit{¿Las plantillas se visualizan correctamente? ¿Existen plantillas
+    que devuelvan algún error?}\\
+    
+    Se ha comprobado que todas las llamadas a plantillas funcionan como
+    se esperaba de ellas. Todas las llamadas se visualizan de forma correcta.\\
+    
+    \item \textbf{Etiquetado}
+    
+    \textit{¿Están todos los artículos debidamente etiquetados?}\\
+    
+    En \textit{MediaWiki} los artículos pueden etiquetarse de forma que
+    encontrarlos sea más sencillo. En definitiva facilita la navegación
+    ya que se crea una página de etiquetas listando a los artículos
+    que contienen. En \wiki\ todos los artículos han sido etiquetados
+    por lo que el resultado del test es positivo.\\
+    
+    \item \textbf{Usuario no registrado}
+    
+    \textit{¿Son los permisos de estos usuarios los correctos? ¿Pueden
+    editar artículos o crear otros nuevos?}\\
+    
+    Como se dice en el análisis de la wiki, los usuarios no registrados
+    pueden acceder a todo el contenido de \wiki\ aunque no pueden hacer
+    ningún tipo de modificación. Se ha comprobado cerrando la sesión de
+    nuestro usuario que, sin estar registrados en el sistema, no podemos
+    crear ni modificar página alguna. Por tanto, el resultado es positivo.\\
+    
+    \item \textbf{Usuario registrado}
+    
+    \textit{¿Pueden los usuarios registrados crear o modificar contenido?
+    ¿Tienen acceso de administración?}\\
+    
+    Tal y como se menciona en la prueba anterior, ya habíamos definido
+    los permisos que debía tener cada usuario en el análisis. El usuario
+    registrado debía poder acceder tanto al contenido en modo lectura
+    como en modo escritura. Asimismo debía contar con la capacidad
+    para crear nuevos artículos. No obstante, no se le permite el acceso
+    a la configuración del sistema.\\
+    
+    Se han probado que puede trabajar con el contenido pero no así con la
+    configuración de \wiki. Sólo el usuario administrador cuenta con
+    acceso al servidor de producción y a la base de datos.\\
+    
+    \item \textbf{Usuario administrador}
+    
+    \textit{¿Cuenta el usuario administrador con todos los permisos?}\\
+    
+    El usuario administrador cuenta con los privilegios del usuario registrado
+    y, además, debe poder acceder a parámetros de configuración así como
+    poder instalar nuevas extensiones o gestionar las actuales. Durante el
+    desarrollo, fueron necesarias varias tareas administrativas y este usuario
+    pudo resolverlas sin problemas confirmando que el esquema de permisos
+    funciona como se había planeado.\\
+    
+    \item \textbf{Ayuda}
+    
+    \textit{¿Es la ayuda lo suficientemente clara para que los lectores
+    puedan empezar a colaborar? ¿Es ampliable la plataforma? ¿Los usuarios
+    pueden enviar opiniones?}\\
+    
+    La Ayuda en \wiki\ es de extrema importancia ya que debe informar a los
+    usuarios de las posibilidades que tienen para colaborar y animarles
+    a hacerlo. La guía de edición en \textit{WikiMedia} de Noelia Sales Montes
+    y Emilio José Rodríguez Posada cumplió su cometido ya que, lectores
+    que nunca habían editado una wiki con este motor pudieron hacerlo.\\
+    
+    La plataforma se ha mostrado ampliable en gran medida. Tras la conclusión
+    de este proyecto, la wiki cuenta con temas en los que se puede profundizar
+    aún más. Algunos usuarios ya se han mostrado interesados en colaborar.\\
+    
+    En la página inicial de \wiki\ se adjuntan enlaces tanto al blog oficial
+    de desarrollo, como a la cuenta oficial de Twitter como al correo electrónico.
+    Los usuarios pueden ponerse en contacto (y de hecho lo han hecho en numerosas
+    ocasiones) a través de cualquiera de estos medios.\\
+    
+    \item \textbf{Ejemplos}
+    
+    \textit{¿Funcionan correctamente los ejemplos? ¿Abarcan el contenido
+    de los artículos? ¿Están debidamente documentados?}\\
+    
+    Esta prueba se ha aplicado a todos los ejemplos de \wiki\ y en la totalidad
+    de los casos el resultado ha sido satisfactorio. Lo especificado en la
+    fase de diseño de los ejemplos (sección \ref{iberogre-diseno}, página
+    \pageref{iberogre-diseno}) se cumple con exactitud.\\
+    
+    Su diseño tiene como objetivo ilustrar todo el contenido del texto que
+    precede a cada ejemplo y siempre se logra cumplir todo el temario. Cada
+    ejemplo viene acompañado de una explicación que informa de su cometido,
+    su diseño y funcionamiento. Esto, junto a las críticas positivas por
+    parte de los usuarios, nos hace considerar que están debidamente
+    documentados.\\
+    
+    \item \textbf{Multiplataforma}
+    
+    \textit{¿Es todo el código expuesto en la wiki multiplataforma?
+    ¿Funcionan todos los ejemplos tanto en Windows como en GNU/Linux?}\\
+    
+    Uno de los objetivos principales de \wiki\ era ofrecer directrices
+    sobre desarrollo de software multiplataforma, al menos para GNU/Linux
+    y Windows. Todo el código de la plataforma de aprendizaje ha sido
+    probado en ambos sistemas operativos con éxito.\\
+    
+    Cada ejemplo ha sido compilado y ejecutado en Ubuntu (GNU/Linux) y
+    en Windows 7 utilizando el método expuesto en el artículo
+    de creación de un entorno de desarrollo multiplataforma \cite{website:multiplataforma}
+    obteniendo resultados positivos.\\
+    
+\end{enumerate}

@@ -1,0 +1,27 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 12 16 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 263 18 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 34 111 2010 11 85
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 288 114 2010 11 63
+end
+msg 128514 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 114 2015 msg operation_ref 130818 // "MoverPersonaje()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "teclas
+camara"
+  label_xy 88 84
+msg 128642 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 156 2015 explicitmsg "Personaje desplazado y orientado"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 64 141
+end

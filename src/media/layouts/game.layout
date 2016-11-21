@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout">
+    <Widget type="TextBox" skin="TextBox" position_real="0.01 0.01 0.99 0.5" layer="Main" name="lblState">
+        <Property key="Caption" value="#ffffffThe horde is comming!"/>
+        <Property key="FontHeight" value="60"/>
+        <Property key="TextAlign" value="ALIGN_CENTER"/>
+    </Widget>
+    <Widget type="TextBox" skin="TextBox" position_real="0.01 0.01 0.4 0.4" layer="Main" name="lblFPS">
+        <Property key="Caption" value=""/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+    <Widget type="Widget" skin="PanelSkin" position_real="0.390625 0.218056 0.226563 0.5" layer="Main" name="panelPause">
+        <Property key="Alpha" value="0.5"/>
+        <Property key="Enabled" value="true"/>
+        <Widget type="Button" skin="Button" position_real="0.168966 0.277778 0.648276 0.155556" name="btnResume">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="Caption" value="Resume"/>
+            <Property key="FontHeight" value="25"/>
+        </Widget>
+        <Widget type="Button" skin="Button" position_real="0.172414 0.491667 0.648276 0.166667" name="btnLevelSelection">
+            <Property key="Caption" value="Level Selection"/>
+            <Property key="FontHeight" value="25"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="Button" skin="Button" position_real="0.172414 0.716667 0.648276 0.166667" name="btnMenu">
+            <Property key="Caption" value="Main menu"/>
+            <Property key="FontHeight" value="25"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.062069 0.0805556 0.862069 0.113889" name="lblPause">
+            <Property key="Caption" value="Pause menu"/>
+            <Property key="FontHeight" value="30"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="TextAlign" value="ALIGN_CENTER"/>
+        </Widget>
+    </Widget>
+    <Widget type="Widget" skin="PanelSkin" position_real="0.0578125 0.859722 0.9 0.133333" layer="Main" name="panelTools">
+        <Property key="Alpha" value="0.5"/>
+        <Property key="Enabled" value="true"/>
+        
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.170113 0.0625 0.067708 0.8125" name="imgSelectedFire">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageTexture" value="selected.png"/>
+        </Widget>
+        
+        <Widget type="Button" skin="ButtonImage" position_real="0.173611 0.1041667 0.060763 0.7291667" name="btnFire">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageResource" value="button-fire"/>
+            <Property key="ModeImage" value="true"/>
+        </Widget>
+        
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.239583 0.0625 0.067708 0.8125" name="imgSelectedGea">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageTexture" value="selected.png"/>
+            <Property key="Visible" value="false"/>
+        </Widget>
+        
+        <Widget type="Button" skin="ButtonImage" position_real="0.243055 0.1041667 0.060763 0.7291667" name="btnGea">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageResource" value="button-gea"/>
+            <Property key="ModeImage" value="true"/>
+        </Widget>
+        
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.3090277 0.0625 0.067708 0.8125" name="imgSelectedBlizzard">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageTexture" value="selected.png"/>
+            <Property key="Visible" value="false"/>
+        </Widget>
+        
+        <Widget type="Button" skin="ButtonImage" position_real="0.3125 0.1041667 0.060763 0.7291667" name="btnBlizzard">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageResource" value="button-blizzard"/>
+            <Property key="ModeImage" value="true"/>
+        </Widget>
+        
+        <Widget type="Widget" skin="SepDownHSkin" position_real="0.794271 0.09375 0.00434028 0.822917" name="separator2">
+            <Property key="InheritsAlpha" value="true"/>
+        </Widget>
+        <Widget type="Button" skin="Button" position_real="0.859375 0.614583 0.0868056 0.302083" name="btnPause">
+            <Property key="Caption" value="Pause"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.815104 0.09375 0.0824653 0.197917" name="lblExperience">
+            <Property key="Caption" value="Experience"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.815104 0.302083 0.0868056 0.302083" name="lblTime">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="Caption" value="Time"/>
+            <Property key="FontHeight" value="20"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.902778 0.09375 0.0746528 0.197917" name="lblExperience2">
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="Caption" value=""/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.902778 0.302083 0.0746528 0.197917" name="lblTime2">
+            <Property key="Caption" value="00:00"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.02 0.24 0.0512153 0.197917" name="lblLife">
+            <Property key="Caption" value="Life"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        
+         <Widget type="ImageBox" skin="ImageBox" position_real="0.060763 0.2291666 0.073784 0.15625" name="imgLifeBack">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageTexture" value="lifeBack2.png"/>
+        </Widget>
+        
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.0615 0.25 0.0703125 0.1145833" name="imgLife">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageTexture" value="lifeHUD.png"/>
+        </Widget>
+        
+        <Widget type="TextBox" skin="TextBox" position_real="0.02 0.55 0.0607639 0.197917" name="lblMana">
+            <Property key="Caption" value="Mana"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.060763 0.5416667 0.073784 0.15625" name="imgManaBack">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageTexture" value="backBar.png"/>
+        </Widget>
+        
+        <Widget type="ImageBox" skin="ImageBox" position_real="0.0615 0.5625 0.0703125 0.1145833" name="imgMana">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="ImageTexture" value="manaHUD.png"/>
+        </Widget>
+        
+        <Widget type="TextBox" skin="TextBox" position_real="0.6 0.197917 0.0868056 0.21875" name="lblSpell">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value=""/>
+            <Property key="Visible" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.68 0.197917 0.0868056 0.21875" name="lblManaCost">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="25"/>
+            <Property key="Visible" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.74 0.197917 0.0868056 0.21875" name="lblPower">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="25"/>
+            <Property key="Visible" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.6 0.45 0.2 0.6" name="lblDescription">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Visible" value="false"/>
+            <Property key="Caption" value=""/>
+        </Widget>
+        <Widget type="Widget" skin="SepDownHSkin" position_real="0.147569 0.09375 0.00520833 0.822917" name="separator1">
+            <Property key="InheritsAlpha" value="true"/>
+        </Widget>
+    </Widget>
+</MyGUI>

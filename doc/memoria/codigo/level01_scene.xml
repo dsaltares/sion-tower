@@ -1,0 +1,69 @@
+<scene formatVersion="1.0.0">
+  <nodes>
+    <node name="scene-staircase.001">
+      <position x="10.500000" y="1.400000" z="-9.600000"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-staircase.001" meshFile="staircase.mesh"/>
+    </node>
+    
+    <node name="enemy.goblin.30.001">
+      <position x="-1.982259" y="0.000000" z="21.304888"/>
+      <quaternion x="0.000000" y="-0.999307" z="-0.000000" w="0.037231"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="enemy.goblin.30.001" meshFile="enemy.goblin.mesh"/>
+    </node>
+    
+    <node name="scene-wall.012">
+      <position x="-12.000000" y="1.400000" z="-10.000000"/>
+      <quaternion x="0.000000" y="-0.707107" z="-0.000000" w="0.707107"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="scene-wall.012" meshFile="wall.mesh"/>
+    </node>
+  
+    <node name="navMesh">
+      <position x="-0.106243" y="0.000000" z="3.796432"/>
+      <quaternion x="0.000000" y="0.000000" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="navMesh" meshFile="navMesh.mesh"/>
+    </node>
+    
+    <node name="torch">
+      <position x="-3.508866" y="0.965059" z="-11.709224"/>
+      <quaternion x="0.000000" y="0.000466" z="-0.000000" w="1.000000"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="torch" meshFile="torch.mesh"/>
+    </node>
+
+    <node name="Camera">
+      <position x="-0.374790" y="7.257391" z="27.672583"/>
+      <quaternion x="-0.131759" y="-0.016477" z="0.000481" w="0.991145"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <camera name="Camera" fov="28.841546" projectionType="perspective">
+        <clipping nearPlaneDist="0.100000" farPlaneDist="100.000000"/>
+      </camera>
+    </node>
+   
+    <node name="particle.flame.004">
+      <position x="3.825604" y="1.854048" z="19.515015"/>
+      <quaternion x="0.000000" y="-1.000000" z="-0.000000" w="0.000429"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <entity name="particle.flame.004" meshFile="particle-fire.mesh"/>
+    </node>
+    
+    <node name="Lamp">
+      <position x="6.176817" y="5.903862" z="-6.176092"/>
+      <quaternion x="-0.284166" y="0.726942" z="0.342034" w="0.523275"/>
+      <scale x="1.000000" y="1.000000" z="1.000000"/>
+      <light name="Spot" type="point">
+        <colourDiffuse r="0.359337" g="0.500903" b="0.380572"/>
+        <colourSpecular r="0.359337" g="0.500903" b="0.380572"/>
+        <lightAttenuation range="5000.0" constant="1.000000" linear="0.033333" quadratic="0.000000"/>
+      </light>
+    </node>
+ 
+  <environment>
+    <colourAmbient r="0.000000" g="0.000000" b="0.000000"/>
+    <colourBackground r="0.386832" g="0.386832" b="0.386832"/>
+  </environment>
+</scene>

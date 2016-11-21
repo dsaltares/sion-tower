@@ -1,0 +1,114 @@
+=======================================================================
+=                            Sion Tower 1.0                           =
+=                                                                     =
+=                                README                               =
+=======================================================================
+
+Contact:            <david.saltares@gmail.com>
+Development blog:   <http://siondream.com/blog/category/proyectos/pfc>
+Twitter:            <http://twitter.com/iberogre>
+
+
+
+    1. Changelog
+    2. Building Sion Tower for Linux
+    3. Running Sion Tower on Linux
+    4. License
+
+
+
+1. Changelog
+============
+
+Version 1.0
+-   Advanced camera control system
+-   Enemies system
+-   AI system with pathfinding and steering behaviors
+-   Spell casting system
+-   Complete GUI
+-   Profile system
+-   Improved character control
+-   i18n with English and Spanish translations
+-   Three new levels
+-   New music
+-   So much more...
+
+Version 0.1
+-   Level loading from a DotScene file
+-   Collision detection and callback system
+-   Music and 3D sound effects
+-   Basic camera control system (mouse)
+-   Character control (WASD keys)
+
+
+
+2. Building Sion Tower for Linux 
+================================
+
+If you don't have Ogre3D installed you must perform the following steps:
+
+-   Install Ogre dependencies:
+
+    sudo apt-get install g++ make libfreetype6-dev libboost-date-time-dev \ 
+    libboost-thread-dev nvidia-cg-toolkit libfreeimage-dev zlib1g-dev \ 
+    libzzip-dev libois-dev libcppunit-dev doxygen libxt-dev libxaw7-dev \
+    libxxf86vm-dev libxrandr-dev libglu-dev cmake
+
+-   Download Ogre sourcecode http://www.ogre3d.org/download/source
+
+-   Decompress Ogre sourcecode package
+
+-   Build a platform dependent makefile with cmake, build using make and
+    install:
+  
+    cmake .
+    make
+    sudo make install
+    
+    
+Now you must install OIS, SDL and SDL Mixer:
+
+    sudo apt-get install libois-dev libsdl1.2-dev libsdl-mixer1.2-dev
+    
+Download and install MyGUI:
+
+-   Download it from here https://sourceforge.net/projects/my-gui/files/MyGUI/MyGUI_3.2.0_RC1/
+
+-   Decompress the package
+
+-   Build MyGUI:
+
+    cmake .
+    make
+    sudo make install
+    
+Build Sion Tower using make:
+
+    make
+    
+An executable file named siontower will be created.
+
+
+
+3. Running Sion Tower on Linux
+==============================
+
+To run Sion Tower on Linux you must copy some Ogre plugins and the Open
+GL render system into the plugins folder. Those files are usually
+located inside the /usr/local/lib/OGRE folder:
+
+    cp /usr/local/lib/OGRE/Plugin* plugins
+    cp /usr/local/lib/OGRE/RenderSystem_GL.so plugins
+    
+Now you can run Sion Tower:
+
+    ./siontower
+
+
+
+4. License
+==========
+
+See LICENSE (code) and MEDIA-LICENSE (multimedia resources) files to see
+more details.
+

@@ -1,0 +1,42 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 12 13 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 263 14 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 34 103 2010 11 180
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 288 102 2010 11 56
+end
+durationcanvas 128770 classinstance_ref 128130 // :System
+  xyzwh 288 205 2010 11 57
+end
+msg 128514 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 104 2015 msg operation_ref 130562 // "SeleccionarHechizo()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "hechizo"
+  label_xy 78 89
+msg 128642 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 143 2015 explicitmsg "Hechizo seleccionado"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 100 128
+msg 128898 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128770
+  yz 205 2015 msg operation_ref 130690 // "LanzarHechizo()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "direccion"
+  label_xy 88 190
+msg 129026 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128258
+  yz 246 2015 explicitmsg "Hechizo lanzado"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 116 231
+end

@@ -1,0 +1,510 @@
+\section{Proyecto propuesto}
+
+\wiki\ es una documentación libre en formato wiki sobre desarrollo
+de videojuegos en tres dimensiones utilizando el motor de renderizado
+también libre \textsc{Ogre3D}. No sólo cubre el uso del conocido motor gráfico
+sino que incluye documentación relacionada con otras bibliotecas y tecnologías
+complementarias necesarias para el desarrollo de videojuegos. Además, tiene como objetivos
+recordar y repasar los conceptos matemáticos fundamentales para continuar
+estudiando esta disciplina como álgebra o geometría del espacio. Cada lección
+intercalará conceptos teóricos y pequeños ejemplos prácticos para finalizar
+con un paquete descargable completamente documentado que muestre una aplicación
+práctica sobre dicha lección.\\
+
+\juego\ es un videojuego de estrategia y acción en 3D de ambientación
+fantástica cuyo objetivo es servir de ejemplo final a la wiki. Por supuesto,
+hace uso de \textsc{Ogre3D} y otras tecnologías complementarias documentadas
+en \wiki. En \juego\ controlamos a un joven hechicero iniciado que se ve obligado
+a defender la Torre Sagrada de una invasión enemiga mientras sus compañeros
+están celebrando un rito secreto en el exterior. Cada nivel es un piso
+de la Torre y para poder avanzar tenemos que acabar con todos los enemigos
+que atacan en oleadas la zona. Para hacerlo tendremos que emplear nuestra
+energía mágica o maná en invocar proyectiles de diversa índole.
+El videojuego debe estar completamente documentado para que los lectores
+de \wiki\ tengan acceso directo a una aplicación práctica lo más realista posible
+de la tecnología.\\
+
+
+\section{Contexto}
+
+En esta sección destacaremos la importancia de la industria del videojuego
+empleando como escenario concreto España. Asimismo, haremos hincapié sobre
+el éxito de los videojuegos 3D sobre los bidimensionales en términos de
+mercado. Finalmente, realizaremos un pequeño repaso sobre qué es un motor
+de videojuegos y adjuntaremos un breve comentario sobre algunos de ellos,
+libres y privativos.\\
+
+\subsection{Auge de los videojuegos 3D}
+
+Es innegable que los videojuegos son un mercado en auge que está soportando
+como pocos el efecto de la crisis económica mundial. En la sección
+\ref{sec:videojuegos-industria} ofreceremos cifras que apoyan estas afirmaciones
+dentro del contexto del mercado español.\\
+
+Existe mucha discrepancia acerca de cuál es el primer videojuego de la
+historia ya que la propia definición de videojuego resulta a la vez confusa.
+Muchos consideran que Alenxander Douglas fue el padre del primer videojuego
+moderno cuando en el año 1952 recreó en el computador EDSAC de la Universidad
+de Cambridge una versión del popular tres en raya llamada OXO con gráficos
+completamente primitivos (ver figura \ref{fig:oxo}) \cite{website:historia-videojuegos}.\\
+
+\figura{oxo.jpg}{scale=0.9}{OXO, primer videojuego de la historia (1952)}{fig:oxo}{h}
+
+Pasaron casi 30 años desde el primer videojuego moderno hasta que llegaron
+los primeros videojuegos con sensación de profundidad en los años 80. Battlezone
+(ver figura \ref{fig:battlezone}) era un videojuego de acción con tanques
+y artillería para la consola Atari lanzado en 1980. Utilizaba vectores
+verdes y rojos que delineaban el contorno de los objetos sobre el fondo
+negro del escenario. Los videojuegos con gráficos vectoriales supusieron
+un gran avance para la época ya que, con pocos recursos se podía conseguir
+una aceptable sensación de profundidad \cite{website:historia-videojuegos}.\\
+
+\figura{battlezone.jpg}{scale=0.6}{Battlezone, videojuego con gráficos vectoriales (1980)}{fig:battlezone}{h}
+
+Los gráficos poligonales en tres dimensiones se popularizaron rápidamente
+a finales de los años 80 y comienzos de los 90. No obstante, las técnicas
+de programación no estaban lo suficientemente evolucionadas y, al aumentar
+el detalle, aumentaba de manera exponencial la potencia de cálculo necesaria.
+Alone in the Dark (ver figura \ref{fig:aloneinthedark}), publicado en 1992,
+fue el primer videojuego completamente en 3D en cosechar un éxito importante,
+además fue uno de los primeros en pertenecer al género de terror. Existen
+otros muchos ejemplos de videojuegos que simulaban mundos 3D utilizando
+un mundo 2D que se dibujaba en 3D (llamado a veces \emph{dos dimensiones y media}),
+y que tuvieron éxito durante los 90 como Wolfenstein 3D (Id Software, 1992)
+o Doom (Id Software, 1993) \cite{website:historia-videojuegos}.\\
+
+\figura{aloneinthedark.jpg}{scale=0.5}{Alone in the Dark (PC - 1992)}{fig:aloneinthedark}{h}
+
+A mediados de los 90 los gráficos 3D saltaron del PC a las consolas de
+sobremesa. En 1994 Sega presentó Sega Saturn y Sony hizo lo propio con
+PlayStation, en 1996 Nintendo lanzó al mercado Nintendo 64. La penetración
+de estas consolas en el mercado fue tal que los gráficos en 3D llegaron a
+millones de usuarios. PlayStation fue la consola más exitosa llegando a vender
+100 millones de unidades. En esa época llegaron títulos revolucionarios
+como el juego de infiltración y acción Metal Gear Solid (ver
+figura \ref{fig:metalgearsolid}) o el plataformas Super Mario 64 (ver figura
+\ref{fig:supermario64}). Los gráficos en 3D llegaron para quedarse \cite{website:historia-videojuegos}.\\
+
+\figura{metalgearsolid.jpg}{scale=0.5}{Metal Gear Solid (PlayStation - 1998)}{fig:metalgearsolid}{h}
+
+\figura{supermario64.jpg}{scale=0.35}{Super Mario 64 (Nintendo 64 - 1996)}{fig:supermario64}{h}
+
+La siguiente generación de consolas llegó en el año 2000 con la PlayStation 2
+de Sony. Un año más tarde Microsoft entró en el mercado con Xbox y Nintendo
+lanzó Game Cube. PlayStation 2 se convirtió en la consola más vendida de 
+la historia hasta el momento. Tanto en PC como en consolas de sobremesa, los gráficos
+en 3D ya se habían consolidado. Llegaron títulos como God of War (ver figura
+\ref{fig:godofwar}) y Half-Life 2 (ver figura \ref{fig:halflife2}) \cite{website:historia-videojuegos}.\\
+
+\figura{godofwar.jpg}{scale=0.25}{God of War (PlayStation 2 - 2005)}{fig:godofwar}{h}
+
+\figura{halflife2.jpg}{scale=0.25}{Half-Life 2 (PC - 2005)}{fig:halflife2}{h}
+
+Otro hito en el mundo de los videojuegos tridimensionales fue su llegada
+a las consolas portátiles, hasta entonces con insuficiente potencia. En 
+2004 Nintendo lanzó su portátil Nintendo DS y poco después Sony respondió
+con PlayStation Portable (PSP). La reducción de los procesadores permitió
+que dispositivos de pequeño tamaño fueran capaces de mostrar en pantalla
+un elevado número de polígonos y efectos. Actualmente este fenómeno está
+tomando importancia en los dispositivos móviles iPhone y Android. Incluso
+conocidos motores han llegado a iOS en demos técnicas como Epic Citadel
+(ver figura \ref{fig:epiccitadel}) \cite{website:historia-videojuegos}.\\ 
+
+\figura{epiccitadel.jpg}{scale=0.25}{Epic Citadel (iOS - 2009)}{fig:epiccitadel}{h}
+
+El último paso han sido las consolas de la última generación Xbox 360 (2005),
+Wii (2006) y PlayStation 3 (2006) y la llegada de la tecnología DirectX 11
+al PC. Los entornos 3D se han hecho cada vez más grandes, los efectos
+consiguen un mayor realismo y las físicas no difieren apenas de la realidad.
+Las compañías luchan por estar a la vanguardia y los equipos más avanzados cuentan
+con decenas de ingenieros especializados en campos muy concretos. Un ejemplo
+de videojuego vanguardista podría ser Uncharted 2 (ver figura \ref{fig:uncharted2}) \cite{website:historia-videojuegos}.\\
+
+\figura{uncharted2.jpg}{scale=0.8}{Uncharted 2 (PlayStation 3 - 2009)}{fig:uncharted2}{h}
+
+Podemos concluir que los videojuegos tridimensionales han experimentado
+una crecida exponencial a lo largo de los últimos años. Esto se debe a que
+consiguen un mayor realismo e inmersión por parte del usuario dentro
+del universo recreado.\\
+
+% Videojuegos en auge
+    % Dispositivos cada vez más capaces
+    % Lucha tecnológica
+    % LLegada de las 3D
+
+\subsection{Los videojuegos como industria}
+\label{sec:videojuegos-industria}
+
+Si acudimos al último informe publicado por aDeSe \cite{pdf:adese2010}
+(Asociación Española de Distribuidores y Editores de Software de
+Entretenimiento), es decir, al correspondiente al pasado año 2010,
+podemos percatarnos de la fuerza del sector en nuestro país. A pesar
+del efecto provocado por la crisis económica que ha hecho disminuir el valor
+de la industria un 5,2\% durante el último año, dicho valor llega a los 1.245
+millones de euros. Además, la industria del videojuego copa el 50\% de todo el
+mercado relacionado con el ocio visual e interactivo.\\
+
+\figura{division-videojuegos.jpg}{scale=0.7}{División del sector de los videojuegos}{fig:division-videojuegos}{h}
+
+Si prestamos atención a la figura~\ref{fig:division-videojuegos} podremos
+observar que el sector del software sólo ha descendido un 0,38\% mientras
+que el de los periféricos incluso ha crecido un 5,6\%. Por su parte, el sector de
+las consolas ha disminuido un 13\%. Estas variaciones son comprensibles
+ya que en 2010 las consolas actuales se aproximan poco a poco al final de
+su ciclo de vida. Por ejemplo, la sucesora de la consola portátil Nintendo DS
+\cite{website:nintendo-ds}, la recientemente lanzada Nintendo 3DS \cite{website:nintendo-3ds},
+fue anunciada de forma oficial durante el año 2010. El aumento del segmento
+de los periféricos ha podido crecer gracias al lanzamiento de Kinect \cite{website:kinect}
+durante la campaña navideña del año 2010. Kinect es un sensor de movimiento
+desarrollado por Microsoft compatible con la consola Xbox 360.\\
+
+En definitiva, salvo pequeñas variaciones, la industria del videojuego
+en España muestra salud y un gran potencial.\\
+
+Para destacar la importancia de los videojuegos en 3D podemos recurrir
+a la lista de los más vendidos en España durante el pasado año 2010 reflejada
+en la tabla \ref{tab:ventas2010}.\\
+
+\begin{table}[h]
+  \begin{center}
+  \begin{tabular}{| c |m{4cm}|m{2.5cm}|m{2cm}|m{3cm}|m{1cm}|}
+    \hline
+    \textbf{Puesto} & \textbf{Título} & \textbf{Plataforma} & \textbf{Género} & \textbf{Distribuidor} & \textbf{¿3D?} \\
+    \hline
+    1 & Call of Duty: Black Ops & PlayStation 3 & Acción & Activision Blizzard & Sí \\
+    \hline
+    2 & New Super Mario Bros. & Wii & Plataformas & Nintendo & Sí \\
+    \hline
+    3 & Wii Fit Plus & Wii & Fitness & Nintendo & Sí \\
+    \hline
+    4 & Gran Turismo 5 & PlayStation 3 & Conducción & Sony & Sí \\
+    \hline
+    5 & Wii Party & Wii & Party Game & Nintendo & Sí \\
+    \hline
+    6 & FIFA 11 & PlayStation 3 & Deportivo & Electronic Arts & Sí \\
+    \hline
+    7 & Pro Evolution Soccer 2011 & PlayStation 3 & Deportivo & Konami & Sí \\
+    \hline
+    8 & Super Mario Galaxy 2 & Wii & Plataformas & Nintendo & Sí \\
+    \hline
+    9 & God of War III & PlayStation 3 & Acción & Sony & Sí \\
+    \hline
+    10 & Art Academy & Nintendo DS & Habilidad & Nintendo & No \\
+    \hline
+    11 & Mario Kart & Wii & Conducción & Nintendo & Sí \\
+    \hline
+    12 & Formula 1 2010 & PlayStation 3 & Conducción & Warner Interactive & Sí \\
+    \hline
+    13 & Call of Duty: Modern Warfare 2 & PlayStation 3 & Acción & Activision Blizzard & Sí \\
+    \hline
+    14 & Wii Sports Resort & Wii & Deportes & Nintendo & Sí \\
+    \hline
+    15 & Red Dead Redemption & PlayStation 3 & Acción & Take 2 & Sí \\
+    \hline
+    16 & Pokémon Soulsilver & Nintendo DS & RPG & Nintendo & No \\
+    \hline
+    17 & Assassin's Creed: La Hermandad & PlayStaton 3 & Acción & Ubisoft & Sí \\
+    \hline
+    18 & Wii Play & Wii & Party Game & Nintendo & Sí \\
+    \hline
+    19 & Pokémon Heartgold & Nintendo DS & RPG & Nintendo & No \\
+    \hline
+    20 & Starter Pack & PlayStation 3 & Party Game & Sony & Sí \\
+    \hline
+  \end{tabular}
+\end{center}
+\caption{Tabla de los 20 videojuegos más vendidos en España durante el año 2010}
+\label{tab:ventas2010}
+\end{table}
+
+Como puede observarse, un 85\% de los juegos más vendidos en España durante
+el año 2010 en cualquier plataforma son en tres dimensiones. Dicha cifra ya
+resulta un claro indicador del atractivo que suponen las 3D para la comunidad
+de usuarios. No obstante, si tenemos únicamente en cuenta los títulos para
+consolas de sobremesa (17 entre los 20 más vendidos), vemos que el 100\%
+de ellos utilizan gráficos tridimensionales.\\
+
+% Economía (informe español aDeSe)
+
+\subsection{Motores de videojuegos}
+
+Como indica la publicación Game Engine Architecture de Jason Gregory
+\cite{greg09} el término \emph{motor de videojuegos} apareció a mediados
+de los años 90 con el videojuego de acción en primera persona Doom
+\cite{website:doom} de Id Software (ver figura \ref{fig:doom}). Fue el
+primer videojuego cuya arquitectura estaba bien definida y separaba
+componentes como el motor de renderizado, el sistema de audio, la detección
+de colisiones y los recursos artísticos. Esto permitió que los desarrolladores
+pudiesen reutilizar estos elementos para lanzar nuevos productos distintos
+al original. Podían cambiar armas, niveles y vehículos con ninguno o
+pocos cambios al motor.\\
+
+\figura{doom.jpg}{scale=0.3}{Doom (PC - 1993)}{fig:doom}{h}
+
+Fue entonces cuando nació lo que se conoce como la comunidad del \emph{modding}.
+Usuarios y profesionales que se dedican a modificar juegos aprovechando
+la independencia del motor de los recursos. Estos arreglos pueden ir desde
+modificar reglas de juego, añadir elementos hasta incluso crear un juego
+radicalmente diferente al original. A finales de la década de los 90
+ya se desarrollaban motores con estas modificaciones en mente. Un ejemplo
+es Quake III Arena \cite{website:quakeIII} de Id Software (ver figura
+\ref{fig:quakeIII}) y su lenguaje de scripting Quake C.\\
+
+\figura{quakeIII.jpg}{scale=0.3}{Quake III Arena (PC - 1999)}{fig:quakeIII}{h}
+
+Hoy en día es muy común que muchas compañías pequeñas no puedan permitirse
+económicamente el desarrollo de su propio motor. Por ello, adquieren licencias
+de motores de compañías externas para comenzar sus proyectos. A pesar de que
+dichas licencias conllevan un desembolso importante, suele ser más asequible
+que el desarrollo completo del motor.\\
+
+La línea que separa lo que es un motor de videojuegos de lo que no lo es
+es muy difusa. Un motor podría saber cómo dibujar un personaje específico
+mientras que otro simplemente recibiría una colección de vértices y triángulos
+de un fichero en memoria secundaria. Por tanto, el segundo motor sería
+más generalista que el segundo y más reutilizable. Cuando un motor incluye
+lógica de juego y elementos muy concretos dentro de su código fuente, es 
+prácticamente imposible reutilizarlo para otro propósito. La situación opuesta
+tampoco se da, no existe un motor capaz de ser óptimo en cualquier situación.
+Hay algunos que están preparados para mostrar escenarios gigantescos con bajo
+nivel de detalle y miles de personajes en pantalla mientras que otros
+se centran en entornos limitados con un nivel de detalle y efectos impresionante.\\
+
+\figura{abaddon.jpg}{scale=0.17}{Videojuego libre Abaddon}{fig:abaddon}{H}
+
+Afortunadamente, existen motores libres como \textsc{Ogre3D} (\textit{Object
+Oriented Graphics Rendering Engine} o motor gráfico de renderizado orientado
+a objetos). Básicamente es una biblioteca compatible con el lenguaje de
+programación C++ que abstrae las funcionalidades de bajo nivel de DirectX \cite{website:directx}
+y OpenGL \cite{website:opengl} para comunicarse con el hardware. Su versión
+1.0 de nombre en clave Azathoth fue lanzada en 2005 y desde entonces ha cosechado
+grandes éxitos como el premio al proyecto del mes en SourceForge. Únicamente
+proporciona el sistema de renderizado (dibujado de una escena 3D en patalla)
+por lo que es necesario implementar otros subsistemas o recurrir a otras bibliotecas
+(colisiones, audio, entrada del usuario, red, etc) \cite{junk06}.\\
+
+\figura{stuntrally.jpg}{scale=0.25}{Videojuego libre Stunt Rally}{fig:stuntrally}{H}
+
+Su licencia permisiva (MIT) ha permitido la creación tanto de juegos libres
+como comerciales y cerrados. Abaddon (figura \ref{fig:abaddon}) y Stunt Rally (figura
+\ref{fig:stuntrally}) son videojuegos libres de géneros muy distintos (rol y conducción
+respectivamente) que han sido desarrollados utilizando \textsc{Ogre3D}, lo que
+demuestra su enorme versatilidad. Asimismo, como títulos cerrados
+podemos mencionar a Torchlight (figura \ref{fig:torchlight}) y a Victory The Age of Racing
+(figura \ref{fig:victory}) \cite{junk06}. \\
+
+\figura{torchlight.jpg}{scale=0.25}{Torchlight (Windows, Mac - 2009)}{fig:torchlight}{H}
+
+\textsc{Ogre3D} cuenta con una arquitectura (figura \ref{fig:aquitectura-ogre})
+modular extensible a través de plugins. Si una característica necesaria para
+nuestro proyecto no viene incluida en el motor es posible implementarla
+e integrarla sin demasiados problemas. Por supuesto, también es recomendable
+acudir a su excelente comunidad ya que es probable que lo que busquemos esté
+hecho y pueda ser reutilizado. Queda patente por las capturas de pantalla
+que \textsc{Ogre3D} es un motor gráfico moderno con grandes capacidades
+\cite{junk06}.\\
+
+\figura{victory.jpg}{scale=0.3}{Victory (Windows - 2011)}{fig:victory}{H}
+
+Actualmente, \textsc{Ogre3D} es uno de los mejores motores gráficos libres
+que existen. Si bien es cierto que su potencia y extensibilidad hacen que
+la curva de aprendizaje sea elevada, el hecho de tomar elementos similares
+al de otros motores ampliamente utilizados en la industria lo hace ideal
+para el aprendizaje a aquellos interesados en la materia de forma profesional.\\
+
+\figura{arquitectura-ogre.jpg}{scale=0.9}{Arquitectura de \textsc{Ogre3D}}{fig:aquitectura-ogre}{H}
+
+
+\section{Motivaciones}
+\label{sec:motivaciones}
+
+Comenzar a utilizar una tecnología desconocida como \textsc{Ogre3D} o cualquier
+otra siempre entraña cierta dificultad y, si le añadimos la barrera del 
+idioma, aún más. La principal motivación para embarcarme en la confección
+de una documentación sobre desarrollo de videojuegos en 3D como es \wiki\
+ha sido la ausencia de información al respecto en castellano. Hasta
+ahora sólo se habían publicado pequeños tutoriales en blogs personales
+pero no existía una plataforma de aprendizaje y documentación
+equivalente a la wiki oficial de \textsc{Ogre3D} \cite{website:ogre3d-wiki}
+en español.\\
+
+\textbf{Diseño de Videojuegos} es una asignatura optativa de tercer curso
+de la titulación Ingeniería Técnica en Informática de Sistemas dentro
+de la Universidad de Cádiz. En dicha asignatura los alumnos se organizan
+en grupos de tres con el objetivo de desarrollar un juego sencillo en dos
+dimensiones durante el cuatrimestre. Las únicas restricciones son que
+el videojuego resultante debe ser completamente libre y que han de utilizar
+la forja de código de RedIRIS \cite{website:rediris} junto a \textit{Subversion} 
+\cite{website:svn} como sistema de control de versiones. Los alumnos de la
+asignatura suelen utilizar bibliotecas libres para desarrollar aplicaciones
+multimedia en dos dimensiones como \textsc{libSDL} \cite{website:sdl} o
+\textsc{Gosu} \cite{website:gosu}. Toda la documentación estaba en inglés, pero
+para la primera de ambas bibliotecas ya se publicó una excelente documentación
+en castellano en formato wiki llamada \textbf{Wikijuegos} \cite{website:wikijuegos}.\\
+
+De esta manera, los alumnos podían seguir la extensa documentación sin
+muchos problemas a la vez que trabajaban sobre los múltiples ejemplos
+aprendiendo conceptos que, más tarde, incorporarían en sus proyectos. No 
+obstante, cuando terminasen la asignatura no disponían de una bibliografía
+en español para continuar ampliando sus conocimientos en el terreno de las
+tres dimensiones.\\
+
+Cualquiera que desee iniciarse en el mundo del desarrollo de aplicaciones
+en tiempo real en tres dimensiones (ya sean videojuegos o no) debe adquirir
+o recordar una fuerte base de matemáticas. Principalmente, son necesarios
+conocimientos relativos a álgebra lineal, trigonometría y geometría del espacio.
+En numerosas ocasiones también nos vemos obligados a utilizar
+conceptos de física como óptica, cinemática, dinámica, etc. Lo usual es que
+el aprendiz se va obligado a recurrir a varias fuentes de información
+no conexas entre sí. Una motivación importante era proporcionar en un sólo
+lugar, el uso de una tecnología y los conocimientos matemáticos necesarios
+para trabajar con ella.\\
+
+La wiki oficial de \textsc{Ogre3D} \cite{website:ogre3d-wiki} y el resto
+de documentación tanto accesible en la red como impresa se centran principalmente
+en el desarrollo para plataformas cerradas como es Windows con herramientas
+privativas tales como Microsoft Visual Studio. Lo natural en una documentación
+libre es tratar de ofrecer un soporte multiplataforma utilizando herramientas
+libres como, por ejemplo, el compilador GNU GCC \cite{website:gnu-gcc}.\\
+
+Mi interés en aprender a desarrollar videojuegos en tres dimensiones fue el
+motor principal que me llevó a desarrollar \juego. Son tantos los conceptos
+nuevos, las tecnologías desconocidas y las aproximaciones diametralmente
+opuestas que las posibilidades de adquirir conocimiento son enormes. En cualquier
+caso, \wiki\ necesitaba un gran ejemplo final que pusiera en práctica todo
+lo visto a lo largo de las lecciones. Una puesta en práctica lo más cercana
+a la realidad completamente documentada para que cualquier lector pudiera
+comprender de primera mano cómo se desarrolla un videojuego en 3D (aunque
+sea de pequeñas dimensiones).\\
+
+La idea de que \juego\ tuviera componentes fácilmente reutilizables por
+los lectores interesados también resultaba muy atractiva. La posible
+distribución por separado de subsistemas libres documentados en detalle
+como el motor de colisiones quizás fuera útil a otros usuarios que
+estuviesen comenzando.\\
+
+Es posible resumir las motivaciones que me han llevado a desarrollar este
+proyecto en cubrir el vacío de documentación en castellano, el hecho de que
+pocas fuentes hagan hincapié en herramientas libres y el deseo personal
+de aprender a crear videojuegos en tres dimensiones.\\
+
+
+\section{Objetivos}
+\label{sec:objetivos}
+
+El objetivo principal del proyecto viene extraído de forma lógica de las
+motivaciones (sección \ref{sec:motivaciones}). Con \wiki\ se pretende
+crear una documentación libre que facilite el aprendizaje del desarrollo
+de videojuegos en 3D. Por su parte, con \juego\ se desea proporcionar una 
+aplicación práctica ampliamente documentada y accesible de todo el contenido
+tratado en la wiki.\\
+
+\wiki\ debe cumplir con los siguientes requisitos básicos:
+
+\begin{itemize}
+    \item El contenido debe abarcar los principales subsistemas de
+    \textsc{Ogre3D} de forma que el lector sea capaz de desarrollar aplicaciones
+    en tres dimensiones y pueda ampliar sus conocimientos de forma autónoma.
+    Para ello deben darse pocos conceptos por supuestos y explicar los temas
+    más básicos en primer lugar para ir ascendiendo en complejidad de forma
+    progresiva. A pesar de ello, para continuar las lecciones será imprescindible
+    tener una mínima experiencia con videojuegos en dos dimensiones.
+    \item Debe proporcionarse una sección con los contenidos matemáticos
+    mínimos sobre geometría del espacio para comprender el resto de material
+    de la wiki. No se pretende publicar material educativo sobre matemáticas
+    en el sentido más estricto sino ofrecer los conceptos con un enfoque
+    eminentemente práctico. El nivel ofrecido será similar al impartido
+    en segundo de bachillerato.
+    \item \textsc{Ogre3D} es simplemente un motor de renderizado y no
+    proporciona subsistemas imprescindibles para la creación de un videojuego
+    como entrada de usuario o sonido. En la documentación debe existir una
+    sección para otras tecnologías que cubran bibliotecas complementarias
+    a \textsc{Ogre3D}.
+    \item Emplear una aproximación lo más práctica posible. Deben intercalarse
+    los contenidos teóricos del desarrollo de cada lección con pequeños
+    ejemplos. Para finalizar cada artículo debe adjuntarse un ejemplo de mayores
+    dimensiones que evidencie las técnicas comentadas en el texto.
+    \item Prestar especial atención y soporte a herramientas de desarrollo
+    libre y multiplataforma.
+    \item Ofrecer técnicas y buenas prácticas para el desarrollo de software
+    multiplataforma. Todas las herramientas y bibliotecas empleadas lo son
+    y carecería de sentido que el código escrito por los lectores fuera
+    dependiente de una arquitectura o plataforma sin necesidad de ello.
+    \item Construir una comunidad que colabore de forma activa con la
+    documentación probado ejemplos, informando de errores encontrados y
+    creando nuevo contenido de interés para el resto de usuarios.
+\end{itemize}
+
+\juego\ debe cumplir con los siguientes requisitos:
+
+\begin{itemize}
+    \item Servir de ejemplo lo más cercano a la realidad posible de un
+    desarrollo de videojuego 3D. Es muy habitual terminar de leer documentación,
+    hacer pequeñas prácticas pero no sentirse capaz de embarcarse en un
+    proyecto de mayores dimensiones utilizando la misma tecnología. Para ello
+    es imprescindible que se documente cada fase del desarrollo.
+    \item Crear un pequeño motor orientado a la producción de contenido, una
+    de las prácticas mejor valoradas. Cualquier diseñador podría añadir
+    niveles al juego sin necesidad de tocar el código fuente ni recompilarlo.
+    \item Convertirse en un ejemplo de trabajo con un equipo multidisciplinar.
+    En un videojuego profesional deben trabajar juntos desde unas pocas personas
+    hasta varios centenares por lo que la coordinación entre profesionales
+    de distintas áreas es muy importante. Será necesario encontrar artistas
+    relacionados con el modelado 3D, música y efectos de sonido.
+    \item No sólo debe ser útil a los interesados en el desarrollo sino también
+    de cara al usuario final. \juego\ debe ser cómodo de utilizar, intuitivo
+    y divertido.
+    \item Crear subsistemas independientes del videojuego reutilizables
+    por la comunidad de usuarios. Por supuesto, deben venir acompañados
+    de la documentación pertinente: dependencias, instalación, uso y licencia.
+\end{itemize}
+
+\section{Sobre este documento}
+
+La presente memoria de \textbf{Proyecto Fin de Carrera} posee la siguiente
+estructura en capítulos y apéndices:
+
+\begin{itemize}
+    \item En el capítulo \ref{chap:introduccion} que actualmente nos ocupa,
+    se hace una breve introducción sobre el contexto en el que nos situamos.
+    Se ofrece una visión del mundo de los videojuegos como industria y se
+    habla sobre el actual mercado de los motores para videojuegos.
+    Finalmente se evidencia la necesidad de documentación en castellano
+    sobre uno de estos motores libres (\textsc{Ogre3D}) y se adjuntan el
+    resto de motivaciones y objetivos relacionados con el proyecto.
+    \item En el capítulo \ref{chap:calendario} se expone la organización
+    temporal de todo el desarrollo a través de un diagrama de Gantt. Más 
+    adelante se comenta brevemente cada una de las tareas que conforman
+    la planificación.
+    \item En el capítulo \ref{chap:desarrollo-iberogre} se documenta
+    en profundidad el desarrollo de la wiki \wiki. Se incluye la metodología
+    utilizada, el análisis de requisitos, el diseño de la plataforma, los
+    detalles de la redacción de los artículos, la implementación de los
+    ejemplos y las pruebas realizadas.
+    \item En el capítulo \ref{chap:desarrollo-siontower} se refleja el proceso
+    de desarrollo para el videojuego \juego. Comenzando con el documento
+    de diseño, se sigue con la fase de análisis, diseño e implementación.
+    Se hace especial hincapié en los subsistemas que entrañan mayor complejidad
+    como el sistema de detección de colisiones. Se finaliza con las pruebas
+    realizadas.
+    \item En el capítulo \ref{chap:conclusiones} se hace una breve reflexión
+    personal seguida de otra técnica tratando de aglutinar los conceptos
+    aprendidos, la riqueza que ha proporcionado la experiencia y lo que
+    podrá aportar a la comunidad. Finalmente se termina con un pequeño
+    listado sobre las posibilidades de ampliación del proyecto.
+    \item En el apéndice \nameref{chap:software} se hace un repaso por todas
+    las herramientas empleadas a lo largo del desarrollo
+    del proyecto. Asimismo, se adjuntan comentarios y las razones de su uso.
+    \item En el apéndice \nameref{chap:manual} se incluye un completo manual
+    de usuario para \juego. El documento contiene la introducción a la historia,
+    personajes y hechizos del juego así como una completa guía de instalación
+    en sistemas GNU/Linux y Windows. Posteriormente se detallan las mecánicas
+    de juego y los controles en detalle. Finalmente se añade una completa guía
+    para añadir niveles adicionales a \juego\ creados con la herramienta
+    \textit{Blender}.
+    \item En el apéndice \nameref{chap:comunidad} se realiza un recorrido
+    por las actividades relacionadas con el presente proyecto y la
+    comunidad del Software Libre. Se mencionan actividades como el
+    \textbf{V Concurso Universitario de Software Libre} y los medios de difusión
+    utilizados.
+\end{itemize}

@@ -1,0 +1,43 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 17 13 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 298 14 2000 life_line_z 2000
+note 129026 "[* eliminar enemigos]"
+  xyzwh 57 185 3005 161 35
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 39 105 2010 11 189
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 323 106 2010 11 53
+end
+durationcanvas 128770 classinstance_ref 128130 // :System
+  xyzwh 323 205 2010 11 77
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 109 2015 msg operation_ref 128130 // "PantallaJuego()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nivel"
+  label_xy 128 94
+msg 128642 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 144 2015 explicitmsg "Escenario"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 159 129
+msg 128898 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128770
+  yz 206 2015 msg operation_ref 128258 // "Interactuar()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 225 192
+msg 129154 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128258
+  yz 258 2015 explicitmsg "CambiarPantalla(Victoria)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 108 243
+end

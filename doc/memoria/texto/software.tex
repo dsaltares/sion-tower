@@ -1,0 +1,324 @@
+En esta sección hablaremos de las herramientas utilizadas durante el desarrollo
+de \wiki\ y \juego. Para cada herramienta ofreceremos una pequeña descripción
+de sus funcionalidades y adjuntaremos las razones por las cuales ha sido
+elegida para el desarrollo frente a sus competidoras. No haremos mención
+a las bibliotecas empleadas ya que han sido profusamente comentadas a lo largo
+de la implementación de ambas partes del proyecto.\\
+
+
+\section*{Subversion}
+
+\textit{Subversion} \cite{website:svn} es un sistema de control de
+versiones libre cuya primera versión fue lanzada en el año 2000 por CollabNet.
+Es compatible en mayor parte con su predecesor \textit{CVS}. \textit{Subversion}
+nos permite contar con una copia de seguridad tanto de los ejemplos de
+\wiki\ como del código de \juego\ en todo momento. Gracias a esta herramienta
+podemos guardar un historial de todas las versiones de los ficheros
+fuente del proyecto así como deshacer cambios en caso de que fuera necesario.
+Con \textit{SVN} conseguimos acceso al código del proyecto desde cualquier
+equipo. Además, pone a disposición de cualquier interesado el código fuente
+de forma sencilla.\\
+
+Existen otros sistemas de control de versiones como \textit{Git} o
+\textit{Mercurial}. Se ha elegido \textit{Subversion} por su sencillez
+y por mostrarse suficientemente potente para gestionar el código de un proyecto
+de un sólo programador. En cualquier caso, su uso era obligatorio según la
+normativa del V Concurso Universitario de Software Libre (más sobre
+el concurso en el apéndice \nameref{chap:comunidad}).\\
+
+\section*{GNU GCC Compiler}
+
+\textit{GCC} \cite{website:gnu-gcc} es el compilador del proyecto GNU y se
+encarga de traducir nuestro código C++ a lenguaje máquina para poder
+ejecutarlo posteriormente. El proyecto se inició en 1987 y actualmente
+está disponible para multitud de arquitecturas como móviles Symbian
+o consolas PlayStation 2.\\
+
+\textit{GCC} fue desarrollado inicialmente para soporta el lenguaje
+C aunque actualmente forma el GNU toolchain y es compatible con C++,
+Fortran, Pascal, Objective-C, Java y Ada entre otros. Ha sido elegido
+por ser el compilador libre compatible con el lenguaje más ampliamente
+usado, estable y eficiente.\\
+
+\section*{Make}
+
+\textit{Make} \cite{pdf:make} es una utilidad para automatizar el proceso
+de programas y bibliotecas a partir de su código fuente a partir
+de ficheros con una sintaxis especial llamados \textit{makefile}. Estos
+ficheros le indican a la herramienta cómo ha de ser compilado el software.\\
+
+\textit{Make} acelera el proceso de compilación ya que no vuelve a generar
+los ficheros objetos ya creados cuyos fuentes no han sido modificados. Además,
+permite limpiar directorios y gestionar distintos modos de compilación
+(modo depuración o lanzamiento, por ejemplo). En nuestro proyecto, \textit{Make}
+también es utilizado para generar la documentación escrita en \LaTeX.\\
+
+\section*{GNU Debugger}
+
+\textit{GDB} \cite{website:gdb} es como se conoce popularmente al depurador de código del
+proyecto GNU. Es un depurador destinado a sistemas Unix compatible con varios
+lenguaje entre los que se encuentran, por supuesto, C y C++. Esta herramienta
+nos permite marcar puntos de interrupción en el programa y examinar la pila
+del programa cuando éste ha terminado su ejecución de manera abrupta. Es
+posible acceder al valor de variables en todo momento para tratar de averiguar
+las fuentes de los fallos del sistema.\\
+
+El depurador básicamente nos ayuda a saber qué ocurre exactamente durante
+la ejecución de nuestra aplicación. En \juego\ ha resultado ser una herramienta
+imprescindible a la hora de identificar y solucionar problemas en tiempo
+de ejecución. Sin duda, es una herramienta que colabora en el aumento de
+la calidad del software si sabe utilizarse correctamente. Cuenta con un
+sinfín de opciones y funcionalidades que no han sido explotadas en el
+desarrollo de este proyecto.\\
+
+\section*{Valgrind}
+
+\textit{Valgrind} \cite{website:valgrind} es una herramienta para la
+depuración del uso de la memoria, detección de pérdidas de memoria y
+profiling. Esto nos permite identificar puntos en los que se accede a memoria
+aún no inicializada y que probablemente contenga basura. También es útil
+para saber si nuestra aplicación no la libera memoria utilizada por los
+objetos cuando estos ya han sido destruidos. El profiling consiste en
+monitorizar cuánto tiempo permanece el código en ejecución dentro de cada
+función, esto nos ayuda a identificar posibles cuellos de botella. Su nombre
+viene de la mitología nórdica y se refiere a la entrada del Valhala.\\
+
+Es compatible con sistemas GNU/Linux y Mac OS X. Ha resultado extremadamente
+útil en aquellos puntos a los que \textit{GDB} no era capaz de llegar. No
+obstante, al ser una herramienta de análisis dinámico, la ejecución
+de \juego\ se ralentizaba en exceso aún trabajando con equipos muy potentes.\\
+
+\section*{Vim}
+
+\textit{Vim} \cite{website:vim} es un editor de textos libres creado en
+1991 para el computador Amiga. \textit{Vim} significa \textit{Vi IMproved}
+ya que es una versión mejorada del anterior editor \textit{Vi}. Es editor
+compatible con sistemas GNU/Linux extremadamente ligero que no precisa
+de entorno gráfico ya que puede ejecutarse desde la terminal. Está orientado
+a la productividad y cuenta con decenas de combinaciones de teclas para
+acelerar la escritura de código.\\
+
+Es muy completo, cuenta con corrector ortográfico, resaltado de sintaxis
+para decenas de lenguajes e ingentes opciones para personalizar el entorno.
+Incluso es posible ampliar sus capacidades mediante extensiones. Ha sido utilizado
+para el proyecto por su ayuda a la productividad y ligereza. Puede observarse
+\textit{Vim} siendo ejecutado en una terminal en la figura \ref{fig:vim}.\\ 
+
+\figura{vim.jpg}{scale=0.25}{Editor de textox Vim}{fig:vim}{h}
+
+
+\section*{LaTeX}
+
+\LaTeX \cite{website:latex-wikibooks} es lenguaje de marcado y un sistema
+de creación de documentos especialmente orientado al mundo científico y
+técnico. El lenguaje \textit{Tex} fue concebido por Donald Knuth durante
+los 80 y en 1984 Leslie Lamport creó \LaTeX como un framework para trabajar
+con cartas, libros y otro tipo de textos.\\
+
+Los resultados que producen \LaTeX son coherentes, ordenados y muy limpios.
+Si bien aprender su uso puede ser complejo, los resultados son de una
+enorme calidad si los comparamos con los documentos que producen los editores
+convencionales como \textit{Microsoft Word} o \textit{LibreOffice Writer}.
+Por esta calidad y posibilidad de automatizar formatos ha sido elegido
+\LaTeX para la redacción de la documentación del proyecto.\\
+
+\section*{Doxygen}
+
+\textit{Doxygen} \cite{website:doxygen} es una herramienta de documentación
+automática de código. Mediante la inclusión de comentarios especiales
+dentro de los ficheros de cabecera de nuestro proyecto, es capaz
+de generar documentación con una apariencia atractiva tanto en formato HTML como
+en \LaTeX o muchos otros. Es compatible con los lenguajes C, C++, C\#,
+Fortran, Java, Objective-C, PHP, Python, IDL y algunos más.\\
+
+Con \textit{Doxygen} se produce una documentación legible por usuarios (con
+los conocimientos necesarios) u otros miembros del equipo. Es posible incluir
+diagramas de colaboración y herencia gracias a su uso de graphviz. Ha sido
+elegida como herramienta de documentación de código por su sencillez de uso,
+limpieza y por su amplia aceptación.\\
+
+
+\section*{Blender}
+
+\textit{Blender} \cite{hess09} es una herramienta libre de modelado y animación
+en tres dimensiones multiplataforma. Es compatible con Windows, Mac OS X,
+GNU/Linux y otros sistemas operativos. Cuenta con funcionalidades avanzadas
+de modelado 3D, mapeado UV para las texturas, renderizado, texturizado, 
+animación basada en esqueletos, efectos de partículas y simulaciones físicas.\\
+
+Integra un motor de físicas y colisiones y proporciona una API compatible
+con Python para programar complementos e incluso videojuegos completos
+gracias al \textit{Blender Game Engine}. Ha sido utilizado en el desarrollo
+de cortometrajes libres como Big Buck Bunny aunque también se emplea de forma
+profesional en la industria de la publicidad.\\
+
+Ha sido elegido para ser empleado en el proyecto por ser el editor 3D
+libre por excelencia y por haber sido probado en entornos de producción
+muy importantes. Además de ser utilizado para diseñar los elementos
+del escenario, se emplea como editor de niveles completo.\\
+
+\figura{blender.jpg}{scale=0.2}{Herramienta de modelado y animación 3D Blender}{fig:blender}{h}
+
+\section*{GIMP}
+
+\textit{GIMP} \cite{website:gimp} es el editor de imágenes libre del proyecto
+GNU, de hecho su nombre es un acrónimo de \textit{GNU Image Manipulation
+Program}. Es multiplataforma y está disponible para Windows, GNU/Linux y Mac OS X.
+No es comparable a soluciones privativas como \textit{Adobe Photoshop} pero
+es capaz de realizar operaciones bastante avanzadas de forma sencilla.
+Su interfaz puede verse en la figura \ref{fig:gimp}.\\
+
+Ha sido utilizado en \juego\ para trabajar con las texturas del escenario.
+Hemos elegido esta herramienta por contar con una licencia libre, ser
+lo suficientemente potente para nuestras necesidades y estar disponible
+en varias plataformas (incluida GNU/Linux).\\
+
+\figura{gimp.jpg}{scale=0.22}{Editor gráfico Gimp}{fig:gimp}{h}
+
+\section*{Inkscape}
+
+\textit{Inkscape} \cite{website:inkscape} es una herramienta libre multiplataforma
+para trabajar con gráficos vectoriales. Estos diseños no están basados en píxeles
+sino en elementos geométricos como vectores o figuras sencillas. Esto permite
+un escalado ilimitado sin pérdida de calidad. Inkscape trabaja con ficheros
+en formato \textit{SVG}.\\
+
+Ha sido utilizado tanto en \wiki\ como en \juego\ para trabajar con gráficos
+bidimensionales tales como elementos de interfaz o diagramas más vistosos.
+Es prácticamente la única alternativa libre a la altura del software comercial
+existente.\\
+
+\figura{inkscape.jpg}{scale=0.25}{Herramienta de gráficos vectoriales Inkscape}{fig:inkscape}{h}
+
+
+\section*{MyGUI Layout Editor}
+
+La biblioteca de interfaces \textsc{MyGUI} utiliza unas plantillas en formato
+\textit{XML} para definir los elementos de las pantallas como paneles, botones
+o imágenes. Es posible escribir estas plantillas manualmente pero es una tarea
+ardua. Afortunadamente existe \textit{MyGUI Layout Editor}, una herramienta
+para diseñar interfaces y guardarlas en dicho formato de manera que el motor
+pueda cargarlas de forma sencilla posteriormente.\\
+
+Es multiplataforma, libre y trabaja de una manera muy limpia ya que no genera
+código de ningún tipo, únicamente produce un \textit{XML}. Es muy intuitiva
+y gracias a ella se han diseñado todas las pantallas de \juego. La última
+versión cuenta con la siguiente interfaz (figura \ref{fig:layouteditor}).\\
+
+\figura{layouteditor.jpg}{scale=0.20}{Editor de plantillas MyGUI Layout Editor}{fig:layouteditor}{h}
+
+\section*{Particle Editor}
+
+Los sistemas de partículas de \textsc{Ogre3D} se definen en scripts con
+una sintaxis especial. Al igual que ocurre con la interfaz, escribirlos a mano
+es muy pesado y no permite ver los resultados hasta que se inicie el juego.
+\textit{Ogre Particle Editor} es un editor de sistemas de partículas para
+\textsc{Ogre3D}. Nos permite crear partículas y modificar sus parámetros
+viendo los resultados en tiempo real.\\
+
+Una vez hayamos terminado, guarda el resultado en un fichero con la sintaxis
+anteriormente mencionada. Esto acelera enormemente el proceso de creación
+de efectos de partículas y por ello esta herramienta ha sido utilizada
+en \juego.\\
+
+\figura{particleeditor.jpg}{scale=0.4}{Editor de sistemas de partículas Particle Editor}{fig:particleeditor}{h}
+
+
+\section*{Audacity}
+
+\textit{Audacity} \cite{website:audacity} es un editor de audio libre y
+multiplataforma. Nos permite grabar y modificar audio con un gran número
+de opciones y variantes. Fue lanzado por primera vez en mayo del 2010
+y actualmente cuenta con más de 72 millones de descargas. Si bien es cierto
+que carece de herramientas avanzadas de edición de sonido, para nuestras
+necesidades era la herramienta ideal.\\
+
+\textit{Audacity} ha sido utilizado en \juego\ para convertir y retocar
+los efectos de sonido y las pistas de la banda sonora que envían los
+correspondientes artistas. Su interfaz puede observarse en la figura
+\ref{fig:audacity}.\\
+
+\figura{audacity.jpg}{scale=0.25}{Editor de audio Audacity}{fig:audacity}{h}
+
+\section*{XVidCap}
+
+\textit{XVidCap} \cite{website:xvidcap} es una utilidad libre para capturar
+la pantalla en vídeo y audio. Suele utilizarse para crear tutoriales de procesos
+complejos aunque en \juego\ se emplea para tomar los vídeos con el objetivo
+de difundir el proyecto. Puede capturar el escritorio completo, ventanas
+concretas o un área determinada. Nos permite calibrar el formato de vídeo
+y audio, la calidad así como el número de cuadros por segundo.\\
+
+Se trata de la herramienta para capturar vídeo del escritorio más eficiente
+y que menos peso ejercía sobre el rendimiento general del sistema. Su interfaz
+es muy sencilla y únicamente consta de la barra que puede verse en la figura
+\ref{fig:xvidcap}.\\
+
+\figura{xvidcap.jpg}{scale=0.5}{Capturador de pantalla XvidCap}{fig:xvidcap}{h}
+
+\section*{OpenShot Video Editor}
+
+\textit{OpenShot Video Editor} \cite{website:openshot} es un sencillo pero
+potente editor de vídeo para sistemas GNU/Linux. Soporta multitud de formatos
+de audio y vídeo gracias a su uso de la biblioteca \textsc{ffmpeg}. Creamos
+el vídeo añadiendo y organizando recursos sobre las pistas que deseemos.
+Es posible incluir transiciones, subtítulos, carteles y otros efectos.
+Podemos configurar la exportación de vídeo a través de numerosos parámetros
+e incluso se proporcionan perfiles para subir vídeos a conocidos servicios
+como \textit{Youtube}.\\
+
+Los vídeos de \juego\ creados con \textit{XVidCap} son procesados con
+\textit{OpenShot Video Editor} y procesados para ser subidos a algún
+servicio de vídeos por streaming con el objetivo de difundir el proyecto.
+Es la herramienta libre más potente y sencilla disponible para GNU/Linux.\\
+
+\figura{openshot.jpg}{scale=0.25}{Editor de vídeo OpenShot}{fig:openshot}{h}
+
+\section*{Planner}
+
+\textit{Planner} \cite{website:planner} es una herramienta libre para entornos
+GTK que nos permite planificar y realizar un seguimiento de cualquier proyecto.
+Se definen tareas sobre un calendario especificando sus dependencias, duraciones
+y fechas límite. Posteriormente, se crean y asignan recursos (materiales
+o humanos) a dichas tareas. Finalmente se obtiene un diagrama de Gantt con
+la organización temporal del proyecto. Las planificaciones pueden guardarse
+en una base de datos \textit{postgresql} o en un sencillo formato \textit{XML}.
+Incluso puede exportarse a \textit{HTML} para que pueda ser visualizada
+desde cualquier navegador.\\
+
+Toda la planificación del proyecto que puede verse en el capítulo
+\ref{chap:calendario} ha sido creada con \textit{Planner}. Es una herramienta
+muy intuitiva y mucho más ligera que alternativas como \textit{GanttProject}.\\
+
+\figura{planner.jpg}{scale=0.28}{Planificador de proyectos Planner}{fig:planner}{h}
+
+\section*{BOUML}
+
+\textit{BOUML} \cite{website:bouml} es una herramienta libre para diseñar
+diagramas siguiendo la notación \textit{UML}. Cuenta con utilidades de generación
+automática de código a partir de los diagramas en lenguajes C++, Java, PHP,
+Python e IDL. Es multiplataforma y mucho más ligero que herramientas similares
+como \textit{Umbrello}. Permite la reutilización de clases entre diagramas
+y cuenta con una amplia variedad de posibilidades: diagramas de clases, 
+de interacción, de secuencia, de casos de uso, etc.\\
+
+Tanto en el análisis (capítulo \ref{siontower-analisis}) como el diseño
+(capítulo \ref{sec:siontower-diseno}) ha participado la herramienta \textit{BOUML}.
+Su interfaz no es elegante pero resulta funcional y sencilla de utilizar,
+puede verse en la figura \ref{fig:bouml}.\\
+
+\figura{bouml.jpg}{scale=0.25}{Editor de diagramas con notación UML BOUML}{fig:bouml}{h}
+
+\section*{Dia}
+
+\textit{Dia} \cite{website:dia} es una herramienta libre para crear diagramas
+de propósito general. Permite varios tipos como notación \textit{UML},
+diagramas de flujo, entidad relación, circuitería y un largo etcétera. Una vez
+hayamos terminado de trabajar en nuestro diagrama, podemos exportarlo a
+varios formatos como JPG, PNG o SVG.\\
+
+Si bien es mucho menos potente que \textit{BOUML} permite realizar otros
+tipos de diagramas. Concretamente, en \juego\ ha sido empleado para esquemas
+de flujo como la máquina de estados que puede verse en la figura \ref{fig:dia}.\\
+
+\figura{dia.jpg}{scale=0.28}{Herramienta de creación de diagramas}{fig:dia}{h}

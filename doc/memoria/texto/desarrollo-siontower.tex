@@ -1,0 +1,3476 @@
+\section{Metodología}
+
+\juego\ será un sistema software complejo y para su desarrollo se ha decidido
+emplear la metodología \textit{RUP} (Rational Unified Process) \cite{larm02}. Así mismo,
+se ha escogido \textit{UML} como la notación para modelar nuestro sistema.\\
+
+Mediante la metodología \textit{RUP} podemos realizar un desarrollo orientado
+a objetos de forma iterativa. Las ventajas que nos proporciona el paradigma
+de la orientación a objetos consisten en una mayor reusabilidad (uno
+de los objetivos principales del juego), escalabilidad, legibilidad y
+sencillez de mantenimiento.\\
+
+\section{Análisis}
+\label{siontower-analisis}
+
+\subsection{Especificación de requisitos del sistema}
+
+En esta sección haremos un recorrido por los requisitos que debe cumplir
+\juego\ tanto en el plano de interfaces, como de rendimiento o de
+funcionalidades entre otros.\\
+
+\subsubsection{Requisitos de interfaces externas}
+
+En este apartado describiremos los requisitos relacionados con la conexión
+entre el hardware y el software además de la interfaz con el usuario. En lo
+referente a la conexión entre hardware y software utilizaremos varias tecnologías
+en forma de bibliotecas libres. Como motor de renderizado nos decantamos por \textsc{Ogre3D},
+para capturar la entrada del usuario, emplearemos \textsc{OIS}
+(\textit{Object Oriented Input System}) \cite{website:ois}, para reproducir
+sonidos emplearemos \textsc{libSDL} y su extensión \textsc{libSDL mixer} \cite{website:sdl}.
+Finalmente, para gestionar los elementos de la interfaz a un nivel de abstracción
+superior se hará uso de \textsc{MyGUI} \cite{website:mygui}.\\
+
+\juego\ deberá soportar varias resoluciones de pantalla siempre que se mantenga
+su resolución de aspecto 16:9. Además, debe ser posible establecer un modo
+a pantalla completa si el usuario lo desea. Varias resoluciones aceptadas
+por el videojuego deben ser:
+
+\begin{itemize}
+    \itemsep0em
+    \item 640 x 360
+    \item 960 x 544
+    \item 1280 x 720
+    \item 1920 x 1080
+\end{itemize}
+
+La navegación por los menús debe ser intuitiva y se realizará utilizando
+el ratón. En la figura \ref{fig:navegacion-pantallas} pueden observarse
+todas las pantallas de \juego\ dispuestas en un diagrama de flujo para
+mostrar su navegación.\\
+
+\figura{navegacion-pantallas.jpg}{scale=0.35}{Diagrama de flujo de las pantallas de Sion Tower}{fig:navegacion-pantallas}{h}
+
+El \textbf{Menú principal} (figura \ref{fig:esquema-menu}) debe presentar
+al jugador una escena de la Torre Sagrada con los enemigos aproximándose.
+Mediante la opción \emph{Jugar} podrá dirigirse a la pantalla de selección
+de perfil, utilizando \emph{Créditos} le será posible llegar a la pantalla
+de mismo nombre y pulsando sobre \emph{Salir} se le llevará de vuelta al
+sistema operativo.\\
+
+\figura{esquema-menuprincipal.png}{scale=0.35}{Boceto del menú principal}{fig:esquema-menu}{H}
+
+En la pantalla de \textbf{Selección de perfil} (figura \ref{fig:esquema-selperfil})
+se mostrará una escena tridimensional del interior de la Torre. En un panel
+se listarán todos los usuarios registrados en el sistema. El jugador podrá
+seleccionar uno de ellos y pulsar \emph{Aceptar} para dirigirse a la
+pantalla de selección de nivel. Si pulsa sobre \emph{Eliminar} el perfil
+será destruido de los registros. Para crear un nuevo perfil debe introducir
+el nombre deseado en el panel inferior y presionar \emph{Crear}. Desde este
+menú debe ser posible regresar al menú principal.\\
+
+\figura{esquema-selperfil.png}{scale=0.35}{Boceto de la pantalla de selección de perfil}{fig:esquema-selperfil}{H}
+
+Dentro de la pantalla de \textbf{Selección de nivel} (figura \ref{fig:esquema-selnivel})
+el usuario debe ver una escena del exterior de la Torre. Se mostrará un panel
+con la lista de niveles de todo el juego. Cada nivel vendrá acompañado de una
+miniatura, su nombre y descripción. El usuario irá desbloqueando niveles a medida
+que avanza por el juego. Los niveles bloqueados aparecerán en tonos grisáceos
+y se indicará que son inaccesibles. Pulsando sobre la miniatura de un nivel
+disponible, el usuario accederá a la pantalla de juego. Puede volver atrás
+pulsando el botón \emph{Atrás}.\\
+
+\figura{esquema-selnivel.png}{scale=0.35}{Boceto de la pantalla de selección de nivel}{fig:esquema-selnivel}{H}
+
+En la pantalla de \textbf{Juego} (figura \ref{fig:esquema-juego}) destacará
+la escena 3D con el escenario, el personaje principal y los enemigos.
+La barra inferior mostrará información relevante como la energía vital y
+maná restantes, la experiencia obtenida y la lista de hechizos disponibles.
+El hechizo seleccionado aparecerá resaltado y el usuario podrá seleccionar
+otro distinto pulsando sobre su icono. Al pasar el ratón por encima de
+un hechizo se mostrarán sus atributos: nombre, descripción y maná necesario.
+El botón \emph{Pausa} abrirá el menú de pausa que nos permitirá volver al
+juego, regresar a la pantalla de selección de nivel o desplazarnos
+directamente al menú principal.\\
+
+\figura{esquema-juego.png}{scale=0.35}{Boceto de la pantalla de juego}{fig:esquema-juego}{H}
+
+Cuando terminemos el nivel de forma exitosa el usuario verá la pantalla de
+\textbf{Fin de nivel} (figura \ref{fig:esquema-finnivel}). Se mostrará
+al personaje celebrando su victoria y un panel resumiendo la actuación
+del jugador durante la partida. La información será: enemigos eliminados,
+vida restante, maná utilizado, tiempo empleado y los puntos obtenidos
+en cada categoría. Para volver a jugar el usuario podrá pulsar sobre
+\emph{Volver a jugar}, para seleccionar un nuevo nivel lo hará sobre
+\emph{Seleccionar nivel} y si desea volver al menú principal, presionará
+\emph{Volver al menú}.\\
+
+\figura{esquema-finnivel.png}{scale=0.35}{Boceto de la pantalla de fin de nivel (victoria)}{fig:esquema-finnivel}{H}
+
+La \textbf{Pantalla de créditos} (figura \ref{fig:esquema-creditos})
+consiste en una pequeña escena 3D dentro de la Torre y un panel mostrando
+a los creadores de \juego. Utilizando el botón \emph{Volver al menú} el
+usuario volverá al menú principal.\\
+
+\figura{esquema-creditos.png}{scale=0.35}{Boceto de la pantalla de créditos}{fig:esquema-creditos}{H}
+
+\subsubsection{Requisitos funcionales}
+
+\juego\ cuenta con la siguiente lista de requisitos funcionales:
+
+\begin{itemize}
+    \item Salir de la aplicación cerrando la ventana en cualquier momento.
+    \item Gestionar varios perfiles de jugadores, cada uno con su último
+    nivel desbloqueado y experiencia acumulada. Se permite la selección,
+    creación y eliminación de perfiles.
+    \item Seleccionar un nivel disponible para combatir contra la inteligencia
+    artificial.
+    \item Mover al personaje por el escenario.
+    \item Lanzamiento de hechizos siempre y cuando se disponga del maná necesario.
+    \item Selección del hechizo a lanzar.
+    \item Capacidad de mover la cámara alrededor del personaje.
+    \item Posibilidad de pausar y reanudar el juego.
+\end{itemize}
+
+\subsubsection{Requisitos de rendimiento}
+
+Para disfrutar de \juego\ de forma satisfactoria será necesaria, al menos,
+una resolución de 640 x 360 y una tasa de fotogramas por segundo igual
+o superior a 25. El juego deberá estar lo suficientemente optimizado
+en términos de uso de la CPU y consumo de memoria para alcanzar dicho
+rendimiento en un equipo de características similares al siguiente:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Sistema operativo}: GNU/Linux, Windows XP Service Pack
+    2, Windows Vista o Windows 7.
+    \item \textbf{Procesador}: Pentium 2GHz o AMD.
+    \item \textbf{Memoria}: 100 MB de memoria RAM disponibles.
+    \item \textbf{Tarjeta de vídeo}: 128 MB de memoria y aceleración 3D.
+    \item \textbf{Espacio en disco}: 100 MB.
+    \item \textbf{Control}: ratón y teclado.
+\end{itemize}
+
+Además, la tasa de cuadros por segundo debe mantenerse estable. Es preferible
+contar con una tasa media estable que con una alta que oscile en gran medida.\\
+
+\subsubsection{Restricciones de diseño}
+
+En un videojuego es mucho más relevante la fluidez que su consumo de memoria.
+Actualmente, los equipos suelen contar con grandes cantidades de memoria
+principal con velocidades aceptables pero no todos incorporan tarjetas
+gráficas demasiado potentes. A la hora de diseñar \juego\ nos centraremos
+en optimizar el uso de la CPU y del procesador de la tarjeta gráfica, recursos
+que tienen mucho más impacto en la percepción del usuario acerca del juego.\\
+
+\subsubsection{Requisitos del sistema software}
+
+El sistema software deberá adherirse a los siguientes requisitos:
+
+\begin{itemize}
+    \itemsep0em
+    \item Todo el código debe ser multiplataforma ofreciendo exactamente
+    el mismo comportamiento en todos los sistemas operativos para los
+    que se compile.
+    \begin{itemize}
+        \item \textbf{Windows}: el juego se probará en Windows XP, Windows Vista y Windows 7.
+        \item \textbf{GNU/Linux}: el juego será probado en Ubuntu 10.10.
+    \end{itemize}
+    \item Se hará uso del ratón y el teclado. No obstante, cuando sea posible,
+    se proporcionarán teclas de acceso rápido para un manejo más eficiente.
+    \item El control deberá ser intuitivo, el jugador debería poder utilizar
+    \juego\ sin necesidad de haber acudido al manual de usuario. La interfaz
+    también debe presentar un manejo lógico y sencillo.
+    \item El juego debe ser fácilmente ampliable con nuevos niveles y elementos.
+\end{itemize}
+
+\subsection{Modelo de casos de uso}
+
+Para el modelo de casos de uso se ha seguido, como se ha mencionado
+anteriormente la notación \textit{UML}. Los pasos para obtener el modelo
+de casos de uso han sido los siguientes:
+
+\begin{enumerate}
+    \itemsep0em
+    \item Identificar a todos los posibles usuarios del sistema y sus roles.
+    \item Para cada rol, determinar todas las maneras posibles que éste cuenta
+    para interactuar con el sistema.
+    \item Creación de un caso de uso por cada objetivo que deba cumplir
+    el sistema.
+    \item Estructurar todos los casos de uso, por ejemplo, empleando relaciones
+    de inclusión o extensión.
+\end{enumerate}
+
+\subsubsection{Diagrama de casos de uso}
+
+En la figura \ref{fig:casosuso} se muestra el diagrama de casos de uso
+para \juego.\\
+
+\figura{casosuso.jpg}{scale=0.6}{Diagrama de casos de uso}{fig:casosuso}{H}
+
+\subsubsection{Descripción de los casos de uso}
+
+En esta sección adjuntaremos las descripciones de todos los casos de uso
+anteriormente expuestos. Para ello emplearemos una notación en texto utilizando
+un formato completo con plantilla. Se pretende que su lectura sea sencilla
+y resulte accesible a la vez que directo.\\
+
+\textbf{Caso de uso: Menú principal}
+
+\begin{description}
+    \item [Caso de uso] Menú principal
+    \item [Descripción] Se le muestra al \jugador\ el menú principal desde
+    el cual es posible acceder a la selección de perfil o a la pantalla de
+    créditos.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Ninguna.
+    \item [Postcondiciones] Ninguna.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \jugador\ inicia la aplicación.
+            \item El \sistema\ inicia el motor del juego y muestra el menú
+            principal en la pantalla.
+            \item El \jugador\ selecciona la opción Jugar.
+            \item El \sistema\ accede a la pantalla de Selección de perfil.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [3a] El \jugador\ selecciona la opción Créditos.
+                \begin{enumerate}
+                    \item El \sistema\ accede a la pantalla de Créditos.
+                \end{enumerate}
+            \item [3b] El \jugador\ selecciona la opción Salir.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+\textbf{Caso de uso: Selección de perfil}
+
+\begin{description}
+    \item [Caso de uso] Selección de perfil
+    \item [Descripción] Se le muestra al \jugador\ la pantalla de selección
+    de perfil. Es posible seleccionar, crear o eliminar perfiles. Una vez
+    seleccionado un perfil, se le conduce hasta la pantalla de selección
+    de nivel. También es posible volver al menú principal.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Ninguna.
+    \item [Postcondiciones] Se selecciona un perfil.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \jugador\ desea acceder a la pantalla de selección 
+            de perfil.
+            \item El \sistema\ muestra la pantalla de selección de perfil
+            y carga los perfiles existentes en la lista.
+            \item El \jugador\ selecciona un perfil de la lista y pulsa sobre
+            la opción Aceptar.
+            \item El \sistema\ accede a la pantalla de selección de nivel.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [3a] El \jugador\ selecciona un perfil de la lista y pulsa
+            sobre la opción Eliminar.
+                \begin{enumerate}
+                    \item El \sistema\ elimina el perfil seleccionado.
+                \end{enumerate}
+            \item [3b] El \jugador\ decide crear un nuevo perfil. Introduce
+            el nombre del nuevo usuario y pulsa sobre Crear.
+                \begin{enumerate}
+                    \item El \sistema\ comprueba que el nombre introducido
+                    no existe y crea el nuevo perfil.
+                \end{enumerate}
+            \item [3c] El \jugador\ decide crear un nuevo perfil. Introduce
+            el nombre del nuevo usuario y pulsa sobre Crear.
+                \begin{enumerate}
+                    \item El \sistema\ comprueba que el nombre introducido
+                    existe y muestra el correspondiente error.
+                \end{enumerate}
+            \item [3d] El \jugador\ selecciona la opción Volver.
+                \begin{enumerate}
+                    \item El \sistema\ vuelve al menú principal.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+\textbf{Caso de uso: Selección de nivel}
+
+\begin{description}
+    \item [Caso de uso] Selección de nivel
+    \item [Descripción] El \jugador\ ve la pantalla de selección de nivel.
+    Puede escoger uno de entre los disponibles y acceder a la pantalla de
+    juego.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Se ha seleccionado un perfil.
+    \item [Postcondiciones] Se selecciona un nivel.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \sistema\ carga los niveles (icono, nombre y descripción)
+            en la lista de niveles distinguiendo los desbloqueados de los
+            accesibles y muestra la pantalla. 
+            \item El \jugador\ selecciona un nivel desbloqueado.
+            \item El \sistema\ guarda el nivel como seleccionado y accede
+            a la pantalla de juego.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [2a] El \jugador\ selecciona la opción Volver.
+                \begin{enumerate}
+                    \item El \sistema\ regresa a la pantalla de selección
+                    de nivel.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+
+\textbf{Caso de uso: Jugar}
+
+\begin{description}
+    \item [Caso de uso] Jugar
+    \item [Descripción] El \jugador\ comienza un nivel, interactúa con el
+    y puede que gane o pierda.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Se ha seleccionado un nivel.
+    \item [Postcondiciones] Se completa un nivel (con éxito o no).
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \sistema\ carga el nivel, los enemigos, la música y el
+            personaje principal.
+            \item El \sistema\ inicializa las estadísticas: enemigos eliminados
+            y puntos por haber eliminado dichos enemigos, maná utilizado,
+            vida restante y tiempo transcurrido.
+            \item El \jugador\ y el \sistema\ interactúan durante la partida.
+            \item El \sistema\ detecta que el \jugador\ ha eliminado todos los enemigos.
+            \item El \sistema\ informa al \jugador\ de su victoria y se dirige
+            hacia la pantalla de victoria.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [3a] El \sistema\ comprueba que un enemigo ha atacado al personaje
+            y le ha impactado.
+                \begin{enumerate}
+                    \item El \sistema\ le resta una cantidad de vida al personaje
+                    correspondiente con el poder del enemigo.
+                \end{enumerate}
+            \item [5a] El \sistema\ comprueba que la vida del protagonista
+            llega a 0 y pierde la partida.
+                \begin{enumerate}
+                    \item El \sistema\ le muestra un mensaje de derrota:
+                    \emph{¡Has fallado! ¡Pulsa espacio para intentarlo
+                    de nuevo!}.
+                    \item El \jugador\ pulsa espacio.
+                    \item El \sistema\ carga la pantalla de selección de nivel.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+
+\textbf{Caso de uso: Pausar}
+
+\begin{description}
+    \item [Caso de uso] Pausar
+    \item [Descripción] El \jugador\ selecciona pausar el nivel y puede
+    reanudarlo o volver a otro menú.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Se está jugando un nivel.
+    \item [Postcondiciones] Ninguna.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \jugador\ pulsa el botón Pausa o presiona la tecla
+            escape.
+            \item El \sistema\ detiene todos los elementos del juego y
+            muestra un menú de pausa.
+            \item El \jugador\ selecciona el botón Reanudar.
+            \item El \sistema\ vuelve a reanudar la partida.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [3a] El \jugador\ selecciona el botón Selección de nivel.
+                \begin{enumerate}
+                    \item El \sistema\ termina la partida y vuelve a la pantalla
+                    de selección de nivel.
+                \end{enumerate}
+            \item [3b] El \jugador\ selecciona el botón Menú principal.
+                \begin{enumerate}
+                    \item El \sistema\ termina la partida y regresa a la
+                    pantalla del menú principal.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+
+\textbf{Caso de uso: Lanzar hechizo}
+
+\begin{description}
+    \item [Caso de uso] Lanzar hechizo
+    \item [Descripción] El \jugador\ selecciona un hechizo de entre los
+    disponibles y lo lanza.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Se está jugando un nivel.
+    \item [Postcondiciones] Ninguna.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \jugador\ selecciona un hechizo de la barra inferior
+            o a través de las teclas de acceso rápido 1, 2 o 3.
+            \item El \jugador\ apunta hacia donde desea lanzar el hechizo
+            con el ratón y presiona el botón izquierdo del mismo para
+            lanzarlo.
+            \item El \sistema\ comprueba que el personaje posee maná (energía
+            mágica) suficiente para lanzar el hechizo seleccionado y lanza
+            el hechizo al mundo.
+            \item El \sistema\ detecta que el hechizo ha colisionado con
+            un enemigo y hace explotar el proyectil.
+            \item El \sistema\ le resta una cantidad de vida el enemigo
+            correspondiente al poder del hechizo lanzado pero el enemigo
+            no muere.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [3a] El \sistema\ detecta que el personaje no posee el maná
+            suficiente para lanzar el hechizo.
+                \begin{enumerate}
+                    \item El \sistema\ informa del error al \jugador\ y finaliza
+                    el caso de uso.
+                \end{enumerate}
+            \item [4a] El \sistema\ detecta que el hechizo ha colisionado con
+            un objeto del escenario.
+                \begin{enumerate}
+                    \item El \sistema\ hace explotar al proyectil y es eliminado
+                    del mundo.
+                \end{enumerate}
+            \item [4b] El \sistema\ no detecta que el hechizo haya colisionado.
+            \item [5a] El \sistema\ le resta la vida al enemigo correspondiente
+            al poder del hechizo y esta llega a 0 o menos.
+                \begin{enumerate}
+                    \item El \sistema\ elimina al enemigo del juego.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+
+\textbf{Caso de uso: Mover personaje}
+
+\begin{description}
+    \item [Caso de uso] Mover personaje
+    \item [Descripción] El \jugador\ desplaza al personaje por el escenario.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Se está jugando un nivel.
+    \item [Postcondiciones] Ninguna.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \jugador\ presiona una de las teclas de movimiento.
+            W (hacia donde mira la cámara), A (hacia la izquierda de la cámara),
+            S (hacia la cámara) y D (hacia la derecha de la cámara).
+            \item El \sistema\ mueve al personaje en dicha dirección
+            teniendo en cuenta la orientación de la cámara y la velocidad
+            del personaje. El \sistema\ orienta al personaje en dicha dirección.
+            \item El \sistema\ comprueba que el personaje no ha colisionado
+            con ningún elemento del escenario o enemigo.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [3a] El \sistema\ detecta que el personaje ha colisionado
+            con un enemigo o alguna zona del escenario.
+                \begin{enumerate}
+                    \item El \sistema\ restaura la posición anterior del personaje.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+
+\textbf{Caso de uso: Mover cámara}
+
+\begin{description}
+    \item [Caso de uso] Mover cámara
+    \item [Descripción] El \jugador\ rota la cámara alrededor del personaje principal.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Se está jugando un nivel.
+    \item [Postcondiciones] Ninguna.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \jugador\ pulsa el botón derecho del ratón y lo mueve
+            en una dirección (arriba, abajo, izquierda o derecha).
+            \item El \sistema\ desplaza y rota la cámara de forma que gire
+            alrededor del personaje.
+            \item El \sistema\ comprueba que la cámara no se haya salido
+            de sus límites de rotación.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [3a] El \sistema\ percibe que la cámara se ha salido de sus
+            límites de rotación.
+                \begin{enumerate}
+                    \item El \sistema\ corrige la rotación de la cámara.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+\textbf{Caso de uso: Victoria}
+
+\begin{description}
+    \item [Caso de uso] Victoria
+    \item [Descripción] El \jugador\ ve un resumen con su actuación en la
+    partida y acumula puntos de experiencia. Según el nivel que se haya
+    jugador, es posible que desbloquee un nuevo nivel. Puede volver a jugar,
+    volver a la pantalla de selección de nivel o regresar al menú principal.
+    \item [Actores] \jugador.
+    \item [Precondiciones] El \jugador\ acaba de finalizar un nivel.
+    \item [Postcondiciones] Se actualiza la experiencia del jugador.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \sistema\ calcula la experiencia obtenida en la
+            partida y la muestra desglosada en los apartados: enemigos eliminados,
+            tiempo empleado, vida restante y maná utilizado. Actualiza
+            la experiencia total del perfil seleccionado.
+            \item El \sistema\ comprueba que el nivel jugado era el último
+            nivel desbloqueado para el perfil seleccionado. Desbloquea
+            el siguiente nivel y muestra el mensaje: \emph{Has desbloqueado
+            un nuevo nivel}. Se actualiza el último nivel desbloqueado
+            para el perfil actual.
+            \item El \jugador\ selecciona la opción Selección de nivel.
+            \item El \sistema\ acude a la pantalla de selección de nivel.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.
+                \end{enumerate}
+            \item [2a] El \sistema\ comprueba que el nivel jugado no era
+            el último desbloqueado para el perfil seleccionado y muestra
+            el mensaje: \emph{Has completado este nivel de nuevo}.
+            \item [2b] El \sistema\ comprueba que el nivel jugador era el
+            último nivel desbloqueado para ese perfil pero ya no quedan
+            niveles adicionales, por tanto muestra el mensaje: \emph{Has
+            conseguido salvar la Torre Sagrada}.
+            \item [3a] El \jugador\ selecciona la opción Volver a jugar.
+                \begin{enumerate}
+                    \item El \sistema\ inicia la pantalla de juego con
+                    el mismo nivel seleccionado.
+                \end{enumerate}
+            \item [3b] El \jugador\ selecciona la opción Volver al menú.
+                \begin{enumerate}
+                    \item El \sistema\ regresa al menú principal.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+
+\textbf{Caso de uso: Créditos}
+
+\begin{description}
+    \item [Caso de uso] Créditos
+    \item [Descripción] Se muestra la pantalla de créditos con los creadores
+    del juego, el \jugador\ puede volver al menú principal.
+    \item [Actores] \jugador.
+    \item [Precondiciones] Ninguna.
+    \item [Postcondiciones] Ninguna.
+    \item [Escenario principal] $\quad$
+        \begin{enumerate}
+            \item El \sistema\ muestra la pantalla de créditos.
+            \item El \jugador\ selecciona la opción Volver.
+            \item El \sistema\ regresa al menú principal.
+        \end{enumerate}
+    \item[Extensiones --- flujo alternativo] $\quad$
+        \begin{description}
+            \item [*a] El \jugador\ cierra la ventana.
+                \begin{enumerate}
+                    \item El \sistema\ libera los recursos y sale de la aplicación.\\
+                \end{enumerate}
+        \end{description}
+    
+\end{description}
+
+\subsection{Modelo conceptual de datos}
+
+En esta sección del análisis expondremos el modelo conceptual de datos
+del sistema. Se listarán las clases conceptuales y las relaciones que
+existen entre ellas junto a una breve descripción. Para ello emplearemos
+un diagrama de clases siguiendo
+la notación \textit{UML}. Nótese que los nombres de las clases están en inglés,
+se decidió tomar dicha aproximación con el objetivo de poder conseguir
+colaboradores en un futuro. Cualquier desarrollador de habla no hispana
+tendría dificultades para colaborar aunque el proyecto le interesase.\\
+
+\begin{description}
+    \item [State] clase que modela un estado genérico del juego, cada estado
+    correspondería a una pantalla diferente. Los estados cuentan con una
+    canción (\textit{Song}) como música ambiental y un número no determinado de efectos
+    de sonido (\textit{SoundFX}). 
+    \item [StateMenu] estado que corresponde al menú principal del juego
+    (ver figura \ref{fig:esquema-menu}). Cuenta con una escena 3D y los
+    elementos de interfaz    necesarios expuestos en el boceto anteriormente
+    referenciado.
+    \item [StateProfileSelection] estado que modela la pantalla de selección
+    de perfil cuyo boceto puede verse en la figura \ref{fig:esquema-selperfil}.
+    Además de la escena tridimensional y los elementos de la interfaz, permite
+    poder gestionar perfiles (\textit{Profile}).
+    \item [StateLevelSelection] estado que representa la pantalla de selección
+    de nivel, su boceto aparece en la figura \ref{fig:esquema-selnivel}.
+    Cuenta con una escena 3D, elementos de interfaz y una lista de niveles
+    para seleccionar (\textit{Level}). Los niveles estarán bloqueados o
+    desbloqueados en función del perfil seleccionado (\textit{Profile}).
+    \item [StateGame] estado de juego, su boceto puede verse en la figura
+    \ref{fig:esquema-juego}. El estado de juego gestiona un nivel (\textit{Level}),
+    las apariciones de enemigos (\textit{EnemySpawn}), el jugador (\textit{Player}),
+    los enemigos que actúan durante un momento determinado (\textit{Enemy})
+    y los hechizos lanzados (\textit{Spell}). Además, lleva las estadísticas
+    de juego (\textit{GameStats}). Se encarga de gestionar el HUD
+    (\textit{Heads Up Display} o controles de juego) y de renderizar la escena.
+    Por último, hace un seguimiento de la cámara y los dispositivos de
+    entrada (teclado y ratón).
+    \item [StateVictory] es el estado que modela la pantalla de victoria
+    tras haber completado un nivel de juego y puede observarse su esquema
+    en la figura \ref{fig:esquema-finnivel}. Además de la escena 3D y los
+    elementos necesarios de la interfaz, se encarga de actualizar el perfil
+    seleccionado (\textit{Profile}) añadiéndole experiencia y desbloqueando
+    un nuevo nivel en caso de ser necesario. 
+    \item [StateCredits] corresponde al estado que gestiona la pantalla de
+    visualización de créditos. Simplemente cuenta con una escena 3D y elementos
+    sencillos de interfaz. Su boceto puede verse en la figura \ref{fig:esquema-creditos}.
+    \item [Profile] representa un perfil de usuario dentro de \juego. Cada
+    perfil almacena información como el nombre de usuario, la cantidad de
+    experiencia acumulada y el número del último nivel desbloqueado. Al crear
+    un nuevo perfil la experiencia es igual a cero y el nivel desbloqueado
+    es el primero.
+    \item [Level] modela y gestiona toda la información de un nivel. De cada
+    nivel necesitamos saber su identificador, nombre y descripción. Así mismo,
+    también almacena información sobre el nombre de la canción que debe reproducirse
+    mientras se juega a dicho nivel y la posición inicial del protagonista.
+    Contiene todas las apariciones de los enemigos (\textit{EnemySpawn}) y
+    la malla de navegación (\textit{NavigationMesh}). Por supuesto, también
+    contiene los detalles sobre los objetos del escenario y la iluminación.
+    \item [Enemy Spawn] modela la aparición de un enemigo a lo largo del
+    desarrollo de una partida. De cada aparición interesa saber el tipo
+    de enemigo al que se refiere, su posición y orientación iniciales
+    así como el momento (en segundos desde el inicio del nivel) en el que
+    hará aparición.
+    \item [NavigationMesh] la malla de navegación representa la zona transitable
+    por los enemigos (\textit{Enemy}) y está formada por una colección
+    de vértices y triángulos conexos. En definitiva es un grafo conexo sobre
+    el que se realizan operaciones de inteligencia artificial y búsqueda
+    de caminos.
+    \item [PointPath] representa una ruta formada por puntos en el espacio
+    que lleva de un punto del escenario a otro.
+    \item [GameObject] modela de forma genérica objetos del juego con un
+    modelo colisionable (\textit{Body}). Cuentan con una posición, escala
+    y orientación determinadas. 
+    \item [Actor] esta clase engloba de forma genérica a los elementos dinámicos
+    y activos del juego como el jugador (\textit{Player}) y los enemigos
+    (\textit{Enemy}). Hereda de \textit{GameObject} pero además aporta
+    energía vital máxima, energía vital actual, poder, velocidad actual,
+    aceleración, velocidad lineal máxima y velocidad angular. Incluye efectos
+    de sonido (\textit{SoundFX}) como el de aparición, el de ataque
+    y el de recibir daño.
+    \item [Player] hereda de \textit{Actor} y representa al personaje
+    protagonista de la aventura. Aporta su energía mágica actual, el
+    hechizo seleccionado, su posición anterior (en caso de que colisione
+    con un obstáculo, ésta sería restaurada) y el tiempo de recuperación
+    de la energía mágica o maná.
+    \item [Enemy] los enemigos cuentan con su tipo concreto (goblin, diablillo
+    o gólem de hielo) y un tiempo de recuperación entre ataques. Cuando 
+    un enemigo desea ir de un punto a otro del escenario obtiene una ruta
+    de puntos \textit{PointPath} que ha de seguir poco a poco.
+    \item [Spell] representa los hechizos o proyectiles mágicos del juego
+    que lanza el protagonista (\textit{Player}). De cada hechizo interesa saber su tipo
+    (Bola de fuego, Furia de Gea o Ventisca), la dirección hacia la que
+    se dirige, su nombre, descripción, poder, coste en maná, velocidad,
+    tiempo que dura su explosión y los efectos de sonido (\textit{SoundFX})
+    que se producen al ser lanzado y al impactar.
+    \item [GameStats] modela las estadísticas de juego que se generan con
+    la actuación del protagonista (\textit{Player}) durante la partida.
+    Se cada partida es necesario conocer el código del nivel que se juega,
+    el número de enemigos eliminados (\textit{Enemy}), los puntos que se ganan al eliminar
+    a cada tipo de enemigo, los puntos por haber destruido enemigos, el maná
+    utilizado y los puntos por ello. También queremos conocer la vida restante
+    y los puntos que se ganan con ella. Por último es necesario recuperar
+    la duración de la partida y los puntos que recibe el jugador por haber
+    vencido en dicho tiempo.
+    \item [SoundFX] representa un efecto de sonido de corta duración hace
+    las veces de abstracción de la biblioteca de audio \textsc{libSDL mixer}.
+    Estos efectos deben estar en formato \texttt{.wav}.
+    \item [Song] modela una pista de audio de mayor duración y se utiliza
+    para reproducir la banda sonora. También abstrae ciertos aspectos
+    de la biblioteca \textsc{libSDL mixer} y sólo acepta ficheros en formato
+    \texttt{.ogg}.
+    \item [Body] representa un cuerpo colisionable de algún elemento del
+    juego, es decir, algo con lo que se puede colisionar y el sistema
+    está preparado para detectarlo. De ellos interesa saber las formas
+    que componen el cuerpo colisionable (\textit{Shape}) y su tipo. El tipo
+    es importante ya que podremos detectar colisiones entre dos tipos concretos
+    de cuerpos y detectar las demás, por ejemplo entre enemigos y hechizos.
+    \item [Shape] modela una forma geométrica tridimensional sencilla de
+    forma genérica. Son los componentes que forman los cuerpos colisionables
+    (\textit{Body}). De ellas sólo interesa saber su nombre.
+    \item [Sphere] clase hija de \textit{Shape} que modela una esfera sencilla.
+    De cada esfera necesitamos saber su centro en coordenadas locales y
+    su radio.
+    \item [Plane] una nueva especialización de \textit{Shape} para modelar
+    un plano infinito en tres dimensiones. Para representar el plano utilizamos
+    un punto del plano (distancia con respecto al origen) y un vector normal
+    (perpendicular) al plano.
+    \item [AxisAlignedBox] se trata de un nuevo tipo de forma (\textit{Shape})
+    que representa un hexaedro rectangular alineado con los ejes de coordenadas.
+    De él necesitamos saber para poder representarlo correctamente sus vértices
+    mínimo y máximo.
+    \item [OrientedBox] es el cuarto y último tipo de forma (\textit{Shape})
+    del modelo de datos inicial del videojuego. Es un hexaedro rectangular
+    no alineado con los ejes, sino que cuenta con rotación. Es necesario
+    conocer su centro, las tres distancias a las caras de cada eje local
+    y los ejes locales y rotados sobre los que se basa.
+    \item [CollisionManager] es el gestor de colisiones del juego, gestiona
+    todos los cuerpos colisionables (\textit{Body}) y es capaz de conocer
+    cuándo entran en contacto y avisar de tal evento. 
+\end{description}
+
+\figura{clasesconceptuales1.jpg}{scale=0.4}{Diagrama de clases conceptuales (parte 1)}{fig:clasesconceptuales1}{h}
+
+Por razones de espacio y de dificultad a la hora de distribuir todas las
+clases conceptuales en un mismo diagrama, se ha decidido separarlas en
+dos esquemas diferentes. El primero corresponde al de la figura \ref{fig:clasesconceptuales1}
+e incluye los subistemas relacionados con las pantallas de juego. Por otro
+lado, el segundo diagrama puede verse en la figura \ref{fig:clasesconceptuales2}
+y abarca el subsistema de objetos de juego, modelos colisionables e inteligencia
+artificial.\\
+
+\figura{clasesconceptuales2.jpg}{scale=0.55}{Diagrama de clases conceptuales (parte 2)}{fig:clasesconceptuales2}{h}
+
+
+\subsection{Modelo de comportamiento del sistema}
+
+En esta sección desarrollaremos el modelo de comportamiento del sistema.
+Consideraremos al sistema como ente que engloba a todos los objetos. El modelo
+se dividirá en dos partes bien diferenciadas:
+
+\begin{itemize}
+    \item Diagramas de secuencia de sistema: nos muestran la secuencia de
+    eventos entre actores y sistema. También nos ayudan a identificar las
+    operaciones del sistema.
+    \item Contratos para las operaciones del sistema: describen en detalle
+    qué hace cada operación del sistema.
+\end{itemize}
+
+No todos los posibles diagramas de secuencia ni contratos de operaciones
+aparecerán especificados. En este documento nos centraremos en los más relevantes,
+es decir, los que impliquen algún tipo de cambio en el sistema.\\
+
+
+\textbf{Caso de uso: Menú (escenario principal)}
+
+\figura{sequence-menu1.jpg}{scale=0.60}{Diagrama de secuencia: Menú (escenario principal)}{fig:sequence-menu1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] InicioAplicacion()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] iniciar la aplicación y preparar el sistema
+    para la ejecución del juego. Mostrar el menú principal.
+    \item [Precondiciones] ninguna.
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Creación de un objeto \textit{stateMenu} de la clase
+            \textit{StateMenu}.
+            \item Creación de un objeto \textit{song} de la clase \textit{Song}.\\
+        \end{itemize}
+\end{description}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarJugar()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] salir del menú principal y entrar en la
+    pantalla de selección de perfil.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateMenu} de la clase \textit{StateMenu}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Destrucción del objeto \textit{stateMenu}.
+            \item Se destruye el objeto \textit{song}.\\
+        \end{itemize}
+\end{description}
+
+\textbf{Caso de uso: Menú (escenario 3a)}
+
+\figura{sequence-menu2.jpg}{scale=0.60}{Diagrama de secuencia: Menú (escenario 3a)}{fig:sequence-menu2}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarCreditos()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] salir del menú principal y entrar en la
+    pantalla de créditos.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateMenu} de la clase \textit{StateMenu}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Destrucción del objeto \textit{stateMenu}.
+            \item Se destruye el objeto \textit{song}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Menú (escenario 3b)}
+
+\figura{sequence-menu3.jpg}{scale=0.60}{Diagrama de secuencia: Menú (escenario 3b)}{fig:sequence-menu3}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarSalir()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] salir del menú principal y cerrar la aplicación.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateMenu} de la clase \textit{StateMenu}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Destrucción del objeto \textit{stateMenu}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Selección de perfil (escenario principal)}
+
+\figura{sequence-perfil1.jpg}{scale=0.60}{Diagrama de secuencia: Selección de perfil (escenario principal)}{fig:sequence-perfil1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] PantallaSeleccionPerfil()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] cargar y mostrar la pantalla de selección
+    de perfil.
+    \item [Precondiciones] ninguna.
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Creación de un objeto \textit{stateProfile} de
+            la clase \textit{StateProfile}.
+            \item Creación de objetos de la clase \textit{Profile} por cada
+            perfil que exista en memoria secundaria.
+            \item Creación de un objeto \textit{song} de la clase \textit{Song}.\\
+        \end{itemize}
+\end{description}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarPerfil(nombre)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] marcar un perfil determinado como seleccionado.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un perfil \textit{profile} con \textit{profile.name = nombre}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Marcado del perfil \textit{profile} como seleccionado.
+            \item Se destruye el objeto \textit{song}.
+            \item Destrucción del objeto \textit{stateProfile}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Selección de perfil (escenario 3a)}
+
+\figura{sequence-perfil2.jpg}{scale=0.60}{Diagrama de secuencia: Selección de perfil (escenario 3a)}{fig:sequence-perfil2}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] EliminarPerfil(nombre)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] elimina un perfil del sistema.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un perfil \textit{profile} con \textit{profile.name = nombre}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Destrucción del objeto \textit{profile}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Selección de perfil (escenario 3b)}
+
+\figura{sequence-perfil3.jpg}{scale=0.60}{Diagrama de secuencia: Selección de perfil (escenario 3b)}{fig:sequence-perfil3}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] CrearPerfil(nombre)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] crea un nuevo perfil en el sistema.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item No existe un perfil \textit{profile} con \textit{profile.name = nombre}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Creación de un objeto \textit{profile} de la clase
+            \textit{Profile}.
+            \item Modificación de atributos: \textit{profile.name = nombre},
+            \textit{profile.unlockedLevel = 1} y \textit{profile.experience = 0}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Selección de nivel (escenario principal)}
+
+\figura{sequence-nivel1.jpg}{scale=0.60}{Diagrama de secuencia: Selección de nivel (escenario principal)}{fig:sequence-nivel1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] PantallaSeleccionNivel()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] crea y muestra la pantalla de selección de nivel.
+    \item [Precondiciones] ninguna.
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Creación de un objeto \textit{stateLevel} de la clase
+            \textit{StateLevel}.
+            \item Creación de objetos de la clase \textit{Level} por cada
+            nivel encontrado en memoria secundaria.
+            \item Creación de un objeto \textit{song} de la clase \textit{Song}.\\
+        \end{itemize}
+\end{description}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarNivel(nivel)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] crea y muestra la pantalla de selección de nivel.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{level} de la clase \textit{Level}
+            de forma que \textit{level.id = nivel}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Marcado del objeto \textit{level} como nivel seleccionado.
+            \item Se destruye el objeto \textit{song}.
+            \item Destrucción del objeto \textit{stateLevel}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Jugar (escenario principal)}
+
+\figura{sequence-juego1.jpg}{scale=0.60}{Diagrama de secuencia: Jugar (escenario principal)}{fig:sequence-juego1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] PantallaJuego(nivel)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] carga y muestra la pantalla de juego con el
+    nivel seleccionado, inicia el juego.
+    \item [Precondiciones] ninguna.
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Creación de un objeto \textit{stateGame} de la clase
+            \textit{StateGame}.
+            \item Creación de un objeto \textit{song} de la clase \textit{Song}.
+            \item Creación de un objeto \textit{plater} de la clase \textit{Player}
+            en la posición que indique el nivel.
+            \item Creación de una relación entre \textit{player.body} y 
+            \textit{CollisionManager}.
+            \item Creación de un objeto de la clase \textit{Enemy} por cada
+            enemigo que exista en el juego en la posición que indique el nivel.
+            \item Creación de una relación entre cada \textit{enemy.body}
+            y \textit{CollisionManager}.
+            \item Creación de un objeto \textit{gameStats} de la clase \textit{GameStats}
+            con las estadísticas iniciales.
+            \item Creación de un objeto \textit{navigationMesh} de la clase
+            \textit{NavigationMesh} con la malla inicializada.
+            \item Creación de enlaces entre los objetos de la clase \textit{Enemy}
+            y \textit{navigationMesh}.\\
+        \end{itemize}
+\end{description}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] Interactuar()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] permite al \jugador\ interactuar con el mundo
+    3D y los elementos que lo rodean.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame}.
+            \item Existe un objeto \textit{player}.
+            \item Existe algún objeto de la clase \textit{Enemy}.
+        \end{itemize}
+    \item [Postcondiciones] ninguna.\\
+\end{description}
+
+
+\textbf{Caso de uso: Jugar (escenario 3a)}
+
+\figura{sequence-juego3.jpg}{scale=0.60}{Diagrama de secuencia: Jugar (escenario 3a)}{fig:sequence-juego3}{h}
+
+
+\textbf{Caso de uso: Jugar (escenario 5a)}
+
+
+\figura{sequence-juego2.jpg}{scale=0.60}{Diagrama de secuencia: Jugar (escenario 5a)}{fig:sequence-juego2}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] ReintentarPartida()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] se destruye el estado de juego junto a sus
+    elementos y se regresa a la pantalla de selección de nivel.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame}.
+            \item Existe un objeto \textit{player} de forma que
+            \textit{player.life <= 0}.
+        \end{itemize}
+    \item [Postcondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Se destruye el objeto \textit{navigationMesh}.
+            \item Se destruye el objeto \textit{song}.
+            \item Se eliminan el enlace entre \textit{player.body} y \textit{CollisionManager}.
+            \item Se destruye el objeto \textit{player}.
+            \item Se eliminan los enlaces entre los \textit{enemy.body}
+            y \textit{CollisionManager}.
+            \item Se destruyen todos los objetos de la clase \textit{Enemy}.
+            \item Se eliminan los enlaces entre los \textit{spell.body} y
+            \textit{CollisionManager}.
+            \item Se destruyen todos los objetos de la clase \textit{Spell}.
+            \item Se destruye el objeto \textit{gameStats}.
+            \item Se destruye el objeto \textit{stateGame}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Pausar (escenario principal)}
+
+\figura{sequence-pausa1.jpg}{scale=0.60}{Diagrama de secuencia: Pausa (escenario principal)}{fig:sequence-pausa1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] PausarJuego()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] interrumpe la partida y muestra el menú
+    de pausa.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame} y se está jugando
+            una partida.
+        \end{itemize}
+    \item [Postcondiciones] ninguna.\\
+\end{description}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] ReanudarJuego()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] oculta el menú de pausa y continúa la partida.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame} y el juego estaba pausado.
+        \end{itemize}
+    \item [Postcondiciones] ninguna.\\
+\end{description}
+
+\textbf{Caso de uso: Pausar (escenario 3a)}
+
+\figura{sequence-pausa2.jpg}{scale=0.60}{Diagrama de secuencia: Pausa (escenario 3a)}{fig:sequence-pausa2}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] PausaSeleccionNivel()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] oculta el menú de pausa, destruye el nivel y
+    regresa a la pantalla de selección de nivel.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame} y el juego estaba pausado.
+        \end{itemize}
+    \item [Postcondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Se destruye el objeto \textit{navigationMesh}.
+            \item Se destruye el objeto \textit{song}.
+            \item Se eliminan el enlace entre \textit{player.body} y \textit{CollisionManager}.
+            \item Se destruye el objeto \textit{player}.
+            \item Se eliminan los enlaces entre los \textit{enemy.body}
+            y \textit{CollisionManager}.
+            \item Se destruyen todos los objetos de la clase \textit{Enemy}.
+            \item Se eliminan los enlaces entre los \textit{spell.body} y
+            \textit{CollisionManager}.
+            \item Se destruyen todos los objetos de la clase \textit{Spell}.
+            \item Se destruye el objeto \textit{gameStats}.
+            \item Se destruye el objeto \textit{stateGame}.\\
+        \end{itemize}
+\end{description}
+
+\textbf{Caso de uso: Pausar (escenario 3b)}
+
+\figura{sequence-pausa3.jpg}{scale=0.60}{Diagrama de secuencia: Pausa (escenario 3b)}{fig:sequence-pausa3}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] PausaVolverMenu()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] oculta el menú de pausa, destruye el nivel y
+    regresa al menú principal del juego.
+    \item [Precondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame} y el juego estaba pausado.
+        \end{itemize}
+    \item [Postcondiciones]$\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Se destruye el objeto \textit{navigationMesh}.
+            \item Se destruye el objeto \textit{song}.
+            \item Se eliminan el enlace entre \textit{player.body} y \textit{CollisionManager}.
+            \item Se destruye el objeto \textit{player}.
+            \item Se eliminan los enlaces entre los \textit{enemy.body}
+            y \textit{CollisionManager}.
+            \item Se destruyen todos los objetos de la clase \textit{Enemy}.
+            \item Se eliminan los enlaces entre los \textit{spell.body} y
+            \textit{CollisionManager}.
+            \item Se destruyen todos los objetos de la clase \textit{Spell}.
+            \item Se destruye el objeto \textit{gameStats}.
+            \item Se destruye el objeto \textit{stateGame}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Lanzar hechizo (escenario principal)}
+
+\figura{sequence-hechizo1.jpg}{scale=0.60}{Diagrama de secuencia: Lanzar hechizo (escenario principal)}{fig:sequence-hechizo1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarHechizo(hechizo)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] marca un hechizo como seleccionado.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame} de la clase \textit{StateGame}
+            y se está jugando una partida.
+            \item Existe un objeto \textit{player} de la clase \textit{Player}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Modificación de atributo, \textit{player.selectedSpell = hechizo}.\\
+        \end{itemize}
+\end{description}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] LanzarHechizo(direccion)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] hace que el personaje lance el hechizo seleccionado
+    hacia una dirección determinada.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame} de la clase \textit{StateGame}
+            y se está jugando una partida.
+            \item Existe un objeto \textit{player} de la clase \textit{Player}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Se crea un objeto \textit{spell} de la clase \textit{Spell}.
+            \item Atributos: \textit{spell.type = player.selectedSpell}, 
+            el resto de atributos del hechizo se determinan según el tipo
+            seleccionado.
+            \item Modificación de atributo: \textit{spell.direction = direccion}.\\
+        \end{itemize}
+\end{description}
+
+
+
+\textbf{Caso de uso: Mover personaje (escenario principal)}
+
+\figura{sequence-pnj1.jpg}{scale=0.60}{Diagrama de secuencia: Mover personaje (escenario principal)}{fig:sequence-pnj1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] MoverPersonaje(teclas, camara)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] mueve al personaje por el escenario siguiendo
+    las teclas y en función de la cámara.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame} de la clase \textit{StateGame}
+            y se está jugando una partida.
+            \item Existe un objeto \textit{player} de la clase \textit{Player}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Modificación de atributos: \textit{player.position} y
+            \textit{player.direction} en función de la tecla pulsada y la
+            posición relativa de la cámara.\\
+        \end{itemize}
+\end{description}
+
+
+
+\textbf{Caso de uso: Mover cámara (escenario principal)}
+
+\figura{sequence-camara1.jpg}{scale=0.60}{Diagrama de secuencia: Mover camara (escenario principal)}{fig:sequence-camara1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] MoverCamara(raton)
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] mueve la cámara alrededor del personaje.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateGame} de la clase \textit{StateGame}
+            y se está jugando una partida.
+            \item Existe un objeto \textit{player} de la clase \textit{Player}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Modificación de atributos: \textit{camera.position} y
+            \textit{camera.orientation} en función del gesto del ratón
+            y de \textit{player.position}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Victoria (escenario principal)}
+
+\figura{sequence-victoria1.jpg}{scale=0.60}{Diagrama de secuencia: Victoria (escenario principal)}{fig:sequence-victoria1}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] PantallaVictoria()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] carga y muestra la pantalla de victoria.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{gameStats} de la clase \textit{GameStats}
+            con las estadísticas de juego de la partida anterior.
+            y se está jugando una partida.
+            \item Existe un objeto \textit{profile} de la clase \textit{Profile}
+            correspondiente al perfil seleccionado.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Creación del objeto \textit{stateVictory} de la clase \textit{StateVictory}.
+            \item Creación del objeto \textit{song} de la clase \textit{Song}.
+            \item Modificación de atributos: \textit{player.experiencie} y
+            \textit{player.unlockedLevel} en función del objeto \textit{gameStats} y
+            del nivel que se acabe de jugar.\\
+        \end{itemize}
+\end{description}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarNivel()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] destruye la pantalla de victoria y vuelve
+    a la de selección de nivel.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateVictory} de la clase \textit{StateVictory}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Destrucción del objeto \textit{song}.
+            \item Destrucción del objeto \textit{stateVictory}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Victoria (escenario 3a)}
+
+\figura{sequence-victoria2.jpg}{scale=0.60}{Diagrama de secuencia: Victoria (escenario 3a)}{fig:sequence-victoria2}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarReintentar()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] destruye la pantalla de victoria y vuelve
+    a jugar al mismo nivel en estado de juego.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateVictory} de la clase \textit{StateVictory}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Destrucción del objeto \textit{song}.
+            \item Destrucción del objeto \textit{stateVictory}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Victoria (escenario 3b)}
+
+\figura{sequence-victoria3.jpg}{scale=0.60}{Diagrama de secuencia: Victoria (escenario 3b)}{fig:sequence-victoria3}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarMenu()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] destruye la pantalla de victoria y vuelve
+    al menú principal.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateVictory} de la clase \textit{StateVictory}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Destrucción del objeto \textit{song}.
+            \item Destrucción del objeto \textit{stateVictory}.\\
+        \end{itemize}
+\end{description}
+
+
+\textbf{Caso de uso: Créditos (escenario principal)}
+
+\figura{sequence-creditos.jpg}{scale=0.60}{Diagrama de secuencia: Créditos (escenario principal)}{fig:sequence-creditos}{h}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] PantallaCreditos()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] crea y muestra la pantalla de créditos.
+    \item [Precondiciones] ninguna.
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Creación del objeto \textit{stateCredits} de la clase \textit{StateCredits}.
+            \item Creación del objeto \textit{song} de la clase \textit{Song}.\\
+        \end{itemize}
+\end{description}
+
+\begin{description}
+    \itemsep0em
+    \item [Operación] SeleccionarMenu()
+    \item [Actores] \jugador, \sistema.
+    \item [Responsabilidades] destruye la pantalla de créditos y vuelve al
+    menú principal.
+    \item [Precondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Existe un objeto \textit{stateCredits} de la clase \textit{StateCredits}.
+        \end{itemize}
+    \item [Postcondiciones] $\quad$
+        \begin{itemize}
+            \itemsep0em
+            \item Destrucción del objeto \textit{song}.
+            \item Destrucción del objeto \textit{stateCredits}.\\
+        \end{itemize}
+\end{description}
+
+
+
+
+
+\section{Diseño}
+\label{sec:siontower-diseno}
+
+Al igual que se hizo en la fase de análisis de \juego\ (sección
+\ref{siontower-analisis}), durante la fase de diseño también emplearemos
+la notación \textit{UML}. Nos centraremos en cómo hace el sistema lo que
+debe hacer para cumplir sus requisitos. Por supuesto, dejaremos espacio
+para variaciones en la fase de implementación.\\
+
+Mostraremos el diagrama de clases de diseño dividido por
+subsistemas para una mayor claridad. Acompañaremos cada figura de una pequeña
+explicación sobre el subsistema que ilustra.\\
+
+\subsection{Diagrama de clases de diseño}
+
+Como hemos mencionado anteriormente, separaremos los diagramas de clases
+de diseño para obtener una mayor claridad. Dicha separación se basará
+en el cometido de cada subsistema. El primer diagrama (ver figura
+\ref{fig:clasesdiseno1}) corresponde a las clases encargadas de iniciar
+el juego, controlar su funcionamiento general y proporcionar soporte a
+otras clases.\\
+
+\figura{clasesdiseno1.jpg}{scale=0.40}{Diagrama de clases de diseño: sistema general}{fig:clasesdiseno1}{H}
+
+El segundo diagrama (ver figura \ref{fig:clasesdiseno3}) representa la gestión
+de estados de \juego. La clase \textit{StateManager} controla los estados
+y las transiciones entre ellos mientras que cada clase descendiente de
+\textit{State} representa cada una de las pantallas de juego. Así tenemos
+\textit{StateMenu}, \textit{StateProfile}, \textit{StateLevel}, \textit{StateGame},
+\textit{StateVictory}, y \textit{StateCredits}. Los estados utilizan una
+melodía (\textit{Song}) y reproducen efectos de sonido \textit{SoundFX}.
+El estado de selección de perfiles elige un perfil utilizando el gestor
+(\textit{ProfileManager}) mientras que el selector de niveles consulta
+cuál es el perfil seleccionado. Así mismo, escoge un nivel entre los
+disponibles a través del gestor de niveles \textit{LevelManager}. Durante
+el juego se van actualizando las estadísticas de juego \textit{GameStats}
+y en la pantalla de victoria se consultan para actualizar el perfil seleccionado.\\
+
+\figura{clasesdiseno3.jpg}{scale=0.40}{Diagrama de clases de diseño: sistema de estados}{fig:clasesdiseno3}{H}
+
+En el tercer diagrama (ver figura \ref{fig:clasesdiseno2}) se
+muestran las clases relacionadas con el sistema de juego. Podemos
+observar la jerarquía de herencia de los objetos de juego (\textit{GameObject})
+o el uso de la malla de navegación entre otros (\textit{NavigationMesh} y
+\textit{Cell}).\\
+
+\figura{clasesdiseno2.jpg}{scale=0.40}{Diagrama de clases de diseño: sistema de juego}{fig:clasesdiseno2}{H}
+
+En el cuarto y último diagrama (ver figura \ref{fig:clasesdiseno4} se muestra
+el sistema de inteligencia artificial y algoritmos de movimiento. La clase
+\textit{SteeringBehaviour} modela los algoritmos de movimiento de forma
+genérica y de ella heredan implementaciones concretas. Estos algoritmos
+modifican el aspecto dinámico de los personajes aplicando fuerzas y aceleraciones,
+veremos más sobre este tema en el punto \ref{sec:steering} en la página
+\pageref{sec:steering}.\\
+
+\figura{clasesdiseno4.jpg}{scale=0.5}{Diagrama de clases de diseño: Steering Behaviors}{fig:clasesdiseno4}{H}
+
+\section{Implementación}
+
+A lo largo de toda la fase de implementación se han ido encontrando diversos
+obstáculos en distintos subsistemas. Estos han surgido bien por desconocimiento
+de la materia o por la dificultad que entraña la misma. En cualquier caso, 
+en este capítulo haremos un repaso por los detalles más interesantes de
+la implementación de \juego. En cada uno de ellos se expondrá el problema
+a resolver, las dificultades encontradas y la solución propuesta adjuntando
+si es necesario pequeños fragmentos de código.\\
+
+Para consultar el código fuente completo del juego, lo mejor es acudir
+al repositorio \textit{Subversion} de la forja de RedIRIS en la siguiente
+dirección.\\
+
+\url{https://forja.rediris.es/scm/?group_id=820}\\
+
+La documentación del código generada con \textit{Doxygen} \cite{website:doxygen}
+facilitará en gran medida la lectura del código. Dicha documentación
+complementaria puede ser accedida desde la siguiente dirección web.\\
+
+\url{http://siondream.com/siontower-doxygen}\\
+
+\subsection{Gestión de estados de juego}
+
+% Clase State
+\subsubsection{Estados de juego, clase State}
+
+Como hemos visto anteriormente, en \juego\ contamos con varias pantallas
+entre menús y el estado de juego. Cada una de estas pantallas está modelada
+por una clase hija de \textit{State}. Se trata de una clase virtual pura
+que incluye un método de actualización \textit{update()} y varios manejadores
+de eventos siguiendo el esquema de la biblioteca \textsc{OIS} \cite{website:ois} (pulsar
+tecla, liberar tecla, pulsar botón del ratón, liberar botón del ratón 
+y mover ratón). El comportamiento por defecto de los manejadores de eventos
+consiste en no hacer nada. Si los sobrecargamos en una clase hija, podremos
+indicar la respuesta deseada.\\
+
+Los estados pueden contar con todos sus elementos cargados en memoria (estado
+cargado) o pueden estar creados pero no listos para su uso. Eso permite
+evitar crear y destruir nuevos estados constantemente, simplemente llamaríamos
+a sus métodos \textit{load()} y \textit{clear()} según sea necesario.\\
+
+La interfaz del juego utiliza la biblioteca \textsc{MyGUI} \cite{website:mygui}.
+Esta biblioteca se basa en unos ficheros \textit{.layout}, en el fondo
+son unos XML sencillos para definir los elementos de la interfaz (botones,
+paneles, etiquetas, etc). Cada estado debe traducir toda su interfaz
+empleando \textsc{gettext} \cite{website:gettext} a través del método
+\textit{translate()}. Hablaremos de la internacionalización del proyecto
+en la sección \ref{siontower-internacionalizacion} (página \pageref{siontower-internacionalizacion})\\
+
+El método \textit{adjustFontHeight()} se utiliza para establecer el tamaño
+de la letra de los elementos de la interfaz en función de la resolución
+de la ventana. Recordemos que \juego\ es independiente de la resolución
+(siempre y cuando esta tenga una relación de aspecto 16:10).\\
+
+A continuación se muestra la definición de la clase \textit{State}:\\
+
+\lstinputlisting[style=C++]{codigo/state.h}
+
+% Clase StateManager, transiciones entre estados
+\subsubsection{Pila de estados, clase StateManager}
+
+La clase \textit{StateManager} se encarga de gestionar los estados y las
+transiciones entre los mismos. Para ello cuenta con una pila de estados
+interna de forma que podemos añadir un estado encima de la pila mediante
+una operación \textit{push()} o sacarlo mediante \textit{pop()}. Esto
+resulta muy útil cuando avanzamos o retrocedemos de forma lineal por varios
+menús y nos evita tener que estar creando y destruyendo estados constantemente.
+Además, podemos eliminar todos los estados de la pila utilizando \textit{popAllStates()}
+o cambiar el tope de la pila por otro estado con \textit{changeState()}.
+La figura \ref{fig:statestack} ilustra el proceso.\\
+
+\figura{statestack.png}{scale=0.7}{Pila de estados}{fig:statestack}{h}
+
+\textit{StateManager} hereda de las clases \textit{FrameListener},
+\textit{WindowEventListener}, \textit{KeyListener} y \textit{MouseListener}.
+De esta forma, el gestor de estados sigue el patrón de diseño \textit{Observer} \cite{gamm77}
+para diversos eventos: etapas del renderizado, cambios en la ventana,
+interacción con el teclado y con el ratón respectivamente. El gestor de estado
+delega en el estado activo los eventos de teclado y ratón para que éste último
+les de respuesta.\\
+
+Cuando un estado detecta que se ha de producir un cambio de estado, informa
+al \textit{StateManager} de ello. No obstante, no se puede destruir el estado
+actual para cambiar a otro porque lo normal es que nos encontremos en mitad
+de una iteración del bucle de juego (game loop) \cite{greg09}. Podría
+ocurrir que destruyésemos el estado actual a la vez que se esta ejecutando su
+método \textit{update()} lo que provocaria accesos de memoria a basura.
+El gestor de estados almacena una pila de operaciones pendientes de forma
+que cuando solicitamos una operación \textit{pop()} o \textit{push()} no
+se realiza en el mismo instante. Una vez finalizada la iteración del bucle
+de juego actual, se procede a realizar las operaciones pendientes, esta vez
+con total seguridad (método privado \textit{perfomOperations()}).\\
+
+Cuando se llama al método \textit{start()} se inicia el bucle de renderizado
+gestionado por el motor \textsc{Ogre3D}. Antes de renderizar la escena,
+se dispara el evento \textit{frameStarted} y el gestor de estados actualiza
+en orden descendente la pila de estados activos.\\
+
+A continuación se muestra la definición de la clase \textit{StateManager}:\\
+
+\lstinputlisting[style=C++]{codigo/stateManager.h}
+
+\subsection{Internacionalización mediante gettext}
+\label{siontower-internacionalizacion}
+
+% Introducción
+
+\juego\ está completamente internacionalizado y se distribuye tanto en inglés
+como en castellano aunque no es complicado añadir idiomas adicionales. Se
+ha seguido el sistema propuesto por la biblioteca de localización libre
+\textsc{gettext} \cite{website:gettext}, que es prácticamente un estándar en la materia. Para
+comprender el uso de la biblioteca así como la generación y mantenimiento
+de traducciones se recurrió a la publicación de José Tomás Tocino García
+\textit{Traducción de proyectos con GNU gettext en 15 minutos} \cite{pdf:jtgettext}.\\
+
+% Ficheros
+\subsubsection{Ficheros necesarios}
+
+\textsc{gettext} funciona de una manera muy sencilla. Trabaja a modo de diccionario
+clave valor en el que las claves son las cadenas a traducir en un idioma base
+(normalmente el inglés) y los valores son el texto traducido al idioma destino.
+Estas duplas claves valor se especifican en ficheros de texto plano de extensión
+\texttt{.po}. No obstante, \textsc{gettext} utiliza internamente una versión
+binaria de dichos ficheros de extensión \texttt{.mo}. El proceso de traducción
+consta de los siguientes pasos:
+
+\begin{enumerate}
+    \itemsep0em
+    \item Creación de la jerarquía de directorios para las traducciones.
+    \item Obtención de todas las cadenas a partir del código fuente y agrupación
+    de las mismas en un fichero maestro \texttt{.pot}.
+    \item Creación de un fichero \texttt{.po} a partir del maestro \texttt{.pot}
+    por cada idioma. Para ello empleamos el comando \texttt{msginit}.
+    \item Traducción de las cadenas del fichero \texttt{.po}.
+    \item Binarización del fichero \texttt{.po} en uno \texttt{.mo}. Utilizaremos
+    el comando \texttt{msgfmt}.
+\end{enumerate}
+
+La jerarquía de directorios resultante en \juego\ es la siguiente:\\
+
+\begin{verbatim}
+|-- [siontower]
+|    |-- lang
+|    |   |-- en
+|    |   |   `-- LC_MESSAGES
+|    |   |       `-- siontower.mo
+|    |   `-- es
+|    |       `-- LC_MESSAGES
+|    |           `-- siontower.mo
+|    |-- po
+|    |   |-- en.po
+|    |   |-- es.po
+|    |   `-- siontower.pot
+|
+\end{verbatim}
+
+En el siguiente fragmento de código se puede apreciar un ejemplo
+de fichero \textit{.po}:\\
+
+\begin{verbatim}
+#: src/stateProfile.cpp:202
+msgid "#ff0000Error: the profile already exists"
+msgstr "#ff0000Error: el perfil ya existe"
+
+#: src/stateProfile.cpp:195
+msgid "#ff0000Error: you must enter a name"
+msgstr "#ff0000Error: debes introducir un nombre"
+
+#: src/stateLevel.cpp:269
+msgid "#ff0000Locked level"
+msgstr "#ff0000Nivel bloqueado"
+
+...
+\end{verbatim}
+
+% Traducción de mensajes dentro del código
+\subsubsection{Traducción de mensajes en el código}
+
+Para traducir mensajes dentro del código hemos de incluir los ficheros de
+cabecera \textit{<locale.h>} y \textit{<libintl.h>}. Al comienzo del programa
+hemos de indicar al sistema qué codificación de caracteres emplearemos,
+qué paquetes de traducciones utilizaremos (en nuestro
+caso sería \textit{siontower}) y dónde se encontrarán las mismas (para nosotros
+sería el directorio \texttt{lang}). Bastan las siguientes líneas:\\
+
+\begin{lstlisting}[style=C++]
+bind_textdomain_codeset("siontower", "UTF-8");
+setlocale(LC_MESSAGES, "");
+bindtextdomain("siontower", "lang" );
+textdomain("siontower");
+\end{lstlisting}
+
+En cada módulo que deseemos traducir tendremos que incluir los mismos ficheros
+de cabecera. En cada cadena a localizar habrá que colocar una llamada a la
+función \texttt{gettext()} con la clave en el idioma base para que nos
+devuelva la cadena en el idioma del sistema que esté ejecutando el software. 
+Lo normal es utilizar la directiva del preprocesador \texttt{\#define \_ gettext}
+para ahorrar espacio y limpiar el código. De esta manera lo que antes era:\\
+
+\begin{lstlisting}[style=C++]
+_lblState->setCaption("You have failed! Press space to try again!");
+\end{lstlisting}
+
+Ahora se convierte en:\\
+
+\begin{lstlisting}[style=C++]
+_lblState->setCaption(_("You have failed! Press space to try again!"));
+\end{lstlisting}
+
+\subsubsection{Traducción de plantillas de MyGUI}
+
+Si ejecutamos \juego\ en un sistema cuyo idioma sea el inglés veremos
+\textit{You have failed! Press space to try again!}. En cambio, si lo hacemos
+en uno cuyo idioma sea el castellano podremos leer \textit{¡Has fallado!
+Pulsa espacio para intentarlo de nuevo}. Esto funciona dentro de código
+\textit{C++} en el juego pero no con las plantillas de la interfaz.
+\textsc{MyGUI} utiliza ficheros XML de extensión \texttt{.layout} para definir
+los widgets que tiene cada pantalla de menú. En el mismo fichero XML
+aparecen los textos de botones, etiquetas y otros elementos que no se
+mostrarán traducidos en la interfaz. Para solucionarlo hay que llevar
+a cabo dos tareas:
+
+\begin{enumerate}
+    \itemsep0em
+    \item Extraer todas las cadenas traducibles a un fichero \texttt{.pot}.
+    \item En tiempo de ejecución indicarle a \textsc{gettext} que traduzca
+    todas las cadenas de los elementos de la interfaz.
+\end{enumerate}
+
+\textsc{gettext} es capaz de extraer las cadenas traducibles de forma automática
+a partir de código \textit{C++} o \textit{Python}, no obstante, desconoce
+el formato xml con la sintaxis de \textsc{MyGUI} por lo que no puede llevar
+a cabo dicha extracción. Para subsanar este problema, se ha implementado un
+pequeño script en \textit{Python} que escanea un directorio en busca de
+ficheros \texttt{.layout}, encuentra las cadenas traducibles y las una
+en una plantilla \texttt{.pot}. Su sintaxis es la siguiente:\\
+
+\texttt{python translateLayout.py layoutsDir file.pot}\\
+
+El código completo del script es el siguiente:\\
+
+\lstinputlisting[style=Python]{codigo/translateLayout.py}
+
+Para solucionar el punto 2 tenemos que recordar que cada estado de juego
+(\textit{State}) contaba con un método \textit{translate()} cuyo objetivo
+era traducir todos los elementos de la interfaz. Las claves de las cadenas
+que buscamos son las propias cadenas en el idioma base por lo que la traducción
+resulta trivial (pero necesaria). Un ejemplo de método de traducción podría
+ser el siguiente:\\
+
+\begin{lstlisting}[style=C++]
+void StateMenu::translate() {
+    _btnPlay->setCaption(_(_btnPlay->getCaption().asUTF8_c_str()));
+    _btnCredits->setCaption(_(_btnCredits->getCaption().asUTF8_c_str()));
+    _btnExit->setCaption(_(_btnExit->getCaption().asUTF8_c_str()));
+    _lblSubtitle->setCaption(_(_lblSubtitle->getCaption().asUTF8_c_str()));
+}
+\end{lstlisting}
+
+
+\subsection{Sistema de audio}
+
+% Ogre no audio, usamos SDL mixer. Sistema de gestión de recursos de Ogre.
+\textsc{Ogre3D} es simplemente un motor de renderizado y carece de subsistema
+de audio, de detección de colisiones, gestión de entrada o juego en red.
+Que en \juego\ se reprodujesen efectos de sonido y música de fondo era
+imprescindible para la inmersión y para ofrecer información complementaria
+a la visual de cara al jugador sobre lo que ocurre en el mundo que simulamos.
+Para resolver este problema se ha decidido emplear la biblioteca libre
+\textit{Simple DirectMedia Layer} (\textsc{libSDL}) y su extensión
+relacionada con el audio \textsc{libSDL mixer} \cite{website:sdl}.\\
+
+\textsc{libSDL} es una biblioteca compatible con el lenguaje \textit{C} y,
+por tanto, carece de orientación a objetos. Parte del valor del trabajo
+realizado para \juego\ ha sido abstraer el bajo nivel del subsistema de audio
+de la biblioteca en un sistema orientado a objetos.\\
+
+\subsubsection{Gestión de recursos en Ogre3D}
+
+\figura{resources-cycle.jpg}{scale=0.4, angle=90}{Ciclo de vida de los recursos en Ogre3D}{fig:resources-cycle}{H}
+
+\textsc{Ogre3D} cuenta con un sistema de gestión de recursos muy completo
+para gestionar el ciclo de vida de cada recurso (ver figura \ref{fig:resources-cycle})
+y así optimizar el consumo de memoria del juego. El concepto recurso es
+genérico, podemos referirnos a una malla tridimensional, a un script de
+postprocesado, un conjunto de animaciones, una textura o un recurso
+definido por nosotros. El carácter configurable y extensible de \textsc{Ogre3D}
+permite al usuario de la biblioteca crear y gestionar nuevos tipos
+de recursos de forma idéntica a como se hace con los propios del sistema.
+En nuestro caso definiremos los recursos \textit{Song} (pista de música)
+y \textit{SoundFX} (efecto de sonido). Esto nos reportará las siguientes
+ventajas:
+
+\begin{itemize}
+    \itemsep0em
+    \item Cada recurso sólo se instanciará una vez en memoria aunque se utilice
+    por varias entidades con el consiguiente ahorro.
+    \item Sencillo acceso al recurso sin importar su ruta dentro del sistema
+    de ficheros.
+    \item Gestión de su ciclo de vida de cara a optimizar el consumo de memoria
+    y los tiempos de carga.
+\end{itemize}
+
+% Esquema para extender la gestión de recursos de Ogre3D
+\subsubsection{Extensión de la gestión de recursos de Ogre3D}
+
+Por cada recurso nuevo que deseemos integrar en \textsc{Ogre3D} tendremos
+que crear una clase hija de \textit{Ogre::Resource}, una derivada de la
+clase paramétrica \textit{Ogre::Shared\_ptr} (para asegurarnos instancia
+única del recurso) y otra descendiente de \textit{Ogre::ResourceManager}
+que gestionará la carga y destrucción de recursos del mismo tipo. Cada
+una de estas clases deberá implementar varios métodos de forma obligatoria.
+El esquema general se muestra en la figura \ref{fig:extender-recursos}.
+Para conocer detalles adicionales a los expuestos en esta sección, puede
+consultarse el artículo \textit{Extender la gestión de recursos, audio}
+en \wiki\ \cite{website:recursos-iberogre}.\\
+
+\figura{extender-recursos.jpg}{scale=0.40}{Esquema para extender la gestión de recursos en Ogre3D}{fig:extender-recursos}{h}
+
+% Song, SongPtr y SongManager
+\subsubsection{Song, SongPtr y SongManager}
+
+La clase \textit{Song} hereda de \textit{Ogre::Resource} y se encarga de
+reproducir pistas de música en formato \textit{OGG}. En su constructor es
+necesario indicarle el gestor de recursos que la controla su nombre y grupo
+al que pertenece. Donde realmente se carga el recurso y se libera son en
+los métodos privados \textit{loadImpl()} y \textit{unloadImpl()} llamados
+por el gestor de recursos. Así mismo, cuenta con métodos para la reproducción,
+pausa, fundido de entrada o de salida. Debe proporcionar un método
+\textit{calculateSize()} porque \textsc{Ogre3D} debe conocer en todo momento
+cuánto ocupan sus recursos en memoria. Incluso podríamos asignarle un presupuesto
+en memoria RAM a cualquiera de los gestores de recursos. A continuación
+se muestra la definición de la clase.\\
+
+\lstinputlisting[style=C++]{codigo/song.h}
+
+\textit{SongPtr} es una clase sencilla que se limita a heredar de
+\textit{Ogre::Shared\_ptr} y permite asegurarnos de que sólo habrá una instancia
+de cada canción en todo el sistema. Funciona de manera similar a los
+\textit{shared\_ptr} de la biblioteca \textsc{Boost} \cite{website:boost}.\\
+
+\lstinputlisting[style=C++]{codigo/songPtr.h}
+
+La clase \textit{SongManager} es el gestor de recursos que se encarga de manejar
+pistas de audio (\textit{Song}). Sigue el patrón de diseño \textit{Singleton}
+(una sóla instancia accesible desde todo el sistema)
+\cite{gamm77} y cuenta con los clásicos métodos \textit{getSingleton()} y
+\textit{getSingletonPtr()}. Para cargar un recurso utilizaremos \textit{load}
+el cual busca el recurso y, en el caso de no existir, lo crea con su método
+privado \textit{createImpl()}.
+
+\lstinputlisting[style=C++]{codigo/songManager.h}
+
+% SoundFX, SoundFXPtr y SoundFXManager
+\subsubsection{SoundFX, SoundFXPtr y SoundFXManager}
+
+Las clases \textit{SoundFX}, \textit{SoundFXPtr} y \textit{SoundFXManager}
+funcionan de forma prácticamente idéntica a como lo hacen sus semejantes
+de música.\\
+
+Definición de la clase \textit{SoundFX}:\\
+
+\lstinputlisting[style=C++]{codigo/soundFX.h}
+
+Definición de la clase \textit{SoundFXPtr}:\\
+
+\lstinputlisting[style=C++]{codigo/soundFXPtr.h}
+
+Definición de la clase \textit{SoundFXManager}:\\
+
+\lstinputlisting[style=C++]{codigo/soundFXManager.h}
+
+Para detalles adicionales sobre la implementación del subsistema, lo ideal
+es acudir al propio código fuente en la forja de RedIRIS.\\
+
+% Ejemplo de uso
+\subsubsection{Ejemplo de uso}
+
+A continuación se adjunta un pequeño ejemplo de uso del sistema de audio
+desarrollado para \juego.
+
+\begin{lstlisting}[style=C++]
+// Durante el inicio de la aplicacion
+
+// Creamos el ResourceManager
+SongManager* songManager = new SongManager();
+SoundFXManager* soundFXManager = new SoundFXManager();
+
+...
+
+// Cargamos los recursos
+SongPtr levelMusic = songManager->load("musicaNivel1.ogg", "Nivel1");
+levelMusic->play();
+
+SoundFXPtr explosion = soundFXManager->load("explosion.wav", "Nivel1");
+explosion->play();
+
+...
+
+// Durante el cierre de la aplicacion
+
+// Destruimos el ResourceManager
+delete songManager;
+delete soundFXManager;
+\end{lstlisting}
+
+Como ya se mencionó en los objetivos del proyecto (sección \ref{sec:objetivos} en la
+página \pageref{sec:objetivos}), se pretende que los subsistemas desarrollados para
+\juego\ sean reutilizables en alta medida. Por ello, se ha publicado
+el sistema de audio por separado como paquete descargable en la forja de
+RedIRIS. Viene acompañado de la documentación generada con \textit{Doxygen},
+de las instrucciones de integración y de su licencia \textit{GPL v3}. Puede
+obtenerse en la siguiente dirección.\\
+
+\url{http://forja.rediris.es/frs/download.php/2075/siontower-3dsound-v0.1.tar.gz}\\
+
+\subsection{Detección de colisiones}
+
+En \juego\ es necesario detectar colisiones entre muchos de los elementos
+del juego y \textsc{Ogre3D} no proporciona un subsistema que nos ayude
+a llevar a cabo esta tarea. Era posible acudir a alternativas como los motores
+de físicas \textsc{Bullet} y \textsc{ODE} pero eran demasiado complejos
+para el reducido número de requisitos que teníamos. En \juego\ había
+que detectar colisiones entre los siguientes elementos.\\
+
+\begin{itemize}
+    \itemsep0em
+    \item personaje-enemigo
+    \item personaje-escenario
+    \item enemigo-hechizo
+    \item hechizo-escenario
+\end{itemize}
+
+El área de colisión de los personajes y escenario vendría limitado por varias
+formas geométricas agrupadas. Entre estas formas podrían encontrarse: cajas,
+esferas y planos. Las funcionalidades que requiere el sistema de colisiones
+son:\\
+
+\begin{itemize}
+    \itemsep0em
+    \item Soporte para varias formas (clase \textit{Shape}) como esferas,
+    planos, AABB y OBB.
+    \item Tests de colisión para varias combinaciones de estas formas.
+    \item Cuerpos (clase \textit{Body}) compuestos por varias formas colisionables
+    de manera que se ajusten a contornos complejos.
+    \item Gestor de colisiones que mantenga el control de los cuerpos existentes
+    y pueda detectar colisiones entre ellos.
+    \item Detección de colisiones eficiente.
+    \item Filtrado de colisiones por tipo de cuerpo. Sólo nos interesan
+    las especificadas en la lista anterior.
+    \item Registro de funciones a disparar ante colisiones entre dos cuerpos
+    de un tipo de terminado, también conocidas como \textit{callbacks}.
+\end{itemize}
+
+% Diseño general
+\subsubsection{Diseño general}
+
+Como puede verse en los diagramas de la fase de diseño en la sección
+\ref{sec:siontower-diseno} en la página \pageref{sec:siontower-diseno},
+el sistema de detección de colisiones está formado por:\\
+
+\begin{description}
+    \item [Shape] clase virtual que modela una forma geométrica en el espacio
+    de forma genérica. De ella descienden \textit{Plane}, \textit{Sphere}, \textit{AxisAlignedBox} y
+    \textit{OrientedBox}.
+    \item [Body] modela un cuerpo colisionable formado por varias formas geométricas.
+    \item [GameObject] agrupa un cuerpo colisionable (\textit{Body}) y un
+    nodo de la escena 3D (\textit{Ogre::SceneNode}). De esta forma encapsulamos
+    la faceta colisionable y visual de los objetos de juego. Posteriormente,
+    los elementos que cuenten con una malla tridimensional pueden heredar
+    de esta clase y añadir un \textit{Ogre::Entity} como ocurre
+    en la clase \textit{GameMesh}. En cambio, si lo que desean es mostrar un
+    sistema de partículas con modelo de colisión pueden heredar y añadir
+    un \textit{Ogre::ParticleSystem} como ocurre en \textit{Spell}.
+    \item [CollisionManager] controla todos los cuerpos colisionables
+    (\textit{Body}) y detecta colisiones entre ellos en cada iteración del
+    bucle de juego filtrando los tipos de colisión que carecen de callback. 
+\end{description}
+
+% Shape y collision dispatching
+\subsubsection{La clase Shape y RTTI}
+
+La clase \textit{Shape} cuenta con un método estático \textit{getCollision()}
+que recibe punteros a formas genéricas y devuelve verdadero o falso
+en función de si se produce intersección entre las mismas o no. De forma
+interna cuenta con métodos privados para detectar colisiones entre formas
+concretas, por ejemplo el test para planos y cajas alineadas sería
+\textit{getCollisionPlaneAABB()}.\\
+
+La tarea que consiste en dados dos punteros a formas genéricas, elegir
+el test de colisión adecuado se llama \textit{Collision dispatching}.
+Podríamos emplear muchos bloques \texttt{if} y llamadas a \texttt{dynamic\_cast}
+\cite{gera09} pero el resultado sería de lo más ineficiente y el tiempo es
+un recurso muy preciado en la detección de colisiones. Necesitamos una forma
+de hacer detección de tipos en tiempo de ejecución (\textit{RTTI} o Real Time
+Type Identification) de forma eficiente y segura.\\
+
+La solución por la que se ha optado consiste en incluir un método virtual
+puro en \textit{Shape} llamado \textit{getType())} que obligue a las clases
+descendientes a implementarlo y devuelva su tipo concreto del enumerado
+\textit{Shape::Type}. La clase \textit{Shape} mantiene un conjunto
+desordenado (\textit{boost::unordered\_map}) \cite{website:boost}
+que dados dos tipos de formas nos devuelve el test de colisión adecuado
+en un objeto función \textit{boost::function}.
+Buscar en estos conjuntos es mucho más rápido que utilizar el clásico \textit{std::map}
+de la biblioteca estándar de plantillas (STL).\\
+
+Los tests de colisión entre formas concretas pueden hacer un \textit{static\_cast}
+para obtener un puntero a la clase hija en lugar de a la genérica. La conversión
+de tipos estáticas es mucho rápida aunque peligrosa. No obstante, ya hemos determinado
+el tipo con seguridad plena gracias a \textit{getType()}. Al inicio de la aplicación
+es necesario llamar a \textit{configureCollisionDispathing()} para inicializar
+la tabla estática de tests de colisión. Si creamos formas nuevas y deseamos
+añadir nuevos tests, es posible hacerlo mediante el método \textit{addCollisionTest()}.
+A continuación, se adjunta la definición completa de la clase \textit{Shape}.\\
+
+\lstinputlisting[style=C++]{codigo/shape.h}
+
+En el siguiente fragmento, inicializamos la tabla de tests de colisión:\\
+
+\begin{lstlisting}[style=C++]
+void Shape::configureCollisionDispatching() {
+    // Completamos la tabla de chequeos de colision
+    _collisionDispatcher[SPHERE][SPHERE] = boost::bind(&Shape::getCollisionSphereSphere, _1, _2);
+    _collisionDispatcher[AABB][AABB] = boost::bind(&Shape::getCollisionAABBAABB, _1, _2);
+    _collisionDispatcher[PLANE][PLANE] = boost::bind(&Shape::getCollisionPlanePlane, _1, _2);
+    _collisionDispatcher[OBB][OBB] = boost::bind(&Shape::getCollisionOBBOBB, _1, _2);
+
+    _collisionDispatcher[AABB][SPHERE] = boost::bind(&Shape::getCollisionSphereAABB, _1, _2);
+    _collisionDispatcher[AABB][PLANE] = boost::bind(&Shape::getCollisionPlaneAABB, _1, _2);
+    _collisionDispatcher[AABB][OBB] = boost::bind(&Shape::getCollisionOBBAABB, _1, _2);
+
+    _collisionDispatcher[SPHERE][AABB] = boost::bind(&Shape::getCollisionSphereAABB, _1, _2);
+    _collisionDispatcher[SPHERE][PLANE] = boost::bind(&Shape::getCollisionPlaneSphere, _1, _2);
+    _collisionDispatcher[SPHERE][OBB] = boost::bind(&Shape::getCollisionSphereOBB, _1, _2);
+
+    _collisionDispatcher[PLANE][AABB] = boost::bind(&Shape::getCollisionPlaneAABB, _1, _2);
+    _collisionDispatcher[PLANE][SPHERE] = boost::bind(&Shape::getCollisionPlaneSphere, _1, _2);
+    _collisionDispatcher[PLANE][OBB] = boost::bind(&Shape::getCollisionOBBPlane, _1, _2);
+    
+    _collisionDispatcher[OBB][SPHERE] = boost::bind(&Shape::getCollisionSphereOBB, _1, _2);
+    _collisionDispatcher[OBB][PLANE] = boost::bind(&Shape::getCollisionOBBPlane, _1, _2);
+    _collisionDispatcher[OBB][AABB] = boost::bind(&Shape::getCollisionOBBAABB, _1, _2);
+}
+\end{lstlisting}
+
+Cuando alguien desea saber si dos formas colisionan llama a \textit{getCollision()}
+con dos punteros a formas genéricas. En dicho método es cuando se busca
+en la tabla de tests de colisión.\\
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollision(Shape* shapeA, Shape* shapeB) {
+    // Comprobamos si la forma A esta registrada
+    CollisionDispatchTable::iterator itA;
+    itA = _collisionDispatcher.find(shapeA->getType());
+    
+    if (itA == _collisionDispatcher.end()) {
+        cout << "Shape::getCollision(): no existe el tipo " << shapeA->getType() << endl;
+        return 0;
+    }
+    
+    // Comprobamos que la forma B esta registrada
+    CollisionDispatchTable::iterator itB;
+    itB = _collisionDispatcher.find(shapeB->getType());
+    
+    if (itB == _collisionDispatcher.end()) {
+        cout << "Shape::getCollision(): no existe el tipo " << shapeB->getType() << endl;
+        return 0;
+    }
+
+    // Comprobamos que hay un metodo de comprobacion del tipo A - B
+    boost::unordered_map<int, CollisionCheckFunction>::iterator itC;
+    itC = _collisionDispatcher[shapeA->getType()].find(shapeB->getType());
+    
+    if (itC == itA->second.end()) {
+        cout << "Shape::getCollision(): no existe un metodo de comprobacion entre" << shapeA->getType() << " y " << shapeB->getType() << endl;
+        return 0;
+    }
+
+    // Llamamos al metodo de comprobacion
+    return itC->second(shapeA, shapeB);
+}
+\end{lstlisting}
+
+% Tests de colisión
+\subsubsection{Tests de colisión}
+
+En esta sección comentaremos con cierto nivel de detalle los tests de colisión
+para cada pareja de tipos de formas. Para implementar estos tests se ha
+recurrido a la publicación \textit{Real Time Collision Detection} de 
+Christer Ericson \cite{eric05}. La explicación de cada test vendrá acompañada
+del fragmento de código correspondiente y de un diagrama explicativo. Por motivos
+de claridad, los diagramas se adjuntan en dos dimensiones pero los principios
+son fácilmente extensibles a las tres dimensiones.\\
+
+La mayoría de los tests de colisiones se sustentan en el \textbf{Teorema
+del eje de separación} \cite{website:ejeseparacion}. Asegura que dados dos
+objetos convexos en un plano 2D existe una línea sobre la cual, las proyecciones
+de los dos objetos no se solapan si y sólo si los objetos son disjuntos
+(no tienen puntos en común). La línea se conoce como eje de separación.
+Si nos trasladamos a las tres dimensiones, la línea de separación se convierte
+en plano de separación. Podemos ver un ejemplo del teorema en la figura
+\ref{fig:ejeseparacion}.\\
+
+\figura{ejeseparacion.png}{scale=0.8}{Teorema del eje de separación}{fig:ejeseparacion}{h}
+
+El test entre una \textbf{Sphere} y otra \textbf{Sphere} es el más sencillo
+de todos. Basta con comprobar si la distancia entre los centros de ambas
+esferas es menor que la suma de sus radios, en tal caso existiría colisión,
+tal y como puede verse en la figura \ref{fig:test-sphere-sphere}.\\
+
+\figura{test-sphere-sphere.png}{scale=0.8}{Test de colisión Sphere \- Sphere}{fig:test-sphere-sphere}{h}
+
+Para calcular la distancia entre dos puntos es necesario una raíz cuadrada
+pero éstas son extremadamente caras en tiempo de procesamiento. Podemos
+comparar la distancia al cuadrado con el cuadrado de la suma de los radios,
+una expresión equivalente y de mayor eficiencia. A continuación adjuntamos
+el código del test.
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionSphereSphere(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que son esferas)
+    Sphere* sphereA = static_cast<Sphere*>(shapeA);
+    Sphere* sphereB = static_cast<Sphere*>(shapeB);
+
+    // Hacemos el test
+    Ogre::Vector3 s = sphereA->getCenter() - sphereB->getCenter();
+    Ogre::Real totalRadius = sphereA->getRadius() + sphereB->getRadius();
+
+    return (s.squaredLength() <= totalRadius * totalRadius);
+}
+\end{lstlisting}
+
+En la intersección entre cajas alineadas (\textbf{AABB} y \textbf{AABB})
+con los ejes emplearemos el teorema del plano de separación. Proyectamos
+las cajas sobre cada uno de los tres ejes y si algunas de las proyecciones
+no se solapan podremos asegurar que no existe colisión entre las AABB.
+La figura \ref{fig:test-aabb-aabb} ilustra el test.\\
+
+\figura{test-aabb-aabb.png}{scale=0.8}{Test de colisión AABB \- AABB}{fig:test-aabb-aabb}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionAABBAABB(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que son AABBs)
+    AxisAlignedBox* aabb1= static_cast<AxisAlignedBox*>(shapeA);
+    AxisAlignedBox* aabb2 = static_cast<AxisAlignedBox*>(shapeB);
+
+    // Hacemos el test
+    return (aabb1->getMaxPos().x > aabb2->getMinPos().x &&
+            aabb1->getMinPos().x < aabb2->getMaxPos().x &&
+            aabb1->getMaxPos().y > aabb2->getMinPos().y &&
+            aabb1->getMinPos().y < aabb2->getMaxPos().y &&
+            aabb1->getMaxPos().z > aabb2->getMinPos().z &&
+            aabb1->getMinPos().z < aabb2->getMaxPos().z);
+}
+\end{lstlisting}
+
+El test de colisión entre dos figuras de tipo \textbf{Plane} también es
+sencillo. Los planos son infinitos por lo que la única situación en la
+que dos planos no colisionan es cuando estos son paralelos y no están a 
+la misma distancia del origen. La orientación de los planos está definida
+por su vector normal. Si las dos normales son paralelas y la distancia
+con respecto al origen no coincide podremos asegurar que los planos no
+colisionan. Dos vectores son paralelos si su producto escalar es igual a $1$.
+Lo vemos ilustrado en la figura \ref{fig:test-plane-plane}.\\
+ 
+\figura{test-plane-plane.png}{scale=0.8}{Test de colisión Plane \- Plane}{fig:test-plane-plane}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionPlanePlane(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que son Planes)
+    Plane* planeA = static_cast<Plane*>(shapeA);
+    Plane* planeB = static_cast<Plane*>(shapeB);
+
+    // Hacemos el test
+    Ogre::Vector3 normalA = planeA->getNormal().normalisedCopy();
+    Ogre::Vector3 normalB = planeB->getNormal().normalisedCopy();
+    return (normalA.dotProduct(normalB) != 1 ||
+            planeA->getPosition() == planeB->getPosition());
+}
+
+\end{lstlisting}
+
+En el test entre \textbf{Sphere} y \textbf{AxisAlignedBox} se pueden
+producir dos casos en los que existe intersección entre los objetos.
+El primero se da cuando el centro de la esfera está contenida en el AABB
+mientras que el segundo tiene lugar cuando el centro está fuera de la caja
+pero existe intersección (el diagrama \ref{fig:test-sphere-aabb} ilustra
+el segundo caso). En primer lugar comprobamos si el centro de la esfera
+está dentro de la caja. Posteriormente recorremos los vértices del AABB
+y elegimos el más cercano al centro de la esfera. Si la distancia entre
+ambos es menor que el radio de la esfera las dos formas colisionan.
+
+\figura{test-sphere-aabb.png}{scale=0.8}{Test de colisión Sphere \- AABB}{fig:test-sphere-aabb}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionSphereAABB(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que A es Sphere y B es AABB)
+    Sphere* sphere;
+    AxisAlignedBox* aabb;
+    if (shapeA->getType() == SPHERE) {
+        sphere = static_cast<Sphere*>(shapeA);
+        aabb = static_cast<AxisAlignedBox*>(shapeB);
+    } else {
+        sphere = static_cast<Sphere*>(shapeB);
+        aabb = static_cast<AxisAlignedBox*>(shapeA);
+    }
+
+    // Hacemos el test
+    Ogre::Real s = 0;
+    Ogre::Real d = 0;
+    Ogre::Vector3 center = sphere->getCenter();
+    Ogre::Vector3 minPos = aabb->getMinPos();
+    Ogre::Vector3 maxPos = aabb->getMaxPos();
+
+    // Comprobamos si el centro de la esfera esta dentro del AABB
+    bool centerInsideAABB = (center.x <= maxPos.x &&
+                             center.x >= minPos.x &&
+                             center.y <= maxPos.y &&
+                             center.y >= minPos.y &&
+                             center.z <= maxPos.z &&
+                             center.z >= minPos.z);
+
+    if (centerInsideAABB)
+        return true;
+
+    // Comprobamos si la esfera y el AABB se intersectan
+    for (int i = 0; i < 3; ++i) {
+        if (sphere->getCenter()[i] < aabb->getMinPos()[i]) {
+            s = sphere->getCenter()[i] - aabb->getMinPos()[i];
+            d += s * s;
+        } else if (sphere->getCenter()[i] > aabb->getMaxPos()[i]) {
+            s = sphere->getCenter()[i] - aabb->getMaxPos()[i];
+            d += s * s;
+        }
+    }
+
+    return (d <= sphere->getRadius() * sphere->getRadius());
+}
+\end{lstlisting}
+
+Comprobar si una \textbf{Sphere} colisiona con un \textbf{Plane} es tan
+sencillo como obtener la distancia entre ambos y compararla con el radio
+de la esfera como hemos hecho en otras ocasiones. La distancia entre el
+centro y el punto que conocemos del plano no es la distancia real entre
+ambas formas. Para calcular la distancia real tendremos que proyectar
+el vector $p-c$ (punto del plano - centro de la esfera) sobre la normal
+del plano. Sólo nos es necesario el cuadrado de la distancia y lo
+comprobaremos con el cuadrado del radio (para evitarnos utilizar una
+raíz cuadrada). Puede verse el test en la figura \ref{fig:test-sphere-plane}.\\
+
+\figura{test-sphere-plane.png}{scale=0.8}{Test de colisión Sphere \- Plane}{fig:test-sphere-plane}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionPlaneSphere(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que A es Plane y B es Sphere)
+    Plane* plane;
+    Sphere* sphere;
+    if (shapeA->getType() == PLANE) {
+        plane = static_cast<Plane*>(shapeA);
+        sphere = static_cast<Sphere*>(shapeB);
+    } else {
+        plane = static_cast<Plane*>(shapeB);
+        sphere = static_cast<Sphere*>(shapeA);
+    }
+
+    // Hacemos el test
+    
+    // Distancia del centro de la esfera al plano
+    Ogre::Vector3 v = sphere->getCenter() - plane->getPosition();
+    Ogre::Vector3 n = plane->getNormal().normalisedCopy();
+    Ogre::Real d = abs(n.dotProduct(v));
+
+    // Si d <= radio, hay colision
+    return d <= sphere->getRadius();
+}
+\end{lstlisting}
+
+Para el test entre un \textbf{AxisAlignedBox} y un \textbf{Plane} calculamos
+el vértice más lejano y el más cercano al plano (\textit{pmin} y \textit{pmax}
+respectivamente). Si cada punto está a un lado distinto del plano podemos
+asegurar que ambas formas colisionan. El proceso se ilustra en la figura
+\ref{fig:test-aabb-plane}.\\
+
+\figura{test-aabb-plane.png}{scale=0.8}{Test de colisión AABB \- Plane}{fig:test-aabb-plane}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionPlaneAABB(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que A es Plane y B es AABB)
+    Plane* plane;
+    AxisAlignedBox* aabb;
+    if (shapeA->getType() == PLANE) {
+        plane = static_cast<Plane*>(shapeA);
+        aabb = static_cast<AxisAlignedBox*>(shapeB);
+    } else {
+        plane = static_cast<Plane*>(shapeB);
+        aabb = static_cast<AxisAlignedBox*>(shapeA);
+    }
+
+
+    // Hacemos el test
+    Ogre::Vector3 p;
+    Ogre::Vector3 n;
+
+    for (int i = 0; i < 3; ++i) {
+        if (plane->getNormal()[i] >= 0) {
+            p[i] = aabb->getMaxPos()[i];
+            n[i] = aabb->getMinPos()[i];
+        } else {
+            p[i] = aabb->getMaxPos()[i];
+            n[i] = aabb->getMinPos()[i];
+        }
+    }
+
+    // Si p esta en un lado diferente del plano que n, hay interseccion
+    Ogre::Real d1 = plane->getNormal().dotProduct(p - plane->getPosition());
+    Ogre::Real d2 = plane->getNormal().dotProduct(n - plane->getPosition());
+
+    return ((d1 <= 0 && d2 >= 0) || (d1 >= 0 && d2 <= 0));
+}
+\end{lstlisting}
+
+Si deseamos conocer si un \textbf{OrientedBox} y una \textbf{Sphere} buscamos
+el punto más cercano de la caja a la esfera. Para hacerlo recorremos los vértices
+y vamos almacenando la distancia mínima. Una vez lo hayamos encontrado
+es sencillo ya que comparamos la distancia con el radio de la esfera. Como siempre,
+utilizamos distancias al cuadrado para evitar el uso de raíces en la medida
+de lo posible. El proceso aparece en la figura \ref{fig:test-obb-sphere}.\\
+
+\figura{test-obb-sphere.png}{scale=0.9}{Test de colisión OBB \- Sphere}{fig:test-obb-sphere}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionSphereOBB(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que uno es Sphere y otro OBB
+    Sphere* sphere;
+    OrientedBox* obb;
+    if (shapeA->getType() == OBB) {
+        obb = static_cast<OrientedBox*>(shapeA);
+        sphere = static_cast<Sphere*>(shapeB);
+    } else {
+        obb = static_cast<OrientedBox*>(shapeB);
+        sphere = static_cast<Sphere*>(shapeA);
+    }
+
+    Ogre::Vector3 closest = closestPointToOBB(sphere->getCenter(), obb);
+
+    Ogre::Vector3 v = closest - sphere->getCenter();
+
+    return v.dotProduct(v) <= sphere->getRadius() * sphere->getRadius();
+}
+
+static Ogre::Vector3 closestPointToOBB(const Ogre::Vector3& p, const OrientedBox* obb) {
+    Ogre::Vector3 d = p - obb->getCenter();
+    Ogre::Vector3 closest = obb->getCenter();
+    Ogre::Matrix3 axes = obb->getAxes();
+
+    for (int i = 0; i < 3; ++i) {
+        Ogre::Real dist = d.dotProduct(Ogre::Vector3(axes[i][0], axes[i][1], axes[i][2]));
+        if (dist > obb->getExtent()[i]) 
+            dist = obb->getExtent()[i];
+        if (dist < -obb->getExtent()[i]) 
+            dist = -obb->getExtent()[i];
+
+        closest += dist * Ogre::Vector3(axes[i][0], axes[i][1], axes[i][2]);
+    }
+
+    return closest;
+}
+\end{lstlisting}
+
+Para el test de colisión entre un \textbf{OrientedBox} y un \textbf{Plane}
+proyectamos el primero sobre el segundo.\\
+
+\figura{test-obb-plane.png}{scale=0.9}{Test de colisión OBB \- Plane}{fig:test-obb-plane}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionOBBPlane(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que uno es Plane y otro OBB
+    Plane* plane;
+    OrientedBox* obb;
+    if (shapeA->getType() == OBB) {
+        obb = static_cast<OrientedBox*>(shapeA);
+        plane = static_cast<Plane*>(shapeB);
+    } else {
+        obb = static_cast<OrientedBox*>(shapeB);
+        plane = static_cast<Plane*>(shapeA);
+    }
+
+    Ogre::Matrix3 axes = obb->getAxes();
+    Ogre::Vector3 extent = obb->getExtent();
+    Ogre::Vector3 normal = plane->getNormal();
+
+    // Radio de la proyeccion de obb en el plano L(t) = obb.center + t * plane.normal
+    Ogre::Real r = extent[0] * std::abs(normal.dotProduct(Ogre::Vector3(axes[0][0], axes[0][1], axes[0][2]))) +
+                   extent[1] * std::abs(normal.dotProduct(Ogre::Vector3(axes[1][0], axes[1][1], axes[1][2]))) +
+                   extent[2] * std::abs(normal.dotProduct(Ogre::Vector3(axes[2][0], axes[2][1], axes[2][2])));
+
+    // Distancia del centro de la caja al plano
+    Ogre::Real s = normal.dotProduct(obb->getCenter() - plane->getPosition());
+    
+    return abs(s) <= r;
+}
+\end{lstlisting}
+
+Detectar una colisión entre dos \textbf{OrientedBox} es el más complejo de
+todos. Los parámetros de las cajas de colisión están dispuestos en función
+de los ejes globales pero en este caso calculamos los parámetros de una
+de las cajas para que estén en función de los ejes definidos por la otra.
+Una vez hecho eso vamos tratando de trazar planos de separación entre ambas
+y buscando el descarte (método más rápido). Si no conseguimos encontrar el plano
+de separación, se habrá producido una colisión. Puede verse en el diagrama
+\ref{fig:test-obb-obb}.\\
+
+\figura{test-obb-obb.png}{scale=0.9}{Test de colisión OBB \- OBB}{fig:test-obb-obb}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionOBBOBB(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion, estamos seguros de que son OBB
+    OrientedBox* obbA = static_cast<OrientedBox*>(shapeA);
+    OrientedBox* obbB = static_cast<OrientedBox*>(shapeB);
+
+    
+    // FUENTE: Real Time Collision Detection pag 101
+
+
+    // Obtenemos B en funcion de los ejes locales de A
+    Ogre::Real ra, rb;
+    Ogre::Matrix3 R, absR;
+    Ogre::Matrix3 axesA = obbA->getAxes();
+    Ogre::Matrix3 axesB = obbB->getAxes();
+
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            Ogre::Vector3 vA(axesA[i][0], axesA[i][1], axesA[i][2]);
+            Ogre::Vector3 vB(axesB[j][0], axesB[j][1], axesB[j][2]);
+            R[i][j] = vA.dotProduct(vB);
+        }
+    }
+
+    // Vector de translacion t en los ejes de A
+    Ogre::Vector3 t = obbB->getCenter() - obbA->getCenter();
+    t = Ogre::Vector3(t.dotProduct(Ogre::Vector3(axesA[0][0], axesA[0][1], axesA[0][2])),
+                      t.dotProduct(Ogre::Vector3(axesA[1][0], axesA[1][1], axesA[1][2])),
+                      t.dotProduct(Ogre::Vector3(axesA[2][0], axesA[2][1], axesA[2][2])));
+        
+    for (int i = 0; i < 3; ++i) 
+        for (int j = 0; j < 3; ++j)
+            absR[i][j] = std::abs(R[i][j]);
+
+    // Test ejes L = A0 L = A1 L = A2
+    for (int i = 0; i < 3; ++i) {
+        ra = obbA->getExtent()[i];
+        rb = obbB->getExtent()[0] * absR[i][0] +
+             obbB->getExtent()[1] * absR[i][1] +
+             obbB->getExtent()[2] * absR[i][2];
+
+        if (std::abs(t[i]) > ra + rb) return false;
+    }
+
+    // Test ejes L = B0 L = B1 L = B2
+    for (int i = 0; i < 3; ++i) {
+        ra = obbA->getExtent()[0] * absR[0][i] +
+             obbA->getExtent()[1] * absR[1][i] +
+             obbA->getExtent()[2] * absR[2][i];
+        rb = obbB->getExtent()[i];
+
+        if (std::abs(t[0] * R[0][i] + t[1] * R[1][i] + t[2] * R[2][i]) > ra + rb) return false;
+    }
+   
+    // Test eje L = A0 x B0
+    ra = obbA->getExtent()[1] * absR[2][0] + obbA->getExtent()[2] * absR[1][0];
+    rb = obbB->getExtent()[1] * absR[0][2] + obbB->getExtent()[2] * absR[0][1];
+    if (std::abs(t[2] * R[1][0] - t[1] * R[2][0]) > ra + rb) return false;
+
+    // Test eje L = A0 x B1
+    ra = obbA->getExtent()[1] * absR[2][1] + obbA->getExtent()[2] * absR[1][1];
+    rb = obbB->getExtent()[0] * absR[0][2] + obbB->getExtent()[2] * absR[0][0];
+    if (std::abs(t[2] * R[1][1] - t[1] * R[2][1]) > ra + rb) return false;
+
+    // Test eje L = A0 x B2
+    ra = obbA->getExtent()[1] * absR[2][2] + obbA->getExtent()[2] * absR[1][2];
+    rb = obbB->getExtent()[0] * absR[0][1] + obbB->getExtent()[1] * absR[0][0];
+    if (std::abs(t[2] * R[1][2] - t[1] * R[2][2]) > ra + rb) return false;
+
+    // Test eje L = A1 x B0
+    ra = obbA->getExtent()[0] * absR[2][0] + obbA->getExtent()[2] * absR[0][0];
+    rb = obbB->getExtent()[1] * absR[1][2] + obbB->getExtent()[2] * absR[1][1];
+    if (std::abs(t[0] * R[2][0] - t[2] * R[0][0]) > ra + rb) return false;
+
+    // Test eje L = A1 x B1
+    ra = obbA->getExtent()[0] * absR[2][1] + obbA->getExtent()[2] * absR[0][1];
+    rb = obbB->getExtent()[0] * absR[1][2] + obbB->getExtent()[2] * absR[1][0];
+    if (std::abs(t[0] * R[2][1] - t[2] * R[0][1]) > ra + rb) return false;
+   
+    // Test eje L = A1 x B2
+    ra = obbA->getExtent()[0] * absR[2][2] + obbA->getExtent()[2] * absR[0][2];
+    rb = obbB->getExtent()[0] * absR[1][1] + obbB->getExtent()[1] * absR[1][0];
+    if (std::abs(t[0] * R[2][2] - t[2] * R[0][2]) > ra + rb) return false;
+
+    // Test eje L = A2 x B0
+    ra = obbA->getExtent()[0] * absR[1][0] + obbA->getExtent()[1] * absR[0][0];
+    rb = obbB->getExtent()[1] * absR[2][2] + obbB->getExtent()[2] * absR[2][1];
+    if (std::abs(t[1] * R[0][0] - t[0] * R[1][0]) > ra + rb) return false;
+
+    // Test eje L = A2 x B1
+    ra = obbA->getExtent()[0] * absR[1][1] + obbA->getExtent()[1] * absR[0][1];
+    rb = obbB->getExtent()[0] * absR[2][2] + obbB->getExtent()[2] * absR[2][0];
+    if (std::abs(t[1] * R[0][1] - t[0] * R[1][1]) > ra + rb) return false;
+
+    // Test eje L = A2 x B2
+    ra = obbA->getExtent()[0] * absR[1][2] + obbA->getExtent()[1] * absR[0][2];
+    rb = obbB->getExtent()[0] * absR[2][1] + obbB->getExtent()[1] * absR[2][0];
+    if (std::abs(t[1] * R[0][2] - t[0] * R[1][2]) > ra + rb) return false;
+
+
+    return true;
+}
+\end{lstlisting}
+
+La colisión entre \textbf{OrientedBox} y \textbf{AxisAlignedBox} es muy
+sencilla una vez hemos logrado implementar la anterior. Se basa en convertir
+la caja alineada con los ejes en una caja orientada calculando sus parámetros.
+Posteriormente, realizamos el test OBB con OBB como puede verse en la figura
+\ref{fig:test-obb-aabb}.\\
+
+\figura{test-obb-aabb.png}{scale=0.9}{Test de colisión OBB \- ABB}{fig:test-obb-aabb}{h}
+
+\begin{lstlisting}[style=C++]
+bool Shape::getCollisionOBBAABB(Shape* shapeA, Shape* shapeB) {
+    // Hacemos la conversion (estamos seguros de que uno es AABB y otro OBB
+    AxisAlignedBox* aabb;
+    OrientedBox* obb;
+    if (shapeA->getType() == OBB) {
+        obb = static_cast<OrientedBox*>(shapeA);
+        aabb = static_cast<AxisAlignedBox*>(shapeB);
+    } else {
+        obb = static_cast<OrientedBox*>(shapeB);
+        aabb = static_cast<AxisAlignedBox*>(shapeA);
+    }
+
+    // Convertimos aabb en obb
+    Ogre::Vector3 minPos = aabb->getMinPos();
+    Ogre::Vector3 maxPos = aabb->getMaxPos();
+    Ogre::Vector3 extent = (maxPos - minPos) * 0.5f;
+    Ogre::Vector3 center = (maxPos + minPos) * 0.5f;
+
+    OrientedBox convertedOBB("convertedOBB", center, extent, Ogre::Matrix3::IDENTITY);
+
+    return getCollisionOBBOBB(obb, &convertedOBB);
+}
+\end{lstlisting}
+
+\subsubsection{Cuerpos colisionables, clase Body}
+
+Como hemos mencionado anteriormente, un \textit{Body} representa la parte
+colisionable de un objeto y está formado por un vector de formas (\textit{Shape})
+y una transformación (traslación con respecto al origen, escala y rotación).
+Los cuerpos tienen un tipo (entero) que permite agruparlos y filtrarlos en
+la detección de colisiones. Para manejar las colisiones entre dos cuerpos,
+debemos cruzar las formas de ambos en coordenadas del mundo, en ningún
+caso locales al objeto. Aplicar la transformación de cada cuerpo a cada
+forma en todas las iteraciones del bucle de juego es demasiado costoso.
+Por ello, he decidido almacenar un segundo vector de formas en coordenadas
+del mundo, en el eterno dilema de la eficiencia tempo/memoria ha ganado
+el tiempo en este caso. A continuación, mostramos la definición de la clase.\\
+
+\lstinputlisting[style=C++]{codigo/body.h}
+
+% El gestor de colisiones
+\subsubsection{Gestor de colisiones, clase CollisionManager}
+
+El gestor de colisiones sigue el patrón de diseño \textit{Singleton} \cite{gamm77}
+y lleva el registro de todos los cuerpos colisionables de la escena (\textit{Body}).
+Es posible añadir o eliminar cuerpos según nos convenga con los métodos
+\textit{addBody()} y \textit{removeBody()}.
+Una vez en cada iteración del bucle de juego es recomendable llamar al método
+\textit{checkCollisions} para detectar e informar de las colisiones que se
+produzcan.\\
+
+Sólo se comprobarán colisiones entre cuerpos para cuyo tipo exista un
+callback. Los callbacks son objetos función de \textsc{Boost} que reciben
+dos punteros a \textit{Body} y no devuelven nada. Utilizando \textit{boost:bind}
+podemos crear un objeto \textit{boost:function} y añadir el callback para dos
+cuerpos de un tipo determinado. Por ejemplo, podemos hacer que el método
+\textit{callbackSpellEnemy} sea llamado cuando colisionen cuerpos de los
+supuestos tipos \textit{Spell} (cuyo número podría ser el 4) y \textit{Enemy}
+(cuyo número podría ser el 8). Podemos incluso definir callbacks para el momento
+en el que empieza una colisión, para el tiempo que dure la colisión o para el
+instante en el que los cuerpos se separen.\\
+
+En el método checkCollisions no sólo se filtran los cuerpos para los que
+existe un callback definido sino que no se comprueban aquellos que están
+a una distancia prudencial. Es cierto que, para cantidades ingentes de
+elementos este particionado no es suficiente aunque para nuestras necesidades
+funciona correctamente. A continuación se adjunta la definición de la clase:\\
+
+\lstinputlisting[style=C++]{codigo/collisionManager.h}
+
+El sistema de colisiones de \juego\ puede obtenerse de forma completamente
+independiente y debidamente documentado a través de la siguiente dirección:\\
+
+\url{http://forja.rediris.es/frs/download.php/2091/siontower-collisions-v0.2.tar.gz}\\
+
+
+\subsection{Exportación de modelos 3D}
+
+El artista de personajes 3D de \juego, Antonio Jiménez Rodríguez trabaja
+con la herramienta privativa \textit{Cinema 4D} \cite{website:cinema4d}
+(ver figura \ref{fig:cinema4d-moto}).
+El dilema viene cuando \textsc{Ogre3D} sólo acepta un formato binario propio
+basado en un sencillo \textit{XML} de extensión \textit{.mesh}. El motor
+gráfico utiliza este formato propio (pero abierto) para optimizar la organización
+de los datos en los modelos 3D, siempre mirando hacia el rendimiento. La mayoría
+de herramientas de modelado y animación tridimensionales como \textit{Blender}
+cuentan con exportadores a \textsc{Ogre3D} que funcionan correctamente y
+son de código abierto pero solo existía un exportador para \textit{Cinema 4D}, 
+el cual es privativo.\\
+
+\figura{cinema4d-moto.jpg}{scale=0.2}{Moto modelada con Cinema 4D}{fig:cinema4d-moto}{h}
+
+El plugin de exportación se llama \textit{I/Ogre} y, siguiendo su manual,
+la exportación se realiza de forma correcta. El artista utilizaba una escala
+distinta a la mía (una unidad de la herramienta 3D equivale a un metro
+dentro del juego). Inicialmente no ocurría nada ya que el exportador era
+capaz de aplicarle escalas a los modelos pero me di cuenta de que no funcionaba
+correctamente. Decidí escribir un pequeño script en \textit{Python} para corregir
+este problema en los modelos exportados.\\
+
+\subsubsection{Plugin de exportación privativo}
+
+Si tenemos un modelo \texttt{personaje}, tras la exportación contaremos
+con los ficheros:
+
+\begin{itemize}
+    \item \texttt{personaje.mesh.xml}: xml en texto plano con la información
+    de los vértices y caras del personaje. Esta información incluye la posición
+    y rotación exacta de cada vértice dentro del espacio local del objeto.
+    Se hacen referencias al fichero con el esqueleto y a sus materiales.
+    \item \texttt{personaje.skeleton.xml}: xml en texto plano con la información
+    de los huesos que forman el esqueleto del personaje de cara a la animación
+    y su peso sobre los vértices asociados. Así mismo, incluye los fotogramas
+    claves indicando la posición de cada hueso en cada momento.
+    \item \texttt{personaje.material}: fichero en texto plano que sigue
+    una sintaxis especial indicando los materiales que componen al personaje
+    (texturas, colores, brillo...). Se puede leer más sobre esto en el artículo
+    \textit{Materiales} de \wiki\ \cite{website:materiales}.
+\end{itemize}
+
+Ejemplo abreviado de fichero \texttt{.mesh.xml}:\\
+
+\lstinputlisting[style=xml]{codigo/personaje.mesh.xml}
+
+Ejemplo abreviado de fichero \texttt{.skeleton.xml}:\\
+
+\lstinputlisting[style=xml]{codigo/personaje.skeleton.xml}
+
+Posteriormente, pasaríamos a formato binario los ficheros con la malla y el
+esqueleto del personaje utilizando el script que se distribuye con \textsc{Ogre3D}
+llamado \texttt{OgreXMLConverter}. Antes de aplicar este script, podemos
+manipular los ficheros \textit{XML} y corregir la escala de vértices y huesos
+en fotogramas clave.\\
+
+\subsubsection{Script de corrección de escala}
+
+El script que se ha desarrollado simplemente toma uno de estos ficheros,
+recorre todos los nodos del \textit{XML} y aplica la escala deseada
+a todas las medidas (posiciones, tamaños, etc). Posteriormente guarda
+el resultado en un fichero auxiliar y, si lo deseamos, aplica por nosotros
+el script \texttt{OgreXMLConverter}. Su sintaxis es la siguiente:\\
+
+\texttt{python fixExport.py [mesh|skeleton] originXML destinyXML \\scaleFactor [destinyBin]}
+
+\begin{itemize}
+    \itemsep0em
+    \item \texttt{[mesh|skeleton]}: indicamos si queremos corregir una
+    malla o un fichero de esqueleto.
+    \item \texttt{originXML}: fichero xml de origen.
+    \item \texttt{destinyXML}: fichero xml destino, en el que queremos
+    guardar el resultado de la transformación.
+    \item \texttt{scaleFactor}: factor por el que escalaremos las medidas.
+    Un factor de $0.5$ reduce el tamaño a la mitad y uno de $2$ lo duplica.
+    \item \texttt{[destinyBin]}: si lo deseamos, indicamos el fichero binario
+    resultante y se aplicará el script \texttt{OgreXMLConverter}.
+\end{itemize}
+
+A continuación, adjuntamos el script completo:\\
+
+\lstinputlisting[style=Python]{codigo/fixExport.py}
+
+\subsection{Carga de escenarios desde Blender}
+
+% Creación de niveles con Blender y convenciones de nombrado
+\subsubsection{Creación de niveles y convenciones de nombrado}
+
+En \juego\ los niveles se diseñan con la herramienta de modelado y animación
+3D \textit{Blender} \cite{hess09}. Para más detalles sobre el proceso
+de creación de niveles es posible acudir al apéndice \nameref{chap:manual}
+en la página \pageref{chap:manual}. Tras el diseño del nivel utilizando
+\textit{Blender}, se procede su exportación al formato \textit{Dotscene},
+un sencillo XML que define la posición, escala y orientación de cada
+objeto en la escena.\\
+
+El sistema de carga de niveles de \juego\ procesa dicho fichero XML y va
+creando los elementos de juego. No obstante, no sólo se adjunta información
+sobre el escenario sino que necesitamos especificar dentro del nivel: oleadas
+de enemigos, malla de navegación para la búsqueda de caminos, sistemas de
+partículas... En definitiva, elementos que no pueden ser representados mediante
+una malla tridimensional sin más. Es necesaria una convención de nombrado
+para que el sistema que procesa los niveles sepa a qué se refiere cada
+elemento. La nomenclatura es la siguiente:
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Escenario}: todos los elementos del escenario (paredes,
+    suelo, mesas, sillas y otros muebles) siguen la regla \texttt{scene-nombre.numero}.
+    El nombre del objeto es lo que lo identifica dentro del catálogo para poder
+    recuperar su modelo de colisión y el número ayuda a hacerlo único dentro de la
+    escena (dos objetos no pueden tener el mismo nombre). Ejemplo: \texttt{scene-door.005}.
+    \item \textbf{Efectos de partículas}: puedes incluir efectos de partículas
+    en cualquier punto de la escena. La regla es \texttt{particle-nombre.numero}.
+    Ejemplo: \texttt{particle-flame.001}.
+    \item \textbf{Luces}: el motor del juego reconoce las luces de manera automática,
+    por lo que no debes preocuparte de sus nombres.
+    \item \textbf{Malla de navegación}: la malla de navegación indica a los
+    enemigos cuales son las zonas transitables del escenario y siempre
+    debe llamarse \texttt{navMesh}. Veremos más sobre las mallas de navegación
+    en secciones posteriores.
+    \item \textbf{Enemigos}: los enemigos siguen la regla \texttt{enemy-tipo-t.numero}.
+    La letra t representa el segundo en el que aparecerá el enemigo desde
+    que se inicia la partida. Ejemplo: \texttt{enemy-goblin-25.001}.
+    \item \textbf{Protagonista}: el elemento cuyo nombre sea \texttt{player}
+    definirá la posición inicial del jugador dentro del nivel.
+    \item \textbf{Geometría arbitraria}: toda la geometría que no siga
+    la convención de nombrado será tratada como complementos del escenario.
+    No se calcularán colisiones contra ellos (se podrán atravesar).
+\end{itemize}
+
+Para procesar ficheros XML se ha empleado la sencilla, ligera y rápida
+biblioteca libre \textsc{pugixml} \cite{website:pugixml}.\\
+
+% Clase LevelManager y fichero levels.xml
+\subsubsection{Gestor de niveles, clase LevelManager}
+
+La clase \textit{LevelManager} es la encargada de gestionar a todos
+los niveles de juego. También sigue el patrón de diseño \textit{Singleton}
+ya que sólo necesitamos una instancia accesible desde varios módulos del
+sistema \cite{gamm77}. Cuando creamos el gestor de niveles al inicio
+de la aplicación procesa el fichero \texttt{[siontower]/media/
+levels/levels.xml}
+que contiene la lista ordenada de los niveles del juego.\\
+
+\lstinputlisting[style=XML]{codigo/levels.xml}
+
+En ese momento, el gestor de niveles crea todos los niveles cargando en memoria
+únicamente su información más básica: identificador, nombre, descripción
+y nombre de la canción que ha de sonar. Esto es necesario ya que hay que mostrar
+dicha información en la pantalla de selección de nivel. De esta manera, los
+niveles cuentan con dos estados: creado y cargado (listo para ser jugado).
+Al gestor de niveles podemos pedirle que nos devuelva la lista completa
+de niveles en orden o simplemente un nivel individual. Su definición es la
+siguiente:\\
+
+\lstinputlisting[style=C++]{codigo/levelManager.h}
+
+% Clase Level, formato DotScene y _info.xml
+\subsubsection{La clase Level y el formato DotScene}
+
+Los objetos de la clase \textit{Level} se identifican por un código único
+y obtienen su información de dos ficheros XML distintos. El primero es el
+que contiene la información básica y el segundo es el resultante de la exportación
+de Blender y que contiene todos los datos sobre la escena. Su nomenclatura
+siempre es \texttt{id\_info.xml} y \texttt{id\_scene.xml} respectivamente
+y se almacenan en el directorio \texttt{[siontower]/media/levels}.\\
+
+\textit{Level} cuenta con sencillos métodos para recuperar su información
+básica así como conocer si está cargado por completo y poder cargarlo
+o liberar sus objetos según sea necesario. En caso de que esté cargado
+podemos recuperar sus elementos (elementos del escenario, la posición
+inicial del jugador, las oleadas de enemigos \textit{EnemySpawn} o la malla
+de navegación). El nivel hace, en la práctica, de clase contenedora a la
+que el estado de juego pregunta por su contenido.\\
+
+Cuando se le pide a un nivel que cargue todos sus elementos, éste procesa
+el XML en formato \textit{DotScene} de nombre \texttt{id\_scene.xml} y va
+distribuyendo los nodos según sean enemigos, objetos del escenario, etc.
+A continuación se adjunta un fragmento de fichero \textit{Dotscene} a modo
+de ejemplo.\\
+
+\lstinputlisting[style=XML]{codigo/level01_scene.xml}
+
+La definición de la clase \textit{Level} es la siguiente:
+
+\lstinputlisting[style=C++]{codigo/level.h}
+
+% Catálogo de objetos
+
+\subsubsection{Catálogo de objetos}
+
+Los objetos que forman parte del escenario se cargan dentro del juego y
+automáticamente cuentan con su modelo colisionable de forma que ni el personaje
+ni los hechizos pueden atravesarlos. Esto se debe a que existe un catálogo
+de objetos gestionado por \textit{LevelManager}. Cuando un nivel se encuentra
+con un objeto de tipo \texttt{wall}, le pregunta al gestor de niveles si
+existe algún modelo colisionable para dicho tipo y en caso afirmativo
+le asigna una copia actuando según el patrón \textit{Factory} \cite{gamm77}.\\
+
+
+\subsection{Búsqueda de caminos}
+
+% Necesidades
+Los enemigos de \juego\ no pueden ver por sí mismos y no son capaces de buscar
+al personaje para atacarle. Es necesario un sistema de búsqueda de caminos
+que guíe a estos enemigos por el escenario sin que atraviesen obstáculos
+como paredes, sillas, mesas o columnas. El sistema debía ser lo suficientemente
+general como para que fuera sencillo añadir niveles al juego y que los enemigos
+pudieran seguir comportándose de la forma esperada. En esta sección expicaremos
+cómo se ha resulto el problema de la búsqueda de caminos en el juego.\\
+
+% Cell y NavigationMesh (su construcción a partir de un mesh.xml)
+\subsubsection{Malla de navegación}
+
+La solución pasa por asociar a cada nivel información sobre las zonas
+transitables del escenario. Una malla de navegación es ideal para almacenar
+este tipo de información y puede crearse junto al nivel utilizando \textit{Blender}.
+Así conseguimos que no sea necesario que un programador cree los niveles, alguien
+especializado en dicho aspecto y sin conocimientos de cómo está hecho el sistema
+puede hacerlo. La malla estará formada por un conjunto de triángulos agrupados de forma
+que construyan un grafo conexo, dirigido y ponderado como puede verse en
+la figura \ref{fig:siontower-navmesh}.\\
+
+\figura{siontower-navmesh.jpg}{scale=0.2}{Malla de navegación dibujada en modo depuración}{fig:siontower-navmesh}{h}
+
+Cada una de las celdas de la malla de navegación está modelada por la
+clase \textit{Cell}. Básicamente contiene información sobre los puntos
+que forman su triángulo, el plano delimitado por el mismo y las celdas vecinas.
+Incluye un método para conocer si un punto está contenido en la celda llamado
+\textit{containsPoint()} y otro para, dado un punto en un plano bidimensional,
+conocer la altura en la que encaja dentro de la celda llamado \textit{getHeight()}.
+Este último resulta especialmente útil para incluir desniveles dentro de un
+escenario (comoe escaleras o rampas). Con el método \textit{classifyPathToCell()}
+podemos saber si una línea atraviesa la celda, termina en la celda, o no
+guarda ninguna relación con la misma. Se adjunta la definición de la clase
+a continuación.\\
+
+\lstinputlisting[style=C++]{codigo/cell.h}
+
+La malla de navegación o \textit{NavigationMesh} toma el fichero XML
+resultante de la exportación de \textit{Blender} a \textsc{Ogre3D} y
+crea las celdas (\textit{Cell}) que forman el grafo. Incluye el método
+\textit{findCell()} para que una entidad sepa en qué celda se encuentra
+en cada momento. Con \textit{buildPath()} podemos obtener un camino desde
+cualquier punto de la malla a otro. Utilizando \textit{lineOfSightTest()}
+podemos conocer si desde un punto determinado existe una linea de visión
+hacia otro. Más adelante hablaremos sobre el algoritmo utilizado para
+obtener dichos caminos.\\
+
+\lstinputlisting[style=C++]{codigo/navigationMesh.h}
+
+% A* vs precomputación
+\subsubsection{Precomputación de caminos}
+
+Inicialmente se pensó en emplear el algoritmo A* \cite{mill09} pero dicho
+sistema trata de buscar el camino demandado cada vez que éste se consulta.
+Los enemigos procuran pedir nuevos caminos en el menor número de momentos
+posibles, pero en muchas ocasiones es estrictamente necesario. Si tenemos
+unos cinco enemigos en pantalla y en el mismo cuadro todos piden la búsqueda
+de un camino diferente podemos tener problemas si el algoritmo no es muy rápido.
+Por esta razón se ha tomado la decisión de emplear el algoritmo de Floyd
+y precomputar los caminos mínimos. Además, el algoritmo A* no es capaz
+de asegurar su optimalidad, al contrario que Floyd.\\
+
+Cuando creamos la malla de navegación debemos extraer el grafo a partir
+de sus celdas. Almacenamos el gráfo en una matriz \texttt{nxn} donde \texttt{n}
+es el número de celdas y \texttt{grafo[a][b]} es igual al coste de ir desde
+el nodo a al nodo b. Esta tarea se lleva a cabo en el método privado \textit{initGraph()}
+y todos los costes se inicializan a infinito menos entre las celdas vecinas ya
+que en tal caso sería 1. Inicialmente nos podría preocupar el coste en memoria
+de esta aproximación. En realidad el coste en memoria no es demasiado elevado.
+Por ejemplo, en un nivel grande formado por $200$ celdas, tendríamos una matriz de $40000$
+reales, esto implica un espacio en memoria de 156KB.\\
+
+El algoritmo de Floyd toma una matriz de costes y devuelve la matriz de costes
+mínimos así como una matriz de caminos para poder reconstruir las rutas \cite{website:floyd}.
+Este algoritmo calcula la ruta mínima entre todos los nodos de un grafo y resulta
+ideal para precalcular todos los caminos en el juego. Básicamente cruza
+todos los vértices $i$ y $j$ buscando un tercero $k$ a modo de atajo de forma
+que $coste(i, k) + coste(k, j) < coste(i, j)$. Cuando encuentra un atajo
+modifica la matriz de costes y actualiza la matriz de caminos para que el
+nuevo nodo intermedio se vea reflejado. Su orden es $O(n^{3})$ pero sólo
+debe ejecutarse una vez durante la carga del nivel. El algoritmo integrado en nuestro
+sistema es el siguiente:\\
+
+\begin{lstlisting}[style=C++]
+void NavigationMesh::floyd() {
+    for (int k = 0; k < _cellNumber; ++k) {
+        for (int i = 0; i < _cellNumber; ++i) {
+            for (int j = 0; j < _cellNumber; ++j) {
+                Ogre::Real ikj = _graph[i * _cellNumber + k] +
+                                 _graph[k * _cellNumber + j];
+                if (ikj < _graph[i * _cellNumber + j]) {
+                    _graph[i * _cellNumber + j] = ikj;
+                    _paths[i * _cellNumber + j] = k;
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+Creando el grafo tras generar las celdas de la malla y precalculando los
+caminos mínimos con Floyd, nuestro sistema ya estaría listo para usarse.
+No obstante, los caminos generados producen un efecto de zig-zag no deseado.
+Los enemigos podrían saltar celdas intermedias si entre el origen y el destino
+existe una ruta sin obstáculos. Durante la inicialización recorremos todos
+las combinaciones de caminos posibles simplificando el camino utilizando
+los tests de línea de visión (\textit{lineOfSightTest()}) y actualizando
+la matriz de caminos cuando sea necesario.\\
+
+\begin{lstlisting}[style=C++]
+void NavigationMesh::precomputePaths() {    
+    // Recorremos todas las combinaciones inicio - destino
+    for (int i = 0; i < _cellNumber; ++i) {
+        for (int j = 0; j < _cellNumber; ++j) {
+            // Recuperamos el camino de i a j
+            CellPath cellPath;
+            recoverPath(i, j, cellPath);
+            
+            // Simplificamos el camino de i a j
+            simplifyPath(cellPath);
+            
+            // Actualizamos la matriz de caminos con el camino simplificado de i a j 
+            for (CellPath::iterator it = cellPath.begin(); it != cellPath.end(); ++it) {
+                CellPath::iterator nextIt = it;
+                ++nextIt;
+
+                if (nextIt != cellPath.end()) {
+                    int idA = (*it)->getId();
+                    int idB = (*nextIt)->getId();
+                    
+                    // El camino entre nodos consecutivos es directo
+                    _paths[idA * _cellNumber + idB] = -1;
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+% Recuperación del camino
+\subsubsection{Recuperación del camino}
+
+Cuando cualquier enemigo hace una llamada a \textit{NavigationMesh::buildPath()}
+para encontrar la ruta más corta hasta el protagonista debemos acudir a la
+matriz de caminos y recuperar la ruta. Se trata de un algoritmo recursivo
+que se basa en la estructura de la matriz de caminos. Si tenemos los nodos
+a y b y observamos que $camino(a, b) = c$ significa que el camino más corto
+entre a y b pasa por c. Crear un vector de puntos o \textit{CellPath} basándonos
+en esta idea, es sencillo entoces.
+
+\begin{lstlisting}[style=C++]
+void NavigationMesh::recoverPath(int i, int j, CellPath& cellPath) {
+    // Tomamos el nodo intermedio por el que pasa el camino de i a j
+    int k = _paths[i * _cellNumber + j];
+    
+    // Si hay atajo
+    if (k != -1) {
+        // Recuperamos el camino de i a k
+        recoverPath(i, k, cellPath);
+        
+        // Insertamos la celda de id k en el camino
+        cellPath.push_back(_cells[k]);
+        
+        // Recuperamos el camino de k a j
+        recoverPath(k, j, cellPath);
+    }
+}
+\end{lstlisting}
+
+% Suavizado del camino
+\subsubsection{Suavizado del camino}
+
+\figura{spline.jpg}{scale=0.3}{Spline cúbico de Catmull-Roll}{fig:spline}{h}
+
+A pesar de haber reducido celdas intermedias siempre que haya sido posible,
+en el camino se producen cambios de orientación demasiado bruscos cuando
+se llega de un punto intermedio a otro. Es posible suavizar el camino
+empleando una interpolación. Tras recuperar el camino en el método
+\textit{NavigationMesh::buildPath()}, introducimos puntos intermedios
+gracias al spline cúbico de Catmull-Roll \cite{website:spline} (ver figura \ref{fig:spline}).
+Es un algoritmo muy barato en tiempo de computación y mejora en gran
+medida la calidad del comportamiento de los enemigos al seguir un camino de puntos.\\
+
+El sistema se ha probado con una malla de navegación formada por 100 celdas
+y el tiempo de carga y precomputación ha sido de 2 segundos. Cada consulta
+para recuperar un camino únicamente ha necesitado 0.2 milisegundos.\\
+
+
+
+\subsection{Inteligencia Artificial: Steering Behaviors}
+\label{sec:steering}
+
+Hemos expuesto la técnica que utilizamos para que los enemigos \textit{vean}
+los obstáculos y puedan desplazarse por el escenario. No obstante, aún
+teníamos que conseguir que realizaran el movimiento de seguir la línea de puntos
+de una forma realista. Además, si dos enemigos se dirigen a capturar al personaje,
+podrían colisionar entre sí y tenemos que evitarlo a toda costa. En definitiva,
+necesitamos modelar el comportamiento de los enemigos y su forma de desplazarse
+por el entorno. En esta sección pondremos solución a dicho problema.\\
+
+\subsubsection{Conceptos básicos de movimiento}
+
+Los algoritmos de movimiento toman datos de entrada del propio personaje y de
+su entorno como otros personajes, escenario, un camino a seguir, obstáculos
+o un objeto. Finalmente, producen una salida representando el movimiento que debería
+realizar la entidad.
+Algunos algoritmos de movimiento requieren muy pocos datos del personaje
+como su posición. En cambio, otros necesitan su posición, velocidad lineal
+y circular actuales, etc. Como salida pueden producir simplemente la velocidad
+deseada (en forma de vector) o una fuerza a aplicar sobre la entidad
+de forma que resulte en una aceleración para alcanzar el objetivo \cite{mill09}.\\
+
+Los \textit{Steering Behaviors} son algoritmos de movimiento dinámico,
+es decir, tienen en cuenta las propiedades cinemáticas completas del personaje
+y producen una aceleración para cambiar su velocidad actual. Para ir de un
+punto a otro, el algoritmo dinámico hace que el personaje acelere hacia dicho
+punto, cuando se va acercando trata de frenar progresivamente para detenerse
+completamente en el destino \cite{mill09}.\\
+
+Los algoritmos de movimiento dinámicos producen comportamientos mucho más
+realistas. Cuando una persona va de un punto a otro su velocidad no es constante,
+sobre todo al iniciar la marcha. Sería muy extraño que los enemigos de \juego\
+fueran de una velocidad nula a la máxima en un sólo frame.\\
+
+
+\subsubsection{Las clases Kinematic y Steering}
+
+Como hemos dicho anteriormente, los cambios repentinos de velocidad pueden
+parecer extraños y poco naturales. Es necesario almacenar más información
+para cada personaje de forma que los algoritmos de movimiento puedan trabajar
+sobre ella. Tendremos una clase \textit{Kinematic} que almacenará estas propiedades:
+posición, orientación, velocidad lineal, velocidad angular y máxima velocidad.
+La información sobre la dinámica del personaje cuenta con un método
+\textit{update()} para ser actualizado por la salida producida por los
+algoritmos de movimiento (clase \textit{Steering}). Además cuenta con métodos
+para modificar automáticamente la orientación del personaje en función
+de su velocidad con \textit{setOrientationFromVelocity()} y para mirar
+en una dirección determinada con \textit{lookAt()}. A continuación se adjunta
+la definición de la sencilla clase.\\
+
+\lstinputlisting[style=C++]{codigo/kinematic.h}
+
+La salida de los algoritmos de movimiento la modelaremos utilizando la clase
+\textit{Steering}. Estos algoritmos funcionan aplicando fuerzas así que
+simplemente necesitamos almacenar una aceleración lineal para afectar a la
+velocidad otra angular para la rotación. Es necesario sobrecargar los operadores
+aritméticos de \textit{Steering} porque será común tener que combinar salidas
+de varios algoritmos para producir una salida final. La definición de la clase
+es la siguiente.\\
+
+\lstinputlisting[style=C++]{codigo/steering.h}
+
+Para actualizar la información dinámica de un personaje necesitamos la salida
+del algoritmo de movimiento y el tiempo que ha pasado desde la última iteración
+del bucle de juego. Es posible utilizar las ecuaciones que se imparten en
+las clases de cinemática del instituto pero lo habitual es emplear
+integración de Newton Euler \cite{mill09}.
+
+\begin{lstlisting}[style=C++]
+void Kinematic::update(const Steering& steering, Ogre::Real deltaT) {
+    // Actualizamos posicion y orientacion
+    _position += _velocity * deltaT;
+    _orientation += _rotation * deltaT;
+    
+    // Actualizamos velocidad y rotacion
+    if (steering.getLinear() == Ogre::Vector3::ZERO)
+        _velocity = Ogre::Vector3::ZERO;
+    else
+        _velocity += steering.getLinear() * deltaT;
+        
+    _rotation += steering.getAngular() * deltaT;
+        
+    // Comprobamos si sobrepasamos la velocidad maxima
+    if (_velocity.squaredLength() > _maxSpeed * _maxSpeed) {
+        _velocity.normalise();
+        _velocity *= _maxSpeed;
+    }
+}
+\end{lstlisting}
+
+
+\subsubsection{Steering Behaviors}
+
+Los \textit{Steering Behaviors} toman información del personaje y otros
+elementos del juego y producen una salida gracias al método \textit{getSteering()}.
+La clase \textit{SteeringBehavior} modela esto de forma genérica, si deseamos
+añadir un comportamiento nuevo, simplemente creamos una clase descendiente
+de esta e implementamos su método virtual puro. Podemos crear una jerarquía
+de algoritmos de movimiento de manera que los más complejos utilicen a los 
+más simples para sus cálculos intermedios, lo veremos en la siguiente
+descripción.\\
+
+Se han implementado más comportamientos de los necesarios para el juego
+de forma que otros usuarios puedan reutilizarlos en su sistema.
+Cada clase modela un comportamiento con un objetivo, los implementados son
+los siguientes:\\
+
+\begin{description}
+    \itemsep0em
+    \item [Seek] toma la posición del personaje y la de un objetivo que trata
+    de buscar alcanzando la velocidad máxima poco a poco. Sigue acelerando
+    hasta que sobrepasa el objetivo, entonces trata de acelerar en dirección
+    opuesta. Es muy simple pero no es útil para llegar a un objetivo y detenerse.
+    
+    \item [Flee] es el opuesto a \textit{Seek}, trata de huir de un punto
+    con la mayor aceleración posible.
+    
+    \item [Arrive] es muy similar a \textit{Seek} ya que busca alcanzar un
+    punto a la velocidad máxima. No obstante, cuando está llegando a un radio
+    predeterminado, comienza a frenar para detenerse en el destino.
+    
+    \item [Align] recibe los datos dinámicos del personaje y una orientación
+    objetivo que trata de igualar. Es útil para que un personaje mire hacia
+    el mismo punto que otro de forma progresiva.
+    
+    \item [VelocityMatch] en este caso lo que pretendemos igualar son las velocidades
+    de dos entidades.
+    
+    \item [Pursue] este comportamiento se diferencia de \textit{Seek} y \textit{Arrive}
+    en que está preparado para perseguir un objetivo en movimiento. Se basa
+    en predecir la posición del objetivo dentro de un tiempo determinado y dirigirse
+    hacia ese punto a velocidad máxima.
+    
+    \item [Evade] es el opuesto a \textit{Pursue}, trata de huir de un perseguidor
+    prediciendo su comportamiento.
+    
+    \item [Face] está diseñado para que un personaje mire hacia otro, deja
+    que \textit{Align} haga el trabajo pero calcula primera la orientación
+    deseada en función de los parámetros.
+    
+    \item [Wander] es un algoritmo de movimiento que hace que el personaje
+    vague por el escenario. Básicamente coloca un objetivo en un radio
+    alrededor del personaje y va seleccionando puntos de forma aleatoria
+    a los que llegar delegando en \textit{Face} y \textit{Seek}.
+    
+    \item [CollisionAvoidance] se trata de un algoritmo de movimiento muy
+    importante ya que evita que un personaje colisione con sus vecinos. Los
+    enemigos lo utilizan para no atravesarse los unos a los otros mientras
+    persiguen al personaje. Consiste en que si se detecta un compañero cerca,
+    se huye en dirección opuesta empleado \textit{Flee}.
+    
+    \item [FollowPath] el algoritmo de movimiento básico para seguir un camino
+    que nos haya devuelto el sistema de búsqueda de caminos. Simplemente
+    se busca el próximo punto más cercano del camino y nos dirigimos a el
+    empleando \textit{Arrive}.
+\end{description}
+
+En \juego, los algoritmos de movimiento más importantes son \textit{CollisionAvoidance}
+y \textit{FollowPath}. Por ello, pasamos a explicarlos en mayor profundidad 
+a continuación. La definición de \textit{CollisionAvoidance} es la siguiente:\\
+
+\begin{lstlisting}[style=C++]
+class CollisionAvoidance: public Flee {
+    public:
+        Ogre::Real maxAcceleration;
+        std::vector<Enemy*> targets;
+        Enemy* myself;
+        Ogre::Real radius;
+        
+        CollisionAvoidance(Kinematic* character,
+                           const std::vector<Enemy*>& targets,
+                           Enemy* myself);
+        void getSteering(Steering& steering); 
+};
+\end{lstlisting}
+
+El algoritmo para evitar las colisiones parece más complejo de lo que en realidad
+es. Simplemente recorremos la lista de enemigos comprobando que estén a
+una distancia prudencial. En caso negativo huimos en dirección opuesta. 
+Si no colisionamos con ningún enemigo nos quedamos con el que, si no varía
+su rumbo actual, creamos que colisionará con mayor antelación y huimos de él.
+En caso de que no haya enemigos cercanos, no se hace nada. Su implementación
+se adjunta a continuación.\\
+
+\begin{lstlisting}[style=C++]
+void CollisionAvoidance::getSteering(Steering& steering) {
+    
+    // Parametros
+    Ogre::Real neededSeparation = 0.0f;
+    Ogre::Real posDistance = 0.0f;
+    Ogre::Real velDistance = 0.0f;
+    Ogre::Real separation = 0.0f;
+    
+    Ogre::Real time = 0.0f;
+    Ogre::Real minTime = Ogre::Math::POS_INFINITY;
+    
+    Ogre::Vector3 posDifference;
+    Ogre::Vector3 velDifference;
+    
+    Kinematic* selTarget = 0;
+    Ogre::Real selSeparation = 0.0f;
+    Ogre::Real selNeededSeparation = 0.0f;
+    Ogre::Vector3 selPosDifference;
+    Ogre::Vector3 selVelDifference;
+    
+    // Para cada enemigo
+    std::vector<Enemy*>::iterator i;
+    for (i = targets.begin(); i != targets.end(); ++i) {
+        if (*i != myself) {
+            target = &((*i)->getKinematic());
+            
+            // 1. Comprobamos que no colisionamos
+            
+            // Minima distancia
+            neededSeparation = 2 * radius;
+            
+            // Distancia al objetivo
+            posDifference = target->getPosition() - character->getPosition();
+            posDistance = posDifference.length();
+            
+            // Si estamos colisionando, huimos
+            if (posDistance <= neededSeparation) {
+                Flee::getSteering(steering);
+                return;
+            }
+            
+            // 2. Comprobamos si colisionamos en un futuro
+            velDifference = target->getVelocity() - character->getVelocity();
+            velDistance = velDifference.length();
+            time = (posDifference.dotProduct(velDifference)) / (velDistance * velDistance);
+            
+            if (time > 0.5f)
+                continue;
+                
+            // Solo si tenemos tiempo de colision y es minimo
+            if (time > 0.0f && time < minTime)
+                minTime = time;
+            else
+                continue;
+            
+            // Calculamos la separacion en ese momento
+            separation = posDistance - velDistance * minTime;
+            
+            // Si es el mas corto y va a colisionar lo guardamos
+            if (separation <= neededSeparation) {
+                selTarget = target;
+                selSeparation = separation;
+                selNeededSeparation = neededSeparation;
+            }
+        }
+    }
+
+    if (selTarget == 0)
+        return;
+        
+    // Cambiamos la direccion de la velocidad
+    
+    // 1. Tomamos un punto lo mas lejano posible del punto de colision
+    // 2. Cambiamos la velocidad actual para dirigirnos a ese punto
+    
+    // La nueva posicion del personaje al cabo del tiempo
+    Ogre::Vector3 charPos = character->getPosition() + character->getVelocity() * minTime;
+    Ogre::Vector3 targetPos = selTarget->getPosition() + selTarget->getVelocity() * minTime;
+    
+    // Direccion desde el objetivo al personaje
+    posDifference = charPos - targetPos;
+    posDifference.normalise();
+    
+    // Nueva posicion deseada: en la direccion posDifference
+    posDifference = charPos + posDifference * (selNeededSeparation - selSeparation);
+    
+    // Direccion deseada para llegar al punto seguro
+    Ogre::Vector3 desiredDir = posDifference - character->getPosition();
+    desiredDir.normalise();
+    desiredDir = desiredDir * character->getVelocity().length();
+    
+    // Aceleracion deseada
+    steering.setLinear(desiredDir - character->getVelocity());
+}
+\end{lstlisting}
+
+La clase \textit{FollowPath} simplemente almacena la información
+dinámica del personaje y el camino de puntos como puede verse en el siguiente
+fragmento de código.
+
+\begin{lstlisting}[style=C++]
+class FollowPath: public Arrive {
+    public:
+        NavigationMesh::PointPath* path;
+        Ogre::Real pathOffset;
+        
+        FollowPath(Kinematic* character, NavigationMesh::PointPath* path);
+        void getSteering(Steering& steering);
+        
+    protected:
+        Ogre::Vector3 findTargetInPath();
+};
+\end{lstlisting}
+
+El mecanismo consiste en buscar el punto del camino más cercano al personaje 
+y tratar de llegar hasta él utilizando \textit{Arrive}. Encontrar el punto
+más cercano consiste en recorrer todos los puntos e ir calculando y comparando
+distancias. A continuación se adjunta el fragmento completo.\\ 
+
+\begin{lstlisting}[style=C++]
+void FollowPath::getSteering(Steering& steering) {
+    // 1. Calculamos el target para delegar en Arrive
+    target = new Kinematic(findTargetInPath());
+    
+    // 2. Delegamos en Arrive
+    Arrive::getSteering(steering);
+    
+    delete target;
+}
+
+Ogre::Vector3 FollowPath::findTargetInPath() {
+    Ogre::Real minDistance = Ogre::Math::POS_INFINITY;
+    NavigationMesh::PointPath::iterator closestPointIt = path->begin();
+    
+    // Recorremos la lista de puntos buscando el mas cercano
+    for (NavigationMesh::PointPath::iterator i = path->begin(); i != path->end(); ++i) {
+        // Calculamos la nueva distancia
+        Ogre::Vector3 direction = character->getPosition() - *i;
+        
+        if (direction.squaredLength() < minDistance) {
+            minDistance = direction.squaredLength();
+            closestPointIt = i;
+        }
+    }
+    
+    NavigationMesh::PointPath::iterator targetIt = closestPointIt;
+    ++targetIt;
+    
+    if (targetIt == path->end())
+        return *closestPointIt;
+    
+    return *targetIt;
+}
+\end{lstlisting}
+
+Para conocer detalles adicionales sobre la implementación de los
+\textit{Steering Behaviors} es recomendable acudir al propio código fuente
+en la forja de RedIRIS.\\
+
+\subsubsection{Máquina de estados para los enemigos}
+
+\figura{enemigo-estados.jpg}{scale=0.4}{Máquina de estados para los enemigos}{fig:enemigo-estados}{h}
+
+Todos los enemigos de \juego\ se comportan de manera similar, se diferencian
+en atributos como velocidad, energía vital o fuerza. Internamente se implementa
+una sencilla máquina de estados de forma que utilizamos algoritmos de movimiento
+para resolver cada comportamiento combinados con consultas a la búsqueda
+de caminos. El diagrama de estados puede observarse en la figura \ref{fig:enemigo-estados}.\\
+
+
+\section{Pruebas}
+
+Diseñar casos de prueba para un videojuego como \juego\ es una tarea complicada
+ya que estamos simulando continuamente un mundo lleno de elementos que interactúan
+entre sí y hay métodos que se ejecutan más de 60 veces en un sólo segundo.
+Por supuesto, las pruebas son absolutamente necesarias, ya que nos ayudan
+a desarrollar software de mayor calidad.\\
+
+La mayoría de módulos han podido ser probados de forma independiente 
+en pruebas unitarias de caja blanca. Entre ellos se encuentran las clases
+del sistema de detección de colisiones, el gestor de perfiles, el gestor
+de niveles o la búsqueda de caminos. No obstante, existen módulos que debían
+trabajar en conjunción con otros por lo que sólo han sido sometidos a pruebas
+de integración. Este caso se da en los algoritmos de movimiento, el subsistema
+de audio o la gestión de estados de juego.\\
+
+Más adelante se llevaron a cabo pruebas sobre la jugabilidad de \juego. Colaboradores
+externos al probaron el juego y ofrecieron sus opiniones. Los aspectos a
+analizar eran la dificultad, el control del personaje, velocidades,
+fuerzas y otros parámetros relacionados con el balanceo. Finalmente
+se llevaron a cabo pruebas sobre la interfaz, su intuitividad y resistencia
+a valores inadecuados.\\
+
+Durante las pruebas unitarias y de integración se utilizó software de depuración
+como \textit{DNU Debugger} \cite{website:gdb} y \textit{Valgrind}
+\cite{website:valgrind}. El primero nos ayuda a detectar
+dónde se producen fallos en tiempo de ejecución y nos permite monitorizar
+el valor de variables y otros parámetros. El segundo vigila la memoria
+y nos permite localizar puntos en los que no liberemos de forma correcta
+los recursos así como otros momentos en los que accedamos a memoria basura.\\
+
+El proceso, de forma resumida, fue el siguiente:
+
+\begin{enumerate}
+    \itemsep0em
+    \item Pruebas unitarias durante la fase de implementación, tras finalizar
+    cada módulo.
+    \item Pruebas de integración a medida que se completaban pequeños
+    subsistemas que debían colaborar.
+    \item Pruebas de jugabilidad con las primeas versiones usables del juego
+    y empleando la ayuda de colaboradores externos.
+    \item Pruebas de interfaz una vez se finalizó el desarrollo del juego.
+\end{enumerate}
+
+\subsection{Pruebas unitarias}
+
+Las pruebas unitarias se realizaron junto a la fase de implementación, a medida
+que se finalizaban los módulos. Se optó por un enfoque estructural con pruebas
+de caja blanca. Se buscaba tomar todas las bifurcaciones posibles, o al menos
+las más propensas a fallos, en cada módulo testado. De esta forma todas las
+sentencias se ejecutarían al menos una vez y los posibles fallos saldrían
+a relucir con mayor facilidad. Se prestó especial atención a problemas
+relacionados con el redondeo de números reales ya que se utilizan de forma
+intensiva para representar posiciones, rotaciones, aceleraciones y otros
+parámetros imprescindibles. Así mismo, también se procuró que el sistema
+no accediese a memoria no inicializada a través de punteros inválidos.\\
+
+El mayor número de errores encontrados estaban relacionados con los accesos
+inválidos a memoria. En este caso, el depurador del proyecto GNU y
+\textit{Valgrind} fueron de gran ayuda. Así mismo, el sistema de detección
+de colisiones presentó varios defectos en algunos de los tests de colisión
+por la complejidad que entrañaban.\\
+
+\subsection{Pruebas de integración}
+
+A medida que el desarrollo de varios módulos de un mismo subsistema finalizaba,
+se procedían a realizar pruebas de integración entre dichos módulos empleando
+una aproximación de caja negra. Interesaba que el sistema realizara la tarea
+para la que había sido diseñado de forma correcta. Cuando todos los módulos
+del sistema estuvieron listos se realizaron pruebas adicionales de integración
+a mayor escala. No sólo entre los módulos de un mismo subsistema, sino el
+funcionamiento conjunto de varios subsistemas.\\
+
+De nuevo, el mayor número de problemas fue localizado en la gestión de memoria.
+Cuando se destruía un estado de juego para crear otro había elementos que no
+se liberaban de forma adecuada o que no se inicializaban correctamente
+y provocaban problemas a posteriori. \textit{Valgrind} y \textit{GDB}
+fueron extremadamente útiles en dicho momento.\\
+
+\subsection{Pruebas de jugabilidad}
+
+Una vez se compilaron las primeras versiones usables de \juego\ se pidió
+a colaboradores externos que probaran el videojuego. Tras estas sesiones
+se les preguntó por aspectos como la capacidad de respuesta del control,
+la comodidad de juego, dificultad y otros parámetros. Posteriormente,
+se analizaron las respuestas de todos los colaboradores y se llevó a cabo
+un proceso de balanceo para ajustar la dificultad.\\
+
+La mayoría de colaboradores encontró el juego bastante complicado. Cuando
+el personaje es rodeado tiene poca escapatoria posible y comienza a recibir
+golpes sin parar. Esto se solucionó haciendo a los enemigos más lentos,
+así el jugador podía esquivarlos con mayor facilidad y evitar ser rodeado
+en la mayoría de ocasiones. Se reforzó al protagonista con una mayor cantidad
+de energía vital y potenciando el poder destructivo de sus hechizos. 
+Se suavizó el control de la cámara para que fuera más ágil y no fueran necesario
+gestos con el ratón tan bruscos. Por último, se añadieron atajos de teclado
+para que el jugador pudiese seleccionar de forma más cómoda los hechizos.
+Tras aplicar los cambios, los colaboradores se mostraron mucho más
+satisfechos con el juego.\\
+
+\subsection{Pruebas de interfaz}
+
+Tras completar las pruebas de jugabilidad, se procedió a realizar pruebas
+sobre la interfaz del juego. Tanto en los menús como en la propia pantalla de
+juego. Estas pruebas consistieron en medir los tiempos de carga, comprobar
+que la interfaz fuera intuitiva y que no aceptaba valores erróneos. Se probó
+a introducir nombres inválidos como perfil, tratar de seleccionar un nivel
+bloqueado y utilizar hechizos para los que no disponíamos de maná suficiente.\\
+
+Se demostró que la interfaz del juego era bastante sólida e intuitiva.
+Prácticamente no era necesario un manual de usuario para que cualquiera
+pudiera comprenderla y navegar por ella. El sistema de perfiles no admite
+nombres erróneos y la pantalla de selección de nivel no nos permite
+jugar a un nivel bloqueado para un perfil dado.\\
+
+

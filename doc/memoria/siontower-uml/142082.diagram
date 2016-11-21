@@ -1,0 +1,41 @@
+format 74
+
+classinstance 128002 class_ref 144770 // System
+  name ""   xyz 252.5 11 2000 life_line_z 2000
+classinstance 128130 class_ref 128002 // Jugador
+  name ""   xyz 10.5 14 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :System
+  xyzwh 277 106 2010 11 64
+end
+durationcanvas 128386 classinstance_ref 128130 // :Jugador
+  xyzwh 32 109 2010 11 169
+end
+durationcanvas 128514 classinstance_ref 128002 // :System
+  xyzwh 277 201 2010 11 74
+end
+msg 128642 return
+  from durationcanvas_ref 128514
+  to durationcanvas_ref 128386
+  yz 247 2015 explicitmsg "Error"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 144 233
+msg 128770 synchronous
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128514
+  yz 208 2015 explicitmsg "CrearPerfil()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nombre"
+  label_xy 98 192
+msg 128898 synchronous
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 110 2015 explicitmsg "PantallaSeleccionPerfil()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 88 94
+msg 129026 return
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 154 2015 explicitmsg "Perfiles"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 138 138
+end

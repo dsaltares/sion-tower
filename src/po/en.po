@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: siontower-0.1\n"
+"PO-Revision-Date: 2011-07-03 17:26+0200\n"
+"Last-Translator: David Saltares Mrquez <david.saltares@gmail.com>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-16\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Play"
+msgstr "Play"
+
+msgid "#ffffffA horde is comming, defend the Sacred Tower!"
+msgstr "#ffffffA horde is comming, defend the Sacred Tower!"
+
+msgid "Credits"
+msgstr "Credits"
+
+msgid "Exit"
+msgstr "Exit"

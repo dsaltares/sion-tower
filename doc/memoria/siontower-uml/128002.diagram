@@ -1,0 +1,73 @@
+format 74
+
+classcanvas 128002 class_ref 128002 // Jugador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 7.8 194 2000
+end
+usecasecanvas 128130 usecase_ref 128002 // Menu principal
+  xyzwh 85.2 201.2 3005 64 32 label_xy 38 180
+end
+usecasecanvas 128258 usecase_ref 128130 // Seleccion de perfil
+  xyzwh 130.2 97.4 3005 64 32 label_xy 88 82
+end
+usecasecanvas 128386 usecase_ref 128258 // Seleccion de nivel
+  xyzwh 301.4 97.4 3005 64 32 label_xy 271 78
+end
+usecasecanvas 128514 usecase_ref 128386 // Creditos
+  xyzwh 259 202.4 3005 64 32 label_xy 266 234
+end
+usecasecanvas 128642 usecase_ref 128514 // Jugar
+  xyzwh 449 97.4 3005 64 32 label_xy 455 79
+end
+usecasecanvas 128770 usecase_ref 128642 // Victoria
+  xyzwh 391.6 207.4 3005 64 32 label_xy 401 239
+end
+usecasecanvas 130050 usecase_ref 128770 // Salir
+  xyzwh 85.2 297.6 3005 64 32 label_xy 104 330
+end
+usecasecanvas 130306 usecase_ref 135298 // Pausar
+  xyzwh 570.2 32.6 3005 64 32 label_xy 579 13
+end
+usecasecanvas 130434 usecase_ref 135426 // Lanzar hechizo
+  xyzwh 634 97.6 3005 64 32 label_xy 652 80
+end
+usecasecanvas 130562 usecase_ref 135554 // Mover PNJ
+  xyzwh 634 160 3005 64 32 label_xy 657 144
+end
+usecasecanvas 130690 usecase_ref 135682 // Mover camara
+  xyzwh 556.4 207.4 3005 64 32 label_xy 546 239
+end
+simplerelationcanvas 129154 simplerelation_ref 128258
+  from ref 128130 z 3006 stereotype "<<include>>" xyz 88 151 3000 to ref 128258
+end
+simplerelationcanvas 129282 simplerelation_ref 128386
+  decenter_begin 467
+  from ref 128258 z 3006 stereotype "<<include>>" xyz 204 110.5 3000 to ref 128386
+end
+simplerelationcanvas 129410 simplerelation_ref 128514
+  from ref 128386 z 3006 stereotype "<<include>>" xyz 363.5 112 3000 to ref 128642
+end
+simplerelationcanvas 129538 simplerelation_ref 128642
+  from ref 128642 z 3006 stereotype "<<include>>" xyz 406.5 166.5 3000 to ref 128770
+end
+simplerelationcanvas 129666 simplerelation_ref 128770
+  from ref 128130 z 3006 stereotype "<<include>>" xyz 154 199 3000 to ref 128514
+end
+line 129922 ---> decenter_begin 349
+  from ref 128002 z 3006 to ref 128130
+simplerelationcanvas 130178 simplerelation_ref 128898
+  from ref 128130 z 3006 stereotype "<<include>>" xyz 74 259.5 3000 to ref 130050
+end
+simplerelationcanvas 130818 simplerelation_ref 135426
+  from ref 128642 z 3006 stereotype "<<include>>" xyz 496 79.5 3000 to ref 130306
+end
+simplerelationcanvas 131074 simplerelation_ref 135554
+  from ref 128642 z 3006 stereotype "<<include>>" xyz 530 112 3000 to ref 130434
+end
+simplerelationcanvas 131202 simplerelation_ref 135682
+  from ref 128642 z 3006 stereotype "<<include>>" xyz 530 142 3000 to ref 130562
+end
+simplerelationcanvas 131330 simplerelation_ref 135810
+  from ref 128642 z 3006 stereotype "<<include>>" xyz 504 182 3000 to ref 130690
+end
+end

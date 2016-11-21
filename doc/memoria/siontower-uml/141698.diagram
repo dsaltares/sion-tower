@@ -1,0 +1,41 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 12 10 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 266 10 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 34 104 2010 11 165
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 291 102 2010 11 54
+end
+durationcanvas 128770 classinstance_ref 128130 // :System
+  xyzwh 291 196 2010 11 71
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 106 2015 msg operation_ref 128642 // "PantallaSeleccionPerfil()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 95 91
+msg 128642 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 144 2020 explicitmsg "Perfiles"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 145 129
+msg 128898 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128770
+  yz 199 2015 msg operation_ref 128770 // "SeleccionarPerfil()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "nombre"
+  label_xy 90 183
+msg 129026 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128258
+  yz 248 2015 explicitmsg "CambiarPantalla(SeleccionNivel)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 70 233
+end

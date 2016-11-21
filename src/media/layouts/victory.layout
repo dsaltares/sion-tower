@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MyGUI type="Layout">
+    <Widget type="Button" skin="Button" position_real="0.834375 0.8875 0.146875 0.0805556" layer="Back" name="btnMenu">
+        <Property key="Caption" value="Main menu"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+    <Widget type="Widget" skin="PanelSkin" position_real="0.578125 0.318056 0.398438 0.456944" layer="Back" name="panelVictory">
+        <Property key="Alpha" value="0.5"/>
+        <Widget type="TextBox" skin="TextBox" position_real="0 0.0729483 1 0.0881459" align="ALIGN_DEFAULT" name="lblNewLevel">
+            <Property key="Caption" value="You have unlocked a new level"/>
+            <Property key="FontHeight" value="30"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="TextAlign" value="ALIGN_CENTER"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.0588235 0.300912 0.372549 0.0577508" name="lblExperience">
+            <Property key="Caption" value="Experience obtained"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="TextAlign" value="ALIGN_RIGHT ALIGN_VCENTER"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.117647 0.455927 0.313726 0.0607903" name="lblEnemies">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="Enemies Killed"/>
+            <Property key="TextAlign" value="ALIGN_RIGHT ALIGN_VCENTER"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.137255 0.550152 0.294118 0.0577508" name="lblLife">
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="TextAlign" value="ALIGN_RIGHT ALIGN_VCENTER"/>
+            <Property key="Caption" value="Life left"/>
+            <Property key="FontHeight" value="20"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.117647 0.638298 0.313726 0.0638298" name="lblMana">
+            <Property key="TextAlign" value="ALIGN_RIGHT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="Mana used"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.0980392 0.729483 0.333333 0.0638298" name="lblTime">
+            <Property key="Caption" value="Time"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="TextAlign" value="ALIGN_RIGHT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.176471 0.854103 0.254902 0.0911854" name="lblTotal">
+            <Property key="FontHeight" value="25"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="TextAlign" value="ALIGN_RIGHT ALIGN_VCENTER"/>
+            <Property key="Caption" value="Total"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.490196 0.455927 0.0980392 0.0638298" name="lblEnemies2">
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.490196 0.550152 0.0980392 0.0577508" name="lblLife2">
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="89"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.490196 0.641337 0.0980392 0.0577508" name="lblMana2">
+            <Property key="Caption" value="201"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="FontHeight" value="20"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.490196 0.732523 0.117647 0.0577508" name="lblTime2">
+            <Property key="Caption" value="340"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.607843 0.455927 0.137255 0.0638298" name="lblEnemies3">
+            <Property key="Caption" value="5000"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.607843 0.547112 0.117647 0.0638298" name="lblLife3">
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="Caption" value="80"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.607843 0.638298 0.117647 0.0638298" name="lblMana3">
+            <Property key="Caption" value="1000"/>
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+            <Property key="FontHeight" value="20"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.607843 0.729483 0.137255 0.0638298" name="lblTime3">
+            <Property key="Caption" value="400"/>
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="FontHeight" value="20"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+        <Widget type="TextBox" skin="TextBox" position_real="0.607843 0.851064 0.196078 0.0942249" name="lblTotal2">
+            <Property key="Caption" value="10224"/>
+            <Property key="FontHeight" value="25"/>
+            <Property key="TextAlign" value="ALIGN_LEFT ALIGN_VCENTER"/>
+            <Property key="InheritsAlpha" value="false"/>
+        </Widget>
+    </Widget>
+    <Widget type="ImageBox" skin="ImageBox" position_real="0.00390625 0.0402778 0.50625 0.165278" align="ALIGN_DEFAULT" layer="Back" name="imgTitle">
+        <Property key="ImageTexture" value="siontowertitle.png"/>
+    </Widget>
+    <Widget type="TextBox" skin="TextBox" position_real="0.55 0.1 0.5 0.0527778" layer="Back" name="lblSubtitle">
+        <Property key="FontHeight" value="40"/>
+        <Property key="Caption" value="#ffffffCongratulations!"/>
+    </Widget>
+    
+    <Widget type="Button" skin="Button" position_real="0.5 0.888889 0.140625 0.0805556" layer="Back" name="btnRetry">
+        <Property key="Caption" value="Replay"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+    <Widget type="Button" skin="Button" position_real="0.65625 0.888889 0.164063 0.0805556" layer="Back" name="btnLevelSelection">
+        <Property key="Caption" value="Level selection"/>
+        <Property key="FontHeight" value="30"/>
+    </Widget>
+</MyGUI>

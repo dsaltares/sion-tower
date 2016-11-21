@@ -1,0 +1,34 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 9 10 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 280 21 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 31 98 2010 11 135
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 305 97 2010 11 25
+end
+durationcanvas 128642 classinstance_ref 128130 // :System
+  xyzwh 305 153 2010 11 84
+end
+msg 128514 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 99 2015 explicitmsg "InicioAplicacion()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 120 84
+msg 128770 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128642
+  yz 160 2015 msg operation_ref 129154 // "SeleccionarCreditos()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 107 145
+msg 128898 return
+  from durationcanvas_ref 128642
+  to durationcanvas_ref 128258
+  yz 210 2015 explicitmsg "CambiarPantalla(Creditos)"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 98 194
+end

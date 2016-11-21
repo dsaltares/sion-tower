@@ -1,0 +1,221 @@
+En este capítulo se expone la planificación de tareas que se ha seguido
+para desarrollar \wiki\ y \juego. En primer lugar se adjunta el diagrama
+de Gantt completo para, más adelante, complementarlo con un breve comentario de
+cada tarea.
+
+\section{Diagrama de Gantt}
+
+Como puede observarse en el diagrama de Gantt, en tareas relacionadas con
+el apartado artístico de \juego\ participan más personas. Esto se debe a que
+no poseía ni poseo los conocimientos o destrezas requeridos para crear
+modelos tridimensionales animados, piezas musicales ni grabar y procesar
+efectos de sonido. Por ello, he contactado con expertos en dichas materias
+dispuestos a colaborar en el desarrollo de un videojuego completamente libre.
+Finalmente, los participantes adicionales son:
+
+\begin{itemize}
+    \itemsep0em
+    \item Antonio Jiménez Rodríguez: artista 3D encargado de diseñar, modelar,
+    texturizar al protagonista y a los enemigos del juego.
+    \item Daniel Belohlavek: artista 2D encargado de los iconos de los hechizos.
+    \item Daniel Pellicer García y Antonio Caro Oca: encargados de componer
+    y producir la banda sonora completa del juego.
+    \item Francisco Martín Márquez: técnico de sonido encargado de grabar
+    y procesar los efectos de sonido para el juego.
+\end{itemize}
+
+Por cuestiones de espacio y formato, el diagrama de Gantt ha sido divido
+en dos. En la figura \ref{fig:planificacion1} puede observarse la planificación
+del proyecto correspondiente al intervalo comprendido entre julio de 2010
+y enero de 2011. Por otro lado, la figura \ref{fig:planificacion2} muestra
+el resto de la planificación, desde febrero de 2011 hasta septiembre de 2011.
+
+\figura{planificacion1.jpg}{scale=0.35}{Planificación del proyecto desde julio de 2010 hasta enero de 2011}{fig:planificacion1}{H}
+
+
+\figura{planificacion2.jpg}{scale=0.35}{Planificación del proyecto desde febrero de 2011 hasta septiembre de 2011}{fig:planificacion2}{H}
+
+
+\section{Etapas de desarrollo del proyecto}
+
+\begin{enumerate}
+    \itemsep0em
+    \item \textbf{Planificación}
+    
+    Dada la envergadura del proyecto, era necesaria
+    una etapa de planificación en la que se ha estudiado de forma cuidadosa
+    el alcance del mismo y las posibles dificultades a encontrar durante
+    el desarrollo.\\
+    
+    \item \textbf{Formación}
+    
+    Al comienzo del proyecto desconocía por completo
+    el uso de bibliotecas imprescindibles como \textsc{Ogre3D}, \textsc{OIS} o
+    \textsc{MyGUI} y herramientas importantes como \textit{Blender}. Tampoco
+    conocía con la necesaria profundidad los fundamentos del desarrollo
+    de videojuegos en tres dimensiones. Fue necesaria, por tanto,
+    una larga etapa de formación personal utilizando varios recursos bibliográficos
+    y pequeñas pruebas prácticas.\\
+    
+    \item \textbf{IberOgre}
+    
+    Tras el periodo de formación inicial, dio comienzo el montaje de la wiki
+    \wiki. La Oficina de Software Libre de la Universidad de Cádiz (OSLUCA)
+    llevó a cabo la instalación de la plataforma sobre sus servidores y,
+    desde dicho momento, se pudo comenzar a trabajar en la documentación
+    de \textsc{Ogre3D}.
+    
+    \begin{enumerate}
+        \itemsep0em
+        \item \textit{Plantillas}
+        
+        Fue necesario transformar la apariencia que incluye una plataforma
+        \textit{Wikimedia} por defecto para conseguir un aspecto propio
+        en \wiki. Para ello se modificaron las hojas de estilo \textsc{CSS},
+        se trabajó sobre la portada y se crearon varias plantillas. Estas
+        plantillas proporcionan una forma sencilla de incluir estructuras
+        en varios puntos del sitio como ejemplos, tablas especiales, etc.\\
+        
+        \item \textit{Sección: Primeros pasos}
+        
+        Tras preparar la wiki, se procedió a la redacción del artículo
+        correspondiente a la primera sección de \wiki. En dicho artículo
+        se daba una bienvenida a la documentación y se explicaban sus
+        motivaciones, objetivos y estructura en cuanto a lecciones. De esta
+        manera, el lector podría conocer la filosofía de trabajo de la plataforma.\\
+        
+        \item \textit{Sección: \textsc{Ogre3D}}
+        
+        Posteriormente se comenzó a elaborar los artículos pertenecientes
+        a la sección del motor \textsc{Ogre3D} junto a sus ejemplos prácticos. 
+        Estos textos cubren prácticamente la totalidad del uso del motor
+        en cuanto a aspectos básicos se refiere: instalación, arquitectura,
+        inicialización, configuración, creación de escenas, animación, iluminación,
+        materiales, efectos de partículas, etc.\\
+        
+        \item \textit{Sección: Otras tecnologías}
+        
+        \textsc{Ogre3D} no es un motor de videojuegos completo, sólo es un
+        motor de renderizado. Por tanto, el uso de tecnologías complementarias
+        es prácticamente obligado. En \wiki\ se han elaborado artículos
+        para asistir a los lectores en dichas tecnologías como \textsc{OIS}
+        para gestión de dispositivos de entrada o \textsc{SDL mixer} para
+        música y efectos de sonido.\\
+        
+        \item \textit{Sección: Matemáticas}
+        
+        En la sección de matemáticas se presentan conceptos fundamentales
+        para el desarrollo e videojuegos. Sobre todo se cubre de manera
+        ligera temas relacionados con la geometría del espacio: puntos,
+        vectores, matrices y cuaternos. Siempre se ofrecen aplicaciones
+        prácticas dentro del ámbito que nos ocupa.\\
+        
+    \end{enumerate}
+    \item \textbf{Sion Tower}
+    
+    Tras el periodo de aprendizaje, casi de manera simultánea al trabajo
+    en \wiki, se comenzó con el videojuego \juego. El primer paso fue solicitar
+    la creación de un nuevo proyecto en la \textit{Forja de RedIRIS} y 
+    esperar su aprobación. Dicha forja proporciona un repositorio
+    \textit{Subversion} y herramientas web que ayudan en la gestión de
+    un proyecto libre: gestor de tareas, subida de ficheros, publicación
+    de noticias, etc.
+    
+    \begin{enumerate}
+        \itemsep0em
+        \item \textit{Documento de diseño}
+        
+        En el documento de diseño de un videojuego se detallan elementos
+        como la historia, género, personajes, mecánicas de juego, objetos
+        o enemigos entre otros muchos. En definitiva, es el documento
+        que define de forma más o menos concisa cómo será el videojuego.
+        Se trata de un escrito muy importante ya que ayuda a que todo el
+        equipo albergue la misma idea sobre el videojuego y pueda trabajar
+        de forma más compenetrada.\\
+        
+        \item \textit{Análisis}
+        
+        La fase de análisis dio comienzo tras la redacción y revisión del
+        documento de diseño. Se procedió con la toma de requisitos a partir
+        de dicho documento, se confeccionaron los casos de uso, se elaboró
+        el modelo conceptual de datos y se detalló el modelo de comportamiento.\\
+        
+        \item \textit{Diseño}
+        
+        Durante la fase de diseño, que siguió de forma inmediata al análisis,
+        se elaboraron los diagramasde clases de diseño.\\
+        
+        \item \textit{Implementación}
+        
+        La fase de implementación de \juego\ fue, con diferencia, la más
+        extendida de todo el desarrollo. Quizás viniese motivada por
+        la inexperiencia y por el gran número de subsistemas que se implementaron
+        desde cero.\\
+        
+        \item \textit{Pruebas}
+        
+        Durante la implementación se fueron realizando pruebas de módulos
+        individuales pero fue tras finalizar ficha fase cuando tuvieron
+        lugar las pruebas de integración. No sólo se trabajó para que
+        el código fuese correcto sino que \juego\ fue probado de forma
+        extensiva por colaboradores distintos al desarrollador principal con
+        el claro objetivo de pulir ciertos detalles relacionados con el balanceo
+        de características (personajes muy débiles o poderosos) o la comodidad
+        del control entre otros.\\
+        
+        \item \textit{Mantenimiento}
+        
+        Tras reunir sugerencias del público interesado en el proyecto se
+        realizaron pequeñas mejoras y ajustes que en pocas ocasiones implicaron
+        cambios en el código fuente. Sobre todo, estaban relacionados
+        con el balanceo de personajes.\\
+        
+        \item \textit{Distribución}
+        
+        Se crearon y publicaron paquetes descargables tanto para sistemas GNU/Linux
+        como para Windows. La dificultad que conllevaba empaquetar una
+        aplicación \textsc{Ogre3D} en Debian provocó que se tuviera
+        que distribuir un paquete con el código fuente en GNU/Linux. Para
+        Windows existe un paquete con el ejecutable \texttt{.exe}, los ficheros
+        multimedia y las dependencias en forma de bibliotecas dinámicas.\\
+        
+        \item \textit{Arte}
+        
+        El proceso de creación de todo el arte necesario para \juego\ comenzó
+        nada más acabar la redacción del documento de diseño. Desde ese momento
+        se conocía el estilo visual del juego, las pantallas y los personajes
+        que aparecerían. Por su complejidad, el trabajo se extendió prácticamente
+        durante todo el desarrollo. Al ser la única tarea en la que 
+        participaron colaboradores, fueron necesarias labores de supervisión
+        y coordinación: estilo, formato de entrega, corrección de fallos, etc.\\
+        
+    \end{enumerate}
+    \item \textbf{Memoria}
+    
+    Tras el desarrollo de \wiki\ y \juego\ se procedió a la redacción
+    del presente documento que incluye apéndices adicionales como el 
+    manual de usuario del videojuego.\\
+    
+    \item \textbf{Presentación}
+    
+    Como última tarea en la organización temporal figura la elaboración
+    de la exposición de cara a la presentación del \textbf{Proyecto fin
+    de Carrera}. Se llevó a cabo tratando de plasmar el trabajo realizado
+    y los objetivos conseguidos con el desarrollo de este proyecto.\\
+    
+    \item \textbf{Comunidad}
+    
+    Una de las partes fundamentales de este proyecto es su objetivo de servir
+    a la comunidad. Hasta el momento no existía una documentación extensa
+    sobre \textsc{Ogre3D} y el desarrollo de videojuegos tridimensionales
+    en castellano. A lo largo de todo el desarrollo ha estado presente la
+    atención e interacción con la comunidad a través de diversos medios
+    como redes sociales, la propia wiki y el blog.\\
+    
+    \item \textbf{Presentación (hito)}
+    
+    Finalmente, el día 1 de septiembre de 2011 se entrega toda la documentación
+    del proyecto y se preparó la presentación final que tendría lugar,
+    aproximadamente, una semana después.\\
+    
+\end{enumerate}

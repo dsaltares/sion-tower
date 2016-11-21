@@ -1,0 +1,111 @@
+% Tipo de documento
+\documentclass[16pt,spanish]{article}
+
+% Ruta a la plantilla
+\def \plpath{../plantilla}
+
+% Paquetes
+\input{\plpath/include/packages.tex}
+
+%  Datos del documento a Editar %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Título del documento
+\def \titlename{Sion Tower}
+\def \subtitlename{Documento de diseño}
+
+% Autores separados por \and
+\def \authorname{David Saltares Márquez}
+
+% Versión de la revisión (En blanco para documentos nuevos)
+\def \revname{1} % Ponemos un espacio para evitar errores en la cabecera.
+
+% Fecha (En blanco para la fecha de hoy)
+\def \datename{}
+
+% Variables a usar para mantener un sistema consistente
+\def \juego{\emph {Sion Tower} }
+\def \jugador{\emph {Jugador} }
+\def \wiki{\emph{IberOgre} }
+\def \menu{\emph {Menú Principal} }
+\def \selperfil{\emph {Selección de Perfil} }
+\def \selhabilidad{\emph {Selección de Habilidades} }
+\def \selnivel{\emph {Selección de Nivel} }
+\def \nivel{\emph {Nivel} }
+\def \finnivel{\emph {Fin de Nivel} }
+\def \creditos{\emph {Créditos} }
+\def \personaje{\emph {Personaje} }
+
+% Configuración  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\titlename}
+\author{\authorname}
+%\date{\datename}
+
+% Cabecera y pie del documento
+\pagestyle{fancy}
+%\renewcommand{\headrulewidth}{0.2pt}
+%\fancyhead[HC]{ {\footnotesize \titlename} }
+%\fancyhead[FR]{ {\footnotesize \thepage} }
+%\fancyhead{}
+%\fancyfoot{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Portada %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{\plpath/include/portada.tex}
+
+% Índice %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\cleardoublepage
+
+% Cambios en esta Revisión %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Cambios}
+%\label{sec:cambios} 
+
+
+%\paragraph{}
+%Cambios con respecto a versiones anteriores del documento.
+
+%\begin{itemize}
+%	\item {\bf Revision 1}
+%		\begin{itemize}
+%			\item Cambio1
+%			\item Cambio2
+%		\end{itemize}
+%\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Cambios}
+\label{sec:cambios}
+\input{cambios.tex}
+\clearpage
+
+% Introducción %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introducción}
+\label{sec:introduccion}
+\input{introduccion.tex}
+\clearpage
+
+\section{Mecánicas de juego}
+\label{sec:mecanicas}
+\input{mecanicas.tex}
+\clearpage
+
+\section{Interfaz}
+\label{sec:interfaz}
+\input{interfaz.tex}
+\clearpage
+
+\section{Arte}
+\label{sec:arte}
+\input{arte.tex}
+
+\end{document}

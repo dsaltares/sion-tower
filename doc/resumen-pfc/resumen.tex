@@ -1,0 +1,767 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{../memoria/estilos/estiloBase}
+\usepackage{../memoria/estilos/colores}
+\usepackage{../memoria/estilos/comandos}
+\graphicspath{{./imagenes/}}
+
+\title{IberOgre, wiki de Ogre3D en español\\y Sion Tower, videojuego de estrategia}
+\author{Alumno: David Saltares Márquez\\Directores: Manuel Palomo Duarte y Francisco Palomo Lozano}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% Abstract
+\abstract{\noindent
+\wiki\ es una documentación libre en formato wiki sobre desarrollo
+de videojuegos en tres dimensiones utilizando el motor de renderizado
+también libre \textsc{Ogre3D} \cite{junk06}. Incluye documentación relacionada
+con tecnología complementaria necesaria para el desarrollo de videojuegos.
+Asimismo, abarca los conceptos matemáticos fundamentales.\\
+
+\noindent \juego\ es un videojuego de estrategia y acción en 3D de ambientación
+fantástica cuyo objetivo es servir de ejemplo final a la wiki. Hace uso de
+\textsc{Ogre3D} y otras tecnologías complementarias documentadas
+en \wiki. En \juego\ controlamos a un joven hechicero iniciado que se ve obligado
+a defender la Torre Sagrada de una invasión enemiga mientras sus compañeros
+están celebrando un rito secreto en el exterior.
+}
+
+\tableofcontents
+
+% Contexto y motivaciones
+\section{Introducción}
+
+\subsection{Motivaciones}
+
+\noindent Comenzar a utilizar una tecnología desconocida como \textsc{Ogre3D} o cualquier
+otra siempre entraña cierta dificultad y, si le añadimos la barrera del 
+idioma, aún más. La principal motivación para embarcarme en la confección
+de una documentación sobre desarrollo de videojuegos en 3D como es \wiki\
+ha sido la completa ausencia de información al respecto en castellano.
+No existía una plataforma de aprendizaje y documentación equivalente a
+la wiki oficial de \textsc{Ogre3D} en español.\\
+
+\noindent \textbf{Diseño de Videojuegos} es una asignatura optativa de tercer curso
+de la titulación Ingeniería Técnica en Informática de Sistemas dentro
+de la Universidad de Cádiz. En dicha asignatura los alumnos se organizan
+en grupos de tres con el objetivo de desarrollar un juego sencillo en dos
+dimensiones durante el cuatrimestre. Los alumnos de la
+asignatura suelen utilizar bibliotecas libres como \textsc{libSDL} sobre la que ya se publicó
+una excelente documentación en castellano en formato wiki llamada \textbf{Wikijuegos} \cite{website:wikijuegos}.
+Una vez finalizada la asignatura, podrían ampliar
+sus conocimientos gracias a documentación sobre desarrollo de videojuegos en
+3D en su idioma.\\
+
+\noindent Mi interés en aprender a desarrollar videojuegos en tres dimensiones fue el
+motor principal que me llevó a desarrollar \juego. Son tantos los conceptos
+nuevos, las tecnologías desconocidas y las aproximaciones diametralmente
+opuestas que las posibilidades de adquirir conocimiento son enormes. En cualquier
+caso, \wiki\ necesitaba un gran ejemplo final que pusiera en práctica todo
+lo visto a lo largo de las lecciones. Un ejercicio lo más cercano
+a la realidad y completamente documentado de manera que cualquier lector pudiera
+comprender de primera mano cómo se desarrolla un videojuego en 3D.\\
+
+\noindent \textsc{Ogre3D} es un motor de renderizado gráfico muy potente
+y versátil, de ahí su elevada curva de aprendizaje. Cabe destacar que se utiliza
+constantemente en videojuegos comerciales como Victory (ver figura
+\ref{fig:victory}) y otras simulaciones. Podemos afirmar que es una
+tecnología profesional y utilizarla me haría adquirir destrezas importantes
+con posibles salidas en el plano laboral de la industria.\\
+
+\figura{victory.jpg}{scale=0.25}{Victory (Windows - 2011)}{fig:victory}{H}
+
+% Objetivos
+\subsection{Objetivos}
+
+\noindent \wiki\ debe cumplir con los siguientes requisitos básicos:
+
+\begin{itemize}
+    \item Cubrir los principales subsistemas de \textsc{Ogre3D}.
+    \item Ofrecer los contenidos matemáticos mínimos sobre geometría del
+    espacio.
+    \item Incluir una sección para otras tecnologías complementarias a \textsc{Ogre3D}
+    y necesarias para el desarrollo de videojuegos.
+    \item Emplear una aproximación lo más práctica posible.
+    \item Prestar especial atención y soporte a herramientas de desarrollo
+    libres y multiplataforma.
+    \item Ofrecer técnicas y buenas prácticas para el desarrollo de software
+    multiplataforma.
+    \item Construir una comunidad que colabore de forma activa con la
+    documentación probado ejemplos, informando de errores encontrados y
+    creando nuevo contenido de interés para el resto de usuarios.
+\end{itemize}
+
+\noindent \juego\ debe cumplir con los siguientes requisitos:
+
+\begin{itemize}
+    \item Servir de ejemplo lo más cercano a la realidad posible de un
+    desarrollo de videojuego 3D.
+    \item Crear un pequeño motor orientado a la producción de contenido.
+    Cualquier diseñador podría añadir niveles al juego sin necesidad
+    de tocar el código fuente ni recompilarlo.
+    \item Convertirse en un ejemplo de trabajo con un equipo multidisciplinar.
+    \item \juego\ debe ser cómodo de utilizar, intuitivo y divertido.
+    \item Crear subsistemas independientes del videojuego reutilizables
+    por la comunidad de usuarios.
+\end{itemize}
+
+% Organización temporal
+\section{Organización temporal}
+
+\noindent La planificación del desarrollo se ha llevado a cabo utilizando
+la herramienta \textit{Planner} \cite{website:planner}. Como puede observarse en el diagrama de Gantt,
+en tareas relacionadas con el apartado artístico de \juego\ participan
+más personas. He contactado con expertos en materias artísticas dispuestos
+a colaborar en el desarrollo de un videojuego completamente libre. Finalmente,
+los participantes adicionales son:
+
+\begin{itemize}
+    \itemsep0em
+    \item Antonio Jiménez Rodríguez: artista 3D encargado de diseñar, modelar,
+    texturizar al protagonista y a los enemigos del juego.
+    \item Daniel Belohlavek: artista 2D encargado de los iconos de los hechizos.
+    \item Daniel Pellicer García y Antonio Caro Oca: encargados de componer
+    y producir la banda sonora completa del juego.
+    \item Francisco Martín Márquez: técnico de sonido encargado de grabar
+    y procesar los efectos de sonido para el juego.
+\end{itemize}
+
+\noindent Por cuestiones de espacio y formato, el diagrama de Gantt ha sido divido
+en dos. En la figura \ref{fig:planificacion1} puede observarse la planificación
+del proyecto correspondiente al intervalo comprendido entre julio de 2010
+y enero de 2011. Por otro lado, la figura \ref{fig:planificacion2} muestra
+el resto de la planificación, desde febrero de 2011 hasta septiembre de 2011.
+
+\figura{planificacion1.jpg}{scale=0.35}{Planificación del proyecto desde julio de 2010 hasta enero de 2011}{fig:planificacion1}{H}
+
+\figura{planificacion2.jpg}{scale=0.35}{Planificación del proyecto desde febrero de 2011 hasta septiembre de 2011}{fig:planificacion2}{H}
+
+% Desarrollo de IberOgre
+\section{Desarrollo de IberOgre}
+
+\noindent En esta sección trataremos los aspectos más relevantes del
+desarrollo de la plataforma educativa \wiki. Por razones de espacio, se
+obvian muchos detalles que sí aparecen en la memoria de Proyecto fin de Carrera.
+\wiki\ \cite{website:iberogre} utiliza el motor MediaWiki \cite{website:mediawiki}
+y ha sido publicada en los servidores de la
+Oficina de Software Libre de la Universidad de Cádiz.\\
+
+\url{http://wikis.uca.es/iberogre}\\
+
+\subsection{Usuarios}
+
+\noindent No todos los usuarios que accedan a \wiki\ tendrán los mismos privilegios.
+Existirán tres categorías de usuarios: lector, usuario registrado y administrador.
+Los primeros tendrán acceso de lectura a todo el contenido, los segundos
+podrán hacer ediciones y crear nuevos artículos sin alterar la estructura general.
+El administrador, además podrá hacer cambios en la estructura, gestionar otros
+usuarios así como hacerse cargo de las extensiones de la plataforma.\\
+
+\noindent Cualquier persona que acceda al sitio web de la plataforma será considerado
+como lector no registrado. En el momento en el que rellene el formulario
+y envíe sus datos se convertirá en usuario registrado. Lo habitual es que
+sólo exista un administrador del sistema o exista un grupo reducido de
+administradores.\\
+
+\subsection{Secciones y estructura de los artículos}
+
+% Bloques temáticos
+\noindent Los artículos de \wiki\ están organizados en varios bloques temáticos
+para abarcar todos los objetivos que nos hemos marcado.
+Esta organización también busca facilitar la navegación
+al usuario. Los bloques principales de \wiki\ son:\\
+
+\begin{itemize}
+    \itemsep0em
+    \item \textbf{Primeros pasos}: bloque introductorio en el que el lector
+    debe poder conocer la estructura, filosofía y metodología de la plataforma
+    de aprendizaje.
+    \item \textbf{Programación de videojuegos 3D}: sección que se dedicará
+    a ofrecer los conocimientos matemáticos mínimos para desarrollar
+    videojuegos en 3D. Se centrará en conceptos generales de geometría
+    del espacio y álgebra lineal desde una perspectiva eminentemente práctica.
+    \item \textbf{Ogre3D}: bloque central que desglosa los apartados más
+    relevantes del motor de renderizado \textsc{Ogre3D}. Lo más
+    importante es que se comprenda el funcionamiento del motor y se sea
+    capaz de ampliar conocimientos de forma autónoma.
+    \item \textbf{Otras tecnologías}: enfocada a introducir en el uso de
+    tecnologías complementarias a \textsc{Ogre3D} como \textsc{OIS} (entrada),
+    \textsc{libSDL mixer} (audio) u \textsc{OgreBullet} (físicas).
+    \item \textbf{Videojuegos}: en esta sección se adjuntará documentación
+    sobre el desarrollo de videojuegos libres que hagan uso de \textsc{Ogre3D}.
+    \juego\ contará con el primer artículo de esta sección.
+\end{itemize}
+
+\noindent La estructura lógica de los artículos queda reflejada en la figura \ref{fig:bloques-articulos}
+y está pensada para que el lector adquiera de la manera más sencilla posible
+los conocimientos necesarios para continuar. En primer lugar se hace una
+introducción para que el lector sepa qué esperar del artículo. Posteriormente
+se listan los requisitos previos para que el usuario pueda adquirirlos y comprender
+el desarrollo. Más adelante se desglosa el tema intercalando explicaciones teóricas
+y pequeños ejemplos. Después se adjunta un ejemplo descargable profusamente documentado
+que ilustra todo lo visto en el texto. Finalmente se incluye un pequeño párrafo
+a modo de conclusión.\\
+
+\figura{bloques-articulos.png}{scale=0.5}{Estructura de los artículos en IberOgre}{fig:bloques-articulos}{h}
+
+\subsection{Artículos publicados} 
+
+\noindent La sección \textit{Primeros pasos} únicamente cuenta con un artículo
+introductorio.
+
+\begin{itemize}
+    \itemsep0em
+    \item Comenzando en IberOgre
+\end{itemize}
+
+\noindent En el bloque \textit{Programación de videojuegos 3D} se encuentran tres
+artículos.
+
+\begin{itemize}
+    \itemsep0em
+    \item Introducción, puntos y vectores
+    \item Matrices
+    \item Cuaternos
+\end{itemize}
+
+\noindent En el bloque principal, \textit{Ogre3D} tenemos los siguientes artículos.
+
+\begin{itemize}
+    \itemsep0em
+    \item Conociendo Ogre3D
+    \item Conceptos generales
+    \item Instalación de Ogre3D 1.7 en GNU/Linux
+    \item Instalación de Ogre3D 1.7 en Windows
+    \item Creación de un entorno de trabajo multiplataforma
+    \item Inicialización y cierre de Ogre3D
+    \item Gestión de recursos
+    \item Creación básica de escenas
+    \item Materiales
+    \item Manipulación de nodos
+    \item Luces, sombras y entorno
+    \item Animación
+    \item Sistemas de partículas
+    \item Sistema de Overlays
+\end{itemize}
+
+\noindent Dentro de la sección \textit{Otras tecnologías} tenemos los siguientes
+artículos.
+
+\begin{itemize}
+    \itemsep0em
+    \item Manejo básico de OIS
+    \item Exportar modelos desde Blender
+    \item Colisiones y físicas con OgreBullet
+    \item Extender la gestión de recursos, audio
+\end{itemize}
+
+\figura{ejemplo-audio.jpg}{scale=0.2}{Ejemplo de extensión del sistema de recursos, audio}{fig:ejemplo-audio}{h}
+
+% Desarrollo de Sion Tower
+\section{Desarrollo de Sion Tower}
+
+\noindent \juego\ es un videojuego de estrategia y acción en el que controlamos a
+un joven mago iniciado llamado \prota. Nuestro protagonista es el
+único que permanece en la Torre Sagrada mientras sus compañeros han salido
+a celebrar un rito y es entonces cuando unos monstruos invaden la Torre.
+\prota\ debe proteger el recinto Sagrado a toda costa eliminando
+a todos los enemigos lanzando hechizos administrando sabiamente su energía
+mágica. Cada nivel es un piso de la Torre.\\
+
+\subsection{Descripción general}
+
+\figura{siontower-menu.jpg}{scale=0.2}{Menú principal de Sion Tower}{fig:siontower-menu}{H}
+
+% Sistema de juego
+\noindent En \juego\ sólo existe una modalidad para un jugador individual
+que sigue la trama del juego y la historia de la invasión enemiga. No obstante,
+podemos contar con varios perfiles de jugador identificados por un nombre
+para que varios usuarios compartan el juego en una misma máquina. En la
+figura \ref{fig:selperfil} puede observarse la pantalla de selección de perfil.
+Inicialmente, para cada perfil solo se encuentra desbloqueado el primer nivel.
+Para avanzar en la historia debemos completar con éxito los niveles de
+forma que el siguiente se desbloquee.\\\\
+
+\figura{siontower-perfil.jpg}{scale=0.2}{Pantalla de selección de perfil en Sion Tower}{fig:selperfil}{h}
+
+\noindent Una vez seleccionamos un nivel comienza la partida y vemos situado al protagonista.
+Progresivamente comienzan a llegar oleadas de enemigos que buscarán a \prota\
+para atacarle. Podemos mover al personaje y controlar la cámara para situarnos
+según nos convenga (ver manual de usuario). \prota\ cuenta con energía vital
+y mágica limitadas, cuando se le acabe la vital habremos perdido la partida
+y si carece de mágica no podremos lanzar hechizos. Existen varios tipos de hechizos
+con distinto poder y coste en energía mágica, es necesario saber administrarlo correctamente.
+
+\figura{siontower-juego.jpg}{scale=0.20}{Partida de Sion Tower}{fig:juego}{H}
+
+\noindent Si eliminamos a todos los enemigos pasaremos a la pantalla de celebración
+en la que desbloqueamos un nuevo nivel y adquirimos experiencia. La experiencia
+es una puntuación que se incrementa en función de los enemigos eliminados,
+la vida restante, el maná utilizado y el tiempo invertido en finalizar el nivel.
+Desde dicho punto podemos volver a la selección de nivel para probar la
+siguiente prueba.\\
+
+% Personajes
+
+\noindent \juego\ cuenta con varios enemigos diferentes: goblin, diablillo
+y gólem de hielo. El goblin es una criatura muy básica y débil que se aprovecha
+de la superioridad numérica para atacar. Los diablillos son seres más veloces
+y poderosos pero escasos. Los gólems de hielo son muy lentos pero un golpe
+suyo puede causar mucho daño.\\
+
+\figura{goblin.jpg}{scale=0.2}{Goblin, enemigo de Sion Tower}{fig:goblin}{H}
+
+% Hechizos
+
+\noindent Existen tres tipos de hechizos en \juego. Con \textbf{Bola de fuego} puedes
+invocar un proyectil mágico que abrase a tus enemigos a su paso. 
+\textbf{Furia de Gea} convoca la propia fuerza de la naturaleza para volverla
+en contra de cualquier criatura. Finalmente, \textbf{Ventisca} lanza varios
+proyectiles mágicos helados y afilados como cuchillas.\\
+
+\subsection{Lenguajes, bibliotecas y herramientas}
+
+\noindent En esta sección listaremos los distintos lenguajes, bibliotecas
+y herramientas auxiliares empleadas en el desarrollo de \juego. Se han
+utilizado los siguientes lenguajes:
+
+\begin{itemize}
+    \item \textbf{C++}: lenguaje de programación utilizado para todo el
+    código del juego.
+    \item \textbf{Python}: lenguaje de scripting orientado a objetos empleado
+    en pequeñas herramientas auxiliares.
+    \item \textbf{XML}: lenguaje de marcado empleado para describir plantillas
+    de interfaz y escenas tridimensionales.\\
+\end{itemize}
+
+Han sido utilizadas las siguientes bibliotecas.
+
+\begin{itemize}
+    \item \textbf{Ogre3D}: motor de renderizado 3D libre empleado tanto
+    en \wiki\ como en \juego.
+    \item \textbf{MyGUI}: biblioteca complementaria a \textsc{Ogre3D} para
+    crear y gestionar interfaces de usuario complejas.
+    \item \textbf{libSDL mixer}: biblioteca para reproducir efectos de sonido
+    y piezas musicales.
+    \item \textbf{Boost}: biblioteca que extiende las funcionalidades de C++
+    de una forma complementaria a como lo hace la \textsc{STL}.
+    \item \textbf{pugixml}: biblioteca muy eficiente para procesar ficheros
+    XML.\\
+\end{itemize}
+
+Se ha hecho uso de las siguientes herramientas.
+
+\begin{itemize}
+    \item \textbf{Subversion}: sistema de control de versiones.
+    \item \textbf{GNU GCC Compiler}: compilador de C++ del proyecto GNU.
+    \item \textbf{Make}: automatización del proceso de compilación.
+    \item \textbf{GNU Debugger}: depurador del proyecto GNU.
+    \item \textbf{Valgrind}: depuración del uso de la memoria.
+    \item \textbf{Vim}: editor de textos.
+    \item \textbf{\LaTeX}: lenguaje de marcado y creación de documentos.
+    \item \textbf{Doxygen}: documentación automática de código.
+    \item \textbf{Blender}: modelado, texturizado y animación 3D.
+    \item \textbf{GIMP}: software de diseño gráfico 2D.
+    \item \textbf{Inkscape}: software de creación de gráficos vectoriales 2D.
+    \item \textbf{MyGUI Layout Editor}: editor visual de plantillas de interfaces para \textsc{MyGUI}
+    \item \textbf{Particle Editor}: editor de sistemas de partículas.
+    \item \textbf{Audacity}: editor de audio.
+    \item \textbf{XvidCap}: capturador de vídeo para las muestras de los avances en \juego.
+    \item \textbf{OpenShot Video Editor}: editor de vídeo para montar los
+    tráilers de \juego.
+    \item \textbf{Planner}: herramienta para planificación de proyectos.
+    \item \textbf{BOUML}: editor de diagramas con notación UML.
+    \item \textbf{Dia}: herramienta de creación de diagramas con varias notaciones.\\
+\end{itemize}
+
+\subsection{Implementación}
+
+\noindent En esta sección describiremos brevemente los problemas de implementación
+de mayor relevancia a los que me he enfrentado durante el desarrollo de \juego. En la memoria
+del Proyecto fin de Carrera puede obtenerse documentación mucho más detallada
+sobre la manera de resolver dichos problemas que, por razones de espacio,
+es imposible incluir en el resumen. A la hora de diseñar e implementar
+los distintos subsistemas se ha recurrido en alta medida a las publicaciones
+\textit{Fundamentos de C++} \cite{gera09},
+\textit{Design Patterns} \cite{gamm77} y \textit{Game Engine Architecture}
+\cite{greg09} entre otras indicadas en los apartados correspondientes.\\
+
+\begin{description}
+    \item [Estados de juego] en el videojuego contamos con varias pantallas
+    entre menús y la propia partida por lo que es necesario modelarlas
+    de forma efectiva. Cada estado debe capturar los eventos que se producen
+    (pulsación de teclas, botones del ratón y movimiento del ratón) para
+    darles respuesta. Además, debe poder actualizarse de forma lógica en
+    cada iteración del bucle de juego. Es altamente recomendable que
+    las transiciones entre estados se manejaran de forma segura para no
+    producir problemas de memoria. Por supuesto, cada estado debe
+    controlar que los elementos que contiene no produzcan pérdidas de memoria.\\
+    
+    \item [Internacionalización mediante gettext] \juego\ está completamente
+    internacionalizado mediante la conocida biblioteca \textsc{gettext} \cite{pdf:jtgettext}.
+    Este sistema emplea duplas clave valor para las cadenas traducibles y
+    sus traducciones al idioma destino. Con \textsc{gettext} es posible
+    extraer todas las cadenas de código C++ pero no ocurre así con el texto de las
+    plantillas de interfaz de \textsc{MyGUI}. Se ha desarrollado
+    un script en Python para realizar dicha tarea por nosotros de forma automatizada.\\
+    
+    \item [Sistema de audio] \textsc{Ogre3D} no incluye un sistema de audio
+    por lo que era necesario recurrir a otra biblioteca como \textsc{libSDL mixer}.
+    Se ha decidido extender el sistema de gestión de recursos del motor
+    de renderizado para que soporte dos nuevos recursos: efectos de sonido
+    y piezas musicales.\\
+    
+    \item [Detección de colisiones] en el juego hay muchos elementos cuyas
+    colisiones debemos detectar: protagonista, enemigos, escenario y hechizos.
+    Era imprescindible un sistema de detección de colisiones que soportara
+    varias formas geométricas, extensible, altamente reutilizable (para publicarlo
+    de forma independiente) y eficiente para soportar varios elementos
+    en la escena. Se ha utilizado como referencia para los tests de colisión
+    entre varias formas geométricas el libro \textit{Real Time Collision
+    Detection} \cite{eric05}.\\
+    
+    \item [Exportación de modelos 3D] el artista 3D de \juego\ utiliza la herramienta
+    \textit{Cinema4D} para el modelado y animación de personajes. Existe un
+    plugin para exportar el formato a \textsc{Ogre3D} pero es privativo y no
+    corrige de forma correcta las escalas de los modelos (para mantener una
+    relación de tamaños uniforme). Se ha codificado un script en Python
+    que corrije dicho problema tanto en mallas tridimensionales como en
+    esqueletos.\\
+    
+    \item [Creación de niveles con Blender] uno de los objetivos del juego
+    era crear un motor orientado a la producción de contenido por lo que
+    era necesario un sistema por el cual los usuarios pudieran añadir nuevos
+    niveles a \juego. Siguiendo las instrucciones del manual de usuario
+    es posible crear un nivel con la herramienta 3D \textit{Blender} y
+    exportarlo al formato de descripción de escenas en XML \textit{Dotscene}.
+    El motor del juego debe procesar dicho fichero y obtener información como:
+    elementos del escenario, posición del personaje, oleadas de enemigos,
+    malla de navegación y elementos colisionables.\\
+    
+    \item [Búsqueda de caminos] es necesario que los enemigos \textit{vean}
+    para poder encontrar el camino hacia el personaje con el objetivo de
+    atacarle sin que colisionen con obstáculos por el camino. Se hace uso
+    de una malla de navegación formada por triángulos interconectados a modo
+    de grafo conexo. Ha sido imprescindible encontrar un algoritmo de
+    búsqueda de caminos mínimos que trabaje sobre dicho grafo de forma
+    eficiente ya que estamos ante una aplicación en tiempo real.\\
+    
+    \item [Algoritmos de movimiento] los enemigos deben moverse por el camino
+    obtenido tras la búsqueda de forma natural y realista. Para ello
+    empleamos algoritmos de movimiento dinámicos o \textit{Steering
+    Behaviors} \cite{mill09}. Debemos modelar distintos tipos de comportamientos:
+    seguir un camino de puntos, evitar colisionar con otros compañeros,
+    perseguir a un personaje, llegar a un destino, etc.\\
+
+\end{description}
+
+
+% Conclusiones
+\section{Conclusiones}
+
+\subsection{Conclusiones personales}
+
+\noindent Con \wiki\ y \juego\ he adquirido muchos conocimientos y me he
+enriquecido enormemente como persona y desarrollador. Si bien ya había
+trabajado de forma independiente en algún videojuego sencillo o proyecto
+de distinta índole, este sin duda era el reto de mayor envergadura al que
+me había enfrentado jamás. De ahí que la fase de aprendizaje fuese tan
+larga al comienzo del proyecto aunque después se extendiera durante
+todo este tiempo.\\
+
+\noindent En los siguientes puntos repasaré de forma superficial lo que he aprendido:
+
+\begin{enumerate}
+    \itemsep0em
+    \item \textbf{Juegos 3D}: hasta el momento había desarrollado juegos
+    sencillos en dos dimensiones pero no conocía el mundo de las tres dimensiones.
+    Consideré que el Proyecto Fin de Carrera me brindaba una oportunidad
+    excelente para aprender y me decidí a intentarlo. Es una aproximación
+    muy diferente, atractiva y llena de retos.
+    
+    \item \textbf{Nuevas bibliotecas}: he hecho uso de muchas bibliotecas
+    que no conocía y he necesitado aprender a utilizarlas correctamente.
+    Entre estas bibliotecas se encuentran la propia \textsc{Ogre3D},
+    \textsc{MyGUI}, \textsc{Boost} o \textsc{pugixml}. Anteriormente
+    había utilizado \textsc{libSDL mixer} pero nunca me había visto obligado
+    a integrarla dentro de un sistema más grande como es la gestión
+    de recursos de \textsc{Ogre3D}.
+    
+    \item \textbf{Matemáticas para videojuegos}: no sólo he tenido que repasar
+    conceptos matemáticos de geometría del espacio y álgebra sino que he
+    tenido que incorporar otros nuevos. Tanto de cara a \wiki\ como para
+    \juego\ me he visto obligado a aplicar estos conceptos con el objetivo
+    de buscar soluciones a problemas de programación.
+    
+    \item \textbf{Lenguaje C++}: desde el segundo curso de Ingeniería
+    Técnica en Informática de Gestión he estado utilizando C++ no sólo
+    dentro del ámbito estrictamente académico. No obstante, desarrollar
+    \juego\ me ha servido para profundizar en los detalles del lenguaje
+    y aprender a utilizarlos a mi favor.
+    
+    \item \textbf{Python}: este lenguaje de scripting orientado a objetos
+    se ha mostrado extremadamente útil a la hora de desarrollar
+    pequeños programas auxiliares. Por ejemplo, lo he utilizado en el script
+    que soluciona el problema de la escala en la exportación de modelos
+    tridimensionales y en el que extrae las cadenas traducibles de plantillas
+    de interfaz. Es un lenguaje extremadamente sencillo y fácil de aprender
+    pero muy potente \cite{pilgr04}.
+     
+    \item \textbf{Optimización}: los videojuegos son sistemas complejos
+    que, de no prestar especial atención, podrían hacer un consumo irracional
+    de recursos. Es necesario aplicar técnicas de optimización tanto en
+    términos de uso de procesador como de consumo de memoria. Este proyecto
+    me ha servido para conocer varias de estas técnicas y algoritmos concretos
+    cuyo rendimiento es superior al de otros en momentos concretos. Por ejemplo,
+    en primer lugar empleé el algoritmo A* para la búsqueda de caminos
+    aunque la precomputación con Floyd probó ser más eficiente.
+    
+    \item \textbf{Técnicas de IA}: hasta el momento conocía algunas técnicas
+    de inteligencia artificial sobre teoría de juegos, búsqueda de caminos
+    o autómatas para modelar comportamientos. No obstante, no había aplicado
+    dichas técnicas al mundo de las tres dimensiones. En \juego\ se realiza
+    una búsqueda de caminos a partir de una malla definida en tiempo de diseño.
+    Además, los enemigos hacen uso de algoritmos de movimiento
+    (\textit{Steering Behaviors}) que desconocía hasta este momento.
+     
+    \item \textbf{Diseño de un videojuego}: la redacción de un documento de diseño
+    en el que se detallara la forma de jugar, personajes, historia, etc
+    ha sido muy necesaria ya que ha ayudado al proceso de análisis
+    y diseño. Además, los colaboradores han podido conocer las necesidades
+    del proyecto en cuanto a recursos artísticos se refiere.
+    
+    \item \textbf{Trabajo en equipo}: en \wiki\ se ha trabajado junto
+    a la comunidad en todo momento. Los lectores enviaban sus opiniones y
+    éstas debían ser tenidas en cuenta. En \juego\ el trabajo en equipo
+    se hizo mucho más evidente ya que colaboramos en todo momento seis
+    personas especializadas en disciplinas muy distintas. Hubo que realizar
+    labores de coordinación, comunicación y resolución de conflictos.
+    
+    \item \textbf{Redacción en MediaWiki}: hasta el momento mi relación
+    con el motor \textit{MediaWiki} se había limitado a ediciones muy
+    esporádicas en Wikipedia que no requerían conocimientos de la sintaxis
+    que se utilizaba. Me he visto obligado a conocer la sintaxis de redacción
+    en \textit{Wikimedia} para redactar correctamente los artículos.
+    
+    \item \textbf{Trabajo en wikis}: no sólo basta con conocer la sintaxis
+    de \textit{Wikimedia} para poder participar en la confección de una wiki.
+    Existen toda una serie de convenciones de escritura, comportamiento,
+    nomenclatura y estructuras que deben ser conocidas.
+    
+    \item \textbf{Aplicación de conocimientos}: el desarrollo de este
+    proyecto me ha sido especialmente útil para poner en práctica aquellos
+    conocimientos adquiridos durante la Ingeniería Técnica. Sobre todo
+    me refiero a aquellos relacionados con la Ingeniería del Software.
+\end{enumerate}
+
+\subsection{Conclusiones técnicas}
+
+\noindent En \wiki\ y \juego\ se han cumplido con los objetivos propuestos en el
+capítulo introductorio de esta memoria de Proyecto Fin de Carrera. En la
+plataforma de aprendizaje se ha conseguido:
+
+% Objetivos cumplidos con IberOgre
+\begin{itemize}
+    \itemsep0em
+    \item Se ha creado contenido organizado en bloques temáticos tal y como
+    se propuso: introducción, matemáticas para videojuegos, \textsc{Ogre3D},
+    otras tecnologías y videojuegos desarrollados con \textsc{Ogre3D}.
+    \item La navegación es intuitiva y los artículos están ordenados
+    de forma aproximada en dificultad ascendente.
+    \item Es posible adquirir los conocimientos de geometría del espacio
+    necesarios para desarrollar juegos en 3D.
+    \item Se han cubierto los aspectos básicos del uso del motor de renderizado
+    \textsc{Ogre3D}.
+    \item Otras tecnologías enfocadas al desarrollo de videojuegos han sido
+    explicadas a través de varios artículos.
+    \item Los artículos están dotados de un enfoque práctico gracias a los
+    ejemplos finales y a los pequeños fragmentos de código intermedios.
+    \item Varios usuarios han mostrado interés, han colaborado con el proyecto
+    ya sea mediante correcciones, artículos, sugerencias o ayudando a difundir
+    la plataforma.
+\end{itemize}
+
+% Objetivos cumplidos con Sion Tower
+\noindent En el videojuego \juego\ hemos conseguido:
+
+\begin{itemize}
+    \itemsep0em
+    \item Construir un videojuego completo multiplataforma empleando los conocimientos de
+    \wiki\ y otros conceptos profusamente documentados.
+    \item Cuatro niveles completos.
+    \item Tres tipos de enemigos distintos y tres tipos de hechizos diferentes.
+    \item Iluminación y sombras dinámicas.
+    \item Alto rendimiento incluso en equipos modestos.
+    \item Efectos especiales avanzados utilizando sistemas de partículas.
+    \item Motor orientado a la creación de contenido, es posible
+    añadir niveles con \textit{Blender}, una herramienta ampliamente
+    utilizada en el mundo profesional de diseño, publicidad y videojuegos.
+    \item Internacionalización completa gracias a \textsc{gettext} y scripts auxiliares.
+    \item Creación de un videojuego que entretiene gracias a las impresiones
+    que han prestado los colaboradores a lo largo de todas las fases del
+    desarrollo.
+    \item Implementación de un motor modular fácilmente ampliable. Varios
+    subsistemas han sido liberados de forma independiente y están siendo
+    utilizados por otros usuarios.
+\end{itemize}
+
+\noindent Se han generado estadísticas sobre el uso del repositorio \textit{Subversion}
+empleando la herramienta libre \textit{StatsSVN}.
+En total el proyecto está compuesto por 619.000 líneas de código aunque
+entre ellas se encuentran las distintas ramas (con código duplicado)
+y líneas de documentación (esta memoria, por ejemplo). Cabe destacar
+que se han realizado más de 500 commits, lo que permite volver hacia atrás
+de forma sencilla. Es posible acceder al informe de estadísticas desde
+la siguiente dirección.\\
+
+\noindent \url{http://siondream.com/iberogre-siontower-statsvn}\\
+
+\subsection{Posibles mejoras}
+
+\noindent Es cierto que los objetivos que nos marcamos al comienzo del desarrollo
+han sido cumplidos satisfactoriamente, no obstante se han detectado puntos
+en los que el proyecto podría mejorar. A continuación hacemos una lista
+de las posibles mejoras de \wiki.
+
+% Mejoras en IberOgre
+%   - Artículos en Ogre
+%   - Artículos en otras tecnologías
+%   - Artículos en videojuegos
+\begin{itemize}
+    \item Consolidación de una comunidad de redactores y lectores para
+    la plataforma de aprendizaje.
+    \item Nuevos artículos sobre videojuegos desarrollados con \textsc{Ogre3D}
+    en los que el propio desarrollador comente la experiencia del desarrollo
+    y proporcione o enlace documentación de interés.
+    \item Artículos en la sección \textsc{Ogre3D} que documenten los sistemas
+    de \textit{shading} con los que cuenta el motor.
+    \item Documentar alguna biblioteca o sistema para incluir juego en red en
+    la sección de otras tecnologías.\\
+\end{itemize}
+
+\noindent En \juego\ podrían incluirse las siguientes mejoras:
+
+% Mejoras en Sion Tower
+%   - Más hechizos
+%   - Experiencia, subida de nivel, aumento tde características
+%   - Idiomas adicionales
+%   - IA distinta para cada enemigo
+
+\begin{itemize}
+    \item Nuevos hechizos: paralización, teletransporte para huir, colocación
+    de trampas, etc.
+    \item Mayor relevancia de los puntos de experiencia, podrían permitir
+    subir de nivel, mejorar la energía y el maná así como desbloquear
+    hechizos.
+    \item Enemigos adicionales como arañas gigantes o criaturas voladoras
+    con comportamientos diferentes.
+    \item Nuevos niveles de mayor tamaño que permitan la aplicación de
+    técnicas de búsqueda de caminos jerárquicas.
+    \item Escenas narrativas mediante animaciones que fueran contando
+    la historia entre niveles.
+\end{itemize}
+
+
+%  - V CUSL
+\subsection{V Concurso Universitario de Software Libre}
+
+\noindent El proyecto \wiki\ y \juego\ ha participado en el V Concurso Universitario
+de Software Libre \cite{website:cusl} en las categorías de \textit{Comunidad} y \textit{Educación y ocio}.
+Se trata de un concurso de software, hardware y documentación libre a nivel
+nacional en el que pueden participar grupos de hasta tres estudiantes universitarios,
+de bachiller o de ciclos superiores. Se valora el desarrollo del proyecto
+desde el comienzo del curso hasta la fase final que tuvo lugar el día
+12 de mayo de 2011.\\
+
+\noindent En esta edición se presentaron un total de 115 proyectos de diversa índole
+y los resultados que obtuvo \wiki\ y \juego\ no pudieron ser más satisfactorios.
+En la fase local del concurso fue galardonado con el premio al mejor
+proyecto de \textit{Ocio} mientras que en la fase nacional, que se celebró en Granada,
+se recibió el premio al mejor proyecto de \textit{Comunidad}.\\
+
+\noindent El concurso se ha mostrado como un aliciente de lo más positivo para desarrollar
+el proyecto con más entusiasmo y apertura hacia la comunidad. Ha sido muy
+beneficioso en términos de audiencia y difusión gracias a los medios
+que se han hecho eco de la convocatoria. Sin duda, ha sido uno de los
+factores que más me ha motivado a seguir hacia delante tomándomelo como un
+reto personal y buscando una experiencia enriquecedora junto al resto
+de participantes.\\
+
+\figura{vcusl.jpg}{scale=0.35}{Finalistas del V Concurso Universitario de Software Libre}{fig:vcusl}{h}
+
+\section{Comunidad y difusión}
+
+\noindent \wiki\ y \juego\ cuenta con un elevado aspecto de comunidad ya que juntos
+forman una plataforma de aprendizaje de desarrollo de videojuegos en tres
+dimensiones con \textsc{Ogre3D}. Era imprescindible llevar a cabo acciones
+para difundir el proyecto y buscar la creación de dicha comunidad. La comunicación
+con los lectores debía ser fluida, directa y cercana tratando de apelar
+a su curiosidad e interés por la materia. A continuación, se listan los medios
+empleados para contribuir a la difusión del proyecto.\\
+
+\begin{itemize}
+    \item \textbf{Blog de desarrollo}: noticias y documentación, se han
+    publicado más de 70 artículos y se han recibido más de 85.000 visitas.
+
+    \url{http://siondream.com/blog/category/proyectos/pfc}
+    
+    \item \textbf{Forja}: se ha hecho uso del repositorio \textit{Subversion},
+    la lista de tareas, noticias y sección de ficheros con más de 1.200 descargas.
+    
+    \url{https://forja.rediris.es/projects/cusl5-iberogre}
+    
+    \item \textbf{Twitter}: noticias breves y contacto cercano con la comunidad,
+    contamos con casi 100 seguidores. A través de este medio el propio Steve Streeting,
+    creador de \textsc{Ogre3D}, recomendó el proyecto,
+    
+    \url{http://twitter.com/#!/IberOgre}
+    
+    \item \textbf{Web en la forja}: web estática con excelente posicionamiento
+    en buscadores que proporciona la forja. Sirve de lista de enlaces a otros
+    medios.
+    
+    \url{http://cusl5-iberogre.forja.rediris.es}
+    
+    \item \textbf{Canal de Youtube}: 10 vídeos con los avances de \juego\
+    que suman más de 2.800 reproducciones.
+    
+    \url{http://www.youtube.com/user/davidsaltares}
+    
+\end{itemize}
+
+\noindent El proyecto ha aparecido en varias comunidades de desarrollo hispanohablantes,
+ha sido recomendado por el creador de \textsc{Ogre3D} (Steve Streeting) y
+ha llegado a la portada de la web oficial. Gracias al V Concurso Universitario
+de Software Libre varios periódicos como La Voz o Diario de Cádiz han incluido
+artículos al respecto.\\
+
+\section{Licencias libres}
+
+\noindent Toda la documentación de este proyecto, incluyendo este texto y a \wiki\ al
+completo, está sujeta a la licencia de documentación GFDL 1.2. Por su
+parte, el código fuente de los ejemplos y de \juego\ están liberados
+bajo la licencia GPL v3. Los recursos multimedia (música, efectos de sonido,
+arte 3D y arte 2D) han sido liberados bajo Creative Commons 3.0 atribución,
+no comercial y compartir igual.\\
+
+\noindent Todas las bibliotecas empleadas como son: (\textsc{Ogre3D}, \textsc{MyGUI},
+\textsc{libSDL}, \textsc{libSDL mixer}, \textsc{pugixml} y \textsc{OIS}) están disponibles
+bajo licencias libres. De esta manera podemos liberar también el proyecto
+sin entrar en incompatibilidades con dichas licencias.\\
+
+\noindent Liberar una plataforma educativa como es \wiki, era la decisión
+natural. Así, cualquier usuario podría acceder a todo el contenido sin
+ningún tipo de restricciones a la hora de pensar en posibles reutilizaciones
+o modificaciones. Si se pretendía que el proyecto gozase de una distribución
+lo más amplia posible, era necesario eliminar barreras sobre su uso.\\
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Bibliografía y referencias}
+\bibliographystyle{is-plain}
+\bibliography{bibliografia}
+
+\end{document}

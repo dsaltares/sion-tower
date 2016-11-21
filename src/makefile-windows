@@ -1,0 +1,80 @@
+# Nombre del proyecto
+PROYECTO := siontower.exe
+
+# Directorios
+OBJDIR := obj
+SRCDIR := src
+HDRDIR := include
+
+#Compilador y flags
+CXX := mingw32-g++
+CXXFLAGS := -mthreads -fmessage-length=0 -fexceptions -fident -DWIN32 -D_WINDOWS -Wall
+CXXFLAGS += -I$(OGRE_HOME)\include -I$(OGRE_HOME)\include\OGRE -I$(OGRE_HOME)\include\OIS
+CXXFLAGS += -I$(BOOST_ROOT) -I$(HDRDIR)
+
+#Fichero de dependencias
+DEPFILE := dependencias.txt
+
+# Flags del enlazador
+LDFLAGS := -Wl,--enable-runtime-pseudo-reloc -Wl,--enable-auto-image-base -Wl,--enable-auto-import -Wl,--add-stdcall-alias -mthreads -L$(OGRE_HOME)\bin\$(TARGET_NAME) -L$(OGRE_HOME)\bin\Debug -L$(OGRE_HOME)\bin\Release -lOgreMain -lOIS  -lstdc++
+LDFLAGS += -lSDLmain -lSDL -lSDL_mixer
+
+# Modo de compilación, por defecto debug
+ifeq ($(modo), release)
+   CXXFLAGS += -O2 -D_RELEASE -DNDEBUG
+   LDFLAGS += -s
+else
+   modo := debug
+   CXXFLAGS += -g -O0 -D_DEBUG
+endif
+
+# Seleccionamos ficheros fuente
+SRCS := $(wildcard $(SRCDIR)/*.cpp)
+OBJS := $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.cpp=.o)))
+
+.PHONY:all
+all: informacion gen_deps $(PROYECTO)
+
+# Comprobamos el modo de compilación
+informacion:
+ifneq ($(modo),release)
+ifneq ($(modo),debug)
+	@echo ''
+	@echo "Modo de compilación inválido."
+	@echo "Por favor usa 'make [modo=release|debug]'"
+	@echo ''
+	@exit 1
+endif
+endif
+	@echo ''
+	@echo "Compilando en modo "$(modo)""
+	@echo ".........................."
+	@echo ''
+
+gen_deps:
+	@echo ''
+	@echo -e '$(COLOR_AVISO)Generando dependencias$(COLOR_FIN)...'
+	@mingw32-gcc -MM -I$(HDRDIR) $(SRCDIR)/*.cpp | sed.exe "s/^\([a-zA-Z]\+.o:\)/$(OBJDIR)\/\1/g" > $(DEPFILE)
+	@echo ''
+
+# Compilación
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@echo ''
+	@echo "Compilando..." $(notdir $<)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Enlazado
+$(PROYECTO): $(OBJS)
+	@echo ''
+	@echo "Enlazando..."
+	@$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
+	@echo "Terminado."
+	@echo ''
+
+
+.PHONY:clean
+clean:
+	@del obj\* $(PROYECTO) *~
+	rd $(OBJDIR)
+
+-include $(DEPFILE)

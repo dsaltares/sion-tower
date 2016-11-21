@@ -1,0 +1,146 @@
+% Objetivo
+\paragraph{}
+\juego debe tener un carácter alegre a la vez que tenso y épico. Para el
+joven protagonista es todo un reto defender la torre sagrada pero aún es inexperto
+y no ha perdido su inocencia. Algo similar ocurre en la saga \emph{The Legend
+of Zelda}. Los colores deben ser vivos, los modelos muy básicos y la música
+acorde con el desenfadado conjunto.
+
+\paragraph{}
+A continuación enumeramos los recursos necesarios:
+
+\subsection{Arte 2D}
+
+\paragraph{}
+Todas las imágenes deberán estar en formato \emph{.png} además de en el
+formato propio del programa con el que se crearon (\emph{.psd} o \emph{.xcf})
+para posibles futuras modificaciones. El fichero de trabajo siempre debe
+tener una calidad superior a la requerida en el juego.
+
+\paragraph{}
+Interfaz
+
+\begin{itemize}
+    \item \emph{Logo}: logo con el texto `Sion Tower' siguiendo los requisitos
+    anteriormente expuestos. Estilo medieval, mágico y colorido.
+    \item \emph{Plantilla para la GUI}: la interfaz de usuario se desarrollará
+    bajo CEGUI o similares. Estas bibliotecas trabajan con plantillas,
+    es necesario crear una personalizada.
+    \item \emph{Puntero}: puntero del ratón, podría ser una mano de mago
+    con o sin varita.
+    \item \emph{Icono `Bola de fuego'}: imagen cuadrada con una bola de fuego.
+    \item \emph{Icono `Furia de Gea'}: imagen cuadrada con un icono de un
+    poder relacionado con la naturaleza.
+    \item \emph{Icono `Ventisca'}: imagen cuadrada con un hechizo de frío.
+    Por ejemplo, lanzando estalactitas.
+    \item \emph{Icono `Panel de pinchos'}: imagen cuadrada con una plancha
+    de pinchos.
+    \item \emph{Icono `Muro mágico'}: imagen cuadrada con un muro semitransparente.
+    \item \emph{Icono `Señuelo'}: imagen cuadrada con una especie de reliquia
+    dorada (simulando la real).
+    \item \emph{Bola de vida}: recipiente esférico que se rellena de color
+    rojo indicando el nivel de vida del personaje.
+    \item \emph{Bola de energía}: recipiente esférico que se rellena de color
+    azul indicando la energía mágica que posee el personaje.
+    \item \emph{Cartel de comienzo}: imagen con el texto ¡Ya vienen! que
+    se mostrará al comienzo de cada nivel.
+    \item \emph{Cartel de victoria}: imagen con el texto ¡Victoria! que
+    aparecerá cuando completemos un nivel con éxito.
+    \item \emph{Cartel de Game Over}: imagen con el texto Game Over...
+    a mostrar cuando el \jugador pierda una partida.
+\end{itemize}
+
+\paragraph{}
+Texturas
+
+\begin{itemize}
+    \item Cada modelo 3D debe tener su textura.
+    \item \emph{Cielo estrellado}: fondo que aparecerá en la escena de la torre
+    (menú principal).
+\end{itemize}
+
+\subsection{Arte 3D}
+
+\paragraph{}
+Todos los modelos 3D deben guardarse en el formato \emph{.blend} de Blender
+o en el del software correspondiente. Posteriormente se producirá a su conversión
+para hacerlos compatibles con el motor.
+
+\paragraph{}
+Todos los personajes poseen las animaciones: correr, atacar, recibir daño,
+morir y celebrar.
+
+\begin{itemize}
+    \item \emph{Personaje}
+    \item \emph{Goblin}
+    \item \emph{Diablillo}
+    \item \emph{Gólem}
+    \item \emph{Araña}
+    \item \emph{Torre y entorno}: modelo 3D con la torre y un terreno cercano,
+    es la escena que se mostrará en el menú principal.
+    \item \emph{Reliquia}: reliquia sagrada que hay que proteger en cada nivel.
+    Podría ser un objeto en un pedestal.
+    \item \emph{Muro invisible} 
+    \item \emph{Panel de pinchos}
+    \item \emph{Suelo}
+    \item \emph{Pared}
+    \item \emph{Puerta}
+    \item \emph{Mesa}
+    \item \emph{Silla}
+    \item \emph{Antorcha}
+    \item \emph{Columna}
+    \item \emph{Armario}
+\end{itemize}
+
+\subsection{Audio}
+
+\paragraph{}
+De nuevo, siempre es necesario guardar y entregar el proyecto del fichero
+de audio en el formato que use el software con el que se produce. La música
+se convertirá a \emph{.ogg} mientras que los efectos de sonido estarán
+en \emph{.wav}.
+
+\paragraph{}
+Música
+
+\begin{itemize}
+    \item \emph{Menú principal}: música de aventura y tensión aunque más
+    relajada que la correspondiente a los niveles. En el menú aparecerá la torre de noche
+    a modo de preámbulo de la invasión por lo que la música debe ser acorde.
+    Por supuesto, debe invitar a comenzar una partida.
+    \item \emph{Juego}: música animada e intensa que debe provocar en el
+    \jugador sensación de tensión.
+    \item \emph{Victoria}: música breve que sonará cuando completemos un nivel.
+    Debe ser alegre y hacer que el \jugador se sienta recompensado.
+    \item \emph{Game Over}: pieza muy breve de derrota con un tinte cómico,
+    para restarle gravedad a la partida (que el \jugador piense que haber
+    perdido una vez no es tan terrible).
+\end{itemize}
+
+\paragraph{}
+Efectos
+
+\begin{itemize}
+    \item \emph{Navegar por opción}: al pasar el ratón por encima de alguna
+    opción.
+    \item \emph{Seleccionar opción}: al hacer click con el ratón sobre algún
+    elemento.
+    \item \emph{Opción no permitida}: pequeña advertencia sonora indicando que
+    una acción no puede ser llevada a cabo.
+    \item \emph{`Bola de fuego'}: efecto de llamarada
+    \item \emph{`Furia de Gea'}: efecto de naturaleza, bosque, rocas...
+    \item \emph{`Ventisca'}: viento congelado o cristales cortando el viento.
+    \item \emph{Goblin}: risa maliciosa que emitirán los enemigos de tipo.
+    \item \emph{Diablillo}: gruñido.
+    \item \emph{Gólem}: ruido bruto y pesado.
+    \item \emph{Araña}: seseo o ruido propio de un insecto.
+    \item \emph{Espadazo}: sonido de una espada cortando el aire.
+    \item \emph{Arañazo}: garras del Diablillo.
+    \item \emph{Golpe}: golpe producido por el Gólem.
+    \item \emph{Ataque araña}: ruido del ataque de la araña.
+    \item \emph{Daño Goblin}: sonido al herir al Goblin.
+    \item \emph{Daño Diablillo}: sonido al herir al Diablillo.
+    \item \emph{Daño Gólem}: sonido al herir al Gólem.
+    \item \emph{Daño Araña}: sonido al herir a la araña.
+    \item \emph{Daño personaje}: sonido cuando el personaje es dañado.
+\end{itemize}

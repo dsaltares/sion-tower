@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="estructura-articulos.svg"
+   inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+   inkscape:export-xdpi="87"
+   inkscape:export-ydpi="87">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path3951"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3951-7"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3951-6"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="192.20697"
+     inkscape:cy="620.00256"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1003"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#fdc21a;fill-opacity:0.82083339;fill-rule:nonzero;stroke:#e43312;stroke-width:1.32405722;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3806-5"
+       width="193.42328"
+       height="74.734962"
+       x="69.931221"
+       y="470.99472"
+       rx="5.7134638"
+       ry="10.54477"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="162.19193"
+       y="503.3053"
+       id="text3770-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543"><tspan
+         sodipodi:role="line"
+         id="tspan3772-3"
+         x="162.19193"
+         y="503.3053">Contenidos con</tspan><tspan
+         sodipodi:role="line"
+         x="162.19193"
+         y="533.3053"
+         id="tspan3018">ejemplos</tspan></text>
+    <rect
+       style="fill:#fdc21a;fill-opacity:0.82083339;fill-rule:nonzero;stroke:#e43312;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3806"
+       width="172.17186"
+       height="53.630447"
+       x="80.556931"
+       y="275.27875"
+       rx="5.0857258"
+       ry="7.5670171"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="121.72338"
+       y="319.49652"
+       id="text3758"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3760"
+         x="121.72338"
+         y="319.49652" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3762"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:ubuntu;font-style:normal;font-weight:normal;font-size:32px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:ubuntu"><flowRegion
+         id="flowRegion3764"><rect
+           id="rect3766"
+           width="178.29193"
+           height="157.07872"
+           x="41.416256"
+           y="173.52946" /></flowRegion><flowPara
+         id="flowPara3768" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="97.125359"
+       y="309.53711"
+       id="text3770"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543"><tspan
+         sodipodi:role="line"
+         id="tspan3772"
+         x="97.125359"
+         y="309.53711">Introducción</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="132.32143"
+       y="347.89789"
+       id="text3812"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3814"
+         x="132.32143"
+         y="347.89789" /></text>
+    <rect
+       style="fill:#fdc21a;fill-opacity:0.82083339;fill-rule:nonzero;stroke:#e43312;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3806-4"
+       width="200.91098"
+       height="74.512428"
+       x="66.18737"
+       y="360.10596"
+       rx="5.9346409"
+       ry="10.513371"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="166.06949"
+       y="394.09103"
+       id="text3770-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543"><tspan
+         sodipodi:role="line"
+         id="tspan3772-1"
+         x="166.06949"
+         y="394.09103"
+         style="text-align:center;text-anchor:middle">Lo que deberías</tspan><tspan
+         sodipodi:role="line"
+         x="166.06949"
+         y="424.09103"
+         id="tspan3840"><tspan
+   style="text-align:center;text-anchor:middle"
+   id="tspan3842">sabe</tspan>r</tspan></text>
+    <rect
+       style="fill:#fdc21a;fill-opacity:0.82083339;fill-rule:nonzero;stroke:#e43312;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3806-9"
+       width="179.81508"
+       height="79.125061"
+       x="76.735321"
+       y="574.68982"
+       rx="5.3114963"
+       ry="11.164193"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="166.27986"
+       y="608.94818"
+       id="text3770-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543"><tspan
+         sodipodi:role="line"
+         id="tspan3772-0"
+         x="166.27986"
+         y="608.94818"
+         style="text-align:center;text-anchor:middle">Un ejemplo</tspan><tspan
+         sodipodi:role="line"
+         x="166.27986"
+         y="638.94818"
+         id="tspan3892"
+         style="text-align:center;text-anchor:middle">grande</tspan></text>
+    <rect
+       style="fill:#fdc21a;fill-opacity:0.82083339;fill-rule:nonzero;stroke:#e43312;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3806-5-5"
+       width="175.16414"
+       height="53.630447"
+       x="79.060791"
+       y="678.97552"
+       rx="5.1741133"
+       ry="7.5670171"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:ubuntu;-inkscape-font-specification:ubuntu"
+       x="94.4758"
+       y="713.23389"
+       id="text3770-8-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543"><tspan
+         sodipodi:role="line"
+         id="tspan3772-3-4"
+         x="94.4758"
+         y="713.23389">Conclusiones</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 166.62525,329.07647 0,30"
+       id="path3918"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 166.62525,434.79075 0,32.85715"
+       id="path3920"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 166.62525,653.6479 0,23.57143"
+       id="path3924"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.05935538px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 166.6242,546.80532 0,26.45265"
+       id="path3924-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/david/programacion/iberogre-siontower/siontower/trunk/doc/cusl-local/img/estructura-articulos.png"
+       inkscape:export-xdpi="133.72543"
+       inkscape:export-ydpi="133.72543" />
+  </g>
+</svg>

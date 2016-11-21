@@ -1,0 +1,26 @@
+format 74
+
+classinstance 128002 class_ref 128002 // Jugador
+  name ""   xyz 15 15 2000 life_line_z 2000
+classinstance 128130 class_ref 144770 // System
+  name ""   xyz 260 18 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Jugador
+  xyzwh 37 115 2010 11 88
+end
+durationcanvas 128386 classinstance_ref 128130 // :System
+  xyzwh 285 115 2010 11 53
+end
+msg 128514 asynchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 116 2015 msg operation_ref 130946 // "MoverCamara()"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  args "raton"
+  label_xy 103 101
+msg 128642 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 157 2015 explicitmsg "Camara rotada y desplazada"
+  show_full_operations_definition default drawing_language default show_context_mode default
+  label_xy 79 142
+end
